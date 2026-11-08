@@ -6,6 +6,13 @@
 - Do not claim you read a file that is inaccessible or performed a browser/W3C check that was not run.
 - This is **PA#2 static responsive prototype**, not a persistent backend or the final complete system.
 
+## Repository provenance and setup
+- ClubFlow is the **classwide** final project selected from a **different PA#1 team's** proposal. Do not assume this group has existing ClubFlow source from its PA#1.
+- Huy creates a **brand-new, initially empty ClubFlow PA#2 GitHub repository**, runs `git init -b main` locally, and makes the first commit containing this rules file before shared CSS/screen work begins.
+- Do **not** clone, migrate, overwrite or copy `.git` from our old PA#1 repository. Do not copy the winning team's PA#1 source code.
+- The rubric requires the **same PA#1 team membership** unless authorized otherwise; that does not by itself say the old repository URL/history must be reused. If the lecturer posts a conflicting repository rule, follow that verified course instruction and update Source of Truth.
+- Invite Học and Phúc as collaborators to the new remote; they clone the new ClubFlow repository from `main` after Huy pushes the baseline, then create exactly one feature branch each.
+
 ## Technology
 - Static semantic HTML5 + plain CSS3, no React in this team plan, no build step, no new dependencies, no CDN assets, no external web fonts.
 - Essential content must be present in HTML and readable with JavaScript OFF and offline using `file://`.
@@ -13,7 +20,7 @@
 - Link `css/styles.css` first and one page stylesheet second. All pages reuse the same design system.
 
 ## Branch/ownership contract
-- `main`: only Huy sets up the shared foundation, reviews, merges all three branches, maintains root submission docs and finalizes artifacts.
+- `main` of the **new PA#2 repository**: only Huy initializes, makes the rules-first commit, sets up the shared CSS baseline, reviews/merges all three feature branches, maintains root submission docs and finalizes artifacts.
 - `pa2/huy-campaign`: Huy's ONE feature task — `index.html`, `css/campaign.css` and Huy's own prompt/AI logs.
 - `pa2/hoc-review`: Học's ONE feature task — `review.html`, `css/review.css` and Học's own logs.
 - `pa2/phuc-schedule`: Phúc's ONE feature task — `schedule.html`, `css/schedule.css` and Phúc's own logs.

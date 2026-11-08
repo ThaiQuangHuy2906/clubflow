@@ -4,7 +4,7 @@
 **Nhóm:** 24127044 — Lê Nguyễn Quốc Học · 24127177 — Thái Quang Huy · 24127505 — Trần Hoàng Phúc  
 **Hạn nộp:** **Thứ Hai, 09/11/2026, 22:00 (giờ Việt Nam)**  
 **Giá trị:** 100 điểm PA#2, tương đương 3% điểm học phần.  
-**Phiên bản tài liệu:** 1.1 · 08/11/2026 (cập nhật phân vai, branching, merge và prompt pack)  
+**Phiên bản tài liệu:** 1.3 · 08/11/2026 (HIỆU ĐÍNH: repository tên `clubflow` dùng xuyên suốt PA#2–PA#6; Huy quản lý merge)  
 **Vai trò:** Tài liệu thống nhất yêu cầu, dữ liệu, kiến trúc, trách nhiệm, cách kiểm chứng và điều kiện nộp của nhóm. **Người duy trì và tích hợp: Thái Quang Huy (24127177).**
 
 > **Đọc trước khi làm:** Không có tài liệu kế hoạch nào tự bảo đảm 100/100. Điểm cuối cùng do giảng viên chấm trên trang đang chạy, kiểm tra W3C và bằng chứng. Không đánh dấu “PASS”, không tự nhận đã triển khai chức năng, không chấm đủ điểm nếu chưa thực sự kiểm tra. File này **không thay thế** `brief.md`, `PROTOTYPE.md`, `AI-LOG.md`, `SELF_ASSESSMENT_REPORT.md`.
@@ -26,7 +26,15 @@
 
 **Tình trạng xác minh nguồn:** Đã đối chiếu đầy đủ rubric và final brief do nhóm tải lên; đã đọc đặc tả v1.1 qua liên kết Google Docs. Link `drive.google.com/open?id=1BX2bYAWW2HS9bNyYMbyLW1J0fyvKtA2l` trong mô tả bài tập không truy xuất được qua kết nối Drive ở thời điểm biên soạn; nội dung chính được đối chiếu bằng **bản PDF final brief nhóm đã cung cấp**. Nếu giảng viên công bố bản mới hơn, phải so sánh lại trước khi nộp.
 
-### 0.1. Phạm vi của tài liệu
+### 0.1. Làm rõ xuất xứ ClubFlow và chính sách repository [F/R/S/T]
+
+- **[F, tr. 1]** ClubFlow là **đề tài final project chung của cả lớp**, được chọn từ đề xuất PA#1 của **Lâm Gia Hưng, Trịnh Khánh Linh và Văn Viết Minh Phú**. Đề xuất PA#1 riêng của từng nhóm **giữ nguyên điểm, không làm lại PA#1**. Vì vậy **PA#2 của nhóm Huy/Học/Phúc không phải triển khai tiếp sản phẩm PA#1 ban đầu của nhóm**, và tuyệt đối không mặc định có sẵn source code ClubFlow từ PA#1 của nhóm mình.
+- **[R, tr. 7]** Rubric yêu cầu **cùng thành viên như PA#1** (nếu đổi thành viên phải báo giảng viên) và làm trong **team repository** với `.git`/commit history. Rubric **không nêu rõ bắt buộc repository phải là chính repository PA#1 cũ**. Do đó, câu “cùng nhóm PA#1” nói về **thành viên**, không tự động chứng minh yêu cầu giữ mã nguồn/lịch sử repository PA#1.
+- **[S, slide Session 5]** Slide có câu “start PA#2 from your PA#1 screens” và nhắc `docs/pa1/`. Điều này **không hoàn toàn phù hợp** với việc final brief xác nhận đề tài chung ClubFlow được chọn từ PA#1 nhóm khác. **Không được tự ý sao chép màn hình PA#1 cũ không phải ClubFlow**, cũng không được lấy source PA#1 của nhóm thắng nếu chưa được phép.
+- **[T, quyết định hiện tại do người dùng xác nhận]** Nhóm **tạo repository GitHub mới, trống, chuyên cho PA#2 ClubFlow** và khởi tạo `.git` từ đầu. Huy là người tạo/owner, setup baseline và merge 3 nhánh. **Không clone hay dùng lại repo PA#1 cũ**. Repo mới phải có commit đầu tiên chứa rules file rồi mới tạo CSS chung/ba screen, và nộp cả `.git`.
+- **[Q, điểm cần kiểm chứng với thầy/Classroom khi có thông báo liên quan]** Nếu có một chỉ dẫn nộp bài cụ thể yêu cầu giữ lại *đúng URL hoặc history repository PA#1*, hướng dẫn đó cần được xác nhận và điều chỉnh trước khi nộp. Tài liệu được cung cấp hiện tại chưa khẳng định điều đó. Ghi rõ lựa chọn repo mới trong `PROTOTYPE.md` nếu thấy cần thiết.
+
+### 0.2. Phạm vi của tài liệu
 
 Tài liệu gồm: yêu cầu chấm điểm, checklist nghiệp vụ, dữ liệu mẫu nhất quán, phân công, chiến lược HTML/CSS, checklist kiểm thử, file bàn giao, Git, AI-LOG, báo cáo tự chấm, lịch làm việc, rủi ro và điều kiện “được phép nộp”. **Nội dung mẫu/đoạn lệnh ở đây không tự chứng minh sản phẩm đã hoàn thành.**
 
@@ -38,7 +46,7 @@ Tài liệu gồm: yêu cầu chấm điểm, checklist nghiệp vụ, dữ li�
 
 | Thuộc tính | Quy định |
 |---|---|
-| Nhóm | Tối đa 3 người; **cùng nhóm PA#1**; nếu đổi thành viên, báo giảng viên trước khi bắt đầu |
+| Nhóm | Tối đa 3 người; **cùng thành viên nhóm PA#1** theo rubric; nếu đổi thành viên, báo giảng viên trước khi bắt đầu. **Không đồng nghĩa phải có cùng chủ đề PA#1.** |
 | Deadline | **09/11/2026 lúc 22:00** |
 | Sản phẩm | **3 màn hình** theo thứ tự: Create Recruitment Campaign → Application Review → Interview Scheduling |
 | Entry point | `index.html` là trang thứ nhất |
@@ -93,7 +101,7 @@ Tài liệu gồm: yêu cầu chấm điểm, checklist nghiệp vụ, dữ li�
 ### 2.1. Cấu trúc repo mong muốn [R/T]
 
 ```text
-<EXISTING_PA1_TEAM_REPOSITORY>/
+clubflow/
 ├── .git/                              # BẮT BUỘC trong ZIP
 ├── AGENTS.md                          # Hoặc rules file hợp lệ mà assistant thật sự đọc
 ├── .gitignore
@@ -108,7 +116,7 @@ Tài liệu gồm: yêu cầu chấm điểm, checklist nghiệp vụ, dữ li�
 ├── docs/
 │   ├── ai-prompts/                   # Nhật ký prompt thật của từng nhánh (tùy chọn)
 │   ├── ai-logs/                      # Entry AI-LOG thật theo nhánh (tùy chọn)
-│   └── pa1/                           # Giữ tài liệu PA#1 nếu có
+│   └── pa1/                          # TÙY CHỌN: tư liệu PA#1 của nhóm, nếu cần/được phép; không sao chép repo PA#1
 ├── assets/
 │   └── sample-cv.pdf                  # CHỈ khi nút xem CV dẫn tới file có thật
 ├── screenshots/
@@ -356,43 +364,73 @@ Chỉ hiển thị kịch bản Confirmed này dưới nhãn rõ ràng như “A
 
 ### 6.2. Hợp đồng ownership chống merge conflict
 
-1. **Trên `main` trước khi chia nhánh (Huy):** thêm `AGENTS.md`, `brief.md` (prompt chuẩn sẽ thật sự gửi), `PA2_CLUBFLOW_SOURCE_OF_TRUTH.md`, `css/styles.css` (tokens, typography, buttons, layout utilities), `.gitignore` nếu cần; giữ lịch sử PA#1.
+1. **Trên `main` trong REPO PA#2 MỚI trước khi chia nhánh (Huy):** tạo repository GitHub trống, `git init -b main`; **commit đầu tiên chứa** `AGENTS.md`, `brief.md`, `PA2_CLUBFLOW_SOURCE_OF_TRUTH.md` (và `.gitignore` nếu cần); sau đó tạo/commit `css/styles.css` (tokens, typography, buttons, layout utilities). Đây là lịch sử Git PA#2 **mới từ số 0**, không chuyển/sao chép lịch sử PA#1 cũ.
 2. **Sau khi cả ba cùng tách từ `main` đã push:** từng người chỉ sửa HTML và **CSS riêng** của mình. Mỗi trang link **hai CSS file** theo thứ tự: `css/styles.css` trước, `css/<page>.css` sau. **Không người nào chỉnh `css/styles.css` trên feature branch.** Mọi thay đổi shared CSS được đề xuất cho Huy, rồi Huy làm trên `main` sau tích hợp hoặc phát hành baseline mới có thông báo rõ.
 3. Huy là **owner duy nhất** của root `brief.md`, `AI-LOG.md`, `PROTOTYPE.md`, `SELF_ASSESSMENT_REPORT.md` khi tích hợp. Trước khi gửi AI, từng người phải đọc prompt trong `brief.md`, thực sự gửi prompt đó (đã thay placeholder) và chép bản **đã gửi thật** ngay vào `docs/ai-prompts/<owner>.md`; ghi entry thật ngay vào `docs/ai-logs/<owner>.md`. Những file hỗ trợ này thuộc nhánh từng người; Huy tổng hợp **không bịa/sửa nghĩa** vào root sau merge.
 4. Không đưa secret, dữ liệu sinh viên thật, hoặc mẫu code/classmate work vào AI prompt. Không dùng `href="#"` làm main flow. Không sửa file của hai bạn khác khi chưa được Huy duyệt.
 5. **Freeze trước merge:** mỗi thành viên commit, push, `git status` sạch, gửi Huy tên nhánh + commit hash + test thật + những điểm còn hạn chế. Huy đọc diff/QA trước khi merge.
 
-### 6.3. Git: thiết lập repository nền (Huy, trên `main`)
+### 6.3. Git: Huy TẠO REPOSITORY CLUBFLOW PA#2 MỚI TỪ ĐẦU (trên `main`)
 
-**Bước chuẩn bị:** dùng đúng repository PA#1 của nhóm. Nếu máy Huy chưa có repo, clone URL nhóm; nếu có sẵn, `cd` vào repo. **Không `git init` một repo mới thay thế repo PA#1.** Xem `git branch --show-current` để biết nhánh chính (`main` hay `master`). Các lệnh ví dụ dưới đây viết cho `main`; nếu thực tế là `master`, thay toàn bộ `main` thành `master`, **không tự rename/force push khi chưa thống nhất**.
+**Đọc trước:** Repo PA#2 là **repository mới, độc lập**, không phải repo PA#1 của nhóm. Giữ đúng ba thành viên theo quy định về nhóm; không clone PA#1 cũ và không copy `.git` từ nơi khác. Chọn tên repo gợi ý `clubflow` (GitHub có thể dùng tên duy nhất trong tài khoản); lưu URL GitHub **thật** sau khi tạo.
+
+**Bước 1 — Huy tạo remote GitHub trống trên giao diện GitHub [T/Q]:** vào GitHub → **New repository** → Owner là tài khoản Huy/nhóm có quyền phù hợp → Repository name: `clubflow` (hoặc tên chính thức nhóm chọn) → chọn Public/Private phù hợp cách thầy yêu cầu nhận bài → **KHÔNG tick** “Add a README”, **KHÔNG chọn** `.gitignore` template hoặc License lúc tạo. Bấm Create repository. Ghi lại **HTTPS clone URL** của chính repo mới, dạng `https://github.com/<ACTUAL_OWNER>/<ACTUAL_REPO>.git`. Không dán nguyên dấu `<...>` vào lệnh.
+
+**Bước 2 — Tạo thư mục local mới, không đặt lồng trong repository khác.** Dưới đây là lệnh cho **Git Bash / macOS / Linux shell** (Windows PowerShell có thể dùng lệnh tương đương). Tạo `clubflow/` mới và copy 3 tài liệu đã cập nhật vào root **trước commit đầu**:
 
 ```bash
-# Mở ở thư mục repo PA#1 đã có .git
-git status
-git branch --show-current
-git remote -v
-git switch main
-git pull --ff-only origin main
+mkdir clubflow
+cd clubflow
+# COPY các file có sẵn vào thư mục hiện tại:
+# AGENTS.md, brief.md, PA2_CLUBFLOW_SOURCE_OF_TRUTH.md
+# Có thể dùng File Explorer/Finder hoặc VS Code; xem bằng ls -la trước khi tiếp tục.
+ls -la
 
-# Chỉ cấu hình Git identity trên MÁY HUY (đổi email nếu thực tế khác)
+git init -b main
 git config user.name "Thái Quang Huy"
-git config user.email "24127177@student.hcmus.edu.vn"
+git config user.email "24127177@student.hcmus.edu.vn"  # thay nếu email Git thực khác
 
-# Chép AGENTS.md, brief.md và Source of Truth từ bộ tài liệu đã chuẩn bị.
-# Đặt/cập nhật các file này ở ROOT của repo.
+git status
 git add AGENTS.md brief.md PA2_CLUBFLOW_SOURCE_OF_TRUTH.md
-git commit -m "docs: establish PA2 assistant rules and team brief"
+git commit -m "docs: establish ClubFlow PA2 rules and source of truth"
+```
 
-# Huy chuẩn bị CSS shared baseline, không xóa tài liệu PA#1.
-# css/styles.css phải có tokens & shared components thật trước khi commit.
+**Bước 3 — Kết nối remote TRỐNG rồi push `main`:**
+
+```bash
+git remote add origin https://github.com/<ACTUAL_OWNER>/<ACTUAL_REPO>.git
+# Thay URL trên bằng HTTPS URL thực mà GitHub đã cho.
+git remote -v
+git push -u origin main
+```
+
+**Bước 4 — Thiết lập shared CSS trên `main` TRƯỚC khi chia branch:** Huy thực sự gửi PROMPT 00 + PROMPT 01 trong `brief.md` cho assistant, tạo `css/styles.css` có design tokens và shared components đã xem diff. Nếu tạo `.gitignore`, hãy loại trừ `node_modules`, `.env`/secrets nhưng **không** ignore `screenshots/`, `checks/`, `dist/` (nếu chọn React) hoặc các tài liệu nộp. `.git` không đưa vào `.gitignore`: Git quản lý thư mục metadata này bên ngoài danh sách tracked files và ZIP vẫn phải chứa nó.
+
+```bash
+# Sau khi css/styles.css ĐÃ thực sự tồn tại:
+git diff -- css/styles.css
+git status
 git add css/styles.css
+# Nếu thực sự tạo .gitignore, có thể git add .gitignore riêng.
 git commit -m "style: establish shared mobile-first design system"
 git push origin main
 ```
 
-**Nếu file/repo đã có thay đổi chưa commit:** đừng mù quáng `pull`/`switch`; xem `git status` và bảo tồn thay đổi PA#1 trước. Nếu chưa có `css/styles.css`, tạo file này rồi kiểm lại trước `git add`. **Không copy y nguyên output git command như một bằng chứng test nếu lệnh chưa chạy.**
+**Bước 5 — Mời Học và Phúc tham gia:** trong GitHub → repository Settings → Collaborators/Access (giao diện có thể đổi tên) → mời đúng GitHub accounts của Học và Phúc với quyền đủ để push feature branches → yêu cầu họ chấp nhận lời mời. Không cần đưa password, token hoặc khóa cá nhân cho bất kỳ ai/AI.
 
-### 6.4. Ba người tách nhánh từ cùng baseline, không tạo chồng chéo
+**Bước 6 — Thông báo “baseline ready”** và gửi Học/Phúc URL repo **thật**, branch `main`, commit hash CSS baseline, cùng ba tài liệu/rules. Học và Phúc **clone repo PA#2 MỚI này** trước khi tạo nhánh. Nếu Git báo xác thực, dùng cơ chế xác thực GitHub hợp lệ (browser/Git Credential Manager/SSH đã cấu hình), **không dán token vào chat hoặc brief**.
+
+```bash
+# Kiểm tra trên máy Huy sau baseline:
+git branch --show-current       # main
+git status                      # sạch
+git log --oneline -3            # có commit rules đầu tiên, sau đó CSS
+git remote -v                   # URL repo ClubFlow PA#2 mới
+```
+
+**Chú ý:** Nếu vô tình tạo remote GitHub đã có README/commit sẵn, lịch sử đầu sẽ khác; cách dễ nhất khi chưa ai làm là tạo lại **remote trống** đúng các bước thay vì force push hoặc lịch sử không liên quan. Không dùng `git reset --hard`, không force push và không copy `.git` của repository cũ.
+
+### 6.4. Ba người tách nhánh từ cùng baseline TRONG REPO PA#2 MỚI, không tạo chồng chéo
 
 **Huy (trong repo của Huy):**
 
@@ -406,7 +444,7 @@ git commit -m "feat: implement recruitment campaign screen"
 git push -u origin pa2/huy-campaign
 ```
 
-**Học (trên máy riêng của Học):**
+**Học (trên máy riêng của Học):** nếu chưa clone, chạy `git clone <REAL_CLUBFLOW_PA2_REPO_URL>` và `cd clubflow` **một lần** trước các lệnh dưới. Không clone repository PA#1 cũ.
 
 ```bash
 git config user.name "Lê Nguyễn Quốc Học"
@@ -420,7 +458,7 @@ git commit -m "feat: implement application review screen"
 git push -u origin pa2/hoc-review
 ```
 
-**Phúc (trên máy riêng của Phúc):**
+**Phúc (trên máy riêng của Phúc):** nếu chưa clone, chạy `git clone <REAL_CLUBFLOW_PA2_REPO_URL>` và `cd clubflow` **một lần** trước các lệnh dưới. Không clone repository PA#1 cũ.
 
 ```bash
 git config user.name "Trần Hoàng Phúc"
@@ -463,7 +501,7 @@ git push origin main
 ### 6.6. Huy tích hợp, nghiệm thu và đóng gói **sau merge**, trên `main`
 
 1. Kiểm ba HTML đều load `css/styles.css` rồi CSS page tương ứng; nav `index.html → review.html → schedule.html` và ngược lại không hỏng; tất cả đều mở bằng `file://` khi JS OFF.
-2. Tổng hợp nguyên văn prompt thật theo thời gian từ `docs/ai-prompts/*.md` vào phần **Actual prompts sent** trong root `brief.md` (giữ tool/người/ngày và đúng bản đã gửi). Không coi các template chưa gửi là bằng chứng. Tổng hợp log thực từ `docs/ai-logs/*.md` vào `AI-LOG.md`.
+2. Tổng hợp nguyên văn prompt thật theo thời gian từ `docs/ai-prompts/*.md` vào phần **Actual prompts sent** trong root `brief.md` (giữ tool/người/ngày và đúng bản đã gửi). Không coi các template chưa gửi là bằng chứng. Tổng hợp log thực từ `docs/ai-logs/*.md` vào `AI-LOG.md`. Trong `PROTOTYPE.md`, giải thích việc PA#2 là **ClubFlow classwide project**, trong khi PA#1 trước đây của nhóm có thể là đề xuất khác; nêu lựa chọn repo PA#2 mới nếu cần minh bạch.
 3. Huy cùng Học/Phúc kiểm 9 viewport, 3 W3C upload, accessibility, 8 Fix these, fixture và CSS contrast. Học đưa validator evidence, Phúc đưa 9 screenshots; Huy xác nhận khớp bản `main` cuối.
 4. Huy hoàn thiện `PROTOTYPE.md`, `checks/QA.md`, `SELF_ASSESSMENT_REPORT.md`; tự chấm **sau** khi có evidence, không tự ghi 100 ngay.
 5. **Responsive pass là commit riêng** trên `main` sau khi đã tích hợp và sửa lỗi thật: `git commit -m "fix: verify and refine all three responsive screens"` (chỉ thực hiện khi có diff/responsive fix thực sự; nếu không có chỉnh sửa nào, commit test evidence như `test: document responsive pass at three widths`).
@@ -683,7 +721,7 @@ Prompt(s) thật phải chứa tối thiểu:
 - Relative links và không dùng `onclick` cho navigation.
 - Definition of done: 9 size cases, JS OFF, W3C 0 errors, Accessibility pane, checks/screenshots, kiểm link.
 
-Sử dụng **`brief.md` đi kèm Source of Truth v1.1**, gồm prompt dùng chung, setup của Huy, ba prompt task theo một nhánh/người, prompt cross-review và merge QA. Chỉ các prompt **thực sự gửi** mới được đưa vào phần actual log trước nộp; nội dung đã sửa so với template phải lưu đúng như đã gửi. Không cần nhồi toàn bộ Source of Truth vào một prompt duy nhất; có thể đính kèm file Source of Truth/brief/rubric/final brief nếu assistant hỗ trợ đọc file.
+Sử dụng **`brief.md` đi kèm Source of Truth v1.3**, gồm prompt dùng chung, setup của Huy, ba prompt task theo một nhánh/người, prompt cross-review và merge QA. Chỉ các prompt **thực sự gửi** mới được đưa vào phần actual log trước nộp; nội dung đã sửa so với template phải lưu đúng như đã gửi. Không cần nhồi toàn bộ Source of Truth vào một prompt duy nhất; có thể đính kèm file Source of Truth/brief/rubric/final brief nếu assistant hỗ trợ đọc file.
 
 ### 9.3. AI-LOG entry format [S/R]
 
@@ -884,5 +922,7 @@ unzip -l "$ZIP"
 
 | Version | Date | Change |
 |---|---|---|
-| 1.0 | 08/11/2026 | Tổng hợp rubric + final brief + business v1.1 + course templates; chuẩn hóa dữ liệu mẫu, xung đột và cơ chế nghiệm thu |
+| 1.0 | 08/11/2026 | Tổng hợp rubric + final brief + business v1.1 + course templates; chuẩn hóa dữ liệu mẫu, xung đột và cơ chế nghiệm thu. |
 | 1.1 | 08/11/2026 | Đổi vai Huy/Học: Huy setup, Screen 1 và merge; Học Screen 2; Phúc Screen 3. Chốt đúng 1 task/1 feature branch, CSS tách quyền sở hữu, handoff/merge protocol và liên kết với `brief.md`. |
+| 1.2 | 08/11/2026 | Làm rõ ClubFlow được chọn từ PA#1 nhóm khác; nhóm Huy/Học/Phúc tạo GitHub repository PA#2 **mới từ đầu**. Thay lệnh clone repo PA#1 bằng tạo remote trống, `git init -b main`, commit rules đầu tiên, push baseline, mời collaborators, chia ba nhánh và Huy merge. Phân biệt *same team* với *same repository*, ghi nhận khác biệt giữa slide và final brief. |
+| 1.3 | 08/11/2026 | Cập nhật tên repository mới thành `clubflow` (không gắn với riêng PA#2) để tiếp tục dùng ở PA#3–PA#6; giữ nguyên ba nhánh `pa2/...` và quy trình Huy merge. |

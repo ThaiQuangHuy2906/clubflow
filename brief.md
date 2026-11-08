@@ -9,6 +9,8 @@
 
 ## A. Approved prompt library — use in this order
 
+**Repository setup clarification (v1.3, team decision):** This project starts in a **brand-new, dedicated ClubFlow PA#2 repository** created by Huy. ClubFlow originates from the selected PA#1 proposal of another team; our PA#1 source/screens are not inherited. The course rubric says the same **team membership** continues, but does not explicitly mandate retaining the old PA#1 repository. The starter prompt pack is a draft until actually sent; only exact sent prompts count as rubric evidence. Huy initializes `main` with the rules file first, then creates shared CSS before the three page branches.
+
 ### PROMPT 00 — COMMON TEAM CONTRACT (send before each person's implementation prompt)
 
 **Who sends:** Huy, Học and Phúc, each to their own coding assistant.  
@@ -16,7 +18,7 @@
 **Instruction:** send the following prompt *as written*, or edit it to match actual repository decisions and record the actual sent version.
 
 ```text
-You are helping our CSC13008 PA#2 team build ClubFlow, a three-screen responsive recruitment-management prototype. Before editing code, read the attached PA#2 rubric, ClubFlow final project brief, PA2_CLUBFLOW_SOURCE_OF_TRUTH.md, and AGENTS.md if accessible. If any source cannot be read, say so; do not pretend it was reviewed. Treat the grading rubric as the authority for deliverables and browser checks, the final project brief as the authority for the three screens and its eight Fix these problems, and the business description v1.1 as supporting business detail. If these disagree, surface the issue instead of guessing.
+You are helping our CSC13008 PA#2 team build ClubFlow, a three-screen responsive recruitment-management prototype. ClubFlow was selected from ANOTHER team's PA#1 as the common final project; our prior PA#1 screens and repository are NOT a starting codebase. Huy creates a NEW ClubFlow PA#2 repository with new Git history, a first rules-file commit and shared CSS baseline before branching; do not clone or migrate PA#1 source or history. Before editing code, read the attached PA#2 rubric, ClubFlow final project brief, PA2_CLUBFLOW_SOURCE_OF_TRUTH.md, and AGENTS.md if accessible. If any source cannot be read, say so; do not pretend it was reviewed. Treat the grading rubric as the authority for deliverables and browser checks, the final project brief as the authority for the three screens and its eight Fix these problems, and the business description v1.1 as supporting business detail. If these disagree, surface the issue instead of guessing.
 
 TEAM AND OWNERSHIP
 - 24127177 — Thái Quang Huy: repository setup, rules, shared CSS, Screen 1 on pa2/huy-campaign, and sole reviewer/merger of every feature branch into main.
@@ -78,19 +80,19 @@ Respond initially with: (a) a short requirement-to-element mapping; (b) files yo
 ### PROMPT 01 — HUY: REPOSITORY SETUP AND SHARED DESIGN SYSTEM (on `main`, before branching)
 
 **Who sends:** Thái Quang Huy only.  
-**Where:** Existing PA#1 team repository on its primary branch.  
+**Where:** New, empty ClubFlow PA#2 repository created by Huy; first commit has `AGENTS.md`/`brief.md`/Source of Truth on `main`, then shared CSS before branching.  
 **This is a foundation/setup activity, NOT a fourth feature branch or a second screen task.**
 
 ```text
-I am Thái Quang Huy (24127177), responsible for setup, integration and all merges. We have an EXISTING PA#1 Git repository whose .git history must be retained. The primary branch is main unless I tell you otherwise. Read the COMMON TEAM CONTRACT and AGENTS.md.
+I am Thái Quang Huy (24127177), responsible for repository setup, integration and all merges. ClubFlow is the CLASSWIDE final project selected from ANOTHER team's PA#1 proposal. Our team's old PA#1 project/repository is NOT the source for these screens. I will create a BRAND-NEW, EMPTY GitHub repository for ClubFlow PA#2, initialize a NEW .git history and maintain main. The team membership stays the same as PA#1 unless the lecturer has authorized a change. Read the COMMON TEAM CONTRACT, AGENTS.md and the updated Source of Truth v1.3.
 
-Task: establish a small, reliable static HTML/CSS shared foundation BEFORE we create three independent feature branches. Do not recreate the repository or overwrite existing PA#1 evidence. Work on main only after I confirm the working tree is clean.
+Task: establish a reliable static HTML/CSS shared foundation BEFORE creating the three independent feature branches. Do not clone, migrate or reuse our old PA#1 repository, and do not copy the winning team's PA#1 source code. First verify the new repository's first commit contains the rules file; then work on main only after I confirm the working tree is clean. Do NOT fabricate any Git commands' results.
 
 Files to prepare/review:
 - AGENTS.md: project rules/never-list for the assistants, stack, shared tokens, file ownership, review criteria.
 - brief.md and PA2_CLUBFLOW_SOURCE_OF_TRUTH.md: preserve the supplied content; do not pretend template prompts were sent.
 - css/styles.css: provide design tokens and baseline utility/components only, including spacing scale 4/8/12/16/24/32px, legible colors, system fonts, 16px minimum body text, 44px independent link/button targets, keyboard focus styles, fluid containers, responsive utilities, min-width:0 for grid children, and overflow-safe text. No !important, no fixed page width, no overflow-x:hidden to hide defects.
-- Safe .gitignore ONLY if the repository needs one; never ignore the required .git directory or final screenshots/checks. Keep node_modules excluded from delivery.
+- Safe .gitignore only if needed; exclude node_modules and secrets, but never ignore required screenshots/checks/docs. The final ZIP must preserve the NEW repository's .git directory and full history.
 
 Strict ownership contract: all feature pages will load css/styles.css then a separate page CSS. Huy's screen will own index.html + css/campaign.css; Học owns review.html + css/review.css; Phúc owns schedule.html + css/schedule.css. Do not create or implement any screen at this setup stage. Do not introduce npm, external fonts, JS dependencies or a framework.
 
