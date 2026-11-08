@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interview Scheduling – ClubFlow CF-2026-01</title>
+  <meta name="description" content="Màn hình 3 của ClubFlow: lên lịch phỏng vấn cho 5 hồ sơ Shortlisted, kiểm tra xung đột và điều kiện xác nhận.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/schedule.css">
+</head>
+<body>
+  <a class="skip-link button" href="#main">Bỏ qua điều hướng, đến nội dung chính</a>
+
+  <header class="app-header">
+    <div class="container stack">
+      <p class="brand">ClubFlow</p>
+      <nav aria-label="Luồng chính của chiến dịch">
+        <ol class="steps">
+          <li><a href="index.html">1. Create Recruitment Campaign</a></li>
+          <li><a href="review.html">2. Application Review</a></li>
+          <li><a href="schedule.html" aria-current="step">3. Interview Scheduling</a></li>
+        </ol>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <div class="page-heading stack">
+      <p class="text-muted">Bước 3/3 · Chiến dịch CF-2026-01 · CLB Sáng tạo Sinh viên</p>
+      <h1>Interview Scheduling</h1>
+      <p>Lên lịch phỏng vấn cho chiến dịch “Tuyển thành viên CLB Sáng tạo 2026”. Chỉ 5 hồ sơ Shortlisted (A01–A05) được đưa vào lịch; ba hồ sơ Rejected (A06–A08) không xuất hiện ở đây.</p>
+      <div class="actions">
+        <a class="button" href="review.html">← Quay lại Application Review</a>
+      </div>
+      <dl class="timeline">
+        <div>
+          <dt>Nhận hồ sơ</dt>
+          <dd>15/11/2026 08:00 – 20/11/2026 23:59 (đã đóng)</dd>
+        </div>
+        <div>
+          <dt>Duyệt CV</dt>
+          <dd>21/11 – 22/11/2026: 8/8 hồ sơ đã có quyết định (5 Shortlisted, 3 Rejected, 0 Pending)</dd>
+        </div>
+        <div>
+          <dt>Ngày phỏng vấn</dt>
+          <dd>24/11/2026, 09:00 – 12:00, mỗi buổi 20 phút</dd>
+        </div>
+      </dl>
+      <p class="notice" role="note"><strong>Prototype tĩnh.</strong> Các nút Generate Draft, Save Changes, Export Timetable và Approve &amp; Confirm chưa nối với backend: không có dữ liệu nào được lưu, tạo hay xuất. Trang chỉ minh họa trạng thái và điều kiện của lịch phỏng vấn.</p>
+    </div>
+
+    <div class="stack">
+      <section class="panel stack" aria-labelledby="draft-heading">
+        <div class="panel-header stack">
+          <h2 id="draft-heading">Bản nháp lịch phỏng vấn</h2>
+          <p><span class="badge badge--danger">Draft chưa hợp lệ</span> Bản nháp này chưa thể xác nhận vì còn Conflict và Unassigned.</p>
+        </div>
+
+        <div class="notice notice--danger stack" id="conflict-notice">
+          <h3>Cần xử lý trước khi xác nhận: A01, A03 và A05</h3>
+          <ul class="issue-list">
+            <li><strong>A01 và A03 – Conflict:</strong> cả hai cùng giao cho interviewer I01 (Trịnh Ngọc Hà) trong khoảng 09:00–09:20 ngày 24/11/2026. Một interviewer không thể phỏng vấn hai ứng viên cùng lúc.</li>
+            <li><strong>A05 – Unassigned:</strong> ứng viên ST04 chỉ rảnh 11:00–12:00, còn I01, người duy nhất phụ trách vị trí Nội dung, chỉ rảnh 09:00–10:00 nên chưa có khung giờ chung.</li>
+          </ul>
+          <div class="actions">
+            <a class="button button--primary" href="#after-resolution">Resolve: xem cách xử lý đề xuất</a>
+          </div>
+        </div>
+
+        <dl class="counters" aria-label="Thống kê bản nháp">
+          <div>
+            <dt>Proposed</dt>
+            <dd class="stat-value">2</dd>
+          </div>
+          <div>
+            <dt>Conflict</dt>
+            <dd class="stat-value">2</dd>
+          </div>
+          <div>
+            <dt>Unassigned</dt>
+            <dd class="stat-value">1</dd>
+          </div>
+          <div>
+            <dt>Tổng số hồ sơ trong bản nháp</dt>
+            <dd class="stat-value">5</dd>
+          </div>
+        </dl>
+        <p class="text-muted">2 Proposed + 2 Conflict + 1 Unassigned = 5 hồ sơ Shortlisted. Proposed nghĩa là đề xuất trong bản nháp, chưa phải Confirmed và cũng chưa phải kết quả tuyển chọn.</p>
+
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Bản nháp lịch phỏng vấn ngày 24/11/2026">
+          <table class="schedule-table">
+            <caption>Bản nháp: 5 lịch phỏng vấn ngày 24/11/2026</caption>
+            <thead>
+              <tr>
+                <th scope="col">Hồ sơ</th>
+                <th scope="col">Giờ</th>
+                <th scope="col">Interviewer</th>
+                <th scope="col">Phòng</th>
+                <th scope="col">Trạng thái</th>
+                <th scope="col">Lý do</th>
+                <th scope="col">Thao tác</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">A01<br><span class="cell-detail">ST01 Nguyễn Thị Minh Anh Phương Thảo · Nội dung</span></th>
+                <td class="no-wrap">09:00–09:20</td>
+                <td>I01 Trịnh Ngọc Hà</td>
+                <td class="no-wrap">Phòng A</td>
+                <td><span class="badge badge--danger">Conflict</span></td>
+                <td>I01 cùng lúc có buổi với A03 (09:00–09:20). Xung đột với A03.</td>
+                <td>
+                  <div class="row-actions">
+                    <a class="button" href="#edit-slot" aria-label="Edit A01">Edit</a>
+                    <a class="button" href="#after-resolution" aria-label="Resolve A01">Resolve</a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">A02<br><span class="cell-detail">ST01 Nguyễn Thị Minh Anh Phương Thảo · Truyền thông</span></th>
+                <td class="no-wrap">09:20–09:40</td>
+                <td>I02 Đỗ Quang Kiên</td>
+                <td class="no-wrap">Phòng B</td>
+                <td><span class="badge badge--info">Proposed</span></td>
+                <td>Cùng ứng viên ST01 với A01 nhưng bắt đầu đúng lúc A01 kết thúc, nên hai buổi liền kề, không trùng giờ.</td>
+                <td>
+                  <div class="row-actions">
+                    <a class="button" href="#edit-slot" aria-label="Edit A02">Edit</a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">A03<br><span class="cell-detail">ST02 Trần Hồng Ngọc · Sự kiện</span></th>
+                <td class="no-wrap">09:00–09:20</td>
+                <td>I01 Trịnh Ngọc Hà</td>
+                <td class="no-wrap">Phòng B</td>
+                <td><span class="badge badge--danger">Conflict</span></td>
+                <td>I01 cùng lúc có buổi với A01 (09:00–09:20). Xung đột với A01.</td>
+                <td>
+                  <div class="row-actions">
+                    <a class="button" href="#edit-slot" aria-label="Edit A03">Edit</a>
+                    <a class="button" href="#after-resolution" aria-label="Resolve A03">Resolve</a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">A04<br><span class="cell-detail">ST03 Lê Bảo Trâm · Thiết kế</span></th>
+                <td class="no-wrap">09:40–10:00</td>
+                <td>I03 Lê Thanh Tùng</td>
+                <td class="no-wrap">Phòng A</td>
+                <td><span class="badge badge--info">Proposed</span></td>
+                <td>Hợp lệ: không trùng người, phòng hay giờ với lịch khác.</td>
+                <td>
+                  <div class="row-actions">
+                    <a class="button" href="#edit-slot" aria-label="Edit A04">Edit</a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">A05<br><span class="cell-detail">ST04 Phạm Quốc Bảo · Nội dung</span></th>
+                <td>Chưa có giờ</td>
+                <td>Chưa gán</td>
+                <td>Chưa gán</td>
+                <td><span class="badge badge--warning">Unassigned</span></td>
+                <td>ST04 chỉ rảnh 11:00–12:00; I01 phụ trách Nội dung chỉ rảnh 09:00–10:00. A05 vẫn là Shortlisted, không bị Reject.</td>
+                <td>
+                  <div class="row-actions">
+                    <a class="button" href="#after-resolution" aria-label="+ Assign Slot cho A05">+ Assign Slot</a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="actions">
+          <button type="button">Export Timetable</button>
+        </div>
+        <p class="field-help">Export Timetable chưa nối: chưa có tệp nào được tạo.</p>
+      </section>
+
+      <section class="panel stack" aria-labelledby="gate-heading">
+        <div class="panel-header stack">
+          <h2 id="gate-heading">Approve &amp; Confirm Schedule</h2>
+          <p>Chỉ xác nhận được khi mọi điều kiện dưới đây đạt. Xác nhận lịch không công bố kết quả Pass/Fail của chiến dịch.</p>
+        </div>
+        <ul class="gate-list" id="gate-reasons">
+          <li><span class="badge badge--success">Đạt</span> Đã đóng đơn (20/11/2026 23:59).</li>
+          <li><span class="badge badge--success">Đạt</span> Đã duyệt hết hồ sơ: 8/8 có quyết định CV.</li>
+          <li><span class="badge badge--danger">Chưa đạt</span> Mỗi Shortlisted có đúng một lịch hợp lệ: A01, A03 đang Conflict và A05 chưa có lịch.</li>
+          <li><span class="badge badge--danger">Chưa đạt</span> 0 Unassigned: hiện có 1 (A05).</li>
+          <li><span class="badge badge--danger">Chưa đạt</span> 0 Conflict: hiện có 2 (A01, A03).</li>
+        </ul>
+        <div class="actions">
+          <button type="button" disabled aria-describedby="gate-reasons">Approve &amp; Confirm Schedule</button>
+        </div>
+        <p class="field-help">Nút bị khóa cho đến khi không còn Conflict và Unassigned.</p>
+      </section>
+
+      <div class="grid grid--two">
+        <section class="panel stack" aria-labelledby="settings-heading">
+          <div class="panel-header stack">
+            <h2 id="settings-heading">Cài đặt lịch phỏng vấn</h2>
+            <p class="text-muted">Một ngày phỏng vấn cho mỗi chiến dịch. Mọi buổi dùng chung một thời lượng.</p>
+          </div>
+          <form class="stack">
+            <div class="grid grid--fields">
+              <div class="field">
+                <label for="interview-date">Ngày phỏng vấn</label>
+                <input id="interview-date" name="interview-date" type="date" value="2026-11-24">
+              </div>
+              <div class="field">
+                <label for="window-start">Bắt đầu khung giờ</label>
+                <input id="window-start" name="window-start" type="time" value="09:00">
+              </div>
+              <div class="field">
+                <label for="window-end">Kết thúc khung giờ</label>
+                <input id="window-end" name="window-end" type="time" value="12:00">
+              </div>
+            </div>
+            <fieldset>
+              <legend>Thời lượng mỗi buổi</legend>
+              <div class="stack">
+                <div class="choice">
+                  <input id="duration-15" name="duration" type="radio" value="15">
+                  <label for="duration-15">15 phút</label>
+                </div>
+                <div class="choice">
+                  <input id="duration-20" name="duration" type="radio" value="20" checked>
+                  <label for="duration-20">20 phút (đang chọn cho chiến dịch này)</label>
+                </div>
+                <div class="choice">
+                  <input id="duration-30" name="duration" type="radio" value="30">
+                  <label for="duration-30">30 phút</label>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Phòng có sẵn</legend>
+              <div class="stack">
+                <div class="choice">
+                  <input id="room-a" name="rooms" type="checkbox" value="A" checked>
+                  <label for="room-a">Phòng A</label>
+                </div>
+                <div class="choice">
+                  <input id="room-b" name="rooms" type="checkbox" value="B" checked>
+                  <label for="room-b">Phòng B</label>
+                </div>
+                <div class="choice">
+                  <input id="room-c" name="rooms" type="checkbox" value="C" checked>
+                  <label for="room-c">Phòng C</label>
+                </div>
+              </div>
+              <p class="field-help">Ba phòng đã có sẵn, rảnh 09:00–12:00. Không tạo phòng mới.</p>
+            </fieldset>
+            <div class="actions">
+              <button type="button">Generate Draft</button>
+            </div>
+            <p class="field-help">Generate Draft chưa nối: bản nháp bên trên là dữ liệu mẫu cố định, không do thuật toán tạo ra.</p>
+          </form>
+        </section>
+
+        <section class="panel stack" aria-labelledby="edit-heading" id="edit-slot">
+          <div class="panel-header stack">
+            <h2 id="edit-heading">Chỉnh sửa một buổi phỏng vấn</h2>
+            <p class="text-muted">Ví dụ đang mở hồ sơ A03 (đang Conflict với A01).</p>
+          </div>
+          <form class="stack">
+            <div class="field">
+              <label for="edit-application">Hồ sơ</label>
+              <select id="edit-application" name="application">
+                <option value="A01">A01 – ST01 Nguyễn Thị Minh Anh Phương Thảo (Nội dung)</option>
+                <option value="A02">A02 – ST01 Nguyễn Thị Minh Anh Phương Thảo (Truyền thông)</option>
+                <option value="A03" selected>A03 – ST02 Trần Hồng Ngọc (Sự kiện)</option>
+                <option value="A04">A04 – ST03 Lê Bảo Trâm (Thiết kế)</option>
+                <option value="A05">A05 – ST04 Phạm Quốc Bảo (Nội dung)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="edit-start">Giờ bắt đầu</label>
+              <select id="edit-start" name="start">
+                <option value="09:00" selected>09:00–09:20</option>
+                <option value="09:20">09:20–09:40</option>
+                <option value="09:40">09:40–10:00</option>
+                <option value="10:00">10:00–10:20</option>
+                <option value="10:20">10:20–10:40</option>
+                <option value="10:40">10:40–11:00</option>
+                <option value="11:00">11:00–11:20</option>
+                <option value="11:20">11:20–11:40</option>
+                <option value="11:40">11:40–12:00</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="edit-interviewer">Interviewer</label>
+              <select id="edit-interviewer" name="interviewer">
+                <option value="I01" selected>I01 Trịnh Ngọc Hà (Nội dung, Sự kiện)</option>
+                <option value="I02">I02 Đỗ Quang Kiên (Truyền thông)</option>
+                <option value="I03">I03 Lê Thanh Tùng (Thiết kế)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="edit-room">Phòng</label>
+              <select id="edit-room" name="room">
+                <option value="A">Phòng A</option>
+                <option value="B" selected>Phòng B</option>
+                <option value="C">Phòng C</option>
+              </select>
+            </div>
+            <div class="actions">
+              <button type="button">Save Changes</button>
+            </div>
+            <p class="field-help">Save Changes chỉ lưu bản nháp, không xác nhận lịch. Nút này chưa nối: dữ liệu chưa được lưu.</p>
+          </form>
+        </section>
+      </div>
+
+      <section class="panel stack" aria-labelledby="availability-heading">
+        <div class="panel-header stack">
+          <h2 id="availability-heading">Interviewer và giờ rảnh ngày 24/11/2026</h2>
+          <p class="text-muted">Interviewer và ứng viên là hai nhóm người khác nhau; không ai giữ cả hai vai.</p>
+        </div>
+        <div class="grid grid--two">
+          <div class="table-scroll" tabindex="0" role="region" aria-label="Interviewer và giờ rảnh">
+            <table class="availability-table">
+              <caption>Interviewer</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Interviewer</th>
+                  <th scope="col">Phụ trách vị trí</th>
+                  <th scope="col">Giờ rảnh</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">I01 Trịnh Ngọc Hà</th>
+                  <td>Nội dung; Sự kiện</td>
+                  <td class="no-wrap">09:00–10:00</td>
+                </tr>
+                <tr>
+                  <th scope="row">I02 Đỗ Quang Kiên</th>
+                  <td>Truyền thông</td>
+                  <td class="no-wrap">09:00–10:00</td>
+                </tr>
+                <tr>
+                  <th scope="row">I03 Lê Thanh Tùng</th>
+                  <td>Thiết kế</td>
+                  <td class="no-wrap">09:00–10:20</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-scroll" tabindex="0" role="region" aria-label="Giờ rảnh của ứng viên">
+            <table class="availability-table">
+              <caption>Ứng viên Shortlisted</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Ứng viên</th>
+                  <th scope="col">Hồ sơ</th>
+                  <th scope="col">Giờ rảnh</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">ST01 Nguyễn Thị Minh Anh Phương Thảo</th>
+                  <td>A01, A02</td>
+                  <td class="no-wrap">09:00–10:00</td>
+                </tr>
+                <tr>
+                  <th scope="row">ST02 Trần Hồng Ngọc</th>
+                  <td>A03</td>
+                  <td class="no-wrap">09:00–10:00</td>
+                </tr>
+                <tr>
+                  <th scope="row">ST03 Lê Bảo Trâm</th>
+                  <td>A04</td>
+                  <td class="no-wrap">09:20–10:20</td>
+                </tr>
+                <tr>
+                  <th scope="row">ST04 Phạm Quốc Bảo</th>
+                  <td>A05</td>
+                  <td class="no-wrap">11:00–12:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel stack" aria-labelledby="after-resolution" id="after-resolution-section">
+        <div class="panel-header stack">
+          <h2 id="after-resolution">After resolution (illustrative state)</h2>
+          <p><span class="badge badge--success">Confirmed – chỉ đọc</span> Đây là một trạng thái khác, minh họa kịch bản sau khi xử lý. Nó không phải bản nháp ở trên và không có thao tác nào ở đây được lưu thật.</p>
+        </div>
+
+        <h3>Các thay đổi đề xuất</h3>
+        <ol class="resolution-steps">
+          <li>Dời A03 sang 09:40–10:00 với I01, Phòng B. ST02 và I01 đều rảnh khung này, Phòng B trống.</li>
+          <li>Mở rộng giờ rảnh của I01 ngày 24/11/2026 thành 09:00–10:00 và 11:00–12:00.</li>
+          <li>Gán A05 vào 11:00–11:20 với I01, Phòng A. ST04 rảnh khung này và Phòng A trống.</li>
+          <li>Giữ nguyên A01 (09:00–09:20, Phòng A), A02 (09:20–09:40, Phòng B) và A04 (09:40–10:00, Phòng A).</li>
+        </ol>
+
+        <dl class="counters" aria-label="Thống kê sau khi xử lý">
+          <div>
+            <dt>Confirmed</dt>
+            <dd class="stat-value">5</dd>
+          </div>
+          <div>
+            <dt>Conflict</dt>
+            <dd class="stat-value">0</dd>
+          </div>
+          <div>
+            <dt>Unassigned</dt>
+            <dd class="stat-value">0</dd>
+          </div>
+          <div>
+            <dt>Tổng số hồ sơ</dt>
+            <dd class="stat-value">5</dd>
+          </div>
+        </dl>
+
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Lịch phỏng vấn sau khi xử lý">
+          <table class="schedule-table">
+            <caption>Sau khi xử lý: 5 lịch phỏng vấn ngày 24/11/2026</caption>
+            <thead>
+              <tr>
+                <th scope="col">Hồ sơ</th>
+                <th scope="col">Giờ</th>
+                <th scope="col">Interviewer</th>
+                <th scope="col">Phòng</th>
+                <th scope="col">Trạng thái</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">A01<br><span class="cell-detail">ST01 Nguyễn Thị Minh Anh Phương Thảo · Nội dung</span></th>
+                <td class="no-wrap">09:00–09:20</td>
+                <td>I01 Trịnh Ngọc Hà</td>
+                <td class="no-wrap">Phòng A</td>
+                <td><span class="badge badge--success">Confirmed</span></td>
+              </tr>
+              <tr>
+                <th scope="row">A02<br><span class="cell-detail">ST01 Nguyễn Thị Minh Anh Phương Thảo · Truyền thông</span></th>
+                <td class="no-wrap">09:20–09:40</td>
+                <td>I02 Đỗ Quang Kiên</td>
+                <td class="no-wrap">Phòng B</td>
+                <td><span class="badge badge--success">Confirmed</span></td>
+              </tr>
+              <tr>
+                <th scope="row">A03<br><span class="cell-detail">ST02 Trần Hồng Ngọc · Sự kiện</span></th>
+                <td class="no-wrap">09:40–10:00</td>
+                <td>I01 Trịnh Ngọc Hà</td>
+                <td class="no-wrap">Phòng B</td>
+                <td><span class="badge badge--success">Confirmed</span></td>
+              </tr>
+              <tr>
+                <th scope="row">A04<br><span class="cell-detail">ST03 Lê Bảo Trâm · Thiết kế</span></th>
+                <td class="no-wrap">09:40–10:00</td>
+                <td>I03 Lê Thanh Tùng</td>
+                <td class="no-wrap">Phòng A</td>
+                <td><span class="badge badge--success">Confirmed</span></td>
+              </tr>
+              <tr>
+                <th scope="row">A05<br><span class="cell-detail">ST04 Phạm Quốc Bảo · Nội dung</span></th>
+                <td class="no-wrap">11:00–11:20</td>
+                <td>I01 Trịnh Ngọc Hà</td>
+                <td class="no-wrap">Phòng A</td>
+                <td><span class="badge badge--success">Confirmed</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="notice">Trạng thái Confirmed khóa cấu hình chiến dịch, hồ sơ đã nộp, quyết định CV và lịch phỏng vấn ở chế độ chỉ đọc. Đây chưa phải kết quả cuối cùng: Shortlisted và lịch Confirmed không có nghĩa là Pass.</p>
+        <div class="actions">
+          <button type="button" disabled>Generate Draft (đã khóa)</button>
+          <button type="button" disabled>Edit (đã khóa)</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <div class="container">
+      <p>Prototype tĩnh PA#2 · Chiến dịch CF-2026-01 · Tất cả dữ liệu là dữ liệu mẫu, không phải thông tin sinh viên thật.</p>
+    </div>
+  </footer>
+</body>
+</html>
