@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create Recruitment Campaign · ClubFlow</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/campaign.css">
+</head>
+<body class="campaign-page">
+  <a class="skip-link button button--primary" href="#main">Đến nội dung chính</a>
+
+  <header class="app-header">
+    <div class="container campaign-app-bar">
+      <a class="campaign-brand" href="index.html" aria-label="ClubFlow — Create Recruitment Campaign">
+        <span class="campaign-mark" aria-hidden="true">CF</span>
+        <span class="brand">ClubFlow</span>
+      </a>
+      <div class="campaign-account">
+        <span class="campaign-avatar" aria-hidden="true">H</span>
+        <div>
+          <p class="campaign-account-name">Thái Quang Huy</p>
+          <p class="text-muted" lang="en">Club Executive</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="container campaign-main">
+    <div class="campaign-heading">
+      <div class="stack">
+        <p class="campaign-eyebrow">TUYỂN THÀNH VIÊN <span aria-hidden="true">/</span> CF-2026-01</p>
+        <h1 lang="en">Create Recruitment Campaign</h1>
+        <p class="campaign-intro"><strong>Tuyển thành viên CLB Sáng tạo 2026.</strong> Chuẩn bị một mùa tuyển có tổ chức — từ vị trí cần tuyển đến khung giờ phỏng vấn.</p>
+      </div>
+      <span class="badge campaign-draft" lang="en">Draft · Sample configuration</span>
+    </div>
+
+    <nav class="campaign-progress" aria-label="Tiến trình tuyển thành viên">
+      <ol class="steps">
+        <li><a href="#campaign-details" aria-current="step"><span class="campaign-step-number" aria-hidden="true">01</span><span lang="en">Create Campaign</span></a></li>
+        <li><span class="step-label"><span class="campaign-step-number" aria-hidden="true">02</span><span lang="en">Application Review</span></span></li>
+        <li><span class="step-label"><span class="campaign-step-number" aria-hidden="true">03</span><span lang="en">Interview Scheduling</span></span></li>
+      </ol>
+    </nav>
+
+    <div class="campaign-workspace">
+      <form class="campaign-form stack" action="index.html#native-check" method="get" aria-label="Cấu hình chiến dịch tuyển thành viên">
+        <section id="campaign-details" class="panel stack" aria-labelledby="details-title">
+          <div class="campaign-section-heading">
+            <span class="campaign-section-number" aria-hidden="true">01</span>
+            <div>
+              <h2 id="details-title">Thông tin chiến dịch</h2>
+              <p class="text-muted">Những thông tin đầu tiên ứng viên sẽ đọc.</p>
+            </div>
+          </div>
+          <p class="field-help">Các trường ghi “bắt buộc” cần có giá trị. Thời gian được hiểu theo giờ Việt Nam (UTC+07:00).</p>
+          <div class="field">
+            <label for="campaign-name">Tên chiến dịch <span class="campaign-required">· bắt buộc</span></label>
+            <input id="campaign-name" name="campaign-name" type="text" value="Tuyển thành viên CLB Sáng tạo 2026" required>
+          </div>
+          <div class="field">
+            <label for="host-club">CLB tổ chức <span class="campaign-required">· bắt buộc</span></label>
+            <input id="host-club" name="host-club" type="text" value="CLB Sáng tạo Sinh viên" required>
+          </div>
+          <div class="field">
+            <label for="campaign-description">Giới thiệu chiến dịch <span class="campaign-required">· bắt buộc</span></label>
+            <textarea id="campaign-description" name="description" rows="4" required>CLB Sáng tạo Sinh viên tìm kiếm những người bạn muốn biến ý tưởng thành nội dung, hình ảnh và hoạt động có ích cho cộng đồng sinh viên. Bạn sẽ làm việc cùng các bộ phận Nội dung, Truyền thông, Sự kiện và Thiết kế, được góp ý trong quá trình thực hiện và cùng xây dựng các dự án của CLB.</textarea>
+          </div>
+          <div class="grid grid--fields">
+            <div class="field">
+              <label for="applications-open">Mở nhận hồ sơ <span class="campaign-required">· bắt buộc</span></label>
+              <input id="applications-open" name="applications-open" type="datetime-local" value="2026-11-15T08:00" required aria-describedby="application-period-help">
+            </div>
+            <div class="field">
+              <label for="applications-close">Đóng nhận hồ sơ <span class="campaign-required">· bắt buộc</span></label>
+              <input id="applications-close" name="applications-close" type="datetime-local" value="2026-11-20T23:59" required aria-describedby="application-period-help">
+            </div>
+          </div>
+          <p id="application-period-help" class="field-help">Thời điểm mở phải trước thời điểm đóng. Mẫu này nhận hồ sơ từ 15/11/2026 lúc 08:00 đến trước 20/11/2026 lúc 23:59.</p>
+          <div class="field">
+            <label for="application-instructions">Hướng dẫn ứng tuyển <span class="campaign-required">· bắt buộc</span></label>
+            <textarea id="application-instructions" name="instructions" rows="4" required>Chuẩn bị CV định dạng PDF, tối đa 5 MB, và lời giới thiệu động lực tham gia không quá 300 từ. Chọn vị trí phù hợp và các khung giờ bạn có thể phỏng vấn ngày 24/11/2026. Mỗi vị trí cần một hồ sơ riêng; bạn có thể ứng tuyển nhiều vị trí nhưng không nộp lặp cùng một vị trí trong chiến dịch.</textarea>
+          </div>
+        </section>
+
+        <section id="positions" class="panel stack" aria-labelledby="positions-title">
+          <div class="campaign-section-heading">
+            <span class="campaign-section-number" aria-hidden="true">02</span>
+            <div>
+              <h2 id="positions-title">Bộ phận &amp; vị trí</h2>
+              <p class="text-muted">Bốn hướng đóng góp, cùng một tinh thần sáng tạo.</p>
+            </div>
+          </div>
+          <div class="campaign-section-meta">
+            <span class="badge">4 bộ phận</span>
+            <span class="badge badge--info">9 chỉ tiêu dự kiến</span>
+          </div>
+          <p class="field-help">Chỉ tiêu là số lượng dự kiến tuyển, không giới hạn số hồ sơ nhận được. Mỗi vị trí phải có mô tả, yêu cầu và chỉ tiêu là số nguyên dương.</p>
+          <div class="campaign-positions">
+            <fieldset class="campaign-position stack">
+              <legend>Nội dung</legend>
+              <h3>Biên tập nội dung</h3>
+              <div class="field campaign-quota">
+                <label for="quota-content">Chỉ tiêu Nội dung · bắt buộc</label>
+                <input id="quota-content" name="quota-content" type="number" min="1" step="1" value="3" required>
+              </div>
+              <div class="field">
+                <label for="job-content">Mô tả công việc · bắt buộc</label>
+                <textarea id="job-content" name="job-content" rows="3" required>Đề xuất chủ đề, viết và biên tập bài giới thiệu dự án; phối hợp cùng Thiết kế để kể câu chuyện của CLB rõ ràng, gần gũi.</textarea>
+              </div>
+              <div class="field">
+                <label for="requirements-content">Yêu cầu · bắt buộc</label>
+                <textarea id="requirements-content" name="requirements-content" rows="3" required>Viết tiếng Việt mạch lạc, biết kiểm tra nguồn thông tin và tiếp nhận góp ý. Đính kèm một bài viết hoặc ý tưởng nội dung trong CV.</textarea>
+              </div>
+            </fieldset>
+
+            <fieldset class="campaign-position stack">
+              <legend>Truyền thông</legend>
+              <h3>Truyền thông số</h3>
+              <div class="field campaign-quota">
+                <label for="quota-communications">Chỉ tiêu Truyền thông · bắt buộc</label>
+                <input id="quota-communications" name="quota-communications" type="number" min="1" step="1" value="2" required>
+              </div>
+              <div class="field">
+                <label for="job-communications">Mô tả công việc · bắt buộc</label>
+                <textarea id="job-communications" name="job-communications" rows="3" required>Lập lịch nội dung fanpage, triển khai bài đăng và tổng hợp phản hồi; phối hợp quảng bá các hoạt động tuyển thành viên của CLB.</textarea>
+              </div>
+              <div class="field">
+                <label for="requirements-communications">Yêu cầu · bắt buộc</label>
+                <textarea id="requirements-communications" name="requirements-communications" rows="3" required>Hiểu cách trình bày nội dung trên mạng xã hội, có tinh thần phối hợp và theo dõi tiến độ. Nêu một ý tưởng truyền thông cho sinh viên.</textarea>
+              </div>
+            </fieldset>
+
+            <fieldset class="campaign-position stack">
+              <legend>Sự kiện</legend>
+              <h3>Điều phối sự kiện</h3>
+              <div class="field campaign-quota">
+                <label for="quota-events">Chỉ tiêu Sự kiện · bắt buộc</label>
+                <input id="quota-events" name="quota-events" type="number" min="1" step="1" value="2" required>
+              </div>
+              <div class="field">
+                <label for="job-events">Mô tả công việc · bắt buộc</label>
+                <textarea id="job-events" name="job-events" rows="3" required>Chuẩn bị kế hoạch hậu cần, phân công đầu việc và theo dõi chương trình; hỗ trợ đón tiếp, điều phối người tham gia trong ngày diễn ra hoạt động.</textarea>
+              </div>
+              <div class="field">
+                <label for="requirements-events">Yêu cầu · bắt buộc</label>
+                <textarea id="requirements-events" name="requirements-events" rows="3" required>Chủ động, đúng giờ và giao tiếp rõ ràng. Có thể tham gia các buổi chuẩn bị; mô tả một trải nghiệm làm việc nhóm trong CV.</textarea>
+              </div>
+            </fieldset>
+
+            <fieldset class="campaign-position stack">
+              <legend>Thiết kế</legend>
+              <h3>Thiết kế truyền thông</h3>
+              <div class="field campaign-quota">
+                <label for="quota-design">Chỉ tiêu Thiết kế · bắt buộc</label>
+                <input id="quota-design" name="quota-design" type="number" min="1" step="1" value="2" required>
+              </div>
+              <div class="field">
+                <label for="job-design">Mô tả công việc · bắt buộc</label>
+                <textarea id="job-design" name="job-design" rows="3" required>Thiết kế poster và hình ảnh cho bài đăng; phát triển bố cục, màu sắc và kiểu chữ nhất quán với nội dung của từng hoạt động.</textarea>
+              </div>
+              <div class="field">
+                <label for="requirements-design">Yêu cầu · bắt buộc</label>
+                <textarea id="requirements-design" name="requirements-design" rows="3" required>Sử dụng được công cụ thiết kế phù hợp, chú ý khả năng đọc và thời hạn. Giới thiệu một sản phẩm hoặc dự án cá nhân trong CV.</textarea>
+              </div>
+            </fieldset>
+          </div>
+        </section>
+
+        <section id="interview" class="panel stack" aria-labelledby="interview-title">
+          <div class="campaign-section-heading">
+            <span class="campaign-section-number" aria-hidden="true">03</span>
+            <div>
+              <h2 id="interview-title">Khung giờ phỏng vấn</h2>
+              <p class="text-muted">Chuẩn bị các lựa chọn thời gian cho ứng viên.</p>
+            </div>
+          </div>
+          <div class="grid grid--fields">
+            <div class="field">
+              <label for="interview-date">Ngày phỏng vấn · bắt buộc</label>
+              <input id="interview-date" name="interview-date" type="date" value="2026-11-24" required>
+            </div>
+            <div class="field">
+              <label for="slot-duration">Thời lượng chung · bắt buộc</label>
+              <select id="slot-duration" name="slot-duration" required aria-describedby="slot-help">
+                <option value="">Chọn thời lượng</option>
+                <option value="15">15 phút</option>
+                <option value="20" selected>20 phút</option>
+                <option value="30">30 phút</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="interview-start">Giờ bắt đầu · bắt buộc</label>
+              <input id="interview-start" name="interview-start" type="time" value="09:00" required>
+            </div>
+            <div class="field">
+              <label for="interview-end">Giờ kết thúc · bắt buộc</label>
+              <input id="interview-end" name="interview-end" type="time" value="12:00" required>
+            </div>
+          </div>
+          <p id="slot-help" class="field-help">Cấu hình mẫu: 24/11/2026, 09:00–12:00. Mọi phiên phỏng vấn dùng cùng thời lượng 20 phút.</p>
+          <fieldset class="stack">
+            <legend>Phòng có sẵn</legend>
+            <div class="campaign-rooms">
+              <div class="choice"><input id="room-a" name="rooms" type="checkbox" value="A" checked><label for="room-a">Phòng A</label></div>
+              <div class="choice"><input id="room-b" name="rooms" type="checkbox" value="B" checked><label for="room-b">Phòng B</label></div>
+              <div class="choice"><input id="room-c" name="rooms" type="checkbox" value="C" checked><label for="room-c">Phòng C</label></div>
+            </div>
+            <p class="field-help">Ba phòng trong danh sách mẫu đều sẵn sàng 09:00–12:00. Chọn từ phòng có sẵn; việc phân phòng và kiểm tra trùng lịch thuộc bước Interview Scheduling.</p>
+          </fieldset>
+          <details class="campaign-slot-preview">
+            <summary>Xem 9 khung giờ mẫu · 20 phút mỗi khung</summary>
+            <div class="disclosure-body stack">
+              <p class="text-muted">Các khoảng giờ cho ngày 24/11/2026; đây chưa phải lịch đã gán cho ứng viên.</p>
+              <ul class="campaign-slot-list">
+                <li>09:00–09:20</li><li>09:20–09:40</li><li>09:40–10:00</li>
+                <li>10:00–10:20</li><li>10:20–10:40</li><li>10:40–11:00</li>
+                <li>11:00–11:20</li><li>11:20–11:40</li><li>11:40–12:00</li>
+              </ul>
+            </div>
+          </details>
+        </section>
+
+        <section id="native-check" class="panel stack" aria-labelledby="check-title">
+          <div class="campaign-section-heading">
+            <span class="campaign-section-number" aria-hidden="true">04</span>
+            <div>
+              <h2 id="check-title">Kiểm tra trước khi công bố</h2>
+              <p class="text-muted">Đầy đủ thông tin, nhất quán thời gian.</p>
+            </div>
+          </div>
+          <ul class="campaign-checklist">
+            <li>Có tên chiến dịch, CLB, giới thiệu và hướng dẫn ứng tuyển.</li>
+            <li>Thời điểm mở hồ sơ trước thời điểm đóng hồ sơ.</li>
+            <li>Có ít nhất một vị trí; mỗi vị trí có mô tả, yêu cầu và chỉ tiêu nguyên dương.</li>
+            <li>Phỏng vấn diễn ra sau khi đóng đơn; giờ bắt đầu trước giờ kết thúc, dùng chung một thời lượng và có phòng phù hợp.</li>
+          </ul>
+          <p id="native-check-help" class="field-help">Nút dưới chỉ dùng kiểm tra HTML gốc cho trường bắt buộc, kiểu ngày/giờ và chỉ tiêu tối thiểu 1, bước 1. So sánh ngày, kiểm tra phòng và các điều kiện giữa nhiều trường chưa được tự động hóa. Nếu kiểm tra HTML hợp lệ, trang mở lại với cấu hình mẫu; chỉnh sửa không được lưu.</p>
+          <div class="actions">
+            <button type="submit" aria-describedby="native-check-help">Kiểm tra trường bắt buộc</button>
+          </div>
+        </section>
+      </form>
+
+      <aside class="campaign-sidebar stack" aria-label="Tóm tắt và xem trước chiến dịch">
+        <section class="panel stack" aria-labelledby="timeline-title">
+          <div class="campaign-summary-heading">
+            <p class="campaign-eyebrow">CÙNG MỘT CHIẾN DỊCH</p>
+            <h2 id="timeline-title">Các mốc đã thống nhất</h2>
+          </div>
+          <ol class="campaign-timeline">
+            <li><p class="campaign-timeline-label">Mở hồ sơ</p><time datetime="2026-11-15T08:00:00+07:00">15/11/2026 · 08:00</time></li>
+            <li><p class="campaign-timeline-label">Đóng hồ sơ</p><time datetime="2026-11-20T23:59:00+07:00">20/11/2026 · 23:59</time></li>
+            <li><p class="campaign-timeline-label">Duyệt CV</p><p><time datetime="2026-11-21">21</time>–<time datetime="2026-11-22">22/11/2026</time></p></li>
+            <li><p class="campaign-timeline-label">Phỏng vấn</p><p><time datetime="2026-11-24">24/11/2026</time> · 09:00–12:00</p></li>
+          </ol>
+          <p class="field-help">Timeline và preview phản ánh cấu hình mẫu ban đầu, không tự cập nhật khi chỉnh form.</p>
+        </section>
+
+        <details id="campaign-preview" class="campaign-preview">
+          <summary><span lang="en">Preview Campaign</span><span class="campaign-preview-hint">Xem nội dung mẫu dành cho ứng viên</span></summary>
+          <div class="disclosure-body stack">
+            <p class="campaign-eyebrow">BẢN XEM TRƯỚC MẪU</p>
+            <h2>Tuyển thành viên CLB Sáng tạo 2026</h2>
+            <p class="text-muted">CLB Sáng tạo Sinh viên · CF-2026-01</p>
+            <p>Cùng biến ý tưởng thành bài viết, hình ảnh và hoạt động cho cộng đồng sinh viên. Hãy chọn vị trí phù hợp với điều bạn muốn đóng góp.</p>
+            <ul class="campaign-preview-positions">
+              <li><strong>Nội dung:</strong> Biên tập nội dung · 3 chỉ tiêu</li>
+              <li><strong>Truyền thông:</strong> Truyền thông số · 2 chỉ tiêu</li>
+              <li><strong>Sự kiện:</strong> Điều phối sự kiện · 2 chỉ tiêu</li>
+              <li><strong>Thiết kế:</strong> Thiết kế truyền thông · 2 chỉ tiêu</li>
+            </ul>
+            <p><strong>Nhận hồ sơ:</strong> 15/11/2026, 08:00 đến trước 20/11/2026, 23:59.</p>
+            <p><strong>Chuẩn bị:</strong> CV PDF tối đa 5 MB, động lực tham gia tối đa 300 từ và thời gian rảnh ngày 24/11/2026. Mỗi vị trí là một hồ sơ riêng.</p>
+            <p><strong>Phỏng vấn dự kiến:</strong> 24/11/2026, 09:00–12:00; mỗi phiên 20 phút; Phòng A/B/C. Lịch cá nhân được xử lý ở bước tiếp theo.</p>
+            <p class="field-help">Preview tĩnh của dữ liệu mẫu. Đây chưa phải chiến dịch đã được công bố.</p>
+          </div>
+        </details>
+
+        <section class="panel stack" aria-labelledby="publication-title">
+          <h2 id="publication-title">Sẵn sàng cho bước tiếp theo</h2>
+          <p>Đọc lại nội dung và kiểm tra các điều kiện trước khi công bố chiến dịch.</p>
+          <div class="campaign-publication-actions">
+            <button type="button" disabled aria-describedby="publication-help" lang="en">Save as Draft</button>
+            <button type="button" disabled aria-describedby="publication-help" lang="en">Publish Campaign</button>
+          </div>
+          <p id="publication-help" class="field-help">Prototype tĩnh: lưu nháp và công bố chưa kết nối, nên hai nút này được vô hiệu hóa. Chỉnh sửa chỉ tồn tại trong trang đang mở.</p>
+        </section>
+
+        <details class="campaign-error-example" open>
+          <summary>Minh họa lỗi · Chỉ tiêu bằng 0</summary>
+          <div class="disclosure-body stack">
+            <p>Ví dụ riêng về dữ liệu bị từ chối; bốn chỉ tiêu của chiến dịch phía trên vẫn là 3 / 2 / 2 / 2.</p>
+            <div class="field">
+              <label for="invalid-quota">Chỉ tiêu không hợp lệ · ví dụ</label>
+              <input id="invalid-quota" type="number" min="1" step="1" value="0" aria-invalid="true" aria-describedby="invalid-quota-help">
+              <p id="invalid-quota-help" class="field-error">Chỉ tiêu phải là số nguyên dương, tối thiểu 1. Ví dụ 0 không đáp ứng điều kiện.</p>
+            </div>
+          </div>
+        </details>
+
+        <section class="campaign-next stack" aria-labelledby="next-title">
+          <p class="campaign-eyebrow">TIẾP THEO · BƯỚC 02</p>
+          <h2 id="next-title" lang="en">Application Review</h2>
+          <p>Các hồ sơ mẫu thuộc giai đoạn sau khi công bố và nhận đơn. Chuyển trang không tạo ứng viên, không duyệt CV và không công bố chiến dịch.</p>
+          <a class="button campaign-applications-link" href="review.html" lang="en">Applications <span aria-hidden="true">→</span></a>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <div class="container campaign-footer">
+      <p>ClubFlow · CF-2026-01 · CLB Sáng tạo Sinh viên</p>
+      <p>PA#2 · Prototype tĩnh cho vai trò Executive · Dữ liệu minh họa</p>
+    </div>
+  </footer>
+</body>
+</html>

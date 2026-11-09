@@ -98,3 +98,59 @@ commit, push or merge was requested or performed.
 Assistant implementation and checks: [actual setup log](../ai-logs/huy.md).
 Huy's acceptance/rejection and any eventual commit are pending user review.
 
+
+## 3. HUY-01 - actually sent on 2026-11-08
+
+Branch: `pa2/huy-campaign`. Tool: Codex. Exact send time not recorded.
+The following text was actually sent in this interaction and matches PROMPT 02
+in the existing prompt pack; no other template is marked as sent.
+
+```text
+I am Huy implementing ONLY TASK HUY-01 (Create Recruitment Campaign) on pa2/huy-campaign. Use the COMMON TEAM CONTRACT, the rubric and final brief. Do not modify files outside index.html, css/campaign.css or my own per-branch prompt/AI logs. Read and reuse the existing css/styles.css tokens, but do NOT edit that shared file.
+
+Build a polished, coherent, mobile-first static page for a signed-in Club Executive managing the campaign CF-2026-01. It must be page 1 and use real file-relative navigation to review.html. Include:
+- Correct document title, semantic landmarks, one h1, a visible step indicator for the 3-screen main flow, and a strong primary action hierarchy.
+- Campaign name "Tuyển thành viên CLB Sáng tạo 2026", host "CLB Sáng tạo Sinh viên", useful descriptive copy, opening 2026-11-15 08:00 and closing 2026-11-20 23:59, and realistic application instructions.
+- Department and position setup for the FOUR canonical positions (Nội dung/3, Truyền thông/2, Sự kiện/2, Thiết kế/2), with job descriptions and requirements for EACH, and quotas as positive integers. Every input must have a visible associated label.
+- An interview availability preview/configuration appropriate to the business reference: interview date 2026-11-24, 09:00-12:00, common slot duration 20 minutes, and available rooms A/B/C; do not imply dynamic room creation.
+- Visible Save as Draft, Preview Campaign and Publish Campaign controls or previews. Expose the required-field/date-order/position/quota validation criteria and a clear invalid-input state. Use native HTML required/min/step/date inputs and a no-JS preview via details/summary if appropriate; do not claim business-rule validation or persistence is implemented unless it is.
+- A real, accessible main-flow link "Applications" with href="review.html" for navigating to Screen 2. Explain in page copy that sample applications are a later-stage fixture after publication/submissions; navigation does not create them.
+
+HTML must work from file:// with JavaScript disabled. Load css/styles.css THEN css/campaign.css. The long Vietnamese campaign title or position description must wrap at 360px. At 360px stack into one column; at 768/1280 adapt layout without overlap/cutoff. Buttons/standalone links >=44px. No broken routes, fake CV links, lorem ipsum or generic template footer.
+
+Deliver exactly index.html and css/campaign.css; include requirement-to-element mapping, diff summary, and explicit browser/W3C test steps. Identify any native-HTML prototype limitation honestly. Never claim checks passed without running them. Do not push or merge; I will handle Git commands separately.
+```
+
+Sources reused: the common contract, official PA2 rubric and final brief PDFs
+read earlier in this session, current Source of Truth, AGENTS.md, shared CSS
+and shared CSS contract. Original business description v1.1 remains unverified.
+
+Implementation/checks: [HUY-01 task log](../ai-logs/huy.md).
+
+## 4. HUY-01 validator correction - actually sent on 2026-11-08
+
+Tool: Codex. Branch: `pa2/huy-campaign`. Exact send time not recorded.
+
+```text
+Lỗi ở bước Chạy W3C Nu cho index.html nè
+
+Với cả bước 8 là sao? Tôi không hiểu?
+```
+
+The user attached a screenshot of W3C Nu File Upload results for index.html
+(vnu 26.11.4). It shows one error: the required single-choice slot-duration
+select lacks an empty first option. The screenshot is user-provided evidence;
+it was not an assistant-run validator result. The assistant also explained
+how to capture viewport/validator evidence and defer cross-page navigation
+until review.html exists.
+
+## 5. HUY-01 evidence review - actually sent on 2026-11-08
+
+Tool: Codex. Branch: `pa2/huy-campaign`. Exact send time not recorded.
+
+```text
+OK. Tôi làm xong rồi: D:\TAI_LIEU_HCMUS_K24\Năm 3 - Kì 1\Phát triển ứng dụng web\TeamWork\PA2\ClubFlow-evidence , bạn xem đi.
+```
+
+The assistant read the three PNGs and the PDF from that actual folder. The
+inspection outcome is appended to Huy's AI log; no application code was changed.
