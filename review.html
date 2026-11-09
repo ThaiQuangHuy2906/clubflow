@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Application Review screen for ClubFlow campaign CF-2026-01.">
+  <title>Application Review</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/review.css">
+</head>
+<body class="review-page">
+  <a class="button skip-link" href="#main-content">Bỏ qua đến nội dung chính</a>
+
+  <header class="app-header">
+    <div class="container review-header-inner">
+      <p class="brand">ClubFlow</p>
+      <nav class="app-nav" aria-label="Điều hướng chính">
+        <ul>
+          <li><a href="index.html">Campaign setup</a></li>
+          <li><a href="review.html" aria-current="page">Application Review</a></li>
+          <li><a href="schedule.html">Interview Scheduling</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+    <section class="page-heading review-heading" aria-labelledby="page-title">
+      <p class="eyebrow">Screen 2 · Campaign CF-2026-01</p>
+      <h1 id="page-title">Application Review</h1>
+      <p class="review-intro">Rà soát hồ sơ tuyển thành viên CLB Sáng tạo 2026. Đây là ảnh chụp dữ liệu mẫu tĩnh cho chiến dịch, không phải trạng thái trực tiếp.</p>
+      <p class="timeline-line"><strong>Applications:</strong> 15–20 Nov 2026 <span aria-hidden="true">·</span> <strong>CV review:</strong> 21–22 Nov 2026</p>
+    </section>
+
+    <section class="panel review-overview" aria-labelledby="overview-title">
+      <div class="panel-header">
+        <h2 id="overview-title">Campaign review overview</h2>
+        <p class="text-muted">Tổng chiến dịch được tách riêng khỏi số người nộp duy nhất.</p>
+      </div>
+      <dl class="review-stats">
+        <div class="review-stat">
+          <dt>Total applications</dt>
+          <dd class="stat-value">8</dd>
+        </div>
+        <div class="review-stat">
+          <dt>Unique applicants</dt>
+          <dd class="stat-value">7</dd>
+        </div>
+        <div class="review-stat review-stat--shortlisted">
+          <dt>Shortlisted</dt>
+          <dd class="stat-value">5</dd>
+        </div>
+        <div class="review-stat review-stat--rejected">
+          <dt>Rejected</dt>
+          <dd class="stat-value">3</dd>
+        </div>
+        <div class="review-stat">
+          <dt>Pending</dt>
+          <dd class="stat-value">0</dd>
+        </div>
+      </dl>
+      <p class="notice review-count-note"><strong>Current list:</strong> 8 of 8 applications, 7 unique applicants. All records are shown; no filters have been applied.</p>
+    </section>
+
+    <section class="panel review-controls" aria-labelledby="controls-title">
+      <div class="panel-header">
+        <h2 id="controls-title">Search, filters and list tools</h2>
+        <p class="text-muted">Các điều khiển dưới đây chỉ minh họa giao diện; chúng chưa được nối với chức năng lọc, sắp xếp hay xuất dữ liệu.</p>
+      </div>
+      <fieldset class="review-filter-grid" disabled aria-describedby="controls-help">
+        <legend>Illustrative list controls</legend>
+        <div class="field">
+          <label for="application-search">Search applications</label>
+          <input id="application-search" name="application-search" type="search" placeholder="Name or application ID">
+        </div>
+        <div class="field">
+          <label for="status-filter">Filter by status</label>
+          <select id="status-filter" name="status-filter">
+            <option>All statuses</option>
+            <option>Shortlisted</option>
+            <option>Rejected</option>
+            <option>Pending</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="position-filter">Filter by position</label>
+          <select id="position-filter" name="position-filter">
+            <option>All positions</option>
+            <option>Nội dung</option>
+            <option>Truyền thông</option>
+            <option>Sự kiện</option>
+            <option>Thiết kế</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="sort-order">Sort applications</label>
+          <select id="sort-order" name="sort-order">
+            <option>Submission time — newest first</option>
+            <option>Submission time — oldest first</option>
+            <option>Applicant name — A to Z</option>
+            <option>Application ID</option>
+          </select>
+        </div>
+      </fieldset>
+      <p id="controls-help" class="field-help">Static HTML keeps the full list readable with JavaScript off. Search, filters, sorting, pagination and CSV export do not change or download data in this prototype.</p>
+      <div class="actions review-tool-actions">
+        <button type="button" disabled>Export CSV</button>
+      </div>
+    </section>
+
+    <div class="review-workspace">
+      <section class="panel application-list-panel" aria-labelledby="application-list-title">
+        <div class="panel-header application-list-heading">
+          <div>
+            <h2 id="application-list-title">Application list</h2>
+            <p class="text-muted">Showing 8 applications · 7 unique applicants · all records</p>
+          </div>
+          <p class="list-range">Page 1 of 1</p>
+        </div>
+
+        <ol class="application-list">
+          <li>
+            <article class="application-card">
+              <div class="application-card-top">
+                <h3><span class="application-id">A01</span> Nguyễn Thị Minh Anh Phương Thảo</h3>
+                <span class="badge badge--success">Shortlisted</span>
+              </div>
+              <dl class="application-facts">
+                <div><dt>Position</dt><dd>Nội dung</dd></div>
+                <div><dt>Submitted</dt><dd><time datetime="2026-11-15T10:15:00+07:00">15 Nov 2026 · 10:15</time></dd></div>
+                <div><dt>CV status</dt><dd>HTML sample preview available · not downloadable</dd></div>
+              </dl>
+              <a class="button review-link" href="#detail-A01">Review application A01</a>
+            </article>
+          </li>
+          <li>
+            <article class="application-card">
+              <div class="application-card-top">
+                <h3><span class="application-id">A02</span> Nguyễn Thị Minh Anh Phương Thảo</h3>
+                <span class="badge badge--success">Shortlisted</span>
+              </div>
+              <dl class="application-facts">
+                <div><dt>Position</dt><dd>Truyền thông</dd></div>
+                <div><dt>Submitted</dt><dd><time datetime="2026-11-15T10:32:00+07:00">15 Nov 2026 · 10:32</time></dd></div>
+                <div><dt>CV status</dt><dd>HTML sample preview available · not downloadable</dd></div>
+              </dl>
+              <a class="button review-link" href="#detail-A02">Review application A02</a>
+            </article>
+          </li>
+          <li>
+            <article class="application-card">
+              <div class="application-card-top">
+                <h3><span class="application-id">A03</span> Trần Hồng Ngọc</h3>
+                <span class="badge badge--success">Shortlisted</span>
+              </div>
+              <dl class="application-facts">
+                <div><dt>Position</dt><dd>Sự kiện</dd></div>
+                <div><dt>Submitted</dt><dd><time datetime="2026-11-17T10:10:00+07:00">17 Nov 2026 · 10:10</time></dd></div>
+                <div><dt>CV status</dt><dd>No local CV file</dd></div>
+              </dl>
+              <a class="button review-link" href="#detail-A03">Review application A03</a>
+            </article>
+          </li>
+          <li>
+            <article class="application-card">
+              <div class="application-card-top">
+                <h3><span class="application-id">A04</span> Lê Bảo Trâm</h3>
+                <span class="badge badge--success">Shortlisted</span>
+              </div>
+              <dl class="application-facts">
+                <div><dt>Position</dt><dd>Thiết kế</dd></div>
+                <div><dt>Submitted</dt><dd><time datetime="2026-11-18T12:40:00+07:00">18 Nov 2026 · 12:40</time></dd></div>
+                <div><dt>CV status</dt><dd>No local CV file</dd></div>
+              </dl>
+              <a class="button review-link" href="#detail-A04">Review application A04</a>
+            </article>
+          </li>
+          <li>
+            <article class="application-card">
+              <div class="application-card-top">
+                <h3><span class="application-id">A05</span> Phạm Quốc Bảo</h3>
+                <span class="badge badge--success">Shortlisted</span>
+              </div>
+              <dl class="application-facts">
+                <div><dt>Position</dt><dd>Nội dung</dd></div>
+                <div><dt>Submitted</dt><dd><time datetime="2026-11-19T20:15:00+07:00">19 Nov 2026 · 20:15</time></dd></div>
+                <div><dt>CV status</dt><dd>No local CV file</dd></div>
+              </dl>
+              <a class="button review-link" href="#detail-A05">Review application A05</a>
+            </article>
+          </li>
+          <li>
+            <article class="application-card">
+              <div class="application-card-top">
+                <h3><span class="application-id">A06</span> Võ Hoàng Long</h3>
+                <span class="badge badge--danger">Rejected</span>
+              </div>
+              <dl class="application-facts">
+                <div><dt>Position</dt><dd>Thiết kế</dd></div>
+                <div><dt>Submitted</dt><dd><time datetime="2026-11-16T11:21:00+07:00">16 Nov 2026 · 11:21</time></dd></div>
+                <div><dt>CV status</dt><dd>No local CV file</dd></div>
+              </dl>
+              <a class="button review-link" href="#detail-A06">Review application A06</a>
+            </article>
+          </li>
+          <li>
+            <article class="application-card">
+              <div class="application-card-top">
+                <h3><span class="application-id">A07</span> Đặng Thanh Tuyền</h3>
+                <span class="badge badge--danger">Rejected</span>
+              </div>
+              <dl class="application-facts">
+                <div><dt>Position</dt><dd>Sự kiện</dd></div>
+                <div><dt>Submitted</dt><dd><time datetime="2026-11-18T09:30:00+07:00">18 Nov 2026 · 09:30</time></dd></div>
+                <div><dt>CV status</dt><dd>No local CV file</dd></div>
+              </dl>
+              <a class="button review-link" href="#detail-A07">Review application A07</a>
+            </article>
+          </li>
+          <li>
+            <article class="application-card">
+              <div class="application-card-top">
+                <h3><span class="application-id">A08</span> Bùi Nhật Khánh</h3>
+                <span class="badge badge--danger">Rejected</span>
+              </div>
+              <dl class="application-facts">
+                <div><dt>Position</dt><dd>Truyền thông</dd></div>
+                <div><dt>Submitted</dt><dd><time datetime="2026-11-20T22:05:00+07:00">20 Nov 2026 · 22:05</time></dd></div>
+                <div><dt>CV status</dt><dd>No local CV file</dd></div>
+              </dl>
+              <a class="button review-link" href="#detail-A08">Review application A08</a>
+            </article>
+          </li>
+        </ol>
+
+        <nav class="pagination" aria-label="Application list pagination">
+          <button type="button" disabled>Previous page</button>
+          <span aria-current="page">Page 1 of 1</span>
+          <button type="button" disabled>Next page</button>
+        </nav>
+        <p class="field-help">Pagination is illustrative and disabled; all 8 records are already listed on this page.</p>
+      </section>
+
+      <section class="panel application-details-panel" aria-labelledby="details-title">
+        <div class="panel-header">
+          <h2 id="details-title">Application details</h2>
+          <p class="text-muted">Mở một hồ sơ để xem phần động lực, CV preview và mốc rà soát. Liên kết Review trong danh sách đưa đến đúng hồ sơ.</p>
+        </div>
+        <div class="detail-list">
+          <details id="detail-A01" open>
+            <summary><span>A01 · Nguyễn Thị Minh Anh Phương Thảo · Nội dung</span><span class="badge badge--success">Shortlisted</span></summary>
+            <div class="disclosure-body">
+              <h3>A01 — Application for Nội dung</h3>
+              <dl class="detail-facts">
+                <div><dt>Applicant</dt><dd>ST01 · Nguyễn Thị Minh Anh Phương Thảo</dd></div>
+                <div><dt>Submitted</dt><dd><time datetime="2026-11-15T10:15:00+07:00">15 Nov 2026 · 10:15</time></dd></div>
+                <div><dt>CV</dt><dd>No attachment file is present. The illustrative HTML sample below is not a real or verified CV.</dd></div>
+                <div><dt>Decision state</dt><dd><span class="badge badge--success">Shortlisted</span> · CV screening passed for this application.</dd></div>
+              </dl>
+              <details class="cv-preview" id="cv-preview-A01" open>
+                <summary>Readable HTML CV preview · illustrative sample, not downloadable</summary>
+                <div class="disclosure-body">
+                  <article class="cv-document" aria-labelledby="cv-document-heading">
+                    <p class="cv-document-label">Sample content for the static prototype · not a real attachment or verified record</p>
+                    <h4 id="cv-document-heading">Nguyễn Thị Minh Anh Phương Thảo</h4>
+                    <section aria-labelledby="cv-profile-heading">
+                      <h5 id="cv-profile-heading">Profile</h5>
+                      <p>Interested in editorial writing, student activities and collaborative content projects.</p>
+                    </section>
+                    <section aria-labelledby="cv-experience-heading">
+                      <h5 id="cv-experience-heading">Illustrative experience</h5>
+                      <ul>
+                        <li>Class newsletter sample: drafted short announcements and revised them from peer feedback.</li>
+                        <li>Group project sample: organized a simple writing outline and deadline checklist.</li>
+                      </ul>
+                    </section>
+                    <section aria-labelledby="cv-skills-heading">
+                      <h5 id="cv-skills-heading">Skills shown in this sample</h5>
+                      <ul>
+                        <li>Vietnamese copy drafting</li>
+                        <li>Editorial outlining and revision</li>
+                        <li>Deadline coordination</li>
+                      </ul>
+                    </section>
+                  </article>
+                </div>
+              </details>
+              <h4>Motivation statement</h4>
+              <blockquote>“Em muốn tham gia đội Nội dung vì thích biến những hoạt động của câu lạc bộ thành câu chuyện dễ nhớ. Em thường lập dàn ý trước khi viết, kiểm tra thông tin với người phụ trách và sẵn sàng chỉnh sửa theo góp ý để bài đăng rõ ràng, đúng giọng điệu.”</blockquote>
+              <h4>Review milestones</h4>
+              <ol class="milestones">
+                <li><time datetime="2026-11-15T10:15:00+07:00">15 Nov 2026, 10:15</time> — application submitted.</li>
+                <li><time datetime="2026-11-21">21 Nov 2026</time> — CV review window opened.</li>
+                <li><time datetime="2026-11-22">22 Nov 2026</time> — Shortlisted decision recorded.</li>
+              </ol>
+              <details class="executive-note">
+                <summary>Executive-only notes · sample (access control is not implemented)</summary>
+                <div class="disclosure-body">
+                  <div class="field">
+                    <label for="review-note-A01">Executive-only note for A01</label>
+                    <textarea id="review-note-A01" name="review-note-A01" rows="3" placeholder="No sample note recorded.">Illustrative internal note: ask for one example of adapting a draft after editorial feedback. This static page does not restrict access by role.</textarea>
+                    <p class="field-help">Sample field only. Edits are not saved, and this static page does not enforce Executive access.</p>
+                  </div>
+                </div>
+              </details>
+              <fieldset class="decision-controls" disabled>
+                <legend>Decision controls for A01</legend>
+                <div class="actions">
+                  <button type="button" class="button--primary">Shortlist</button>
+                  <button type="button" class="button--danger">Reject</button>
+                </div>
+                <p class="field-help">Recorded state: Shortlisted. These controls are disabled and do not change or save decisions.</p>
+              </fieldset>
+            </div>
+          </details>
+
+          <details id="detail-A02">
+            <summary><span>A02 · Nguyễn Thị Minh Anh Phương Thảo · Truyền thông</span><span class="badge badge--success">Shortlisted</span></summary>
+            <div class="disclosure-body">
+              <h3>A02 — Application for Truyền thông</h3>
+              <dl class="detail-facts">
+                <div><dt>Applicant</dt><dd>ST01 · Nguyễn Thị Minh Anh Phương Thảo</dd></div>
+                <div><dt>Submitted</dt><dd><time datetime="2026-11-15T10:32:00+07:00">15 Nov 2026 · 10:32</time></dd></div>
+                <div><dt>CV</dt><dd>No attachment file is present. <a href="#cv-preview-A01">Open the illustrative HTML sample preview for ST01</a>; it is not a real or verified CV.</dd></div>
+                <div><dt>Decision state</dt><dd><span class="badge badge--success">Shortlisted</span> · Separate decision for application A02.</dd></div>
+              </dl>
+              <h4>Motivation statement</h4>
+              <blockquote>“Em quan tâm đến Truyền thông vì muốn giúp sinh viên biết và tham gia các sự kiện phù hợp. Em thích lên lịch nội dung theo tuần, chọn hình ảnh nhất quán và theo dõi phản hồi để điều chỉnh cách truyền tải.”</blockquote>
+              <h4>Review milestones</h4>
+              <ol class="milestones">
+                <li><time datetime="2026-11-15T10:32:00+07:00">15 Nov 2026, 10:32</time> — application submitted.</li>
+                <li><time datetime="2026-11-21">21 Nov 2026</time> — CV review window opened.</li>
+                <li><time datetime="2026-11-22">22 Nov 2026</time> — Shortlisted decision recorded.</li>
+              </ol>
+              <details class="executive-note">
+                <summary>Executive-only notes · sample (access control is not implemented)</summary>
+                <div class="disclosure-body">
+                  <div class="field">
+                    <label for="review-note-A02">Executive-only note for A02</label>
+                    <textarea id="review-note-A02" name="review-note-A02" rows="3" placeholder="No sample note recorded."></textarea>
+                    <p class="field-help">Sample field only. Edits are not saved, and this static page does not enforce Executive access.</p>
+                  </div>
+                </div>
+              </details>
+              <fieldset class="decision-controls" disabled>
+                <legend>Decision controls for A02</legend>
+                <div class="actions">
+                  <button type="button" class="button--primary">Shortlist</button>
+                  <button type="button" class="button--danger">Reject</button>
+                </div>
+                <p class="field-help">Recorded state: Shortlisted. These controls are disabled and do not change or save decisions.</p>
+              </fieldset>
+            </div>
+          </details>
+
+          <details id="detail-A03">
+            <summary><span>A03 · Trần Hồng Ngọc · Sự kiện</span><span class="badge badge--success">Shortlisted</span></summary>
+            <div class="disclosure-body">
+              <h3>A03 — Application for Sự kiện</h3>
+              <dl class="detail-facts">
+                <div><dt>Applicant</dt><dd>ST02 · Trần Hồng Ngọc</dd></div>
+                <div><dt>Submitted</dt><dd><time datetime="2026-11-17T10:10:00+07:00">17 Nov 2026 · 10:10</time></dd></div>
+                <div><dt>CV</dt><dd>No local CV attachment or applicant-specific preview is present in this repository.</dd></div>
+                <div><dt>Decision state</dt><dd><span class="badge badge--success">Shortlisted</span></dd></div>
+              </dl>
+              <h4>Motivation statement</h4>
+              <blockquote>“Em muốn làm ở đội Sự kiện vì thích phối hợp nhiều đầu việc để tạo ra một chương trình chỉn chu. Khi tham gia hoạt động ở lớp, em thường ghi lại thời hạn, xác nhận vật dụng và báo sớm nếu có thay đổi.”</blockquote>
+              <h4>Review milestones</h4>
+              <ol class="milestones"><li><time datetime="2026-11-17T10:10:00+07:00">17 Nov 2026, 10:10</time> — application submitted.</li><li><time datetime="2026-11-21">21 Nov 2026</time> — CV review window opened.</li><li><time datetime="2026-11-22">22 Nov 2026</time> — Shortlisted decision recorded.</li></ol>
+              <details class="executive-note">
+                <summary>Executive-only notes · sample (access control is not implemented)</summary>
+                <div class="disclosure-body">
+                  <div class="field">
+                    <label for="review-note-A03">Executive-only note for A03</label>
+                    <textarea id="review-note-A03" name="review-note-A03" rows="3" placeholder="No sample note recorded."></textarea>
+                    <p class="field-help">Sample field only. Edits are not saved, and this static page does not enforce Executive access.</p>
+                  </div>
+                </div>
+              </details>
+              <fieldset class="decision-controls" disabled>
+                <legend>Decision controls for A03</legend>
+                <div class="actions">
+                  <button type="button" class="button--primary">Shortlist</button>
+                  <button type="button" class="button--danger">Reject</button>
+                </div>
+                <p class="field-help">Recorded state: Shortlisted. These controls are disabled and do not change or save decisions.</p>
+              </fieldset>
+            </div>
+          </details>
+
+          <details id="detail-A04">
+            <summary><span>A04 · Lê Bảo Trâm · Thiết kế</span><span class="badge badge--success">Shortlisted</span></summary>
+            <div class="disclosure-body">
+              <h3>A04 — Application for Thiết kế</h3>
+              <dl class="detail-facts">
+                <div><dt>Applicant</dt><dd>ST03 · Lê Bảo Trâm</dd></div>
+                <div><dt>Submitted</dt><dd><time datetime="2026-11-18T12:40:00+07:00">18 Nov 2026 · 12:40</time></dd></div>
+                <div><dt>CV</dt><dd>No local CV attachment or applicant-specific preview is present in this repository.</dd></div>
+                <div><dt>Decision state</dt><dd><span class="badge badge--success">Shortlisted</span></dd></div>
+              </dl>
+              <h4>Motivation statement</h4>
+              <blockquote>“Em muốn ứng tuyển vào đội Thiết kế để thực hành tạo ấn phẩm vừa dễ đọc vừa đúng nhận diện. Em thường phác thảo vài bố cục trước, ưu tiên thứ tự thông tin và kiểm tra thiết kế trên màn hình điện thoại.”</blockquote>
+              <h4>Review milestones</h4>
+              <ol class="milestones"><li><time datetime="2026-11-18T12:40:00+07:00">18 Nov 2026, 12:40</time> — application submitted.</li><li><time datetime="2026-11-21">21 Nov 2026</time> — CV review window opened.</li><li><time datetime="2026-11-22">22 Nov 2026</time> — Shortlisted decision recorded.</li></ol>
+              <details class="executive-note">
+                <summary>Executive-only notes · sample (access control is not implemented)</summary>
+                <div class="disclosure-body">
+                  <div class="field">
+                    <label for="review-note-A04">Executive-only note for A04</label>
+                    <textarea id="review-note-A04" name="review-note-A04" rows="3" placeholder="No sample note recorded."></textarea>
+                    <p class="field-help">Sample field only. Edits are not saved, and this static page does not enforce Executive access.</p>
+                  </div>
+                </div>
+              </details>
+              <fieldset class="decision-controls" disabled>
+                <legend>Decision controls for A04</legend>
+                <div class="actions">
+                  <button type="button" class="button--primary">Shortlist</button>
+                  <button type="button" class="button--danger">Reject</button>
+                </div>
+                <p class="field-help">Recorded state: Shortlisted. These controls are disabled and do not change or save decisions.</p>
+              </fieldset>
+            </div>
+          </details>
+
+          <details id="detail-A05">
+            <summary><span>A05 · Phạm Quốc Bảo · Nội dung</span><span class="badge badge--success">Shortlisted</span></summary>
+            <div class="disclosure-body">
+              <h3>A05 — Application for Nội dung</h3>
+              <dl class="detail-facts">
+                <div><dt>Applicant</dt><dd>ST04 · Phạm Quốc Bảo</dd></div>
+                <div><dt>Submitted</dt><dd><time datetime="2026-11-19T20:15:00+07:00">19 Nov 2026 · 20:15</time></dd></div>
+                <div><dt>CV</dt><dd>No local CV attachment or applicant-specific preview is present in this repository.</dd></div>
+                <div><dt>Decision state</dt><dd><span class="badge badge--success">Shortlisted</span></dd></div>
+              </dl>
+              <h4>Motivation statement</h4>
+              <blockquote>“Em thích viết nội dung hướng dẫn vì có thể giúp người đọc biết rõ cần làm gì tiếp theo. Em chú ý dùng câu ngắn, tiêu đề có ý nghĩa và kiểm tra lại thông tin trước khi gửi bản nháp.”</blockquote>
+              <h4>Review milestones</h4>
+              <ol class="milestones"><li><time datetime="2026-11-19T20:15:00+07:00">19 Nov 2026, 20:15</time> — application submitted.</li><li><time datetime="2026-11-21">21 Nov 2026</time> — CV review window opened.</li><li><time datetime="2026-11-22">22 Nov 2026</time> — Shortlisted decision recorded.</li></ol>
+              <details class="executive-note">
+                <summary>Executive-only notes · sample (access control is not implemented)</summary>
+                <div class="disclosure-body">
+                  <div class="field">
+                    <label for="review-note-A05">Executive-only note for A05</label>
+                    <textarea id="review-note-A05" name="review-note-A05" rows="3" placeholder="No sample note recorded."></textarea>
+                    <p class="field-help">Sample field only. Edits are not saved, and this static page does not enforce Executive access.</p>
+                  </div>
+                </div>
+              </details>
+              <fieldset class="decision-controls" disabled>
+                <legend>Decision controls for A05</legend>
+                <div class="actions">
+                  <button type="button" class="button--primary">Shortlist</button>
+                  <button type="button" class="button--danger">Reject</button>
+                </div>
+                <p class="field-help">Recorded state: Shortlisted. These controls are disabled and do not change or save decisions.</p>
+              </fieldset>
+            </div>
+          </details>
+
+          <details id="detail-A06">
+            <summary><span>A06 · Võ Hoàng Long · Thiết kế</span><span class="badge badge--danger">Rejected</span></summary>
+            <div class="disclosure-body">
+              <h3>A06 — Application for Thiết kế</h3>
+              <dl class="detail-facts">
+                <div><dt>Applicant</dt><dd>ST05 · Võ Hoàng Long</dd></div>
+                <div><dt>Submitted</dt><dd><time datetime="2026-11-16T11:21:00+07:00">16 Nov 2026 · 11:21</time></dd></div>
+                <div><dt>CV</dt><dd>No local CV attachment or applicant-specific preview is present in this repository.</dd></div>
+                <div><dt>Decision state</dt><dd><span class="badge badge--danger">Rejected</span></dd></div>
+              </dl>
+              <h4>Motivation statement</h4>
+              <blockquote>“Em muốn học thêm về thiết kế truyền thông và đóng góp cho các hoạt động của câu lạc bộ. Em đang làm quen với bố cục và màu sắc, đồng thời muốn nhận góp ý để cải thiện sản phẩm của mình.”</blockquote>
+              <h4>Review milestones</h4>
+              <ol class="milestones"><li><time datetime="2026-11-16T11:21:00+07:00">16 Nov 2026, 11:21</time> — application submitted.</li><li><time datetime="2026-11-21">21 Nov 2026</time> — CV review window opened.</li><li><time datetime="2026-11-22">22 Nov 2026</time> — Rejected decision recorded.</li></ol>
+              <details class="executive-note">
+                <summary>Executive-only notes · sample (access control is not implemented)</summary>
+                <div class="disclosure-body">
+                  <div class="field">
+                    <label for="review-note-A06">Executive-only note for A06</label>
+                    <textarea id="review-note-A06" name="review-note-A06" rows="3" placeholder="No sample note recorded.">Illustrative note: current sample does not include enough role-specific work to assess against the design team's selection criteria. This is sample content, not a verified applicant record.</textarea>
+                    <p class="field-help">Sample field only. Edits are not saved, and this static page does not enforce Executive access.</p>
+                  </div>
+                </div>
+              </details>
+              <fieldset class="decision-controls" disabled>
+                <legend>Decision controls for A06</legend>
+                <div class="actions">
+                  <button type="button" class="button--primary">Shortlist</button>
+                  <button type="button" class="button--danger">Reject</button>
+                </div>
+                <p class="field-help">Recorded state: Rejected. These controls are disabled and do not change or save decisions.</p>
+              </fieldset>
+            </div>
+          </details>
+
+          <details id="detail-A07">
+            <summary><span>A07 · Đặng Thanh Tuyền · Sự kiện</span><span class="badge badge--danger">Rejected</span></summary>
+            <div class="disclosure-body">
+              <h3>A07 — Application for Sự kiện</h3>
+              <dl class="detail-facts">
+                <div><dt>Applicant</dt><dd>ST06 · Đặng Thanh Tuyền</dd></div>
+                <div><dt>Submitted</dt><dd><time datetime="2026-11-18T09:30:00+07:00">18 Nov 2026 · 09:30</time></dd></div>
+                <div><dt>CV</dt><dd>No local CV attachment or applicant-specific preview is present in this repository.</dd></div>
+                <div><dt>Decision state</dt><dd><span class="badge badge--danger">Rejected</span></dd></div>
+              </dl>
+              <h4>Motivation statement</h4>
+              <blockquote>“Em muốn tham gia đội Sự kiện để trải nghiệm tổ chức chương trình và làm việc cùng mọi người. Em có thể hỗ trợ chuẩn bị vật dụng, nhưng chưa có nhiều kinh nghiệm theo dõi lịch trình hoặc điều phối các đầu việc.”</blockquote>
+              <h4>Review milestones</h4>
+              <ol class="milestones"><li><time datetime="2026-11-18T09:30:00+07:00">18 Nov 2026, 09:30</time> — application submitted.</li><li><time datetime="2026-11-21">21 Nov 2026</time> — CV review window opened.</li><li><time datetime="2026-11-22">22 Nov 2026</time> — Rejected decision recorded.</li></ol>
+              <details class="executive-note">
+                <summary>Executive-only notes · sample (access control is not implemented)</summary>
+                <div class="disclosure-body">
+                  <div class="field">
+                    <label for="review-note-A07">Executive-only note for A07</label>
+                    <textarea id="review-note-A07" name="review-note-A07" rows="3" placeholder="No sample note recorded."></textarea>
+                    <p class="field-help">Sample field only. Edits are not saved, and this static page does not enforce Executive access.</p>
+                  </div>
+                </div>
+              </details>
+              <fieldset class="decision-controls" disabled>
+                <legend>Decision controls for A07</legend>
+                <div class="actions">
+                  <button type="button" class="button--primary">Shortlist</button>
+                  <button type="button" class="button--danger">Reject</button>
+                </div>
+                <p class="field-help">Recorded state: Rejected. These controls are disabled and do not change or save decisions.</p>
+              </fieldset>
+            </div>
+          </details>
+
+          <details id="detail-A08">
+            <summary><span>A08 · Bùi Nhật Khánh · Truyền thông</span><span class="badge badge--danger">Rejected</span></summary>
+            <div class="disclosure-body">
+              <h3>A08 — Application for Truyền thông</h3>
+              <dl class="detail-facts">
+                <div><dt>Applicant</dt><dd>ST07 · Bùi Nhật Khánh</dd></div>
+                <div><dt>Submitted</dt><dd><time datetime="2026-11-20T22:05:00+07:00">20 Nov 2026 · 22:05</time></dd></div>
+                <div><dt>CV</dt><dd>No local CV attachment or applicant-specific preview is present in this repository.</dd></div>
+                <div><dt>Decision state</dt><dd><span class="badge badge--danger">Rejected</span></dd></div>
+              </dl>
+              <h4>Motivation statement</h4>
+              <blockquote>“Em muốn thử sức với Truyền thông vì thích chụp lại không khí của các hoạt động sinh viên. Em muốn học cách viết lời giới thiệu ngắn và lựa chọn hình ảnh phù hợp với từng sự kiện.”</blockquote>
+              <h4>Review milestones</h4>
+              <ol class="milestones"><li><time datetime="2026-11-20T22:05:00+07:00">20 Nov 2026, 22:05</time> — application submitted.</li><li><time datetime="2026-11-21">21 Nov 2026</time> — CV review window opened.</li><li><time datetime="2026-11-22">22 Nov 2026</time> — Rejected decision recorded.</li></ol>
+              <details class="executive-note">
+                <summary>Executive-only notes · sample (access control is not implemented)</summary>
+                <div class="disclosure-body">
+                  <div class="field">
+                    <label for="review-note-A08">Executive-only note for A08</label>
+                    <textarea id="review-note-A08" name="review-note-A08" rows="3" placeholder="No sample note recorded."></textarea>
+                    <p class="field-help">Sample field only. Edits are not saved, and this static page does not enforce Executive access.</p>
+                  </div>
+                </div>
+              </details>
+              <fieldset class="decision-controls" disabled>
+                <legend>Decision controls for A08</legend>
+                <div class="actions">
+                  <button type="button" class="button--primary">Shortlist</button>
+                  <button type="button" class="button--danger">Reject</button>
+                </div>
+                <p class="field-help">Recorded state: Rejected. These controls are disabled and do not change or save decisions.</p>
+              </fieldset>
+            </div>
+          </details>
+        </div>
+      </section>
+    </div>
+
+    <nav class="steps review-steps" aria-label="Recruitment workflow">
+      <ol>
+        <li><a href="index.html">1. Create Recruitment Campaign</a></li>
+        <li><span class="step-label" aria-current="step">2. Application Review</span></li>
+        <li><a href="schedule.html?applications=A01%2CA02%2CA03%2CA04%2CA05">3. Interview Scheduling</a></li>
+      </ol>
+    </nav>
+
+    <div class="actions review-navigation">
+      <a class="button" href="index.html">Back to campaign setup</a>
+      <a class="button button--primary" href="schedule.html?applications=A01%2CA02%2CA03%2CA04%2CA05">Continue to Interview Scheduling</a>
+    </div>
+  </main>
+
+  <footer class="container page-footer">
+    <p>ClubFlow PA#2 static prototype · Campaign CF-2026-01 · Sample review snapshot dated 21–22 Nov 2026.</p>
+    <p>Scheduling handoff includes only shortlisted applications: A01, A02, A03, A04 and A05. The scheduling page is not yet present in this checkout; confirm its route after Phúc integrates that screen.</p>
+  </footer>
+</body>
+</html>
