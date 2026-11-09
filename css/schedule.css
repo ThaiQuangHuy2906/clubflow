@@ -87,6 +87,10 @@
   overflow-wrap: normal;
 }
 
+.group-label {
+  font-weight: 600;
+}
+
 .cell-detail {
   font-weight: 400;
 }
