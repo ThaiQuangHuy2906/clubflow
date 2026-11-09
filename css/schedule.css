@@ -1,0 +1,113 @@
+/*
+ * Interview Scheduling (schedule.html) — page styles owned by Phúc.
+ * Load after css/styles.css; uses only its tokens. No shared rules redefined.
+ */
+
+.timeline {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.timeline dt {
+  font-weight: 700;
+}
+
+.counters {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin: 0;
+}
+
+.counters > div {
+  min-inline-size: 0;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--neutral-soft);
+}
+
+.counters dt {
+  font-weight: 600;
+}
+
+.issue-list,
+.gate-list,
+.resolution-steps {
+  margin: 0;
+  padding-inline-start: var(--space-6);
+}
+
+.issue-list li + li,
+.resolution-steps li + li {
+  margin-block-start: var(--space-2);
+}
+
+.gate-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+.gate-list li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: var(--space-2);
+}
+
+.schedule-table {
+  min-inline-size: 56rem;
+}
+
+.availability-table {
+  min-inline-size: 24rem;
+}
+
+/* Table cells break at spaces only, so badges and short words stay whole. */
+.schedule-table :where(th, td),
+.availability-table :where(th, td) {
+  overflow-wrap: normal;
+}
+
+.schedule-table .badge,
+.no-wrap,
+.row-actions .button {
+  white-space: nowrap;
+}
+
+.row-actions .button {
+  overflow-wrap: normal;
+}
+
+.group-label {
+  font-weight: 600;
+}
+
+.cell-detail {
+  font-weight: 400;
+}
+
+.row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+@media (min-width: 48rem) {
+  .timeline {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: var(--space-6);
+  }
+
+  .counters {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
