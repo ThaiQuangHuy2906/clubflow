@@ -111,7 +111,7 @@
                 <td>I01 cùng lúc có buổi với A03 (09:00–09:20). Xung đột với A03.</td>
                 <td>
                   <div class="row-actions">
-                    <a class="button" href="#edit-slot" aria-label="Edit A01">Edit</a>
+                    <a class="button" href="#edit-A01" aria-label="Edit A01">Edit</a>
                     <a class="button" href="#after-resolution" aria-label="Resolve A01">Resolve</a>
                   </div>
                 </td>
@@ -125,7 +125,7 @@
                 <td>Cùng ứng viên ST01 với A01 nhưng bắt đầu đúng lúc A01 kết thúc, nên hai buổi liền kề, không trùng giờ.</td>
                 <td>
                   <div class="row-actions">
-                    <a class="button" href="#edit-slot" aria-label="Edit A02">Edit</a>
+                    <a class="button" href="#edit-A02" aria-label="Edit A02">Edit</a>
                   </div>
                 </td>
               </tr>
@@ -138,7 +138,7 @@
                 <td>I01 cùng lúc có buổi với A01 (09:00–09:20). Xung đột với A01.</td>
                 <td>
                   <div class="row-actions">
-                    <a class="button" href="#edit-slot" aria-label="Edit A03">Edit</a>
+                    <a class="button" href="#edit-A03" aria-label="Edit A03">Edit</a>
                     <a class="button" href="#after-resolution" aria-label="Resolve A03">Resolve</a>
                   </div>
                 </td>
@@ -152,7 +152,7 @@
                 <td>Hợp lệ: không trùng người, phòng hay giờ với lịch khác.</td>
                 <td>
                   <div class="row-actions">
-                    <a class="button" href="#edit-slot" aria-label="Edit A04">Edit</a>
+                    <a class="button" href="#edit-A04" aria-label="Edit A04">Edit</a>
                   </div>
                 </td>
               </tr>
@@ -165,7 +165,7 @@
                 <td>ST04 chỉ rảnh 11:00–12:00; I01 phụ trách Nội dung chỉ rảnh 09:00–10:00. A05 vẫn là Shortlisted, không bị Reject.</td>
                 <td>
                   <div class="row-actions">
-                    <a class="button" href="#after-resolution" aria-label="+ Assign Slot cho A05">+ Assign Slot</a>
+                    <a class="button" href="#edit-A05" aria-label="+ Assign Slot cho A05">+ Assign Slot</a>
                   </div>
                 </td>
               </tr>
@@ -260,94 +260,10 @@
           </form>
         </section>
 
-        <section class="panel stack" aria-labelledby="edit-heading" id="edit-slot">
+        <section class="panel stack" aria-labelledby="applicant-availability-heading">
           <div class="panel-header stack">
-            <h2 id="edit-heading">Chỉnh sửa một buổi phỏng vấn</h2>
-            <p class="text-muted">Ví dụ đang mở hồ sơ A03 (đang Conflict với A01).</p>
-          </div>
-          <form class="stack">
-            <div class="field">
-              <label for="edit-application">Hồ sơ</label>
-              <select id="edit-application" name="application">
-                <option value="A01">A01 – ST01 Nguyễn Thị Minh Anh Phương Thảo (Nội dung)</option>
-                <option value="A02">A02 – ST01 Nguyễn Thị Minh Anh Phương Thảo (Truyền thông)</option>
-                <option value="A03" selected>A03 – ST02 Trần Hồng Ngọc (Sự kiện)</option>
-                <option value="A04">A04 – ST03 Lê Bảo Trâm (Thiết kế)</option>
-                <option value="A05">A05 – ST04 Phạm Quốc Bảo (Nội dung)</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="edit-start">Giờ bắt đầu</label>
-              <select id="edit-start" name="start">
-                <option value="09:00" selected>09:00–09:20</option>
-                <option value="09:20">09:20–09:40</option>
-                <option value="09:40">09:40–10:00</option>
-                <option value="10:00">10:00–10:20</option>
-                <option value="10:20">10:20–10:40</option>
-                <option value="10:40">10:40–11:00</option>
-                <option value="11:00">11:00–11:20</option>
-                <option value="11:20">11:20–11:40</option>
-                <option value="11:40">11:40–12:00</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="edit-interviewer">Interviewer</label>
-              <select id="edit-interviewer" name="interviewer">
-                <option value="I01" selected>I01 Trịnh Ngọc Hà (Nội dung, Sự kiện)</option>
-                <option value="I02">I02 Đỗ Quang Kiên (Truyền thông)</option>
-                <option value="I03">I03 Lê Thanh Tùng (Thiết kế)</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="edit-room">Phòng</label>
-              <select id="edit-room" name="room">
-                <option value="A">Phòng A</option>
-                <option value="B" selected>Phòng B</option>
-                <option value="C">Phòng C</option>
-              </select>
-            </div>
-            <div class="actions">
-              <button type="button">Save Changes</button>
-            </div>
-            <p class="field-help">Save Changes chỉ lưu bản nháp, không xác nhận lịch. Nút này chưa nối: dữ liệu chưa được lưu.</p>
-          </form>
-        </section>
-      </div>
-
-      <section class="panel stack" aria-labelledby="availability-heading">
-        <div class="panel-header stack">
-          <h2 id="availability-heading">Interviewer và giờ rảnh ngày 24/11/2026</h2>
-          <p class="text-muted">Interviewer và ứng viên là hai nhóm người khác nhau; không ai giữ cả hai vai.</p>
-        </div>
-        <div class="grid grid--two">
-          <div class="table-scroll" tabindex="0" role="region" aria-label="Interviewer và giờ rảnh">
-            <table class="availability-table">
-              <caption>Interviewer</caption>
-              <thead>
-                <tr>
-                  <th scope="col">Interviewer</th>
-                  <th scope="col">Phụ trách vị trí</th>
-                  <th scope="col">Giờ rảnh</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">I01 Trịnh Ngọc Hà</th>
-                  <td>Nội dung; Sự kiện</td>
-                  <td class="no-wrap">09:00–10:00</td>
-                </tr>
-                <tr>
-                  <th scope="row">I02 Đỗ Quang Kiên</th>
-                  <td>Truyền thông</td>
-                  <td class="no-wrap">09:00–10:00</td>
-                </tr>
-                <tr>
-                  <th scope="row">I03 Lê Thanh Tùng</th>
-                  <td>Thiết kế</td>
-                  <td class="no-wrap">09:00–10:20</td>
-                </tr>
-              </tbody>
-            </table>
+            <h2 id="applicant-availability-heading">Giờ rảnh của ứng viên ngày 24/11/2026</h2>
+            <p class="text-muted">Ứng viên và interviewer là hai nhóm người khác nhau; không ai giữ cả hai vai.</p>
           </div>
           <div class="table-scroll" tabindex="0" role="region" aria-label="Giờ rảnh của ứng viên">
             <table class="availability-table">
@@ -383,7 +299,371 @@
               </tbody>
             </table>
           </div>
+        </section>
+      </div>
+
+      <section class="panel stack" aria-labelledby="interviewer-config-heading" id="interviewer-config">
+        <div class="panel-header stack">
+          <h2 id="interviewer-config-heading">Cấu hình interviewer: vị trí phụ trách và giờ rảnh</h2>
+          <p class="notice" role="note"><strong>Cấu hình minh họa.</strong> Các ô dưới đây chưa lưu và không tự tính lại bản nháp. Bản nháp giữ nguyên fixture gốc: I01 chỉ rảnh 09:00–10:00 nên A05 là Unassigned. Phương án I01 rảnh thêm 11:00–12:00 chỉ được trình bày riêng trong phần “After resolution”.</p>
         </div>
+        <form class="stack">
+          <div class="grid grid--two grid--three">
+            <fieldset>
+              <legend>I01 Trịnh Ngọc Hà</legend>
+              <div class="stack">
+                <div class="stack" role="group" aria-labelledby="pos-I01-label">
+                  <p class="group-label" id="pos-I01-label">Vị trí phụ trách</p>
+                  <div class="choice">
+                    <input id="pos-I01-noidung" name="I01-positions" type="checkbox" value="Nội dung" checked>
+                    <label for="pos-I01-noidung">Nội dung</label>
+                  </div>
+                  <div class="choice">
+                    <input id="pos-I01-truyenthong" name="I01-positions" type="checkbox" value="Truyền thông">
+                    <label for="pos-I01-truyenthong">Truyền thông</label>
+                  </div>
+                  <div class="choice">
+                    <input id="pos-I01-sukien" name="I01-positions" type="checkbox" value="Sự kiện" checked>
+                    <label for="pos-I01-sukien">Sự kiện</label>
+                  </div>
+                  <div class="choice">
+                    <input id="pos-I01-thietke" name="I01-positions" type="checkbox" value="Thiết kế">
+                    <label for="pos-I01-thietke">Thiết kế</label>
+                  </div>
+                </div>
+                <div class="stack" role="group" aria-labelledby="avail-I01-label">
+                  <p class="group-label" id="avail-I01-label">Giờ rảnh ngày 24/11/2026</p>
+                  <div class="field">
+                    <label for="avail-I01-1-from">Khung 1: từ</label>
+                    <input id="avail-I01-1-from" name="I01-from-1" type="time" value="09:00">
+                  </div>
+                  <div class="field">
+                    <label for="avail-I01-1-to">Khung 1: đến</label>
+                    <input id="avail-I01-1-to" name="I01-to-1" type="time" value="10:00">
+                  </div>
+                  <div class="field">
+                    <label for="avail-I01-2-from">Khung 2 (tùy chọn): từ</label>
+                    <input id="avail-I01-2-from" name="I01-from-2" type="time">
+                  </div>
+                  <div class="field">
+                    <label for="avail-I01-2-to">Khung 2 (tùy chọn): đến</label>
+                    <input id="avail-I01-2-to" name="I01-to-2" type="time">
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>I02 Đỗ Quang Kiên</legend>
+              <div class="stack">
+                <div class="stack" role="group" aria-labelledby="pos-I02-label">
+                  <p class="group-label" id="pos-I02-label">Vị trí phụ trách</p>
+                  <div class="choice">
+                    <input id="pos-I02-noidung" name="I02-positions" type="checkbox" value="Nội dung">
+                    <label for="pos-I02-noidung">Nội dung</label>
+                  </div>
+                  <div class="choice">
+                    <input id="pos-I02-truyenthong" name="I02-positions" type="checkbox" value="Truyền thông" checked>
+                    <label for="pos-I02-truyenthong">Truyền thông</label>
+                  </div>
+                  <div class="choice">
+                    <input id="pos-I02-sukien" name="I02-positions" type="checkbox" value="Sự kiện">
+                    <label for="pos-I02-sukien">Sự kiện</label>
+                  </div>
+                  <div class="choice">
+                    <input id="pos-I02-thietke" name="I02-positions" type="checkbox" value="Thiết kế">
+                    <label for="pos-I02-thietke">Thiết kế</label>
+                  </div>
+                </div>
+                <div class="stack" role="group" aria-labelledby="avail-I02-label">
+                  <p class="group-label" id="avail-I02-label">Giờ rảnh ngày 24/11/2026</p>
+                  <div class="field">
+                    <label for="avail-I02-1-from">Khung 1: từ</label>
+                    <input id="avail-I02-1-from" name="I02-from-1" type="time" value="09:00">
+                  </div>
+                  <div class="field">
+                    <label for="avail-I02-1-to">Khung 1: đến</label>
+                    <input id="avail-I02-1-to" name="I02-to-1" type="time" value="10:00">
+                  </div>
+                  <div class="field">
+                    <label for="avail-I02-2-from">Khung 2 (tùy chọn): từ</label>
+                    <input id="avail-I02-2-from" name="I02-from-2" type="time">
+                  </div>
+                  <div class="field">
+                    <label for="avail-I02-2-to">Khung 2 (tùy chọn): đến</label>
+                    <input id="avail-I02-2-to" name="I02-to-2" type="time">
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>I03 Lê Thanh Tùng</legend>
+              <div class="stack">
+                <div class="stack" role="group" aria-labelledby="pos-I03-label">
+                  <p class="group-label" id="pos-I03-label">Vị trí phụ trách</p>
+                  <div class="choice">
+                    <input id="pos-I03-noidung" name="I03-positions" type="checkbox" value="Nội dung">
+                    <label for="pos-I03-noidung">Nội dung</label>
+                  </div>
+                  <div class="choice">
+                    <input id="pos-I03-truyenthong" name="I03-positions" type="checkbox" value="Truyền thông">
+                    <label for="pos-I03-truyenthong">Truyền thông</label>
+                  </div>
+                  <div class="choice">
+                    <input id="pos-I03-sukien" name="I03-positions" type="checkbox" value="Sự kiện">
+                    <label for="pos-I03-sukien">Sự kiện</label>
+                  </div>
+                  <div class="choice">
+                    <input id="pos-I03-thietke" name="I03-positions" type="checkbox" value="Thiết kế" checked>
+                    <label for="pos-I03-thietke">Thiết kế</label>
+                  </div>
+                </div>
+                <div class="stack" role="group" aria-labelledby="avail-I03-label">
+                  <p class="group-label" id="avail-I03-label">Giờ rảnh ngày 24/11/2026</p>
+                  <div class="field">
+                    <label for="avail-I03-1-from">Khung 1: từ</label>
+                    <input id="avail-I03-1-from" name="I03-from-1" type="time" value="09:00">
+                  </div>
+                  <div class="field">
+                    <label for="avail-I03-1-to">Khung 1: đến</label>
+                    <input id="avail-I03-1-to" name="I03-to-1" type="time" value="10:20">
+                  </div>
+                  <div class="field">
+                    <label for="avail-I03-2-from">Khung 2 (tùy chọn): từ</label>
+                    <input id="avail-I03-2-from" name="I03-from-2" type="time">
+                  </div>
+                  <div class="field">
+                    <label for="avail-I03-2-to">Khung 2 (tùy chọn): đến</label>
+                    <input id="avail-I03-2-to" name="I03-to-2" type="time">
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <div class="actions">
+            <button type="button">Save Interviewer Settings</button>
+          </div>
+          <p class="field-help">Save Interviewer Settings chưa nối: cấu hình chưa được lưu và Generate Draft không chạy lại.</p>
+        </form>
+      </section>
+
+      <section class="panel stack" aria-labelledby="edit-heading" id="edit-slot">
+        <div class="panel-header stack">
+          <h2 id="edit-heading">Chỉnh sửa lịch từng hồ sơ</h2>
+          <p class="text-muted">Mỗi nút Edit hoặc + Assign Slot trong bảng bản nháp dẫn đến đúng hồ sơ bên dưới. Giá trị đang chọn là lịch hiện tại của bản nháp.</p>
+        </div>
+        <form class="stack">
+          <div class="grid grid--two">
+            <fieldset id="edit-A01">
+              <legend>A01 – ST01 Nguyễn Thị Minh Anh Phương Thảo · Nội dung</legend>
+              <div class="stack">
+                <p><span class="badge badge--danger">Conflict</span> Hiện tại: cùng I01 với A03 lúc 09:00–09:20.</p>
+                <div class="grid grid--fields">
+                  <div class="field">
+                    <label for="edit-A01-start">Giờ bắt đầu</label>
+                    <select id="edit-A01-start" name="A01-start">
+                      <option value="">Chưa gán</option>
+                      <option value="09:00" selected>09:00–09:20</option>
+                      <option value="09:20">09:20–09:40</option>
+                      <option value="09:40">09:40–10:00</option>
+                      <option value="10:00">10:00–10:20</option>
+                      <option value="10:20">10:20–10:40</option>
+                      <option value="10:40">10:40–11:00</option>
+                      <option value="11:00">11:00–11:20</option>
+                      <option value="11:20">11:20–11:40</option>
+                      <option value="11:40">11:40–12:00</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="edit-A01-interviewer">Interviewer</label>
+                    <select id="edit-A01-interviewer" name="A01-interviewer">
+                      <option value="">Chưa gán</option>
+                      <option value="I01" selected>I01 Trịnh Ngọc Hà</option>
+                      <option value="I02">I02 Đỗ Quang Kiên</option>
+                      <option value="I03">I03 Lê Thanh Tùng</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="edit-A01-room">Phòng</label>
+                    <select id="edit-A01-room" name="A01-room">
+                      <option value="">Chưa gán</option>
+                      <option value="A" selected>Phòng A</option>
+                      <option value="B">Phòng B</option>
+                      <option value="C">Phòng C</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset id="edit-A02">
+              <legend>A02 – ST01 Nguyễn Thị Minh Anh Phương Thảo · Truyền thông</legend>
+              <div class="stack">
+                <p><span class="badge badge--info">Proposed</span> Hiện tại: liền kề A01, không trùng giờ.</p>
+                <div class="grid grid--fields">
+                  <div class="field">
+                    <label for="edit-A02-start">Giờ bắt đầu</label>
+                    <select id="edit-A02-start" name="A02-start">
+                      <option value="">Chưa gán</option>
+                      <option value="09:00">09:00–09:20</option>
+                      <option value="09:20" selected>09:20–09:40</option>
+                      <option value="09:40">09:40–10:00</option>
+                      <option value="10:00">10:00–10:20</option>
+                      <option value="10:20">10:20–10:40</option>
+                      <option value="10:40">10:40–11:00</option>
+                      <option value="11:00">11:00–11:20</option>
+                      <option value="11:20">11:20–11:40</option>
+                      <option value="11:40">11:40–12:00</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="edit-A02-interviewer">Interviewer</label>
+                    <select id="edit-A02-interviewer" name="A02-interviewer">
+                      <option value="">Chưa gán</option>
+                      <option value="I01">I01 Trịnh Ngọc Hà</option>
+                      <option value="I02" selected>I02 Đỗ Quang Kiên</option>
+                      <option value="I03">I03 Lê Thanh Tùng</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="edit-A02-room">Phòng</label>
+                    <select id="edit-A02-room" name="A02-room">
+                      <option value="">Chưa gán</option>
+                      <option value="A">Phòng A</option>
+                      <option value="B" selected>Phòng B</option>
+                      <option value="C">Phòng C</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset id="edit-A03">
+              <legend>A03 – ST02 Trần Hồng Ngọc · Sự kiện</legend>
+              <div class="stack">
+                <p><span class="badge badge--danger">Conflict</span> Hiện tại: cùng I01 với A01 lúc 09:00–09:20.</p>
+                <div class="grid grid--fields">
+                  <div class="field">
+                    <label for="edit-A03-start">Giờ bắt đầu</label>
+                    <select id="edit-A03-start" name="A03-start">
+                      <option value="">Chưa gán</option>
+                      <option value="09:00" selected>09:00–09:20</option>
+                      <option value="09:20">09:20–09:40</option>
+                      <option value="09:40">09:40–10:00</option>
+                      <option value="10:00">10:00–10:20</option>
+                      <option value="10:20">10:20–10:40</option>
+                      <option value="10:40">10:40–11:00</option>
+                      <option value="11:00">11:00–11:20</option>
+                      <option value="11:20">11:20–11:40</option>
+                      <option value="11:40">11:40–12:00</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="edit-A03-interviewer">Interviewer</label>
+                    <select id="edit-A03-interviewer" name="A03-interviewer">
+                      <option value="">Chưa gán</option>
+                      <option value="I01" selected>I01 Trịnh Ngọc Hà</option>
+                      <option value="I02">I02 Đỗ Quang Kiên</option>
+                      <option value="I03">I03 Lê Thanh Tùng</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="edit-A03-room">Phòng</label>
+                    <select id="edit-A03-room" name="A03-room">
+                      <option value="">Chưa gán</option>
+                      <option value="A">Phòng A</option>
+                      <option value="B" selected>Phòng B</option>
+                      <option value="C">Phòng C</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset id="edit-A04">
+              <legend>A04 – ST03 Lê Bảo Trâm · Thiết kế</legend>
+              <div class="stack">
+                <p><span class="badge badge--info">Proposed</span> Hiện tại: hợp lệ, không trùng người, phòng hay giờ.</p>
+                <div class="grid grid--fields">
+                  <div class="field">
+                    <label for="edit-A04-start">Giờ bắt đầu</label>
+                    <select id="edit-A04-start" name="A04-start">
+                      <option value="">Chưa gán</option>
+                      <option value="09:00">09:00–09:20</option>
+                      <option value="09:20">09:20–09:40</option>
+                      <option value="09:40" selected>09:40–10:00</option>
+                      <option value="10:00">10:00–10:20</option>
+                      <option value="10:20">10:20–10:40</option>
+                      <option value="10:40">10:40–11:00</option>
+                      <option value="11:00">11:00–11:20</option>
+                      <option value="11:20">11:20–11:40</option>
+                      <option value="11:40">11:40–12:00</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="edit-A04-interviewer">Interviewer</label>
+                    <select id="edit-A04-interviewer" name="A04-interviewer">
+                      <option value="">Chưa gán</option>
+                      <option value="I01">I01 Trịnh Ngọc Hà</option>
+                      <option value="I02">I02 Đỗ Quang Kiên</option>
+                      <option value="I03" selected>I03 Lê Thanh Tùng</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="edit-A04-room">Phòng</label>
+                    <select id="edit-A04-room" name="A04-room">
+                      <option value="">Chưa gán</option>
+                      <option value="A" selected>Phòng A</option>
+                      <option value="B">Phòng B</option>
+                      <option value="C">Phòng C</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset id="edit-A05">
+              <legend>A05 – ST04 Phạm Quốc Bảo · Nội dung</legend>
+              <div class="stack">
+                <p><span class="badge badge--warning">Unassigned</span> Hiện tại: ST04 chỉ rảnh 11:00–12:00, còn I01 chỉ rảnh 09:00–10:00.</p>
+                <div class="grid grid--fields">
+                  <div class="field">
+                    <label for="edit-A05-start">Giờ bắt đầu</label>
+                    <select id="edit-A05-start" name="A05-start">
+                      <option value="" selected>Chưa gán</option>
+                      <option value="09:00">09:00–09:20</option>
+                      <option value="09:20">09:20–09:40</option>
+                      <option value="09:40">09:40–10:00</option>
+                      <option value="10:00">10:00–10:20</option>
+                      <option value="10:20">10:20–10:40</option>
+                      <option value="10:40">10:40–11:00</option>
+                      <option value="11:00">11:00–11:20</option>
+                      <option value="11:20">11:20–11:40</option>
+                      <option value="11:40">11:40–12:00</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="edit-A05-interviewer">Interviewer</label>
+                    <select id="edit-A05-interviewer" name="A05-interviewer">
+                      <option value="" selected>Chưa gán</option>
+                      <option value="I01">I01 Trịnh Ngọc Hà</option>
+                      <option value="I02">I02 Đỗ Quang Kiên</option>
+                      <option value="I03">I03 Lê Thanh Tùng</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="edit-A05-room">Phòng</label>
+                    <select id="edit-A05-room" name="A05-room">
+                      <option value="" selected>Chưa gán</option>
+                      <option value="A">Phòng A</option>
+                      <option value="B">Phòng B</option>
+                      <option value="C">Phòng C</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <div class="actions">
+            <button type="button">Save Changes</button>
+          </div>
+          <p class="field-help">Save Changes chỉ lưu bản nháp, không xác nhận lịch. Nút này chưa nối: dữ liệu chưa được lưu.</p>
+        </form>
       </section>
 
       <section class="panel stack" aria-labelledby="after-resolution" id="after-resolution-section">
@@ -395,7 +675,7 @@
         <h3>Các thay đổi đề xuất</h3>
         <ol class="resolution-steps">
           <li>Dời A03 sang 09:40–10:00 với I01, Phòng B. ST02 và I01 đều rảnh khung này, Phòng B trống.</li>
-          <li>Mở rộng giờ rảnh của I01 ngày 24/11/2026 thành 09:00–10:00 và 11:00–12:00.</li>
+          <li>Mở rộng giờ rảnh của I01 ngày 24/11/2026 thành 09:00–10:00 và 11:00–12:00 (tức điền thêm “Khung 2” 11:00–12:00 cho I01; bản nháp gốc để trống khung này).</li>
           <li>Gán A05 vào 11:00–11:20 với I01, Phòng A. ST04 rảnh khung này và Phòng A trống.</li>
           <li>Giữ nguyên A01 (09:00–09:20, Phòng A), A02 (09:20–09:40, Phòng B) và A04 (09:40–10:00, Phòng A).</li>
         </ol>
