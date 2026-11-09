@@ -50,3 +50,37 @@ Gloss: do not change the git user name/email configuration; leave it as it is.
 The commits therefore use the already configured identity on this machine.
 
 Assistant output: see [the actual task log](../ai-logs/phuc.md).
+
+## 4. Fourth message - AI-log format
+
+Pasted the course's `AI-LOG.md` template (how to use, five rules, entry format, a filled
+example, what a weak log looks like; text not reproduced here) with:
+
+```text
+AI log viết follow như này nè, ngắn gọn thôi
+```
+
+Gloss: write the AI log in this short format.
+
+## 5. Fifth message - push
+
+```text
+ok vậy giờ bạn commit push đi
+```
+
+Gloss: ok, commit and push now.
+
+## 6. Sixth message - Huy's review feedback
+
+Sent with two screenshots (VS Code showing Huy's Codex summary of "Request changes" on
+PRs #2 and #3; GitHub branch page showing `claude` as a co-author):
+
+```text
+Huy feedback nè, bạn xem thử coi sai gì vậy, và sửa lại giúp tôi, chỉnh AI log nếu cần, đồng thời sao trên repo lại có claude, tôi muosn để tác giả là tôi thôi, đè lên lại đi.
+```
+
+Gloss: here is Huy's feedback; find what is wrong and fix it, update the AI log if
+needed, and I want only me as author (not Claude) — overwrite the branch.
+
+Short status/clarification questions between these messages (what is left to do,
+screenshots, where evidence is stored) are not reproduced.
