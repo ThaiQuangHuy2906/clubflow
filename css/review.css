@@ -237,21 +237,51 @@
 }
 
 .cv-preview {
-  margin-block-end: var(--space-3);
-  padding: var(--space-3);
+  min-inline-size: 0;
+  margin-block: var(--space-4);
   border: 1px dashed var(--control-border);
   border-radius: var(--radius-sm);
   background: var(--neutral-soft);
   overflow-wrap: anywhere;
 }
 
-.cv-preview h3 {
-  margin-block: 0 var(--space-2);
+.cv-preview > summary {
+  overflow-wrap: anywhere;
+}
+
+.cv-document {
+  min-inline-size: 0;
+  padding: var(--space-4);
+  border-block-start: 1px solid var(--border);
+  background: var(--surface);
+  overflow-wrap: anywhere;
+}
+
+.cv-document-label {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.cv-document h4 {
+  margin-block: 0 var(--space-3);
+}
+
+.cv-document h5 {
+  margin-block: var(--space-3) var(--space-2);
   font-size: 1rem;
 }
 
-.cv-preview p {
-  margin-block: 0;
+.cv-document p,
+.cv-document ul {
+  margin-block: var(--space-2);
+}
+
+.cv-document ul {
+  padding-inline-start: 1.5rem;
+}
+
+.cv-document li {
+  overflow-wrap: anywhere;
 }
 
 .detail-list > details {
@@ -306,6 +336,23 @@
 
 .executive-note > summary {
   overflow-wrap: anywhere;
+}
+
+.executive-note .field-help {
+  margin-block-end: 0;
+}
+
+.decision-controls {
+  min-inline-size: 0;
+  margin-block-start: var(--space-3);
+}
+
+.decision-controls .actions {
+  margin-block: var(--space-2);
+}
+
+.decision-controls .field-help {
+  margin-block: var(--space-2) 0;
 }
 
 .review-steps {

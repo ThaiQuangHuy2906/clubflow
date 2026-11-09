@@ -141,3 +141,11 @@ Attached evidence filenames: `codex-clipboard-930bb04e-1c00-4aab-a03b-02b42194fd
 `codex-clipboard-9be796b6-2089-422d-b38f-f283b0656233.png`,
 `codex-clipboard-3181ae0b-aa49-4a67-8064-764d7259b879.png`,
 `codex-clipboard-7f329158-43f4-4ca0-9b26-abe441c4648e.png`.
+
+### Huy review feedback (Task 2)
+
+The user supplied a screenshot with this review note: `Review PR #2 — Hoc: bổ sung ô ghi chú và control Shortlist/Reject; bổ sung CV preview đọc được bằng HTML.` The user asked to apply the feedback.
+
+### Final screenshot and handoff (Task 2)
+
+Actual user prompt: `Rồi á, rename cho đúng format. Đánh giá lần cuối. Nếu ổn theo tiêu chí và ổn các phần tôi đã nói ổn thì commit, push và PR đi`

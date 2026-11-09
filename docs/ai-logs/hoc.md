@@ -7,13 +7,17 @@ Tool: Codex in the local workspace; exact model/version not independently record
 Asked for: Create the requested Application Review screen on Học's feature branch,
 using the eight specified applications and changing only `review.html`,
 `css/review.css`, and Học's own prompt/AI logs. The exact prompt is recorded in
-[`ai-prompts/hoc.md`](../ai-prompts/hoc.md).
+[`ai-prompts/hoc.md`](../ai-prompts/hoc.md). Huy's later PR feedback asked for
+an Executive note field, Shortlist/Reject controls, and a CV preview readable in
+HTML.
 
 Kept: Plain semantic HTML/CSS, the shared stylesheet API and tokens, native
 `details`/`summary`, explicit static-prototype labels, per-application decisions,
 the required campaign dates and canonical counts. A01 and A02 remain separate
 application records for one student and distinct positions. No JavaScript or
-external asset was added.
+external asset was added. Huy's requested controls remain visibly disabled in
+this static prototype; the HTML CV is explicitly illustrative and not an actual
+attachment.
 
 Changed: Created the review screen and its page stylesheet, plus this task log
 and the actual-prompt record. Search/filter/sort/export/pagination controls are
@@ -24,7 +28,12 @@ the page states that it does not enforce role access. The scheduling handoff
 passes only A01–A05. In the follow-up QA pass, removed an `aria-label` from a
 generic preview `div`; its visible heading already names the preview and avoids
 an unnecessary ARIA name on a generic container. Set the document title to the
-exact string `Application Review`.
+exact string `Application Review`. For Huy's review feedback, replaced the
+placeholder CV box with a readable semantic HTML sample for ST01, added eight
+labeled sample note textareas with unsaved behavior explained, and added a
+disabled Shortlist/Reject control pair for each application with its recorded
+state shown. Updated the footer route note because `index.html` arrived when
+`main` was merged into this branch; `schedule.html` is still absent.
 
 Rejected: No user rejection was recorded. No CV file, live backend behavior,
 verification claim, or passing validator/accessibility result was invented.
@@ -118,7 +127,50 @@ verification claim, or passing validator/accessibility result was invented.
 - After the user again authorized commit and push, the helper was retried with
   the same verified cwd/root and failed with the same App Server error. The
   assistant therefore left the Git index, commit history and remote unchanged.
-- No screenshots were captured by the assistant; the nine user-supplied images
-  are logged as evidence above and in `ai-prompts/hoc.md`.
+- The nine earlier user-supplied screenshots are logged as evidence above and
+  in `ai-prompts/hoc.md`. The final updated screen screenshots are documented
+  below.
 - Remaining integration check: confirm sibling routes `index.html` and
-  `schedule.html` after Huy and Phúc integrate their pages.
+  `schedule.html` after Huy and Phúc integrate their pages. `index.html` is now
+  present on this branch following the merge from `main`; `schedule.html` is not.
+- After Huy's new PR feedback was applied, static source checks found eight
+  labeled note textareas, eight disabled decision groups with two buttons each,
+  one semantic HTML CV sample for ST01, 8 application cards with the expected
+  5/3 statuses, one h1, no duplicate IDs, no broken fragment links, no heading
+  skips, no scripts/external assets, and no forbidden CSS patterns. An initial
+  ad-hoc checker command had a malformed regex; it was rerun with string checks.
+  Browser rendering and W3C Nu were not rerun after these feedback changes, so
+  the older user screenshots do not verify this updated version.
+
+## Final screenshot and handoff (2026-11-09)
+
+Tool: PowerShell for safe file renames; Git CLI for repository checks; GitHub
+connector for PR lookup. The user captured the screenshots in the local browser
+after the feedback changes, then asked that they be renamed and the branch
+reviewed for handoff.
+
+Asked for: Rename the three screenshots to the repository's required review
+viewport names, perform a final criteria review, and commit, push, and update
+the existing PR if the result is ready.
+
+Kept: The user-provided full-page captures match the final review page visually.
+Their PNG dimensions are 720x16384 (360px viewport at 2x), 1536x12118 (768px
+viewport at 2x), and 2560x7360 (1280px viewport at 2x). User-reported Nu,
+JavaScript-off, keyboard/disclosure, accessibility, contrast, target-size, and
+overflow checks are not represented as assistant-run checks; Nu and interactive
+checks were not rerun by the assistant after Huy's feedback changes.
+
+Changed: Renamed the user-captured files to `screenshots/review-360.png`,
+`screenshots/review-768.png`, and `screenshots/review-1280.png`; visually
+inspected all three. `git diff --check` reported no whitespace errors.
+The first sandbox staging attempt could not create `.git/index.lock`; staging
+the same explicitly scoped file list succeeded on the approved elevated retry.
+
+Rejected: No W3C result or accessibility check was invented. The official
+rubric and final-project brief PDFs were not present in this checkout; this
+review used `AGENTS.md`, `PA2_CLUBFLOW_SOURCE_OF_TRUTH.md`, `brief.md`, and the
+user-supplied team contract. The required chat metadata helper failed with
+`App Server exited before responding`; the verified terminal checkout is the
+expected repository and `pa2/hoc-review` branch, but metadata sync is not
+claimed. The existing PR targets `main`; `schedule.html` remains a sibling-task
+integration dependency and is absent from this checkout.
