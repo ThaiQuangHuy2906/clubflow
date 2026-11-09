@@ -1,0 +1,1278 @@
+{
+  "date": "2026-11-09",
+  "sourceCommit": "d0426d7",
+  "checks": [
+    {
+      "name": "Keyboard Tab reveals campaign skip link",
+      "actual": {
+        "className": "skip-link button button--primary",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "3px"
+      },
+      "pass": true
+    },
+    {
+      "name": "Skip link reaches main",
+      "actual": {
+        "before": {
+          "hash": "#main",
+          "activeElement": "BODY",
+          "mainTop": 0,
+          "scrollY": 141
+        },
+        "after": {
+          "nextElement": "01Create Campaign",
+          "nextInsideMain": true
+        },
+        "pass": true
+      },
+      "pass": true,
+      "initialAssertion": {
+        "expected": "document.activeElement.id equals main",
+        "actual": "",
+        "passed": false
+      },
+      "resolution": "The main element is not focusable. Correct behavioral verification checks #main, mainTop=0 and the next Tab stop inside main; the original over-specific assertion is retained above."
+    },
+    {
+      "name": "Keyboard opens native campaign preview",
+      "actual": true,
+      "pass": true
+    },
+    {
+      "name": "Native validation quota-content=\"0\"",
+      "actual": {
+        "flag": true,
+        "focused": true,
+        "url": "file:///D:/TAI_LIEU_HCMUS_K24/N%C4%83m%203%20-%20K%C3%AC%201/Ph%C3%A1t%20tri%E1%BB%83n%20%E1%BB%A9ng%20d%E1%BB%A5ng%20web/TeamWork/PA2/clubflow/index.html"
+      },
+      "pass": true
+    },
+    {
+      "name": "Native validation quota-content=\"1.5\"",
+      "actual": {
+        "flag": true,
+        "focused": true,
+        "url": "file:///D:/TAI_LIEU_HCMUS_K24/N%C4%83m%203%20-%20K%C3%AC%201/Ph%C3%A1t%20tri%E1%BB%83n%20%E1%BB%A9ng%20d%E1%BB%A5ng%20web/TeamWork/PA2/clubflow/index.html"
+      },
+      "pass": true
+    },
+    {
+      "name": "Native validation campaign-name=\"\"",
+      "actual": {
+        "flag": true,
+        "focused": true,
+        "url": "file:///D:/TAI_LIEU_HCMUS_K24/N%C4%83m%203%20-%20K%C3%AC%201/Ph%C3%A1t%20tri%E1%BB%83n%20%E1%BB%A9ng%20d%E1%BB%A5ng%20web/TeamWork/PA2/clubflow/index.html"
+      },
+      "pass": true
+    },
+    {
+      "name": "Native validation slot-duration=\"\"",
+      "actual": {
+        "flag": true,
+        "focused": true,
+        "url": "file:///D:/TAI_LIEU_HCMUS_K24/N%C4%83m%203%20-%20K%C3%AC%201/Ph%C3%A1t%20tri%E1%BB%83n%20%E1%BB%A9ng%20d%E1%BB%A5ng%20web/TeamWork/PA2/clubflow/index.html"
+      },
+      "pass": true
+    },
+    {
+      "name": "Valid native check reloads sample without saving",
+      "actual": {
+        "url": "file:///D:/TAI_LIEU_HCMUS_K24/N%C4%83m%203%20-%20K%C3%AC%201/Ph%C3%A1t%20tri%E1%BB%83n%20%E1%BB%A9ng%20d%E1%BB%A5ng%20web/TeamWork/PA2/clubflow/index.html?campaign-name=Unsaved+test+name&host-club=CLB+S%C3%A1ng+t%E1%BA%A1o+Sinh+vi%C3%AAn&description=CLB+S%C3%A1ng+t%E1%BA%A1o+Sinh+vi%C3%AAn+t%C3%ACm+ki%E1%BA%BFm+nh%E1%BB%AFng+ng%C6%B0%E1%BB%9Di+b%E1%BA%A1n+mu%E1%BB%91n+bi%E1%BA%BFn+%C3%BD+t%C6%B0%E1%BB%9Fng+th%C3%A0nh+n%E1%BB%99i+dung%2C+h%C3%ACnh+%E1%BA%A3nh+v%C3%A0+ho%E1%BA%A1t+%C4%91%E1%BB%99ng+c%C3%B3+%C3%ADch+cho+c%E1%BB%99ng+%C4%91%E1%BB%93ng+sinh+vi%C3%AAn.+B%E1%BA%A1n+s%E1%BA%BD+l%C3%A0m+vi%E1%BB%87c+c%C3%B9ng+c%C3%A1c+b%E1%BB%99+ph%E1%BA%ADn+N%E1%BB%99i+dung%2C+Truy%E1%BB%81n+th%C3%B4ng%2C+S%E1%BB%B1+ki%E1%BB%87n+v%C3%A0+Thi%E1%BA%BFt+k%E1%BA%BF%2C+%C4%91%C6%B0%E1%BB%A3c+g%C3%B3p+%C3%BD+trong+qu%C3%A1+tr%C3%ACnh+th%E1%BB%B1c+hi%E1%BB%87n+v%C3%A0+c%C3%B9ng+x%C3%A2y+d%E1%BB%B1ng+c%C3%A1c+d%E1%BB%B1+%C3%A1n+c%E1%BB%A7a+CLB.&applications-open=2026-11-15T08%3A00&applications-close=2026-11-20T23%3A59&instructions=Chu%E1%BA%A9n+b%E1%BB%8B+CV+%C4%91%E1%BB%8Bnh+d%E1%BA%A1ng+PDF%2C+t%E1%BB%91i+%C4%91a+5+MB%2C+v%C3%A0+l%E1%BB%9Di+gi%E1%BB%9Bi+thi%E1%BB%87u+%C4%91%E1%BB%99ng+l%E1%BB%B1c+tham+gia+kh%C3%B4ng+qu%C3%A1+300+t%E1%BB%AB.+Ch%E1%BB%8Dn+v%E1%BB%8B+tr%C3%AD+ph%C3%B9+h%E1%BB%A3p+v%C3%A0+c%C3%A1c+khung+gi%E1%BB%9D+b%E1%BA%A1n+c%C3%B3+th%E1%BB%83+ph%E1%BB%8Fng+v%E1%BA%A5n+ng%C3%A0y+24%2F11%2F2026.+M%E1%BB%97i+v%E1%BB%8B+tr%C3%AD+c%E1%BA%A7n+m%E1%BB%99t+h%E1%BB%93+s%C6%A1+ri%C3%AAng%3B+b%E1%BA%A1n+c%C3%B3+th%E1%BB%83+%E1%BB%A9ng+tuy%E1%BB%83n+nhi%E1%BB%81u+v%E1%BB%8B+tr%C3%AD+nh%C6%B0ng+kh%C3%B4ng+n%E1%BB%99p+l%E1%BA%B7p+c%C3%B9ng+m%E1%BB%99t+v%E1%BB%8B+tr%C3%AD+trong+chi%E1%BA%BFn+d%E1%BB%8Bch.&quota-content=3&job-content=%C4%90%E1%BB%81+xu%E1%BA%A5t+ch%E1%BB%A7+%C4%91%E1%BB%81%2C+vi%E1%BA%BFt+v%C3%A0+bi%C3%AAn+t%E1%BA%ADp+b%C3%A0i+gi%E1%BB%9Bi+thi%E1%BB%87u+d%E1%BB%B1+%C3%A1n%3B+ph%E1%BB%91i+h%E1%BB%A3p+c%C3%B9ng+Thi%E1%BA%BFt+k%E1%BA%BF+%C4%91%E1%BB%83+k%E1%BB%83+c%C3%A2u+chuy%E1%BB%87n+c%E1%BB%A7a+CLB+r%C3%B5+r%C3%A0ng%2C+g%E1%BA%A7n+g%C5%A9i.&requirements-content=Vi%E1%BA%BFt+ti%E1%BA%BFng+Vi%E1%BB%87t+m%E1%BA%A1ch+l%E1%BA%A1c%2C+bi%E1%BA%BFt+ki%E1%BB%83m+tra+ngu%E1%BB%93n+th%C3%B4ng+tin+v%C3%A0+ti%E1%BA%BFp+nh%E1%BA%ADn+g%C3%B3p+%C3%BD.+%C4%90%C3%ADnh+k%C3%A8m+m%E1%BB%99t+b%C3%A0i+vi%E1%BA%BFt+ho%E1%BA%B7c+%C3%BD+t%C6%B0%E1%BB%9Fng+n%E1%BB%99i+dung+trong+CV.&quota-communications=2&job-communications=L%E1%BA%ADp+l%E1%BB%8Bch+n%E1%BB%99i+dung+fanpage%2C+tri%E1%BB%83n+khai+b%C3%A0i+%C4%91%C4%83ng+v%C3%A0+t%E1%BB%95ng+h%E1%BB%A3p+ph%E1%BA%A3n+h%E1%BB%93i%3B+ph%E1%BB%91i+h%E1%BB%A3p+qu%E1%BA%A3ng+b%C3%A1+c%C3%A1c+ho%E1%BA%A1t+%C4%91%E1%BB%99ng+tuy%E1%BB%83n+th%C3%A0nh+vi%C3%AAn+c%E1%BB%A7a+CLB.&requirements-communications=Hi%E1%BB%83u+c%C3%A1ch+tr%C3%ACnh+b%C3%A0y+n%E1%BB%99i+dung+tr%C3%AAn+m%E1%BA%A1ng+x%C3%A3+h%E1%BB%99i%2C+c%C3%B3+tinh+th%E1%BA%A7n+ph%E1%BB%91i+h%E1%BB%A3p+v%C3%A0+theo+d%C3%B5i+ti%E1%BA%BFn+%C4%91%E1%BB%99.+N%C3%AAu+m%E1%BB%99t+%C3%BD+t%C6%B0%E1%BB%9Fng+truy%E1%BB%81n+th%C3%B4ng+cho+sinh+vi%C3%AAn.&quota-events=2&job-events=Chu%E1%BA%A9n+b%E1%BB%8B+k%E1%BA%BF+ho%E1%BA%A1ch+h%E1%BA%ADu+c%E1%BA%A7n%2C+ph%C3%A2n+c%C3%B4ng+%C4%91%E1%BA%A7u+vi%E1%BB%87c+v%C3%A0+theo+d%C3%B5i+ch%C6%B0%C6%A1ng+tr%C3%ACnh%3B+h%E1%BB%97+tr%E1%BB%A3+%C4%91%C3%B3n+ti%E1%BA%BFp%2C+%C4%91i%E1%BB%81u+ph%E1%BB%91i+ng%C6%B0%E1%BB%9Di+tham+gia+trong+ng%C3%A0y+di%E1%BB%85n+ra+ho%E1%BA%A1t+%C4%91%E1%BB%99ng.&requirements-events=Ch%E1%BB%A7+%C4%91%E1%BB%99ng%2C+%C4%91%C3%BAng+gi%E1%BB%9D+v%C3%A0+giao+ti%E1%BA%BFp+r%C3%B5+r%C3%A0ng.+C%C3%B3+th%E1%BB%83+tham+gia+c%C3%A1c+bu%E1%BB%95i+chu%E1%BA%A9n+b%E1%BB%8B%3B+m%C3%B4+t%E1%BA%A3+m%E1%BB%99t+tr%E1%BA%A3i+nghi%E1%BB%87m+l%C3%A0m+vi%E1%BB%87c+nh%C3%B3m+trong+CV.&quota-design=2&job-design=Thi%E1%BA%BFt+k%E1%BA%BF+poster+v%C3%A0+h%C3%ACnh+%E1%BA%A3nh+cho+b%C3%A0i+%C4%91%C4%83ng%3B+ph%C3%A1t+tri%E1%BB%83n+b%E1%BB%91+c%E1%BB%A5c%2C+m%C3%A0u+s%E1%BA%AFc+v%C3%A0+ki%E1%BB%83u+ch%E1%BB%AF+nh%E1%BA%A5t+qu%C3%A1n+v%E1%BB%9Bi+n%E1%BB%99i+dung+c%E1%BB%A7a+t%E1%BB%ABng+ho%E1%BA%A1t+%C4%91%E1%BB%99ng.&requirements-design=S%E1%BB%AD+d%E1%BB%A5ng+%C4%91%C6%B0%E1%BB%A3c+c%C3%B4ng+c%E1%BB%A5+thi%E1%BA%BFt+k%E1%BA%BF+ph%C3%B9+h%E1%BB%A3p%2C+ch%C3%BA+%C3%BD+kh%E1%BA%A3+n%C4%83ng+%C4%91%E1%BB%8Dc+v%C3%A0+th%E1%BB%9Di+h%E1%BA%A1n.+Gi%E1%BB%9Bi+thi%E1%BB%87u+m%E1%BB%99t+s%E1%BA%A3n+ph%E1%BA%A9m+ho%E1%BA%B7c+d%E1%BB%B1+%C3%A1n+c%C3%A1+nh%C3%A2n+trong+CV.&interview-date=2026-11-24&slot-duration=20&interview-start=09%3A00&interview-end=12%3A00&rooms=A&rooms=B&rooms=C#native-check",
+        "sampleRestored": true
+      },
+      "pass": true
+    },
+    {
+      "name": "Applications navigates to review.html",
+      "actual": "file:///D:/TAI_LIEU_HCMUS_K24/N%C4%83m%203%20-%20K%C3%AC%201/Ph%C3%A1t%20tri%E1%BB%83n%20%E1%BB%A9ng%20d%E1%BB%A5ng%20web/TeamWork/PA2/clubflow/review.html",
+      "pass": true
+    },
+    {
+      "name": "A02 note editable and decision actions disabled",
+      "actual": {
+        "value": "Unsaved sample executive note",
+        "disabled": true
+      },
+      "pass": true
+    },
+    {
+      "name": "A02 link reveals shared ST01 HTML CV",
+      "actual": {
+        "a01Open": true,
+        "cvOpen": true,
+        "visible": true
+      },
+      "pass": true
+    },
+    {
+      "name": "Review navigation reaches scheduling fixture",
+      "actual": "file:///D:/TAI_LIEU_HCMUS_K24/N%C4%83m%203%20-%20K%C3%AC%201/Ph%C3%A1t%20tri%E1%BB%83n%20%E1%BB%A9ng%20d%E1%BB%A5ng%20web/TeamWork/PA2/clubflow/schedule.html?applications=A01%2CA02%2CA03%2CA04%2CA05",
+      "pass": true
+    },
+    {
+      "name": "Edit/Assign A01",
+      "actual": {
+        "hash": "#edit-A01",
+        "values": [
+          "09:00",
+          "I01",
+          "A"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "Edit/Assign A02",
+      "actual": {
+        "hash": "#edit-A02",
+        "values": [
+          "09:20",
+          "I02",
+          "B"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "Edit/Assign A03",
+      "actual": {
+        "hash": "#edit-A03",
+        "values": [
+          "09:00",
+          "I01",
+          "B"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "Edit/Assign A04",
+      "actual": {
+        "hash": "#edit-A04",
+        "values": [
+          "09:40",
+          "I03",
+          "A"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "Edit/Assign A05",
+      "actual": {
+        "hash": "#edit-A05",
+        "values": [
+          "",
+          "",
+          ""
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "Editing availability does not confirm draft",
+      "actual": {
+        "value": "11:00",
+        "confirmationDisabled": true
+      },
+      "pass": true
+    },
+    {
+      "name": "Keyboard scrolls contained mobile draft table",
+      "actual": {
+        "scrollLeft": 1,
+        "scrollWidth": 896,
+        "clientWidth": 292,
+        "focused": true
+      },
+      "pass": true
+    },
+    {
+      "name": "Scheduling back link reaches review",
+      "actual": "file:///D:/TAI_LIEU_HCMUS_K24/N%C4%83m%203%20-%20K%C3%AC%201/Ph%C3%A1t%20tri%E1%BB%83n%20%E1%BB%A9ng%20d%E1%BB%A5ng%20web/TeamWork/PA2/clubflow/review.html",
+      "pass": true
+    },
+    {
+      "name": "Review back link reaches campaign",
+      "actual": "file:///D:/TAI_LIEU_HCMUS_K24/N%C4%83m%203%20-%20K%C3%AC%201/Ph%C3%A1t%20tri%E1%BB%83n%20%E1%BB%A9ng%20d%E1%BB%A5ng%20web/TeamWork/PA2/clubflow/index.html",
+      "pass": true
+    },
+    {
+      "name": "First 12 keyboard Tab stops index",
+      "actual": [
+        {
+          "element": "A",
+          "role": null,
+          "name": "Đến nội dung chính",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "A",
+          "role": null,
+          "name": "ClubFlow — Create Recruitment Campaign",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "A",
+          "role": null,
+          "name": "01Create Campaign",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "campaign-name",
+          "role": null,
+          "name": "",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "host-club",
+          "role": null,
+          "name": "",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "campaign-description",
+          "role": null,
+          "name": "CLB Sáng tạo Sinh viên tìm kiếm những người bạn muốn biến ý tưởng thành nội dung, hình ảnh",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "applications-open",
+          "role": null,
+          "name": "",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "applications-open",
+          "role": null,
+          "name": "",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "applications-open",
+          "role": null,
+          "name": "",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "applications-open",
+          "role": null,
+          "name": "",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "applications-open",
+          "role": null,
+          "name": "",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "applications-open",
+          "role": null,
+          "name": "",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "name": "First 12 keyboard Tab stops review",
+      "actual": [
+        {
+          "element": "A",
+          "role": null,
+          "name": "Bỏ qua đến nội dung chính",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "A",
+          "role": null,
+          "name": "Campaign setup",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "A",
+          "role": null,
+          "name": "Application Review",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "A",
+          "role": null,
+          "name": "Interview Scheduling",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "A",
+          "role": null,
+          "name": "Review application A01",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "A",
+          "role": null,
+          "name": "Review application A02",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "A",
+          "role": null,
+          "name": "Review application A03",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "A",
+          "role": null,
+          "name": "Review application A04",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "A",
+          "role": null,
+          "name": "Review application A05",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "A",
+          "role": null,
+          "name": "Review application A06",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "A",
+          "role": null,
+          "name": "Review application A07",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "A",
+          "role": null,
+          "name": "Review application A08",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "name": "First 12 keyboard Tab stops schedule",
+      "actual": [
+        {
+          "element": "A",
+          "role": null,
+          "name": "Bỏ qua điều hướng, đến nội dung chính",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "A",
+          "role": null,
+          "name": "1. Create Recruitment Campaign",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "A",
+          "role": null,
+          "name": "2. Application Review",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "A",
+          "role": null,
+          "name": "3. Interview Scheduling",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "A",
+          "role": null,
+          "name": "← Quay lại Application Review",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "A",
+          "role": null,
+          "name": "Resolve: xem cách xử lý đề xuất",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "DIV",
+          "role": "region",
+          "name": "Bản nháp lịch phỏng vấn ngày 24/11/2026",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "A",
+          "role": null,
+          "name": "Edit A01",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "A",
+          "role": null,
+          "name": "Resolve A01",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "A",
+          "role": null,
+          "name": "Edit A02",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "A",
+          "role": null,
+          "name": "Edit A03",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        },
+        {
+          "element": "A",
+          "role": null,
+          "name": "Resolve A03",
+          "focusVisible": true,
+          "outlineWidth": "3px"
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "openStates": [
+    {
+      "page": "index.html",
+      "width": 360,
+      "scrollWidth": 360,
+      "overflow": false,
+      "rightOverflow": []
+    },
+    {
+      "page": "index.html",
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": false,
+      "rightOverflow": []
+    },
+    {
+      "page": "index.html",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "overflow": false,
+      "rightOverflow": []
+    },
+    {
+      "page": "review.html",
+      "width": 360,
+      "scrollWidth": 360,
+      "overflow": false,
+      "rightOverflow": []
+    },
+    {
+      "page": "review.html",
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": false,
+      "rightOverflow": []
+    },
+    {
+      "page": "review.html",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "overflow": false,
+      "rightOverflow": []
+    },
+    {
+      "page": "schedule.html",
+      "width": 360,
+      "scrollWidth": 360,
+      "overflow": false,
+      "rightOverflow": []
+    },
+    {
+      "page": "schedule.html",
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": false,
+      "rightOverflow": []
+    },
+    {
+      "page": "schedule.html",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "overflow": false,
+      "rightOverflow": []
+    }
+  ],
+  "accessibility": [
+    {
+      "page": "index.html",
+      "method": "Chrome DevTools Protocol full accessibility tree, with native disclosures open",
+      "landmarks": [
+        {
+          "role": "banner",
+          "name": ""
+        },
+        {
+          "role": "main",
+          "name": ""
+        },
+        {
+          "role": "contentinfo",
+          "name": ""
+        },
+        {
+          "role": "navigation",
+          "name": "Tiến trình tuyển thành viên"
+        }
+      ],
+      "controls": [
+        {
+          "role": "textbox",
+          "name": "Tên chiến dịch · bắt buộc",
+          "disabled": false
+        },
+        {
+          "role": "textbox",
+          "name": "CLB tổ chức · bắt buộc",
+          "disabled": false
+        },
+        {
+          "role": "textbox",
+          "name": "Giới thiệu chiến dịch · bắt buộc",
+          "disabled": false
+        },
+        {
+          "role": "DateTime",
+          "name": "Mở nhận hồ sơ · bắt buộc",
+          "disabled": false
+        },
+        {
+          "role": "DateTime",
+          "name": "Đóng nhận hồ sơ · bắt buộc",
+          "disabled": false
+        },
+        {
+          "role": "textbox",
+          "name": "Hướng dẫn ứng tuyển · bắt buộc",
+          "disabled": false
+        },
+        {
+          "role": "Date",
+          "name": "Ngày phỏng vấn · bắt buộc",
+          "disabled": false
+        },
+        {
+          "role": "combobox",
+          "name": "Thời lượng chung · bắt buộc",
+          "disabled": false
+        },
+        {
+          "role": "InputTime",
+          "name": "Giờ bắt đầu · bắt buộc",
+          "disabled": false
+        },
+        {
+          "role": "InputTime",
+          "name": "Giờ kết thúc · bắt buộc",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Kiểm tra trường bắt buộc",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Save as Draft",
+          "disabled": true
+        },
+        {
+          "role": "button",
+          "name": "Publish Campaign",
+          "disabled": true
+        },
+        {
+          "role": "button",
+          "name": "Hiển thị bộ chọn ngày và giờ địa phương Hiển thị bộ chọn ngày và giờ địa phương",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Hiển thị bộ chọn ngày và giờ địa phương Hiển thị bộ chọn ngày và giờ địa phương",
+          "disabled": false
+        },
+        {
+          "role": "textbox",
+          "name": "Mô tả công việc · bắt buộc",
+          "disabled": false
+        },
+        {
+          "role": "textbox",
+          "name": "Yêu cầu · bắt buộc",
+          "disabled": false
+        },
+        {
+          "role": "textbox",
+          "name": "Mô tả công việc · bắt buộc",
+          "disabled": false
+        },
+        {
+          "role": "textbox",
+          "name": "Yêu cầu · bắt buộc",
+          "disabled": false
+        },
+        {
+          "role": "textbox",
+          "name": "Mô tả công việc · bắt buộc",
+          "disabled": false
+        },
+        {
+          "role": "textbox",
+          "name": "Yêu cầu · bắt buộc",
+          "disabled": false
+        },
+        {
+          "role": "textbox",
+          "name": "Mô tả công việc · bắt buộc",
+          "disabled": false
+        },
+        {
+          "role": "textbox",
+          "name": "Yêu cầu · bắt buộc",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Hiển thị bộ chọn ngày Hiển thị bộ chọn ngày",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Hiển thị bộ chọn giờ Hiển thị bộ chọn giờ",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Hiển thị bộ chọn giờ Hiển thị bộ chọn giờ",
+          "disabled": false
+        },
+        {
+          "role": "checkbox",
+          "name": "Phòng A",
+          "disabled": false
+        },
+        {
+          "role": "checkbox",
+          "name": "Phòng B",
+          "disabled": false
+        },
+        {
+          "role": "checkbox",
+          "name": "Phòng C",
+          "disabled": false
+        }
+      ],
+      "unnamedControls": 0
+    },
+    {
+      "page": "review.html",
+      "method": "Chrome DevTools Protocol full accessibility tree, with native disclosures open",
+      "landmarks": [
+        {
+          "role": "banner",
+          "name": ""
+        },
+        {
+          "role": "main",
+          "name": ""
+        },
+        {
+          "role": "contentinfo",
+          "name": ""
+        },
+        {
+          "role": "navigation",
+          "name": "Điều hướng chính"
+        },
+        {
+          "role": "navigation",
+          "name": "Recruitment workflow"
+        },
+        {
+          "role": "navigation",
+          "name": "Application list pagination"
+        }
+      ],
+      "controls": [
+        {
+          "role": "button",
+          "name": "Export CSV",
+          "disabled": true
+        },
+        {
+          "role": "searchbox",
+          "name": "Search applications",
+          "disabled": true
+        },
+        {
+          "role": "combobox",
+          "name": "Filter by status",
+          "disabled": true
+        },
+        {
+          "role": "combobox",
+          "name": "Filter by position",
+          "disabled": true
+        },
+        {
+          "role": "combobox",
+          "name": "Sort applications",
+          "disabled": true
+        },
+        {
+          "role": "button",
+          "name": "Previous page",
+          "disabled": true
+        },
+        {
+          "role": "button",
+          "name": "Next page",
+          "disabled": true
+        },
+        {
+          "role": "textbox",
+          "name": "Executive-only note for A01",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Shortlist",
+          "disabled": true
+        },
+        {
+          "role": "button",
+          "name": "Reject",
+          "disabled": true
+        },
+        {
+          "role": "textbox",
+          "name": "Executive-only note for A02",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Shortlist",
+          "disabled": true
+        },
+        {
+          "role": "button",
+          "name": "Reject",
+          "disabled": true
+        },
+        {
+          "role": "textbox",
+          "name": "Executive-only note for A03",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Shortlist",
+          "disabled": true
+        },
+        {
+          "role": "button",
+          "name": "Reject",
+          "disabled": true
+        },
+        {
+          "role": "textbox",
+          "name": "Executive-only note for A04",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Shortlist",
+          "disabled": true
+        },
+        {
+          "role": "button",
+          "name": "Reject",
+          "disabled": true
+        },
+        {
+          "role": "textbox",
+          "name": "Executive-only note for A05",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Shortlist",
+          "disabled": true
+        },
+        {
+          "role": "button",
+          "name": "Reject",
+          "disabled": true
+        },
+        {
+          "role": "textbox",
+          "name": "Executive-only note for A06",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Shortlist",
+          "disabled": true
+        },
+        {
+          "role": "button",
+          "name": "Reject",
+          "disabled": true
+        },
+        {
+          "role": "textbox",
+          "name": "Executive-only note for A07",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Shortlist",
+          "disabled": true
+        },
+        {
+          "role": "button",
+          "name": "Reject",
+          "disabled": true
+        },
+        {
+          "role": "textbox",
+          "name": "Executive-only note for A08",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Shortlist",
+          "disabled": true
+        },
+        {
+          "role": "button",
+          "name": "Reject",
+          "disabled": true
+        }
+      ],
+      "unnamedControls": 0
+    },
+    {
+      "page": "schedule.html",
+      "method": "Chrome DevTools Protocol full accessibility tree, with native disclosures open",
+      "landmarks": [
+        {
+          "role": "banner",
+          "name": ""
+        },
+        {
+          "role": "main",
+          "name": ""
+        },
+        {
+          "role": "contentinfo",
+          "name": ""
+        },
+        {
+          "role": "navigation",
+          "name": "Luồng chính của chiến dịch"
+        }
+      ],
+      "controls": [
+        {
+          "role": "button",
+          "name": "Export Timetable",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Approve & Confirm Schedule",
+          "disabled": true
+        },
+        {
+          "role": "button",
+          "name": "Generate Draft (đã khóa)",
+          "disabled": true
+        },
+        {
+          "role": "button",
+          "name": "Edit (đã khóa)",
+          "disabled": true
+        },
+        {
+          "role": "Date",
+          "name": "Ngày phỏng vấn",
+          "disabled": false
+        },
+        {
+          "role": "InputTime",
+          "name": "Bắt đầu khung giờ",
+          "disabled": false
+        },
+        {
+          "role": "InputTime",
+          "name": "Kết thúc khung giờ",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Generate Draft",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Save Interviewer Settings",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Save Changes",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Hiển thị bộ chọn ngày Hiển thị bộ chọn ngày",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Hiển thị bộ chọn giờ Hiển thị bộ chọn giờ",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Hiển thị bộ chọn giờ Hiển thị bộ chọn giờ",
+          "disabled": false
+        },
+        {
+          "role": "radio",
+          "name": "15 phút",
+          "disabled": false
+        },
+        {
+          "role": "radio",
+          "name": "20 phút (đang chọn cho chiến dịch này)",
+          "disabled": false
+        },
+        {
+          "role": "radio",
+          "name": "30 phút",
+          "disabled": false
+        },
+        {
+          "role": "checkbox",
+          "name": "Phòng A",
+          "disabled": false
+        },
+        {
+          "role": "checkbox",
+          "name": "Phòng B",
+          "disabled": false
+        },
+        {
+          "role": "checkbox",
+          "name": "Phòng C",
+          "disabled": false
+        },
+        {
+          "role": "combobox",
+          "name": "Giờ bắt đầu",
+          "disabled": false
+        },
+        {
+          "role": "combobox",
+          "name": "Interviewer",
+          "disabled": false
+        },
+        {
+          "role": "combobox",
+          "name": "Phòng",
+          "disabled": false
+        },
+        {
+          "role": "combobox",
+          "name": "Giờ bắt đầu",
+          "disabled": false
+        },
+        {
+          "role": "combobox",
+          "name": "Interviewer",
+          "disabled": false
+        },
+        {
+          "role": "combobox",
+          "name": "Phòng",
+          "disabled": false
+        },
+        {
+          "role": "combobox",
+          "name": "Giờ bắt đầu",
+          "disabled": false
+        },
+        {
+          "role": "combobox",
+          "name": "Interviewer",
+          "disabled": false
+        },
+        {
+          "role": "combobox",
+          "name": "Phòng",
+          "disabled": false
+        },
+        {
+          "role": "combobox",
+          "name": "Giờ bắt đầu",
+          "disabled": false
+        },
+        {
+          "role": "combobox",
+          "name": "Interviewer",
+          "disabled": false
+        },
+        {
+          "role": "combobox",
+          "name": "Phòng",
+          "disabled": false
+        },
+        {
+          "role": "combobox",
+          "name": "Giờ bắt đầu",
+          "disabled": false
+        },
+        {
+          "role": "combobox",
+          "name": "Interviewer",
+          "disabled": false
+        },
+        {
+          "role": "combobox",
+          "name": "Phòng",
+          "disabled": false
+        },
+        {
+          "role": "checkbox",
+          "name": "Nội dung",
+          "disabled": false
+        },
+        {
+          "role": "checkbox",
+          "name": "Truyền thông",
+          "disabled": false
+        },
+        {
+          "role": "checkbox",
+          "name": "Sự kiện",
+          "disabled": false
+        },
+        {
+          "role": "checkbox",
+          "name": "Thiết kế",
+          "disabled": false
+        },
+        {
+          "role": "InputTime",
+          "name": "Khung 1: từ",
+          "disabled": false
+        },
+        {
+          "role": "InputTime",
+          "name": "Khung 1: đến",
+          "disabled": false
+        },
+        {
+          "role": "InputTime",
+          "name": "Khung 2 (tùy chọn): từ",
+          "disabled": false
+        },
+        {
+          "role": "InputTime",
+          "name": "Khung 2 (tùy chọn): đến",
+          "disabled": false
+        },
+        {
+          "role": "checkbox",
+          "name": "Nội dung",
+          "disabled": false
+        },
+        {
+          "role": "checkbox",
+          "name": "Truyền thông",
+          "disabled": false
+        },
+        {
+          "role": "checkbox",
+          "name": "Sự kiện",
+          "disabled": false
+        },
+        {
+          "role": "checkbox",
+          "name": "Thiết kế",
+          "disabled": false
+        },
+        {
+          "role": "InputTime",
+          "name": "Khung 1: từ",
+          "disabled": false
+        },
+        {
+          "role": "InputTime",
+          "name": "Khung 1: đến",
+          "disabled": false
+        },
+        {
+          "role": "InputTime",
+          "name": "Khung 2 (tùy chọn): từ",
+          "disabled": false
+        },
+        {
+          "role": "InputTime",
+          "name": "Khung 2 (tùy chọn): đến",
+          "disabled": false
+        },
+        {
+          "role": "checkbox",
+          "name": "Nội dung",
+          "disabled": false
+        },
+        {
+          "role": "checkbox",
+          "name": "Truyền thông",
+          "disabled": false
+        },
+        {
+          "role": "checkbox",
+          "name": "Sự kiện",
+          "disabled": false
+        },
+        {
+          "role": "checkbox",
+          "name": "Thiết kế",
+          "disabled": false
+        },
+        {
+          "role": "InputTime",
+          "name": "Khung 1: từ",
+          "disabled": false
+        },
+        {
+          "role": "InputTime",
+          "name": "Khung 1: đến",
+          "disabled": false
+        },
+        {
+          "role": "InputTime",
+          "name": "Khung 2 (tùy chọn): từ",
+          "disabled": false
+        },
+        {
+          "role": "InputTime",
+          "name": "Khung 2 (tùy chọn): đến",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Hiển thị bộ chọn giờ Hiển thị bộ chọn giờ",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Hiển thị bộ chọn giờ Hiển thị bộ chọn giờ",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Hiển thị bộ chọn giờ Hiển thị bộ chọn giờ",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Hiển thị bộ chọn giờ Hiển thị bộ chọn giờ",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Hiển thị bộ chọn giờ Hiển thị bộ chọn giờ",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Hiển thị bộ chọn giờ Hiển thị bộ chọn giờ",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Hiển thị bộ chọn giờ Hiển thị bộ chọn giờ",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Hiển thị bộ chọn giờ Hiển thị bộ chọn giờ",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Hiển thị bộ chọn giờ Hiển thị bộ chọn giờ",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Hiển thị bộ chọn giờ Hiển thị bộ chọn giờ",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Hiển thị bộ chọn giờ Hiển thị bộ chọn giờ",
+          "disabled": false
+        },
+        {
+          "role": "button",
+          "name": "Hiển thị bộ chọn giờ Hiển thị bộ chọn giờ",
+          "disabled": false
+        }
+      ],
+      "unnamedControls": 0
+    }
+  ],
+  "instrumentationNotes": [
+    "An initial audit run reached the screenshots but could not write metrics because require is unavailable in the CLI sandbox. The diagnostic transport was corrected and the nine-view measurements were rerun.",
+    "Tagged diagnostic exceptions return JSON in this JavaScript-disabled CLI environment; they are not application errors.",
+    "Skip-link retest follows the actual keyboard navigation contract; the first direct-focus assumption is retained in its check record."
+  ]
+}

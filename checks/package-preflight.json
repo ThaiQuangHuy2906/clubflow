@@ -1,0 +1,285 @@
+{
+  "date": "2026-11-09",
+  "method": "Fresh extraction of repository-folder ZIP including .git; actual Chrome, file URLs, offline=true, JavaScript disabled, DPR1.",
+  "measurements": [
+    {
+      "title": "Create Recruitment Campaign · ClubFlow",
+      "width": 360,
+      "scrollWidth": 360,
+      "overflow": false,
+      "rightOverflow": [],
+      "h1Count": 1,
+      "styles": [
+        {
+          "href": "file:///D:/Temp/clubflow-release-r_o_reh2/extracted/clubflow/css/styles.css"
+        },
+        {
+          "href": "file:///D:/Temp/clubflow-release-r_o_reh2/extracted/clubflow/css/campaign.css"
+        }
+      ],
+      "bodyFont": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "textColor": "rgb(15, 23, 42)",
+      "scripts": 0,
+      "page": "index.html",
+      "requestedWidth": 360,
+      "pass": true,
+      "capture": "extracted-index-360.png"
+    },
+    {
+      "title": "Create Recruitment Campaign · ClubFlow",
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": false,
+      "rightOverflow": [],
+      "h1Count": 1,
+      "styles": [
+        {
+          "href": "file:///D:/Temp/clubflow-release-r_o_reh2/extracted/clubflow/css/styles.css"
+        },
+        {
+          "href": "file:///D:/Temp/clubflow-release-r_o_reh2/extracted/clubflow/css/campaign.css"
+        }
+      ],
+      "bodyFont": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "textColor": "rgb(15, 23, 42)",
+      "scripts": 0,
+      "page": "index.html",
+      "requestedWidth": 768,
+      "pass": true,
+      "capture": "extracted-index-768.png"
+    },
+    {
+      "title": "Create Recruitment Campaign · ClubFlow",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "overflow": false,
+      "rightOverflow": [],
+      "h1Count": 1,
+      "styles": [
+        {
+          "href": "file:///D:/Temp/clubflow-release-r_o_reh2/extracted/clubflow/css/styles.css"
+        },
+        {
+          "href": "file:///D:/Temp/clubflow-release-r_o_reh2/extracted/clubflow/css/campaign.css"
+        }
+      ],
+      "bodyFont": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "textColor": "rgb(15, 23, 42)",
+      "scripts": 0,
+      "page": "index.html",
+      "requestedWidth": 1280,
+      "pass": true,
+      "capture": "extracted-index-1280.png"
+    },
+    {
+      "title": "Application Review",
+      "width": 360,
+      "scrollWidth": 360,
+      "overflow": false,
+      "rightOverflow": [],
+      "h1Count": 1,
+      "styles": [
+        {
+          "href": "file:///D:/Temp/clubflow-release-r_o_reh2/extracted/clubflow/css/styles.css"
+        },
+        {
+          "href": "file:///D:/Temp/clubflow-release-r_o_reh2/extracted/clubflow/css/review.css"
+        }
+      ],
+      "bodyFont": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "textColor": "rgb(15, 23, 42)",
+      "scripts": 0,
+      "page": "review.html",
+      "requestedWidth": 360,
+      "pass": true,
+      "capture": "extracted-review-360.png"
+    },
+    {
+      "title": "Application Review",
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": false,
+      "rightOverflow": [],
+      "h1Count": 1,
+      "styles": [
+        {
+          "href": "file:///D:/Temp/clubflow-release-r_o_reh2/extracted/clubflow/css/styles.css"
+        },
+        {
+          "href": "file:///D:/Temp/clubflow-release-r_o_reh2/extracted/clubflow/css/review.css"
+        }
+      ],
+      "bodyFont": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "textColor": "rgb(15, 23, 42)",
+      "scripts": 0,
+      "page": "review.html",
+      "requestedWidth": 768,
+      "pass": true,
+      "capture": "extracted-review-768.png"
+    },
+    {
+      "title": "Application Review",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "overflow": false,
+      "rightOverflow": [],
+      "h1Count": 1,
+      "styles": [
+        {
+          "href": "file:///D:/Temp/clubflow-release-r_o_reh2/extracted/clubflow/css/styles.css"
+        },
+        {
+          "href": "file:///D:/Temp/clubflow-release-r_o_reh2/extracted/clubflow/css/review.css"
+        }
+      ],
+      "bodyFont": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "textColor": "rgb(15, 23, 42)",
+      "scripts": 0,
+      "page": "review.html",
+      "requestedWidth": 1280,
+      "pass": true,
+      "capture": "extracted-review-1280.png"
+    },
+    {
+      "title": "Interview Scheduling – ClubFlow CF-2026-01",
+      "width": 360,
+      "scrollWidth": 360,
+      "overflow": false,
+      "rightOverflow": [],
+      "h1Count": 1,
+      "styles": [
+        {
+          "href": "file:///D:/Temp/clubflow-release-r_o_reh2/extracted/clubflow/css/styles.css"
+        },
+        {
+          "href": "file:///D:/Temp/clubflow-release-r_o_reh2/extracted/clubflow/css/schedule.css"
+        }
+      ],
+      "bodyFont": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "textColor": "rgb(15, 23, 42)",
+      "scripts": 0,
+      "page": "schedule.html",
+      "requestedWidth": 360,
+      "pass": true,
+      "capture": "extracted-schedule-360.png"
+    },
+    {
+      "title": "Interview Scheduling – ClubFlow CF-2026-01",
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": false,
+      "rightOverflow": [],
+      "h1Count": 1,
+      "styles": [
+        {
+          "href": "file:///D:/Temp/clubflow-release-r_o_reh2/extracted/clubflow/css/styles.css"
+        },
+        {
+          "href": "file:///D:/Temp/clubflow-release-r_o_reh2/extracted/clubflow/css/schedule.css"
+        }
+      ],
+      "bodyFont": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "textColor": "rgb(15, 23, 42)",
+      "scripts": 0,
+      "page": "schedule.html",
+      "requestedWidth": 768,
+      "pass": true,
+      "capture": "extracted-schedule-768.png"
+    },
+    {
+      "title": "Interview Scheduling – ClubFlow CF-2026-01",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "overflow": false,
+      "rightOverflow": [],
+      "h1Count": 1,
+      "styles": [
+        {
+          "href": "file:///D:/Temp/clubflow-release-r_o_reh2/extracted/clubflow/css/styles.css"
+        },
+        {
+          "href": "file:///D:/Temp/clubflow-release-r_o_reh2/extracted/clubflow/css/schedule.css"
+        }
+      ],
+      "bodyFont": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "textColor": "rgb(15, 23, 42)",
+      "scripts": 0,
+      "page": "schedule.html",
+      "requestedWidth": 1280,
+      "pass": true,
+      "capture": "extracted-schedule-1280.png"
+    }
+  ],
+  "navigation": [
+    {
+      "action": "Campaign Applications to Review",
+      "pass": true
+    },
+    {
+      "action": "Review Continue to Schedule",
+      "pass": true
+    },
+    {
+      "action": "Schedule back to Review",
+      "pass": true
+    },
+    {
+      "action": "Review back to Campaign",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "pageScriptSentinel": "blocked",
+  "externalRequests": [],
+  "pass": true,
+  "gitIntegrity": "git fsck --full passed on preflight extracted .git",
+  "applicationSourceCommit": "d0426d7",
+  "applicationHashEquality": true,
+  "screenshotComparison": [
+    {
+      "page": "index.html",
+      "width": 360,
+      "identicalToSubmissionCapture": true
+    },
+    {
+      "page": "index.html",
+      "width": 768,
+      "identicalToSubmissionCapture": true
+    },
+    {
+      "page": "index.html",
+      "width": 1280,
+      "identicalToSubmissionCapture": true
+    },
+    {
+      "page": "review.html",
+      "width": 360,
+      "identicalToSubmissionCapture": true
+    },
+    {
+      "page": "review.html",
+      "width": 768,
+      "identicalToSubmissionCapture": true
+    },
+    {
+      "page": "review.html",
+      "width": 1280,
+      "identicalToSubmissionCapture": true
+    },
+    {
+      "page": "schedule.html",
+      "width": 360,
+      "identicalToSubmissionCapture": true
+    },
+    {
+      "page": "schedule.html",
+      "width": 768,
+      "identicalToSubmissionCapture": true
+    },
+    {
+      "page": "schedule.html",
+      "width": 1280,
+      "identicalToSubmissionCapture": true
+    }
+  ]
+}

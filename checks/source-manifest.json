@@ -1,0 +1,278 @@
+{
+  "sourceCommit": "d0426d7",
+  "date": "2026-11-09",
+  "files": {
+    "index.html": "ac4426c24617e6eedd55182c85041976adb00f253576effb598411043fcf7b44",
+    "review.html": "958aff5ca99088b2d02af1af14e99fff83807f5f7bf3ec687643049e12cedf75",
+    "schedule.html": "55ee56521eadcf1e27e1ab47ead9d2c4853c6bb5ad2a62bc2e286cf8be7038ac",
+    "css/styles.css": "c74f63105f2041c09d53f394784856c1f043402b0ffc8493e0a53fdf40771bac",
+    "css/campaign.css": "8a9e640c5a1afd20d5f7bd90f3a217b5de3c97197a74a59b0ddc25314b590134",
+    "css/review.css": "74921a38534820d2bb66f88f92cfafeab25126e6eeda5407b25908b21131a134",
+    "css/schedule.css": "b9e8f31706ec2a994814a5d6eff2e046f61bf3540e7d9393bf573d032756e500"
+  },
+  "staticChecks": [
+    {
+      "page": "index.html",
+      "referenceCount": 7,
+      "badReferences": [],
+      "duplicateIds": [],
+      "undefinedTokens": [],
+      "scripts": 0,
+      "eventAttributes": [],
+      "forbiddenCSS": false
+    },
+    {
+      "page": "review.html",
+      "referenceCount": 19,
+      "badReferences": [],
+      "duplicateIds": [],
+      "undefinedTokens": [],
+      "scripts": 0,
+      "eventAttributes": [],
+      "forbiddenCSS": false
+    },
+    {
+      "page": "schedule.html",
+      "referenceCount": 15,
+      "badReferences": [],
+      "duplicateIds": [],
+      "undefinedTokens": [],
+      "scripts": 0,
+      "eventAttributes": [],
+      "forbiddenCSS": false
+    }
+  ],
+  "fixture": {
+    "applications": [
+      {
+        "id": "A01",
+        "name": "Nguyễn Thị Minh Anh Phương Thảo",
+        "status": "Shortlisted"
+      },
+      {
+        "id": "A02",
+        "name": "Nguyễn Thị Minh Anh Phương Thảo",
+        "status": "Shortlisted"
+      },
+      {
+        "id": "A03",
+        "name": "Trần Hồng Ngọc",
+        "status": "Shortlisted"
+      },
+      {
+        "id": "A04",
+        "name": "Lê Bảo Trâm",
+        "status": "Shortlisted"
+      },
+      {
+        "id": "A05",
+        "name": "Phạm Quốc Bảo",
+        "status": "Shortlisted"
+      },
+      {
+        "id": "A06",
+        "name": "Võ Hoàng Long",
+        "status": "Rejected"
+      },
+      {
+        "id": "A07",
+        "name": "Đặng Thanh Tuyền",
+        "status": "Rejected"
+      },
+      {
+        "id": "A08",
+        "name": "Bùi Nhật Khánh",
+        "status": "Rejected"
+      }
+    ],
+    "applicationCount": 8,
+    "uniqueNames": 7,
+    "applicationStatuses": {
+      "Shortlisted": 5,
+      "Rejected": 3
+    },
+    "draftRows": [
+      {
+        "id": "A01",
+        "applicant": "A01 ST01 Nguyễn Thị Minh Anh Phương Thảo · Nội dung",
+        "time": "09:00–09:20",
+        "interviewer": "I01 Trịnh Ngọc Hà",
+        "room": "Phòng A",
+        "status": "Conflict"
+      },
+      {
+        "id": "A02",
+        "applicant": "A02 ST01 Nguyễn Thị Minh Anh Phương Thảo · Truyền thông",
+        "time": "09:20–09:40",
+        "interviewer": "I02 Đỗ Quang Kiên",
+        "room": "Phòng B",
+        "status": "Proposed"
+      },
+      {
+        "id": "A03",
+        "applicant": "A03 ST02 Trần Hồng Ngọc · Sự kiện",
+        "time": "09:00–09:20",
+        "interviewer": "I01 Trịnh Ngọc Hà",
+        "room": "Phòng B",
+        "status": "Conflict"
+      },
+      {
+        "id": "A04",
+        "applicant": "A04 ST03 Lê Bảo Trâm · Thiết kế",
+        "time": "09:40–10:00",
+        "interviewer": "I03 Lê Thanh Tùng",
+        "room": "Phòng A",
+        "status": "Proposed"
+      },
+      {
+        "id": "A05",
+        "applicant": "A05 ST04 Phạm Quốc Bảo · Nội dung",
+        "time": "Chưa có giờ",
+        "interviewer": "Chưa gán",
+        "room": "Chưa gán",
+        "status": "Unassigned"
+      }
+    ],
+    "draftStatuses": {
+      "Conflict": 2,
+      "Proposed": 2,
+      "Unassigned": 1
+    },
+    "opening": "2026-11-15T08:00",
+    "closing": "2026-11-20T23:59",
+    "interviewDate": "2026-11-24",
+    "slotDuration": "20",
+    "quotas": [
+      "3",
+      "2",
+      "2",
+      "2"
+    ]
+  },
+  "screenshots": [
+    {
+      "file": "screenshots/index-1280.png",
+      "width": 1280,
+      "height": 3892,
+      "sha256": "b86b7b4d6b808e96146d02aba371002db7478f1b14651af993dc1519c4cc278e"
+    },
+    {
+      "file": "screenshots/index-360.png",
+      "width": 360,
+      "height": 8132,
+      "sha256": "f39c2271d4759ac1dff771ed63623ed6229d8246757a5b3e6800e2aeb60f9b9d"
+    },
+    {
+      "file": "screenshots/index-768.png",
+      "width": 768,
+      "height": 5460,
+      "sha256": "7c8aaea17d07f63a5bf17020c5e17283442c76ca6c6db88b5e41361864e3a3be"
+    },
+    {
+      "file": "screenshots/review-1280.png",
+      "width": 1280,
+      "height": 3670,
+      "sha256": "4bdfb438029c7006bf9831bb393bbb599511088dec2e9e751bb006a1ee03a9cd"
+    },
+    {
+      "file": "screenshots/review-360.png",
+      "width": 360,
+      "height": 8765,
+      "sha256": "55f071e0fcf95f40681bcc3a5adb5a64b39c7b056e0c6bf10331860f8c8c0acb"
+    },
+    {
+      "file": "screenshots/review-768.png",
+      "width": 768,
+      "height": 6058,
+      "sha256": "e54a6d4e5b4edeb022299bc2e74fc7623e27ebb1289bda6382d5ada931c606fa"
+    },
+    {
+      "file": "screenshots/schedule-1280.png",
+      "width": 1280,
+      "height": 6876,
+      "sha256": "e501fa734d31e3e6bebe7231390629f4daeaaef01c69bdafff9ae791d54568d2"
+    },
+    {
+      "file": "screenshots/schedule-360.png",
+      "width": 360,
+      "height": 12900,
+      "sha256": "39b8a85577add0bdac4868de584c192e562f62a315dd2177dec0b1b31fdb5d96"
+    },
+    {
+      "file": "screenshots/schedule-768.png",
+      "width": 768,
+      "height": 8930,
+      "sha256": "c3647a6b0d1ba40e691d12fbc88bd1114b076855396dbe5097ac9218c637da47"
+    }
+  ],
+  "validators": [
+    {
+      "page": "index.html",
+      "pdf": "checks/validator-index.pdf",
+      "pdfSha256": "337cf30f42659e1ddc2d0e189738a3466238eabbec994e60ed00f57708d7534a",
+      "png": "checks/validator-index.png",
+      "pngSha256": "fc689ccee20479cca67e3adcd6526d4ff32112c3165c505e17f07045f6f06975",
+      "provenance": "User-run W3C Nu File Upload result printed to PDF; PNG rendered by pdftoppm at 150 dpi; no new validator run claimed.",
+      "text": "11/8/26, 9:58 PM                                Showing results for index.html (checked with vnu 26.11.5) - Nu Html Checker\r\n\r\n\r\n\r\n\r\n        Nu Html Checker\r\n      This tool is an ongoing experiment in better HTML checking, and its behavior remains subject\r\n      to change\r\n      Showing results for index.html (checked with vnu 26.11.5)\r\n\r\n        Checker Input\r\n\r\n        Show            source      outline        image report          errors & warnings only        Options…\r\n\r\n\r\n\r\n        Check by file upload                Choose File No file chosen\r\n\r\n\r\n        Uploaded files with .xhtml or .xht extensions are parsed using the XML parser.\r\n\r\n             Check\r\n\r\n\r\n\r\n\r\n       Document checking completed. No errors or warnings to show.\r\n\r\n     Used the HTML parser.\r\n     Total execution time 9 milliseconds.\r\n\r\n\r\n\r\n\r\n     About this checker • Report an issue\r\n\r\n\r\n\r\n\r\nhttps://validator.w3.org/nu/#file                                                                                             1/1\r\n\f"
+    },
+    {
+      "page": "review.html",
+      "pdf": "checks/validator-review.pdf",
+      "pdfSha256": "55d7ca482c2d6fa632cf5db109af89e4a63ea1a061aa0c3cafdc5b94c1f730b2",
+      "png": "checks/validator-review.png",
+      "pngSha256": "bdab2935fae76270cf641e69a27c433344ba20a2ffa9a1398f15279072e8ee39",
+      "provenance": "User-run W3C Nu File Upload result printed to PDF; PNG rendered by pdftoppm at 150 dpi; no new validator run claimed.",
+      "text": "11/9/26, 1:09 PM                              Showing results for review.html (checked with vnu 26.11.9) - Nu Html Checker\r\n\r\n\r\n\r\n\r\n        Nu Html Checker\r\n      This tool is an ongoing experiment in better HTML checking, and its behavior remains subject\r\n      to change\r\n      Showing results for review.html (checked with vnu 26.11.9)\r\n\r\n        Checker Input\r\n\r\n        Show            source      outline       image report          errors & warnings only       Options…\r\n\r\n\r\n\r\n        Check by file upload              Choose File No file chosen\r\n\r\n\r\n        Uploaded files with .xhtml or .xht extensions are parsed using the XML parser.\r\n\r\n             Check\r\n\r\n\r\n\r\n\r\n       Document checking completed. No errors or warnings to show.\r\n\r\n     Used the HTML parser.\r\n     Total execution time 12 milliseconds.\r\n\r\n\r\n\r\n\r\n     About this checker • Report an issue\r\n\r\n\r\n\r\n\r\nhttps://validator.w3.org/nu/#file                                                                                            1/1\r\n\f"
+    },
+    {
+      "page": "schedule.html",
+      "pdf": "checks/validator-schedule.pdf",
+      "pdfSha256": "116f441f4faaaa645fcc9253946daeca6f2899326e91e8798f8e6770a484c232",
+      "png": "checks/validator-schedule.png",
+      "pngSha256": "cb0620c16aefa1cb7372d873f52eb8746958648b664200feeacc9d642133db25",
+      "provenance": "User-run W3C Nu File Upload result printed to PDF; PNG rendered by pdftoppm at 150 dpi; no new validator run claimed.",
+      "text": "11/9/26, 1:02 PM                              Showing results for schedule.html (checked with vnu 26.11.9) - Nu Html Checker\r\n\r\n\r\n\r\n\r\n        Nu Html Checker\r\n      This tool is an ongoing experiment in better HTML checking, and its behavior remains subject\r\n      to change\r\n      Showing results for schedule.html (checked with vnu 26.11.9)\r\n\r\n        Checker Input\r\n\r\n        Show            source      outline        image report          errors & warnings only       Options…\r\n\r\n\r\n\r\n        Check by file upload              Choose File No file chosen\r\n\r\n\r\n        Uploaded files with .xhtml or .xht extensions are parsed using the XML parser.\r\n\r\n             Check\r\n\r\n\r\n\r\n\r\n       Document checking completed. No errors or warnings to show.\r\n\r\n     Used the HTML parser.\r\n     Total execution time 19 milliseconds.\r\n\r\n\r\n\r\n\r\n     About this checker • Report an issue\r\n\r\n\r\n\r\n\r\nhttps://validator.w3.org/nu/#file                                                                                              1/1\r\n\f"
+    }
+  ],
+  "gitHistory": [
+    "c2cbe6f | Thái Quang Huy | docs: establish ClubFlow PA2 rules and source of truth",
+    "8b6babc | Thái Quang Huy | docs: establish ClubFlow PA2 rules and source of truth",
+    "39ad2e5 | Thái Quang Huy | style: establish shared mobile-first design system",
+    "c9c2f11 | Thái Quang Huy | feat: implement recruitment campaign screen",
+    "a5587fa | Quang Huy | Merge pull request #1 from ThaiQuangHuy2906/pa2/huy-campaign",
+    "c0b5867 | Thái Quang Huy | docs: add campaign screenshots and validation evidence",
+    "cb20354 | KoKoNut | feat: add HOC-01 application review",
+    "436dfaa | Phuc Tran | feat: add interview scheduling screen content",
+    "8c48d3d | Phuc Tran | style: add responsive styles for interview scheduling",
+    "b8cd41e | Phuc Tran | docs: add Phuc prompt log and AI log for scheduling screen",
+    "21cc6f5 | Phuc Tran | docs: shorten Phuc AI log to the course template",
+    "63cda2d | Phuc Tran | fix: per-application edit forms and interviewer configuration",
+    "e1fe272 | Phuc Tran | style: add group label style for interviewer configuration",
+    "941aa15 | Phuc Tran | docs: log review fixes and later prompts for scheduling screen",
+    "a7c8ebc | KoKoNut | Merge branch 'main' of https://github.com/ThaiQuangHuy2906/clubflow into pa2/hoc-review",
+    "f1dbff3 | KoKoNut | feat: complete HOC-01 review feedback and screenshots",
+    "5c88880 | KoKoNut | docs: record HOC-01 PR handoff",
+    "fee77ae | Quang Huy | Merge pull request #3 from ThaiQuangHuy2906/pa2/phuc-schedule",
+    "4c90e73 | Quang Huy | Merge pull request #2 from ThaiQuangHuy2906/pa2/hoc-review",
+    "d0426d7 | Thái Quang Huy | fix: update review footer and validation evidence"
+  ],
+  "devtoolsFollowUp": {
+    "date": "2026-11-09",
+    "observations": "checks/devtools-inspection.json",
+    "scope": "Actual bundled DevTools UI; Accessibility and default-state Color Picker. Extra hover probes are diagnostics only.",
+    "hashes": {
+      "checks/accessibility-index.png": "f47738bc5569225b1af1d18e03ce12969c956507c918d302a97ab1c93f77340a",
+      "checks/accessibility-review.png": "a14aa3e9ff3794d1b00795d829dc92e5acea6c60553edecaa63d196732325db7",
+      "checks/accessibility-schedule.png": "b7778afca048718133691e2a912ab9c68a29e613de60cb2ab3ec82475eae2a41",
+      "checks/contrast-index.png": "c00bab28a1eabae1240f1b6cc182724523d64a8690d7b3c3ab5e641c64a33ad9",
+      "checks/contrast-review.png": "fa5a760a7653a7ca99518b38119e4aed45693232cf66da31e31c3578fbf8c0ee",
+      "checks/contrast-schedule.png": "03b7aac9a33b43243e6ca0f58428df70ce2cac3a1c8a892cf1e47da965127abd",
+      "checks/devtools-inspection.json": "0cf44d2945555c5230c527caf27fbc27039eaff85a80795d520f891c3d3b9fdc"
+    }
+  },
+  "packagePreflight": {
+    "date": "2026-11-09",
+    "record": "checks/package-preflight.json",
+    "sha256": "07ad07a6073fdaed1345efda418900162d4667ddac3ad1f9384be9c1c293fb2b"
+  }
+}

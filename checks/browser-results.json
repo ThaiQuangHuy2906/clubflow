@@ -1,0 +1,1113 @@
+{
+  "sourceCommit": "d0426d7",
+  "date": "2026-11-09",
+  "mode": "Direct file URLs; isolated Chrome; offline=true; javaScriptEnabled=false; viewport height 900; DPR 1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+  "pageScriptSentinel": "blocked",
+  "measurements": [
+    {
+      "page": "index.html",
+      "requestedWidth": 360,
+      "clientWidth": 360,
+      "scrollWidth": 360,
+      "scrollHeight": 8132,
+      "devicePixelRatio": 1,
+      "overflow": false,
+      "rightOverflow": [],
+      "targetCount": 10,
+      "minTargetHeight": 44,
+      "smallTargets": [],
+      "minTextSize": 16,
+      "minComputedContrast": 6.157973971775643,
+      "lowContrast": [],
+      "h1Count": 1,
+      "headingSkips": [],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Create Recruitment Campaign"
+        },
+        {
+          "level": 2,
+          "text": "Thông tin chiến dịch"
+        },
+        {
+          "level": 2,
+          "text": "Bộ phận & vị trí"
+        },
+        {
+          "level": 3,
+          "text": "Biên tập nội dung"
+        },
+        {
+          "level": 3,
+          "text": "Truyền thông số"
+        },
+        {
+          "level": 3,
+          "text": "Điều phối sự kiện"
+        },
+        {
+          "level": 3,
+          "text": "Thiết kế truyền thông"
+        },
+        {
+          "level": 2,
+          "text": "Khung giờ phỏng vấn"
+        },
+        {
+          "level": 2,
+          "text": "Kiểm tra trước khi công bố"
+        },
+        {
+          "level": 2,
+          "text": "Các mốc đã thống nhất"
+        },
+        {
+          "level": 2,
+          "text": "Tuyển thành viên CLB Sáng tạo 2026"
+        },
+        {
+          "level": 2,
+          "text": "Sẵn sàng cho bước tiếp theo"
+        },
+        {
+          "level": 2,
+          "text": "Application Review"
+        }
+      ],
+      "controlCount": 26,
+      "unlabelled": [],
+      "imagesWithoutAlt": [],
+      "wrappers": [],
+      "stylesheets": [
+        "css/styles.css",
+        "css/campaign.css"
+      ],
+      "scriptCount": 0,
+      "footer": "ClubFlow · CF-2026-01 · CLB Sáng tạo Sinh viên\n\nPA#2 · Prototype tĩnh cho vai trò Executive · Dữ liệu minh họa",
+      "screenshot": "screenshots/index-360.png"
+    },
+    {
+      "page": "index.html",
+      "requestedWidth": 768,
+      "clientWidth": 768,
+      "scrollWidth": 768,
+      "scrollHeight": 5460,
+      "devicePixelRatio": 1,
+      "overflow": false,
+      "rightOverflow": [],
+      "targetCount": 10,
+      "minTargetHeight": 44,
+      "smallTargets": [],
+      "minTextSize": 16,
+      "minComputedContrast": 6.157973971775643,
+      "lowContrast": [],
+      "h1Count": 1,
+      "headingSkips": [],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Create Recruitment Campaign"
+        },
+        {
+          "level": 2,
+          "text": "Thông tin chiến dịch"
+        },
+        {
+          "level": 2,
+          "text": "Bộ phận & vị trí"
+        },
+        {
+          "level": 3,
+          "text": "Biên tập nội dung"
+        },
+        {
+          "level": 3,
+          "text": "Truyền thông số"
+        },
+        {
+          "level": 3,
+          "text": "Điều phối sự kiện"
+        },
+        {
+          "level": 3,
+          "text": "Thiết kế truyền thông"
+        },
+        {
+          "level": 2,
+          "text": "Khung giờ phỏng vấn"
+        },
+        {
+          "level": 2,
+          "text": "Kiểm tra trước khi công bố"
+        },
+        {
+          "level": 2,
+          "text": "Các mốc đã thống nhất"
+        },
+        {
+          "level": 2,
+          "text": "Tuyển thành viên CLB Sáng tạo 2026"
+        },
+        {
+          "level": 2,
+          "text": "Sẵn sàng cho bước tiếp theo"
+        },
+        {
+          "level": 2,
+          "text": "Application Review"
+        }
+      ],
+      "controlCount": 26,
+      "unlabelled": [],
+      "imagesWithoutAlt": [],
+      "wrappers": [],
+      "stylesheets": [
+        "css/styles.css",
+        "css/campaign.css"
+      ],
+      "scriptCount": 0,
+      "footer": "ClubFlow · CF-2026-01 · CLB Sáng tạo Sinh viên\n\nPA#2 · Prototype tĩnh cho vai trò Executive · Dữ liệu minh họa",
+      "screenshot": "screenshots/index-768.png"
+    },
+    {
+      "page": "index.html",
+      "requestedWidth": 1280,
+      "clientWidth": 1280,
+      "scrollWidth": 1280,
+      "scrollHeight": 3892,
+      "devicePixelRatio": 1,
+      "overflow": false,
+      "rightOverflow": [],
+      "targetCount": 10,
+      "minTargetHeight": 44,
+      "smallTargets": [],
+      "minTextSize": 16,
+      "minComputedContrast": 6.157973971775643,
+      "lowContrast": [],
+      "h1Count": 1,
+      "headingSkips": [],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Create Recruitment Campaign"
+        },
+        {
+          "level": 2,
+          "text": "Thông tin chiến dịch"
+        },
+        {
+          "level": 2,
+          "text": "Bộ phận & vị trí"
+        },
+        {
+          "level": 3,
+          "text": "Biên tập nội dung"
+        },
+        {
+          "level": 3,
+          "text": "Truyền thông số"
+        },
+        {
+          "level": 3,
+          "text": "Điều phối sự kiện"
+        },
+        {
+          "level": 3,
+          "text": "Thiết kế truyền thông"
+        },
+        {
+          "level": 2,
+          "text": "Khung giờ phỏng vấn"
+        },
+        {
+          "level": 2,
+          "text": "Kiểm tra trước khi công bố"
+        },
+        {
+          "level": 2,
+          "text": "Các mốc đã thống nhất"
+        },
+        {
+          "level": 2,
+          "text": "Tuyển thành viên CLB Sáng tạo 2026"
+        },
+        {
+          "level": 2,
+          "text": "Sẵn sàng cho bước tiếp theo"
+        },
+        {
+          "level": 2,
+          "text": "Application Review"
+        }
+      ],
+      "controlCount": 26,
+      "unlabelled": [],
+      "imagesWithoutAlt": [],
+      "wrappers": [],
+      "stylesheets": [
+        "css/styles.css",
+        "css/campaign.css"
+      ],
+      "scriptCount": 0,
+      "footer": "ClubFlow · CF-2026-01 · CLB Sáng tạo Sinh viên\n\nPA#2 · Prototype tĩnh cho vai trò Executive · Dữ liệu minh họa",
+      "screenshot": "screenshots/index-1280.png"
+    },
+    {
+      "page": "review.html",
+      "requestedWidth": 360,
+      "clientWidth": 360,
+      "scrollWidth": 360,
+      "scrollHeight": 8765,
+      "devicePixelRatio": 1,
+      "overflow": false,
+      "rightOverflow": [],
+      "targetCount": 31,
+      "minTargetHeight": 44,
+      "smallTargets": [],
+      "minTextSize": 16,
+      "minComputedContrast": 6.157973971775643,
+      "lowContrast": [],
+      "h1Count": 1,
+      "headingSkips": [],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Application Review"
+        },
+        {
+          "level": 2,
+          "text": "Campaign review overview"
+        },
+        {
+          "level": 2,
+          "text": "Search, filters and list tools"
+        },
+        {
+          "level": 2,
+          "text": "Application list"
+        },
+        {
+          "level": 3,
+          "text": "A01 Nguyễn Thị Minh Anh Phương Thảo"
+        },
+        {
+          "level": 3,
+          "text": "A02 Nguyễn Thị Minh Anh Phương Thảo"
+        },
+        {
+          "level": 3,
+          "text": "A03 Trần Hồng Ngọc"
+        },
+        {
+          "level": 3,
+          "text": "A04 Lê Bảo Trâm"
+        },
+        {
+          "level": 3,
+          "text": "A05 Phạm Quốc Bảo"
+        },
+        {
+          "level": 3,
+          "text": "A06 Võ Hoàng Long"
+        },
+        {
+          "level": 3,
+          "text": "A07 Đặng Thanh Tuyền"
+        },
+        {
+          "level": 3,
+          "text": "A08 Bùi Nhật Khánh"
+        },
+        {
+          "level": 2,
+          "text": "Application details"
+        },
+        {
+          "level": 3,
+          "text": "A01 — Application for Nội dung"
+        },
+        {
+          "level": 4,
+          "text": "Nguyễn Thị Minh Anh Phương Thảo"
+        },
+        {
+          "level": 5,
+          "text": "Profile"
+        },
+        {
+          "level": 5,
+          "text": "Illustrative experience"
+        },
+        {
+          "level": 5,
+          "text": "Skills shown in this sample"
+        },
+        {
+          "level": 4,
+          "text": "Motivation statement"
+        },
+        {
+          "level": 4,
+          "text": "Review milestones"
+        },
+        {
+          "level": 3,
+          "text": "A02 — Application for Truyền thông"
+        },
+        {
+          "level": 4,
+          "text": "Motivation statement"
+        },
+        {
+          "level": 4,
+          "text": "Review milestones"
+        },
+        {
+          "level": 3,
+          "text": "A03 — Application for Sự kiện"
+        },
+        {
+          "level": 4,
+          "text": "Motivation statement"
+        },
+        {
+          "level": 4,
+          "text": "Review milestones"
+        },
+        {
+          "level": 3,
+          "text": "A04 — Application for Thiết kế"
+        },
+        {
+          "level": 4,
+          "text": "Motivation statement"
+        },
+        {
+          "level": 4,
+          "text": "Review milestones"
+        },
+        {
+          "level": 3,
+          "text": "A05 — Application for Nội dung"
+        },
+        {
+          "level": 4,
+          "text": "Motivation statement"
+        },
+        {
+          "level": 4,
+          "text": "Review milestones"
+        },
+        {
+          "level": 3,
+          "text": "A06 — Application for Thiết kế"
+        },
+        {
+          "level": 4,
+          "text": "Motivation statement"
+        },
+        {
+          "level": 4,
+          "text": "Review milestones"
+        },
+        {
+          "level": 3,
+          "text": "A07 — Application for Sự kiện"
+        },
+        {
+          "level": 4,
+          "text": "Motivation statement"
+        },
+        {
+          "level": 4,
+          "text": "Review milestones"
+        },
+        {
+          "level": 3,
+          "text": "A08 — Application for Truyền thông"
+        },
+        {
+          "level": 4,
+          "text": "Motivation statement"
+        },
+        {
+          "level": 4,
+          "text": "Review milestones"
+        }
+      ],
+      "controlCount": 12,
+      "unlabelled": [],
+      "imagesWithoutAlt": [],
+      "wrappers": [],
+      "stylesheets": [
+        "css/styles.css",
+        "css/review.css"
+      ],
+      "scriptCount": 0,
+      "footer": "ClubFlow PA#2 static prototype · Campaign CF-2026-01 · Sample review snapshot dated 21–22 Nov 2026.\n\nScheduling handoff includes only shortlisted applications: A01, A02, A03, A04 and A05.",
+      "screenshot": "screenshots/review-360.png"
+    },
+    {
+      "page": "review.html",
+      "requestedWidth": 768,
+      "clientWidth": 768,
+      "scrollWidth": 768,
+      "scrollHeight": 6058,
+      "devicePixelRatio": 1,
+      "overflow": false,
+      "rightOverflow": [],
+      "targetCount": 31,
+      "minTargetHeight": 44,
+      "smallTargets": [],
+      "minTextSize": 16,
+      "minComputedContrast": 6.157973971775643,
+      "lowContrast": [],
+      "h1Count": 1,
+      "headingSkips": [],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Application Review"
+        },
+        {
+          "level": 2,
+          "text": "Campaign review overview"
+        },
+        {
+          "level": 2,
+          "text": "Search, filters and list tools"
+        },
+        {
+          "level": 2,
+          "text": "Application list"
+        },
+        {
+          "level": 3,
+          "text": "A01 Nguyễn Thị Minh Anh Phương Thảo"
+        },
+        {
+          "level": 3,
+          "text": "A02 Nguyễn Thị Minh Anh Phương Thảo"
+        },
+        {
+          "level": 3,
+          "text": "A03 Trần Hồng Ngọc"
+        },
+        {
+          "level": 3,
+          "text": "A04 Lê Bảo Trâm"
+        },
+        {
+          "level": 3,
+          "text": "A05 Phạm Quốc Bảo"
+        },
+        {
+          "level": 3,
+          "text": "A06 Võ Hoàng Long"
+        },
+        {
+          "level": 3,
+          "text": "A07 Đặng Thanh Tuyền"
+        },
+        {
+          "level": 3,
+          "text": "A08 Bùi Nhật Khánh"
+        },
+        {
+          "level": 2,
+          "text": "Application details"
+        },
+        {
+          "level": 3,
+          "text": "A01 — Application for Nội dung"
+        },
+        {
+          "level": 4,
+          "text": "Nguyễn Thị Minh Anh Phương Thảo"
+        },
+        {
+          "level": 5,
+          "text": "Profile"
+        },
+        {
+          "level": 5,
+          "text": "Illustrative experience"
+        },
+        {
+          "level": 5,
+          "text": "Skills shown in this sample"
+        },
+        {
+          "level": 4,
+          "text": "Motivation statement"
+        },
+        {
+          "level": 4,
+          "text": "Review milestones"
+        },
+        {
+          "level": 3,
+          "text": "A02 — Application for Truyền thông"
+        },
+        {
+          "level": 4,
+          "text": "Motivation statement"
+        },
+        {
+          "level": 4,
+          "text": "Review milestones"
+        },
+        {
+          "level": 3,
+          "text": "A03 — Application for Sự kiện"
+        },
+        {
+          "level": 4,
+          "text": "Motivation statement"
+        },
+        {
+          "level": 4,
+          "text": "Review milestones"
+        },
+        {
+          "level": 3,
+          "text": "A04 — Application for Thiết kế"
+        },
+        {
+          "level": 4,
+          "text": "Motivation statement"
+        },
+        {
+          "level": 4,
+          "text": "Review milestones"
+        },
+        {
+          "level": 3,
+          "text": "A05 — Application for Nội dung"
+        },
+        {
+          "level": 4,
+          "text": "Motivation statement"
+        },
+        {
+          "level": 4,
+          "text": "Review milestones"
+        },
+        {
+          "level": 3,
+          "text": "A06 — Application for Thiết kế"
+        },
+        {
+          "level": 4,
+          "text": "Motivation statement"
+        },
+        {
+          "level": 4,
+          "text": "Review milestones"
+        },
+        {
+          "level": 3,
+          "text": "A07 — Application for Sự kiện"
+        },
+        {
+          "level": 4,
+          "text": "Motivation statement"
+        },
+        {
+          "level": 4,
+          "text": "Review milestones"
+        },
+        {
+          "level": 3,
+          "text": "A08 — Application for Truyền thông"
+        },
+        {
+          "level": 4,
+          "text": "Motivation statement"
+        },
+        {
+          "level": 4,
+          "text": "Review milestones"
+        }
+      ],
+      "controlCount": 12,
+      "unlabelled": [],
+      "imagesWithoutAlt": [],
+      "wrappers": [],
+      "stylesheets": [
+        "css/styles.css",
+        "css/review.css"
+      ],
+      "scriptCount": 0,
+      "footer": "ClubFlow PA#2 static prototype · Campaign CF-2026-01 · Sample review snapshot dated 21–22 Nov 2026.\n\nScheduling handoff includes only shortlisted applications: A01, A02, A03, A04 and A05.",
+      "screenshot": "screenshots/review-768.png"
+    },
+    {
+      "page": "review.html",
+      "requestedWidth": 1280,
+      "clientWidth": 1280,
+      "scrollWidth": 1280,
+      "scrollHeight": 3670,
+      "devicePixelRatio": 1,
+      "overflow": false,
+      "rightOverflow": [],
+      "targetCount": 31,
+      "minTargetHeight": 44,
+      "smallTargets": [],
+      "minTextSize": 16,
+      "minComputedContrast": 6.157973971775643,
+      "lowContrast": [],
+      "h1Count": 1,
+      "headingSkips": [],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Application Review"
+        },
+        {
+          "level": 2,
+          "text": "Campaign review overview"
+        },
+        {
+          "level": 2,
+          "text": "Search, filters and list tools"
+        },
+        {
+          "level": 2,
+          "text": "Application list"
+        },
+        {
+          "level": 3,
+          "text": "A01 Nguyễn Thị Minh Anh Phương Thảo"
+        },
+        {
+          "level": 3,
+          "text": "A02 Nguyễn Thị Minh Anh Phương Thảo"
+        },
+        {
+          "level": 3,
+          "text": "A03 Trần Hồng Ngọc"
+        },
+        {
+          "level": 3,
+          "text": "A04 Lê Bảo Trâm"
+        },
+        {
+          "level": 3,
+          "text": "A05 Phạm Quốc Bảo"
+        },
+        {
+          "level": 3,
+          "text": "A06 Võ Hoàng Long"
+        },
+        {
+          "level": 3,
+          "text": "A07 Đặng Thanh Tuyền"
+        },
+        {
+          "level": 3,
+          "text": "A08 Bùi Nhật Khánh"
+        },
+        {
+          "level": 2,
+          "text": "Application details"
+        },
+        {
+          "level": 3,
+          "text": "A01 — Application for Nội dung"
+        },
+        {
+          "level": 4,
+          "text": "Nguyễn Thị Minh Anh Phương Thảo"
+        },
+        {
+          "level": 5,
+          "text": "Profile"
+        },
+        {
+          "level": 5,
+          "text": "Illustrative experience"
+        },
+        {
+          "level": 5,
+          "text": "Skills shown in this sample"
+        },
+        {
+          "level": 4,
+          "text": "Motivation statement"
+        },
+        {
+          "level": 4,
+          "text": "Review milestones"
+        },
+        {
+          "level": 3,
+          "text": "A02 — Application for Truyền thông"
+        },
+        {
+          "level": 4,
+          "text": "Motivation statement"
+        },
+        {
+          "level": 4,
+          "text": "Review milestones"
+        },
+        {
+          "level": 3,
+          "text": "A03 — Application for Sự kiện"
+        },
+        {
+          "level": 4,
+          "text": "Motivation statement"
+        },
+        {
+          "level": 4,
+          "text": "Review milestones"
+        },
+        {
+          "level": 3,
+          "text": "A04 — Application for Thiết kế"
+        },
+        {
+          "level": 4,
+          "text": "Motivation statement"
+        },
+        {
+          "level": 4,
+          "text": "Review milestones"
+        },
+        {
+          "level": 3,
+          "text": "A05 — Application for Nội dung"
+        },
+        {
+          "level": 4,
+          "text": "Motivation statement"
+        },
+        {
+          "level": 4,
+          "text": "Review milestones"
+        },
+        {
+          "level": 3,
+          "text": "A06 — Application for Thiết kế"
+        },
+        {
+          "level": 4,
+          "text": "Motivation statement"
+        },
+        {
+          "level": 4,
+          "text": "Review milestones"
+        },
+        {
+          "level": 3,
+          "text": "A07 — Application for Sự kiện"
+        },
+        {
+          "level": 4,
+          "text": "Motivation statement"
+        },
+        {
+          "level": 4,
+          "text": "Review milestones"
+        },
+        {
+          "level": 3,
+          "text": "A08 — Application for Truyền thông"
+        },
+        {
+          "level": 4,
+          "text": "Motivation statement"
+        },
+        {
+          "level": 4,
+          "text": "Review milestones"
+        }
+      ],
+      "controlCount": 12,
+      "unlabelled": [],
+      "imagesWithoutAlt": [],
+      "wrappers": [],
+      "stylesheets": [
+        "css/styles.css",
+        "css/review.css"
+      ],
+      "scriptCount": 0,
+      "footer": "ClubFlow PA#2 static prototype · Campaign CF-2026-01 · Sample review snapshot dated 21–22 Nov 2026.\n\nScheduling handoff includes only shortlisted applications: A01, A02, A03, A04 and A05.",
+      "screenshot": "screenshots/review-1280.png"
+    },
+    {
+      "page": "schedule.html",
+      "requestedWidth": 360,
+      "clientWidth": 360,
+      "scrollWidth": 360,
+      "scrollHeight": 12900,
+      "devicePixelRatio": 1,
+      "overflow": false,
+      "rightOverflow": [],
+      "targetCount": 20,
+      "minTargetHeight": 44,
+      "smallTargets": [],
+      "minTextSize": 16,
+      "minComputedContrast": 6.157973971775643,
+      "lowContrast": [],
+      "h1Count": 1,
+      "headingSkips": [],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Interview Scheduling"
+        },
+        {
+          "level": 2,
+          "text": "Bản nháp lịch phỏng vấn"
+        },
+        {
+          "level": 3,
+          "text": "Cần xử lý trước khi xác nhận: A01, A03 và A05"
+        },
+        {
+          "level": 2,
+          "text": "Approve & Confirm Schedule"
+        },
+        {
+          "level": 2,
+          "text": "Cài đặt lịch phỏng vấn"
+        },
+        {
+          "level": 2,
+          "text": "Giờ rảnh của ứng viên ngày 24/11/2026"
+        },
+        {
+          "level": 2,
+          "text": "Cấu hình interviewer: vị trí phụ trách và giờ rảnh"
+        },
+        {
+          "level": 2,
+          "text": "Chỉnh sửa lịch từng hồ sơ"
+        },
+        {
+          "level": 2,
+          "text": "After resolution (illustrative state)"
+        },
+        {
+          "level": 3,
+          "text": "Các thay đổi đề xuất"
+        }
+      ],
+      "controlCount": 48,
+      "unlabelled": [],
+      "imagesWithoutAlt": [],
+      "wrappers": [
+        {
+          "name": "Bản nháp lịch phỏng vấn ngày 24/11/2026",
+          "clientWidth": 292,
+          "scrollWidth": 896,
+          "tabindex": 0
+        },
+        {
+          "name": "Giờ rảnh của ứng viên",
+          "clientWidth": 292,
+          "scrollWidth": 384,
+          "tabindex": 0
+        },
+        {
+          "name": "Lịch phỏng vấn sau khi xử lý",
+          "clientWidth": 292,
+          "scrollWidth": 896,
+          "tabindex": 0
+        }
+      ],
+      "stylesheets": [
+        "css/styles.css",
+        "css/schedule.css"
+      ],
+      "scriptCount": 0,
+      "footer": "Prototype tĩnh PA#2 · Chiến dịch CF-2026-01 · Tất cả dữ liệu là dữ liệu mẫu, không phải thông tin sinh viên thật.",
+      "screenshot": "screenshots/schedule-360.png"
+    },
+    {
+      "page": "schedule.html",
+      "requestedWidth": 768,
+      "clientWidth": 768,
+      "scrollWidth": 768,
+      "scrollHeight": 8930,
+      "devicePixelRatio": 1,
+      "overflow": false,
+      "rightOverflow": [],
+      "targetCount": 20,
+      "minTargetHeight": 44,
+      "smallTargets": [],
+      "minTextSize": 16,
+      "minComputedContrast": 6.157973971775643,
+      "lowContrast": [],
+      "h1Count": 1,
+      "headingSkips": [],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Interview Scheduling"
+        },
+        {
+          "level": 2,
+          "text": "Bản nháp lịch phỏng vấn"
+        },
+        {
+          "level": 3,
+          "text": "Cần xử lý trước khi xác nhận: A01, A03 và A05"
+        },
+        {
+          "level": 2,
+          "text": "Approve & Confirm Schedule"
+        },
+        {
+          "level": 2,
+          "text": "Cài đặt lịch phỏng vấn"
+        },
+        {
+          "level": 2,
+          "text": "Giờ rảnh của ứng viên ngày 24/11/2026"
+        },
+        {
+          "level": 2,
+          "text": "Cấu hình interviewer: vị trí phụ trách và giờ rảnh"
+        },
+        {
+          "level": 2,
+          "text": "Chỉnh sửa lịch từng hồ sơ"
+        },
+        {
+          "level": 2,
+          "text": "After resolution (illustrative state)"
+        },
+        {
+          "level": 3,
+          "text": "Các thay đổi đề xuất"
+        }
+      ],
+      "controlCount": 48,
+      "unlabelled": [],
+      "imagesWithoutAlt": [],
+      "wrappers": [
+        {
+          "name": "Bản nháp lịch phỏng vấn ngày 24/11/2026",
+          "clientWidth": 668,
+          "scrollWidth": 896,
+          "tabindex": 0
+        },
+        {
+          "name": "Giờ rảnh của ứng viên",
+          "clientWidth": 300,
+          "scrollWidth": 384,
+          "tabindex": 0
+        },
+        {
+          "name": "Lịch phỏng vấn sau khi xử lý",
+          "clientWidth": 668,
+          "scrollWidth": 896,
+          "tabindex": 0
+        }
+      ],
+      "stylesheets": [
+        "css/styles.css",
+        "css/schedule.css"
+      ],
+      "scriptCount": 0,
+      "footer": "Prototype tĩnh PA#2 · Chiến dịch CF-2026-01 · Tất cả dữ liệu là dữ liệu mẫu, không phải thông tin sinh viên thật.",
+      "screenshot": "screenshots/schedule-768.png"
+    },
+    {
+      "page": "schedule.html",
+      "requestedWidth": 1280,
+      "clientWidth": 1280,
+      "scrollWidth": 1280,
+      "scrollHeight": 6876,
+      "devicePixelRatio": 1,
+      "overflow": false,
+      "rightOverflow": [],
+      "targetCount": 20,
+      "minTargetHeight": 44,
+      "smallTargets": [],
+      "minTextSize": 16,
+      "minComputedContrast": 6.157973971775643,
+      "lowContrast": [],
+      "h1Count": 1,
+      "headingSkips": [],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Interview Scheduling"
+        },
+        {
+          "level": 2,
+          "text": "Bản nháp lịch phỏng vấn"
+        },
+        {
+          "level": 3,
+          "text": "Cần xử lý trước khi xác nhận: A01, A03 và A05"
+        },
+        {
+          "level": 2,
+          "text": "Approve & Confirm Schedule"
+        },
+        {
+          "level": 2,
+          "text": "Cài đặt lịch phỏng vấn"
+        },
+        {
+          "level": 2,
+          "text": "Giờ rảnh của ứng viên ngày 24/11/2026"
+        },
+        {
+          "level": 2,
+          "text": "Cấu hình interviewer: vị trí phụ trách và giờ rảnh"
+        },
+        {
+          "level": 2,
+          "text": "Chỉnh sửa lịch từng hồ sơ"
+        },
+        {
+          "level": 2,
+          "text": "After resolution (illustrative state)"
+        },
+        {
+          "level": 3,
+          "text": "Các thay đổi đề xuất"
+        }
+      ],
+      "controlCount": 48,
+      "unlabelled": [],
+      "imagesWithoutAlt": [],
+      "wrappers": [
+        {
+          "name": "Bản nháp lịch phỏng vấn ngày 24/11/2026",
+          "clientWidth": 1164,
+          "scrollWidth": 1164,
+          "tabindex": 0
+        },
+        {
+          "name": "Giờ rảnh của ứng viên",
+          "clientWidth": 548,
+          "scrollWidth": 548,
+          "tabindex": 0
+        },
+        {
+          "name": "Lịch phỏng vấn sau khi xử lý",
+          "clientWidth": 1164,
+          "scrollWidth": 1164,
+          "tabindex": 0
+        }
+      ],
+      "stylesheets": [
+        "css/styles.css",
+        "css/schedule.css"
+      ],
+      "scriptCount": 0,
+      "footer": "Prototype tĩnh PA#2 · Chiến dịch CF-2026-01 · Tất cả dữ liệu là dữ liệu mẫu, không phải thông tin sinh viên thật.",
+      "screenshot": "screenshots/schedule-1280.png"
+    }
+  ]
+}
