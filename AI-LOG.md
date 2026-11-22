@@ -119,3 +119,26 @@ Huy subsequently answered “Không còn bản đầy đủ” (the complete rec
 Windows tar failed to resolve the Vietnamese parent path; standard Python ZIP creation succeeded. An initial `cssRules` read was blocked by file-URL origin restrictions; the corrected check confirmed stylesheet order/rendered styles and exact image equality instead. These tooling failures did not change the application or weaken the required layout checks.
 
 **Rejected:** GitHub Download ZIP/`git archive` because they omit `.git`, packaging from a fresh clone, including unrelated temporary tools, silently overwriting an existing submission archive, and claiming student-account submission or a new W3C check. Final archive creation is outside the repository, followed by a fresh extraction check.
+
+## PA#3
+
+### 2026-11-23 — Task 0 · Planning and team setup
+
+**Tool and request.** Codex. Inspect the course requirements, checker and PA2 repository. Plan C1–C11 for three branches and update only the four planning/evidence files. The actual request is in `brief.md`.
+
+**Changed.** Created `PA3_PLAN.md` with routes, owners, shared interfaces, a proposed deterministic demo clock, contract-first gates and release checks. Replaced the PA2 rules in `AGENTS.md` and the PA2 brief with the exact Task 0 message, including its original Markdown escapes. Appended this entry to the PA2 log.
+
+**Checks.** Read both supplied PDFs, the checker guide and script. Inspected the PA2 pages, CSS, prototype notes, rules, historical document structure and local Git history. Compared the brief character for character with the sent message, the original PA2 log bytes with `HEAD`, and the four supplied file hashes before/after. Checked C1–C11 ownership, local links, planned demo accounts/modes, Git status and the diff. Build, browser, W3C and live contract checks belong to later phases.
+
+**Rejected and corrections.** No user rejection or corrective prompt. The first transcript reader encountered a Windows sharing error before writing. Codex switched to a shared read and verified exact equality. An editorial shortening pass also stopped on a missing text match before writing. Codex reapplied the identified sections and inspected the resulting plan. Huy's review and approval are pending.
+
+### R0 — planning corrections and team prompt library
+
+23 November 2026 · Thái Quang Huy · Codex · `main` at `481144c`. [Actual request](docs/ai-prompts/huy.md#r0) · [Member log and checks](docs/ai-logs/huy.md#r0)
+
+- **Asked for.** Execute R0 and store the supplied future task definitions.
+- **Kept.** The PA2 evidence, the existing Task 0 record and all 17 task texts in their supplied order.
+- **Changed.** Corrected ownership, Git checkpoints and API/demo handoffs in the plan and rules. Appended the verbatim R0 submission to the brief and Huy's prompt record, and recorded this task in Huy's log.
+- **Rejected and checks.** No user rejection or corrective prompt. A pre-write text check caught a stale edit target. Compared the installed requests to the attachment, verified all task IDs and preserved prefixes, and inspected the changed paths, index and contract/mock diff. Only R0 was invoked.
+
+**R0 presentation follow-up · 23 November 2026.** Huy asked Codex to make the brief navigable using the initial PA2 library. Used `git log --follow -- brief.md` and read `c2cbe6f:brief.md` for the library-first layout and chronological prompt register. Added an English index and task invocations, collapsed both original records, and retained one full R0 package. Checked navigation and disclosures in VS Code Markdown Preview and compared the source payloads byte for byte. [Exact follow-up](docs/ai-prompts/huy.md#r0-follow-up) · [Checks](docs/ai-logs/huy.md#r0)

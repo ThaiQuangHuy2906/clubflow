@@ -323,3 +323,22 @@ remain separate evidence; these static files are not a new runtime check.
 Cross-page navigation still awaits review.html integration. No commit, push or
 merge was performed. The team's other screens and full submission remain
 outside this Screen 1 evidence review.
+
+## PA#3
+
+### R0
+
+23 November 2026 · Thái Quang Huy (24127177) · `main` at `481144c`. [Actual request](../ai-prompts/huy.md#r0)
+
+- **Tool.** Codex, read-only Git inspection, PDF text extraction and local byte comparisons.
+- **Asked for.** Correct Task 0 planning, establish per-member evidence ownership, and install the supplied 17-task library. Only R0 was invoked.
+- **Kept.** All six PA2 member records, Task 0's original four-file scope, prompt and log entry, and the four untracked course/checker inputs.
+- **Changed.** Updated the plan and team rules for ownership, staging, evidence consolidation, T3/H2 responsibilities, Applicant slot IDs, schedule preview/save/confirmation, checker order and the two demo runs. Appended the entire R0 request to the root brief and Huy's prompt record, and added one R0 entry to each designated log.
+- **Rejected.** No user rejection or corrective follow-up. A pre-write text-match check caught a stale replacement target. A combined write command was also rejected before execution. Codex used smaller, scoped edits and verified their results.
+- **Checks.** Inspected HEAD, branch, staged and unstaged changes, untracked files, the four Task 0 documents, all six PA2 member files, both course PDFs and the checker guide/source. Confirmed the checker credits the first matching table row. Compared both copies of the attachment byte for byte, checked the 17 task headings and their order, and verified Task 0 and PA2 prefixes against the intake snapshot. Compared changed paths, index and refs, and inspected `git diff -- docs/api mock`. Huy's review is pending.
+
+**Presentation follow-up · 23 November 2026 · Codex on `main` at `481144c`.** Huy requested the original PA2 library layout and a usable PA3 index. [Exact follow-up](../ai-prompts/huy.md#r0-follow-up)
+
+- **Changed.** Adapted the title, course details, Section A prompt library by owner and Section B chronological register from `c2cbe6f:brief.md`. Added 17 task links with copyable invocations and exact source-line ranges. Wrapped the original Task 0 and R0 texts in separate disclosures.
+- **Kept.** Both received texts including Markdown escapes, the original task order and a single complete R0 package in the root brief. Logged the request as a continuation of R0.
+- **Rejected and checked.** A preview trial using text-fragment links did not reliably reveal text in the closed R0 record. Replaced them with native heading links. In an isolated VS Code Markdown Preview, activated all 17 task links and toggled both disclosures. Checked the local document links, source ranges and original SHA-256 hashes against the files.

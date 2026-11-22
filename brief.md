@@ -1,752 +1,935 @@
-# ClubFlow PA#2 — actual assistant prompts
+# ClubFlow PA3 — Team prompt library and actual-prompt register
 
-## Provenance and ordering
+**CSC13008 · Web Application Development · 24KTPM1**
+**Deadline** · 30 November 2026, 22:00 (Vietnam time)
+**Maintainer and sole merger** · Thái Quang Huy (24127177)
 
-This file consolidates the available messages actually supplied to the assistants, preserving the quoted prompt text from the branch owners' records. It is not a newly written implementation brief presented as an old conversation. English context surrounds original-language quotations; Vietnamese prompts remain verbatim rather than being replaced with a translation falsely labeled original text.
+## A. Proposed implementation prompts — NOT YET EXECUTED
 
-Messages within each developer's record retain their recorded order. Exact send times and a reliable total order across parallel developer threads were not recorded, so no cross-thread chronology is invented. Huy's setup preceded the screen work; review/fixes and final integration followed it. Per-thread dates below are those recorded in the source files; later Phúc review feedback occurred after the initial 08 Nov task.
+**Example invocation** · `Execute A1 from brief.md on pa3/hoc-applications.`
 
-Sources: [Huy](docs/ai-prompts/huy.md), [Học](docs/ai-prompts/hoc.md), [Phúc](docs/ai-prompts/phuc.md), and the subsequent Huy messages available in this integration conversation. [AI-LOG.md](AI-LOG.md) maps requests, errors, checks and outcomes. Original developer files remain unchanged.
+Select a task to copy its invocation and check its starting condition. To read the full prompt, open this file in the editor and enter the first source line in **Go to Line** (Ctrl+G). Record the actual message, task ID and source revision in the owner's evidence files. [Actual prompts sent](#b-actual-prompts-sent) · [Team plan](PA3_PLAN.md)
 
-**Known gaps:** Phúc's first pasted assignment/rubric and fourth pasted log template were abbreviated in his original record; omitted material cannot be reconstructed verbatim. His record also omits short status follow-ups. Học's review feedback was transcribed from a screenshot and some evidence follow-ups were condensed, not preserved as a complete transcript. These portions are labeled as such below. Do not count an abbreviated quotation or the reference library as a complete exact sent message.
+| Phase                   | Owner                  | Task index                                                                                                                                                              |
+| ----------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Shared baseline         | Thái Quang Huy        | [T1 · API contract](#t1) · [T2 · Mock and contract verification](#t2) · [T3 · Shared React scaffold](#t3)                                                             |
+| Campaign                | Thái Quang Huy        | [H1 · Public campaign](#h1) · [H2 · Authentication and role navigation](#h2) · [H3 · Campaign management](#h3) · [H4 · Interview configuration](#h4)                 |
+| Applications            | Lê Nguyễn Quốc Học | [A1 · Applicant submission](#a1) · [A2 · My applications](#a2) · [A3 · Executive application review](#a3) · [A4 · Final decisions and notifications](#a4)            |
+| Scheduling              | Trần Hoàng Phúc     | [S1 · Draft schedule generation](#s1) · [S2 · Schedule editing and conflict resolution](#s2) · [S3 · Schedule confirmation](#s3) · [S4 · Interviewer workspace](#s4) |
+| Integration and release | Thái Quang Huy        | [I1 · PR review and integration](#i1) · [I2 · Final QA and packaging](#i2)                                                                                             |
 
-On 09 Nov 2026 Huy confirmed that complete original conversations are no longer available. This consolidation therefore preserves the available records and their explicit gaps; it does not reconstruct omitted messages from templates or later code.
+### Shared baseline · Thái Quang Huy
 
-## Available recorded prompts — Huy (08 Nov 2026)
+24127177 · `main`
 
-The following source record is reproduced with only Markdown heading depth and relative documentation links adjusted. Text inside fenced prompt blocks is unchanged.
+#### T1
 
-### Huy - actual assistant prompts
+**API contract.** Start after Huy reviews and commits R0.
 
-Date: 2026-11-08 (Asia/Saigon). Exact send times were not recorded.
-Tool: Codex in the local workspace; client/model version not independently recorded.
-Branch: `main`. Task: HUY-SETUP only.
+`Execute T1 from brief.md on main.` · Source lines 740–749
 
-#### 1. Common team contract - actually sent
+#### T2
 
-The text below matches the user message in this interaction and the PROMPT 00
-code block in `brief.md`. It is recorded because it was actually sent, not because
-it appeared in the draft prompt library. PROMPT 01 and the screen prompts were
-not sent in this interaction.
+**Mock and contract verification.** Start from the reviewed contract commit.
+
+`Execute T2 from brief.md on main.` · Source lines 751–760
+
+#### T3
+
+**Shared React scaffold.** Start after the separate contract and mock commits and a successful full checker run.
+
+`Execute T3 from brief.md on main.` · Source lines 762–770
+
+### Campaign · Thái Quang Huy
+
+24127177 · `pa3/huy-campaign`
+
+#### H1
+
+**Public campaign.** Start from the verified shared baseline.
+
+`Execute H1 from brief.md on pa3/huy-campaign.` · Source lines 772–780
+
+#### H2
+
+**Authentication and role navigation.** Verify the working shared session after H1.
+
+`Execute H2 from brief.md on pa3/huy-campaign.` · Source lines 782–790
+
+#### H3
+
+**Campaign management.** After H2, exercise the pristine creation scenario.
+
+`Execute H3 from brief.md on pa3/huy-campaign.` · Source lines 792–800
+
+#### H4
+
+**Interview configuration.** After H3, connect the saved setup to scheduling.
+
+`Execute H4 from brief.md on pa3/huy-campaign.` · Source lines 802–810
+
+### Applications · Lê Nguyễn Quốc Học
+
+24127044 · `pa3/hoc-applications`
+
+#### A1
+
+**Applicant submission.** Start from the verified baseline with an Applicant-authorized source for club slots.
+
+`Execute A1 from brief.md on pa3/hoc-applications.` · Source lines 812–820
+
+#### A2
+
+**My applications.** After A1, check the two applications owned by Student A.
+
+`Execute A2 from brief.md on pa3/hoc-applications.` · Source lines 822–830
+
+#### A3
+
+**Executive application review.** After A2, review and screen each application independently.
+
+`Execute A3 from brief.md on pa3/hoc-applications.` · Source lines 832–840
+
+#### A4
+
+**Final decisions and notifications.** After A3, publish each decision and verify its notification.
+
+`Execute A4 from brief.md on pa3/hoc-applications.` · Source lines 842–850
+
+### Scheduling · Trần Hoàng Phúc
+
+24127505 · `pa3/phuc-scheduling`
+
+#### S1
+
+**Draft schedule generation.** Start from the verified baseline and the C4 setup contract.
+
+`Execute S1 from brief.md on pa3/phuc-scheduling.` · Source lines 852–860
+
+#### S2
+
+**Schedule editing and conflict resolution.** After S1, distinguish draft edits from the saved schedule.
+
+`Execute S2 from brief.md on pa3/phuc-scheduling.` · Source lines 862–870
+
+#### S3
+
+**Schedule confirmation.** After S2, exercise the four independent confirmation gates.
+
+`Execute S3 from brief.md on pa3/phuc-scheduling.` · Source lines 872–880
+
+#### S4
+
+**Interviewer workspace.** After S3, verify assignment, CV access and assessment eligibility.
+
+`Execute S4 from brief.md on pa3/phuc-scheduling.` · Source lines 882–890
+
+### Integration and release · Thái Quang Huy
+
+24127177 · `main`
+
+#### I1
+
+**PR review and integration.** Inspect the exact baseline and PR heads. Consolidate evidence on integrated main after Huy merges.
+
+`Execute I1 from brief.md on main.` · Source lines 892–901
+
+#### I2
+
+**Final QA and packaging.** Start on clean main after I1 and all three verified merges. Archive creation requires separate authorization.
+
+`Execute I2 from brief.md on main.` · Source lines 903–916
+
+## B. Actual prompts sent
+
+Huy submitted the two requests below in order on 23 November 2026. Expand either record to read the original wording. The follow-up below belongs to R0.
+
+<details>
+<summary>Task 0 · Planning and team setup (as displayed in chat)</summary>
 
 ```text
-You are helping our CSC13008 PA#2 team build ClubFlow, a three-screen responsive recruitment-management prototype. ClubFlow was selected from ANOTHER team's PA#1 as the common final project; our prior PA#1 screens and repository are NOT a starting codebase. Huy creates a NEW ClubFlow PA#2 repository with new Git history, a first rules-file commit and shared CSS baseline before branching; do not clone or migrate PA#1 source or history. Before editing code, read the attached PA#2 rubric, ClubFlow final project brief, PA2_CLUBFLOW_SOURCE_OF_TRUTH.md, and AGENTS.md if accessible. If any source cannot be read, say so; do not pretend it was reviewed. Treat the grading rubric as the authority for deliverables and browser checks, the final project brief as the authority for the three screens and its eight Fix these problems, and the business description v1.1 as supporting business detail. If these disagree, surface the issue instead of guessing.
+# ClubFlow PA3 — Task 0: Planning & Team Setup
 
-TEAM AND OWNERSHIP
-- 24127177 — Thái Quang Huy: repository setup, rules, shared CSS, Screen 1 on pa2/huy-campaign, and sole reviewer/merger of every feature branch into main.
-- 24127044 — Lê Nguyễn Quốc Học: Screen 2 only on pa2/hoc-review.
-- 24127505 — Trần Hoàng Phúc: Screen 3 only on pa2/phuc-schedule.
-- Exactly one screen implementation task per feature branch; no one except Huy merges/pushes to main. Do not touch another member's HTML/CSS or shared css/styles.css from a feature branch.
+You are the technical architect and planning assistant for our ClubFlow PA3 project.
 
-STACK AND RUNTIME
-- STATIC semantic HTML5 + plain CSS3; no React for this PA#2 team plan, no new dependencies, no build step, no Tailwind CDN script, no remote assets, fonts or CDN. Use system fonts.
-- All essential application content, sample records, states and controls must be present in HTML and visible when JavaScript is DISABLED. Do not render essential content with JS. Do not use a JS-based router or onclick for navigation.
-- Entry point index.html. Other screens: review.html and schedule.html. Use file-relative anchors such as href="review.html", not /review.html, review/, href="#" or invented files. All in-flow links and form actions must lead to files that really exist. Use a link for navigation and a button for an action. A button cannot masquerade as a working backend operation.
-- All three HTML pages load css/styles.css first and their own page CSS second: css/campaign.css, css/review.css or css/schedule.css. Reuse the shared tokens. Never add a second CSS framework.
+**Repository:** https://github.com/ThaiQuangHuy2906/clubflow
 
-RESPONSIVE / DESIGN
-- Mobile-first at 360px, 768px and 1280px. Use fluid grids, minmax(0,1fr), wrapping and safe word breaking; no fixed page widths, no horizontal scroll, no clipped or overlapping content. Do NOT use overflow-x:hidden to conceal broken layout. A table may scroll within its own deliberate table wrapper only.
-- Every independent link and button is at least 44px high at 360px; ordinary inline links are exempt. Body text is at least 16px. Body text and button text contrast is at least 4.5:1. Use a consistent spacing scale of 4/8/12/16/24/32px. No !important in custom CSS.
-- At least one long Vietnamese applicant name/title must wrap naturally. Give each page one clear primary visual focus.
+**Scope: PLANNING ONLY. Do not implement application code yet.**
 
-SEMANTIC / ACCESSIBILITY
-- Include <!DOCTYPE html>, lang="vi" or the actual UI language, meta charset="UTF-8" and meta name="viewport" content="width=device-width, initial-scale=1".
-- Correct header/nav/main/footer landmarks, exactly one h1 per page, no skipped heading level, visible associated labels for all inputs, real accessible buttons/links, semantic lists/tables/headings, alt attributes on images (or alt="" for decoration), and appropriate names for icon-only controls.
-- The W3C Nu validator must report ZERO HTML ERRORS for all three final pages. Accessibility must be inspected in browser, not assumed from valid HTML.
+Your objective is to produce a concise, rubric-compliant development plan that allows three team members to work independently on separate Git branches, with Huy responsible for architecture, code review, integration, merging, and final QA.
 
-CANONICAL CAMPAIGN / BUSINESS FIXTURE (sample data, not a requirement of the professor)
-- Campaign CF-2026-01: "Tuyển thành viên CLB Sáng tạo 2026", host "CLB Sáng tạo Sinh viên".
-- Opens 2026-11-15 08:00; closes 2026-11-20 23:59; CV review 2026-11-21 to 2026-11-22; interview on 2026-11-24, 09:00-12:00, 20-minute common slots, Rooms A/B/C.
-- Departments/positions/quotas: Nội dung / Biên tập nội dung / 3; Truyền thông / Truyền thông số / 2; Sự kiện / Điều phối sự kiện / 2; Thiết kế / Thiết kế truyền thông / 2.
-- 8 application records, 7 distinct students. A01 and A02 are two independent applications for different positions made by the same student, ST01 Nguyễn Thị Minh Anh Phương Thảo.
-- Application statuses: A01-A05 Shortlisted; A06-A08 Rejected; 0 Pending. Counters: 8 total applications, 7 unique applicants, 5 Shortlisted, 3 Rejected, 0 Pending.
-- Only A01-A05 are eligible for scheduling. Draft statuses must be exactly 2 Proposed, 2 Conflict, 1 Unassigned = 5. A01 and A03 both conflict because interviewer I01 is assigned to both at 09:00-09:20. A02 belongs to the same applicant as A01 but starts at 09:20, so it does not overlap. A05 is Unassigned because the applicant is available 11:00-12:00 while qualified interviewer I01 is initially available 09:00-10:00.
-- Shortlisted means CV screening passed, not final admission; Proposed means draft, not confirmed. No schedule confirmation with conflict/unassigned. Confirmation is NOT announcement of recruitment results.
-- The three screens are successive illustrative stages, not a live backend. Moving from index to review does NOT itself create applicants or approve CVs.
+Prioritize correctness, simplicity, clear file ownership, minimal merge conflicts, and minimal documentation overhead.
 
-AVOID THE EIGHT OFFICIAL FIX THESE PROBLEMS
-1. Contradictory dates across three screens.
-2. Wrong Screen 2 title (must be Application Review).
-3. Candidate details/drawer covering most of the list.
-4. Scheduling counters not adding up to the scheduling records.
-5. False conflict badges without real people/time/room overlap.
-6. Using the same sample person as applicant and interviewer.
-7. False claims of student/attachment verification outside scope.
-8. Generic template footer such as outdated copyright, Privacy Policy, Terms of Service or Support Center.
+## 1. Inspect the official requirements and existing repository
 
-STATIC-PROTOTYPE HONESTY
-- Include the features and meaningful controls/states expected in the three screens, using usable native-HTML interactions where feasible (for example details/summary), but never claim persistent saving, automatic filtering, publication, schedule-generation, CSV export, validation across fields or backend authorization is implemented if it is merely illustrated.
-- Do not add buttons that link to nonexistent resources, make empty href links, or simulate a successful confirmation while conflicts exist. Clearly document unimplemented actions and out-of-flow controls in PROTOTYPE.md, rather than suggesting they really work.
+Read these four supplied files from the local workspace:
 
-HOW DONE WILL BE VERIFIED
-1. Open each HTML file directly from the folder, offline, with JavaScript disabled.
-2. At each width 360, 768, 1280 run document.documentElement.scrollWidth > document.documentElement.clientWidth; it must be false. Check clientWidth is exactly the selected width, and that right-overflow elements list is empty (except deliberate table wrappers).
-3. Visually inspect all nine page/width combinations, the 44px tap targets, headings, labels and the long name.
-4. Use the W3C Nu validator File upload on EACH HTML file and save evidence, requiring 0 errors.
-5. Inspect DevTools Accessibility and color contrast; verify main-flow links and all referenced assets.
-6. Preserve actual prompts, decisions, test observations, Git authors and commits. Do not say a check passed unless it really ran.
+- `course-materials/PA3-rubric-react-front-end.pdf`
+- `course-materials/ClubFlow-final-project-brief.pdf`
+- `course-materials/contract-check-README.md`
+- `tools/contract-check.mjs`
 
-Respond initially with: (a) a short requirement-to-element mapping; (b) files you propose to change; (c) assumptions/unimplemented behavior. Then implement only the specified task. After implementation show a precise diff summary and a manual verification plan. Never invent test results or tool calls you did not perform.
+If filenames differ, locate the corresponding files before proceeding.
+
+The PA3 rubric is authoritative for PA3 grading and deliverables. The final project brief defines the business flow, scope, and Fix these requirements. The contract-check documentation and script define the automated API contract verification behavior.
+
+Do not modify these supplied files.
+
+If any file is missing or cannot be read, report the limitation explicitly. Do not invent requirements or claim to have inspected inaccessible content.
+
+Inspect the existing PA2 repository, especially:
+
+- `index.html`, `review.html`, `schedule.html`
+- Existing CSS files and shared design patterns
+- `PROTOTYPE.md`
+- `AGENTS.md`
+- `brief.md`
+- `AI-LOG.md`
+- Current Git structure and history
+
+Identify which PA2 designs and styles can be reused when migrating to React.
+
+Preserve the existing PA2 Git history. Avoid unnecessarily reading or duplicating large historical documents.
+
+## 2. Team responsibilities and branch ownership
+
+The team has three members, unchanged from PA2.
+
+### Huy — Thái Quang Huy (24127177)
+
+- Team leader and technical architect.
+- Owns shared infrastructure, authentication, and C1–C4.
+- Reviews and integrates all pull requests.
+- Performs final integration testing, QA, and submission preparation.
+- Is the only person authorized to merge into `main`.
+
+Branch: `pa3/huy-campaign`
+
+Feature folder:
+`client/src/features/campaign/**`
+
+### Học — Lê Nguyễn Quốc Học (24127044)
+
+- Owns C5–C7 and C11.
+- Applicant submission and application tracking.
+- Executive application review.
+- Executive final decisions and result publishing.
+- Applicant results and notifications.
+
+Branch: `pa3/hoc-applications`
+
+Feature folder:
+`client/src/features/applications/**`
+
+### Phúc — Trần Hoàng Phúc (24127505)
+
+- Owns C8–C10.
+- Schedule generation, editing, conflict resolution, and confirmation.
+- Interviewer dashboard, assigned CV access, and assessments.
+
+Branch: `pa3/phuc-scheduling`
+
+Feature folder:
+`client/src/features/scheduling/**`
+
+### Shared ownership
+
+Huy controls shared infrastructure, including:
+
+- React Router configuration and route guards
+- Authentication context and session handling
+- Shared API client and API conventions
+- Shared layouts and reusable UI components
+- Global styles and design tokens
+- Vite configuration and dependencies
+- `docs/api/**`
+- `mock/**`
+
+Each member should primarily modify files inside their assigned feature folder.
+
+Feature-specific components and styles belong inside that feature folder unless explicitly approved as shared.
+
+No member may modify another member's feature, shared infrastructure, API contract, or mock server without approval.
+
+Design the architecture to minimize shared-file edits during parallel development.
+
+## 3. Architecture and contract-first workflow
+
+Plan a simple React application using:
+
+- React + Vite under `client/`
+- React Router
+- Shared authentication context and hook
+- Role-based routes and navigation
+- One shared API request layer
+- Relative `/api` requests only
+- Vite `server.proxy` and `preview.proxy`
+- Plain CSS or one approved CSS framework
+- Reusable components only where useful
+
+Avoid unnecessary dependencies, abstractions, configuration, and directories.
+
+### Mandatory implementation order
+
+The plan must follow this sequence:
+
+1. All three members review the proposed API design.
+2. Write `docs/api/` and commit the contract before implementing code that uses it.
+3. Implement `mock/server.mjs` and `mock/data/` using Node.js built-in modules only, then commit the mock separately.
+4. Prepare the required Demo accounts table in `FRONTEND.md`.
+5. Run the supplied contract checker against a freshly started mock and inspect all FAIL and NOTE output.
+6. Create the React/Vite shared scaffold, including the router, authentication, API client, common layouts, and feature entry-point placeholders.
+7. Commit the scaffold separately and verify that its production build succeeds.
+8. Create the three feature branches from the same approved `main` commit.
+9. Implement the assigned features independently.
+10. Huy reviews PRs, merges approved changes, and performs integration QA.
+
+**Do not create the three feature branches before the shared baseline is ready.**
+
+### Contract requirements
+
+Plan an API contract that includes:
+
+- `docs/api/README.md` with base path, authentication, consistent error shape, status codes, and complete endpoint table.
+- Resource-specific contract files documenting roles, parameters, request field types, required fields, limits, success responses, and applicable errors.
+- At least one runnable request/response example per endpoint.
+- Correct example execution order, accounting for state changes.
+- `Authorization: Bearer {{token:<name>}}` where required, with names matching the Demo accounts table in `FRONTEND.md`.
+- A `## Changes` section for approved changes after frontend implementation begins.
+
+The checker must have zero FAIL results. Review NOTE output for inaccurate examples.
+
+Plan a clear location for recording later approved mock changes without creating unnecessary Markdown files.
+
+### Mock requirements
+
+The mock must:
+
+- Run with `node mock/server.mjs`, without npm dependencies.
+- Use port 3001 by default, configurable through `PORT`.
+- Load deterministic seed data from `mock/data/`.
+- Keep changes in memory and reset on restart.
+- Implement `normal`, `slow`, `error`, and `empty` modes exactly as the rubric specifies.
+- Provide tokens that remain valid across mock restarts.
+- Respect role-specific access.
+- Match the documented endpoint responses.
+- Log method, path, and status for each request.
+- Support every required flow state.
+
+The frontend must never depend on undocumented API behavior.
+
+PA4 must be able to replace the mock with Express without changing frontend API calls.
+
+## 4. Plan all C1–C11 steps
+
+Ensure every required step has a clear owner, route, API dependency, and acceptance criteria.
+
+Cover:
+
+- C1: Public campaign and sign-in requirement to apply.
+- C2: Demo sign-in, role-specific home, sign-out.
+- C3: Campaign draft, preview, dynamic position rows, validation, publication.
+- C4: Interviewer assignments, availability, rooms, and slot duration.
+- C5: Application submission, PDF <= 5 MB, motivation <= 300 words, availability, duplicate and closed-campaign handling.
+- C6: Applicant's own applications, statuses, confirmed schedule, and results.
+- C7: Application review, statistics, search, filter, sort, pagination, CSV export, readable drawer, notes, independent decisions.
+- C8: Draft scheduling, Proposed/Unassigned/Conflict states, editing, resolution, saving, export.
+- C9: Validated schedule confirmation, blocked conflicts/unassigned applications, read-only confirmed state.
+- C10: Interviewer's assigned interviews, permitted CV access, one assessment per interview.
+- C11: Executive Pass/Fail decisions, publication, applicant result viewing, and in-app notifications.
+
+Preserve the official Student A example:
+
+- A01: Content application.
+- A02: Communications application.
+- Both belong to the same applicant.
+- They must remain independent throughout screening, scheduling, assessment, and final decisions.
+- Their interviews must not overlap.
+
+Use one coherent campaign timeline.
+
+Explicitly resolve the demo lifecycle problem:
+
+- Applications can be submitted while the campaign is open.
+- Schedule confirmation is allowed only after applications close and all required conditions are met.
+- The workflow must remain testable and deterministic.
+- Do not bypass business validation merely to make the demo work.
+
+Respect the brief's one-club, one-active-campaign, and one-interview-date scope.
+
+Identify genuine product-owner decisions that require verification. Do not invent decisions or citations. Plan to document any relied-upon product-owner answers with links in `FRONTEND.md`.
+
+## 5. Prevent integration and merge conflicts
+
+Design the shared scaffold before splitting branches.
+
+Define:
+
+1. Exact browser routes and role permissions.
+2. Feature entry-point exports.
+3. Authentication context and hook interface.
+4. Shared API client interface.
+5. API response and error conventions.
+6. Shared loading, error/retry, and empty-state conventions.
+7. Feature-specific component and CSS conventions.
+8. Ownership of cross-feature actions.
+9. A process for requesting new endpoints, routes, shared components, or dependencies.
+
+All required routes should be registered in the shared scaffold before branching.
+
+Each feature developer should be able to implement their screens inside their assigned folder without editing the central router.
+
+Missing shared functionality must be proposed to Huy, approved, and integrated into the shared baseline before teammates depend on it.
+
+Cross-feature workflows must use the shared contract and API state, not direct imports of another member's internal components or hardcoded business data.
+
+## 6. Minimal documentation
+
+Create **only one new planning Markdown file**:
+
+`PA3_PLAN.md`
+
+It must be the single source of truth for project coordination, containing:
+
+1. Concise architecture and PA2 migration strategy.
+2. Proposed folder structure and shared interfaces.
+3. C1–C11 ownership and task matrix.
+4. Exact file ownership boundaries.
+5. Dependencies and acceptance criteria.
+6. Contract-first implementation phases.
+7. Git branch and PR workflow.
+8. Integration and QA checklist.
+9. Internal milestones and deadlines.
+10. Key risks and unresolved decisions.
+
+Use compact tables, checklists, and actionable tasks. Do not reproduce the entire rubric.
+
+### Update `AGENTS.md`
+
+Replace outdated PA2 static-prototype instructions with concise PA3-wide assistant rules.
+
+Include:
+
+- Respect feature and shared-file ownership.
+- Treat `docs/api/` as the API source of truth.
+- Never invent undocumented endpoints.
+- Stop and report a missing endpoint rather than silently adding one.
+- Never change `docs/api/` or `mock/` during feature implementation without explicit authorization.
+- Use relative `/api` paths only.
+- Do not hardcode API-owned business data.
+- Implement loading, error/retry, and empty states.
+- Follow the agreed router, auth, API, and CSS conventions.
+- Do not add dependencies without approval.
+- Preserve semantic HTML, accessibility, and responsive behavior.
+- Do not fabricate tests, AI logs, Git history, or review evidence.
+- Review actual changes and tests before reporting completion.
+
+Keep `AGENTS.md` short. Reference `PA3_PLAN.md` for detailed responsibilities instead of copying it.
+
+### Update `brief.md`
+
+The PA3 rubric requires `brief.md` to contain the instructions actually given to the assistant, not a retrospective summary.
+
+Replace the PA2 brief with the actual PA3 task instructions supplied so far, beginning with this planning prompt, preserving their wording and order.
+
+Do not invent previous prompts or claim future prompts have already been given.
+
+If the exact original prompt cannot be recovered, state this limitation rather than reconstructing it as a supposed verbatim record.
+
+The PA2 version must remain available through Git history.
+
+Plan to append future real implementation prompts in order.
+
+### Update `AI-LOG.md`
+
+Preserve every existing PA2 entry.
+
+Add a `## PA#3` heading and a truthful entry for this planning task.
+
+Each PA3 task entry should identify:
+
+- Tool and actual request.
+- Changed: what the assistant actually changed.
+- Checks: what was actually inspected or tested.
+- Rejected: changes rejected, if any, and why.
+- Corrective instructions, if applicable.
+
+For the full milestone, aim to document at least two genuine assistant mistakes or rejected changes, including the check that detected each and the corrective prompt. Never manufacture mistakes to satisfy the rubric.
+
+Do not claim Huy reviewed or approved this task before he actually does.
+
+### Documentation restrictions
+
+Do not create separate:
+
+- `ARCHITECTURE.md`
+- `OWNERSHIP.md`
+- `TASKS.md`
+- `QA_CHECKLIST.md`
+- `WORKFLOW.md`
+- Additional summary or planning files
+
+Do not create `FRONTEND.md`, `SELF_ASSESSMENT_REPORT.md`, or `docs/api/*.md` during this planning-only task.
+
+Plan their creation at the appropriate later stages.
+
+Keep all required submission documentation in English.
+
+## 7. Git workflow and quality control
+
+Plan a simple, reviewable Git workflow.
+
+Require:
+
+- Preservation of PA2 commit history.
+- Contract committed before mock and frontend API usage.
+- Separate meaningful contract, mock, and scaffold commits.
+- A clean Git checkpoint before each assistant implementation request.
+- Meaningful commits for each step or coherent group of steps.
+- Each member using their own Git name and email.
+- Development on separate feature branches.
+- No direct feature pushes to `main`.
+- Huy as the sole reviewer and merger.
+- PR review before integration.
+- Review of `git diff -- docs/api mock` after assistant implementation tasks.
+- Approved contract/mock changes documented in the appropriate `## Changes` section.
+- No fabricated or retrospectively reconstructed commit history.
+
+Include practical commands and procedures for:
+
+1. Creating the three branches from the shared baseline.
+2. Committing and pushing feature work.
+3. Updating a branch from `main`.
+4. Opening and reviewing PRs.
+5. Handling shared changes and merge conflicts.
+6. Merging approved work.
+7. Running post-merge integration checks.
+
+Avoid unnecessarily complicated Git workflows for this three-person team.
+
+## 8. QA and grading requirements
+
+Include a concise QA checklist mapped to the rubric.
+
+Plan to verify:
+
+### Main flow and access
+
+- Every C1–C11 step through the app's own links and buttons.
+- Correct role-based home screens and access restrictions.
+- At least four demo accounts: `exec`, `studentA`, `int-content`, `int-comms`.
+- A01 and A02 remaining independent.
+- Sign-in redirect back to the originally requested protected route.
+- Sign-out clearing authentication state.
+- Direct navigation and refresh for every documented route.
+- A not-found screen for unknown routes.
+- Informative states for routes requiring a later workflow stage.
+
+### API and forms
+
+- All displayed main-flow business data loaded from the API.
+- Correct shared state updates without page reloads.
+- Loading states under `slow`.
+- Retry behavior under `error`.
+- Empty lists and zero counts under `empty`.
+- No unnecessary repeated requests while loading.
+- Debounced or cancellable API-backed search where relevant.
+- Field-level validation and API 400 error mapping.
+- Preservation of form values after errors.
+- Prevention of double submission.
+- PDF, motivation, duplicate application, and campaign deadline constraints.
+
+### Scheduling and results
+
+- Valid real conflicts involving applicants, interviewers, or rooms.
+- Unassigned applications with understandable reasons.
+- Confirmation blocked until all required conditions are satisfied.
+- Read-only confirmed campaign/schedule behavior.
+- Interviewers accessing only their assigned applications and CVs.
+- Applicants accessing only their own applications and results.
+- Internal screening notes hidden from Applicants and Interviewers.
+- Final Pass/Fail results and in-app notifications.
+
+### UI quality
+
+- Responsive behavior at 360, 768, and 1280 px.
+- No unwanted horizontal page scrolling.
+- Readable application list and review drawer.
+- Buttons and standalone links meeting mobile target-size requirements.
+- Semantic landmarks, one `<h1>` per screen, appropriate heading hierarchy, and visible input labels.
+- Zero W3C validation errors on rendered main-screen HTML.
+- No Fix these issues from the official brief.
+
+### Build and submission
+
+- `npm run build` succeeds.
+- `client/dist/` reflects the final code.
+- `npx vite preview` works with the mock through `preview.proxy`.
+- The production build works without external runtime network dependencies.
+- All four mock modes are checked.
+- Contract checker runs against a freshly started mock and reports zero FAIL.
+- `FRONTEND.md` contains the required team, run instructions, demo accounts, routes, product-owner decisions, libraries, and Not done sections.
+- `AI-LOG.md`, `brief.md`, `AGENTS.md`, and `SELF_ASSESSMENT_REPORT.md` satisfy the rubric.
+- Git history supports the claimed implementation process.
+- The submission ZIP includes `.git/` and `client/dist/`, excludes all `node_modules/`, and contains the repository folder itself.
+- The self-assessment uses evidence for every criterion, and the ZIP filename matches its total.
+
+## 9. Timeline
+
+Final deadline:
+
+**Monday, November 30, 2026, 22:00 — Asia/Ho_Chi_Minh.**
+
+Propose the following internal schedule, adjusting only if a dependency requires it:
+
+- November 23: Planning and architecture approval.
+- November 24: API contract, mock, and contract verification.
+- November 25: Shared React scaffold, baseline verification, and branch creation.
+- November 26–28: Independent feature implementation.
+- November 28 evening: Feature-completion target.
+- November 29: Integration, end-to-end tests, and fixes.
+- November 30: Final QA, build, documentation, ZIP verification, and submission.
+
+Reserve November 29–30 primarily for integration and finalization, not initial feature implementation.
+
+## 10. Strict execution boundaries
+
+For this task, you may only create or modify these four Markdown files:
+
+- `PA3_PLAN.md`
+- `AGENTS.md`
+- `brief.md`
+- `AI-LOG.md`
+
+Do not:
+
+- Implement React application code.
+- Create API contracts or mock server code.
+- Create feature folders or placeholder pages yet.
+- Install dependencies.
+- Change package or Vite configuration.
+- Modify existing PA2 HTML/CSS.
+- Modify official reference materials or the checker.
+- Create Git branches.
+- Commit, push, merge, or open pull requests.
+- Create additional Markdown documents.
+
+This is a planning task, not the implementation phase.
+
+Preserve unrelated pre-existing workspace changes. Do not overwrite them.
+
+### Final self-check
+
+Before responding, inspect the actual workspace diff and verify:
+
+- Only the four authorized Markdown files were changed by this task.
+- Every C1–C11 step has a responsible owner.
+- Feature file boundaries are clear.
+- Shared interfaces are planned sufficiently for independent implementation.
+- API contract and mock precede frontend integration in the plan.
+- The mock lifecycle can support the required scenarios without violating business rules.
+- Demo accounts, direct routes, all four mock modes, and contract verification are covered.
+- No unsupported assumptions or invented decisions are presented as facts.
+- AI logs and Git evidence remain truthful.
+
+If an unresolved issue exists, record it briefly in `PA3_PLAN.md`. Do not create an additional file.
+
+## 11. Final response
+
+After completing the planning task, provide:
+
+1. **Architecture:** Brief overview of the proposed structure.
+2. **Ownership:** Compact matrix for Huy, Học, and Phúc.
+3. **Changes:** Exact files created or modified.
+4. **Risks:** Important unresolved dependencies or decisions.
+5. **Review:** What Huy should verify before approval.
+6. **Commit:** A suggested Git commit message (do not commit).
+7. **Next task:** A concise suggested prompt for Task 1 — API Contract only.
+
+Do not automatically start Task 1.
+
+**Stop after planning. Huy must review and approve the plan before implementation begins.**
 ```
 
-Sources accessible in this interaction: `AGENTS.md`,
-`PA2_CLUBFLOW_SOURCE_OF_TRUTH.md`, `brief.md`, and the two official PDFs in the
-parent PA2 directory. The linked business description v1.1 was inaccessible via
-the web tool. Its rules were not independently verified against that document.
+</details>
 
-#### 2. Task selection - actually answered by the user
-
-Assistant's clarification:
+<details>
+<summary>R0 · Planning corrections and team prompt library</summary>
 
 ```text
-Bạn muốn thực hiện task nào trong lượt này? Repository hiện ở main, mới có tài liệu và chưa có CSS chung.
+# ClubFlow PA3 — Execute R0 and install the complete team prompt library
+
+I am Thái Quang Huy, team lead for ClubFlow, CSC13008. Work in my existing repository, preserving its PA2 Git history. The deadline is November 30, 2026 at 22:00 in Asia/Ho_Chi_Minh.
+
+EXECUTE R0 ONLY IN THIS INTERACTION.
+
+This message already contains the complete text of all 17 future tasks. The blocks between BEGIN PROPOSED LIBRARY and END PROPOSED LIBRARY are reference material for you to store in brief.md. Receiving them today authorizes only the R0 documentation work. It does not authorize T1, T2, T3, feature implementation, branch creation, commits, pushes, merges or packaging.
+
+Do not ask me to paste the prompt package again. Do not assume you can see my ChatGPT Work conversation.
+
+================================================================
+R0 — TASK 0 CORRECTIONS AND PA3 EVIDENCE SETUP
+================================================================
+
+1. Owner and starting point
+
+Owner: Thái Quang Huy, 24127177. Check that I have already selected main. Inspect HEAD, git status --short, staged changes, unstaged changes and untracked files. If another branch is selected, tell me which one and stop before editing. If the four Task 0 files contain uncommitted work, identify and preserve it. Do not reset, stash, discard, stage or commit anyone’s work.
+
+Read the current PA3_PLAN.md, AGENTS.md, brief.md and AI-LOG.md. Inspect the six existing PA2 member files under docs/ai-prompts/ and docs/ai-logs/. Read the available course rubric, ClubFlow final brief, contract-check guide and checker source. Locate equivalent filenames if necessary. Treat the rubric as the grading authority, the final brief as the business authority and the checker code as the authority for automated examples. Record any source you genuinely cannot inspect.
+
+2. Authorized R0 writes
+
+You may edit only:
+- PA3_PLAN.md
+- AGENTS.md
+- brief.md
+- AI-LOG.md
+- docs/ai-prompts/huy.md
+- docs/ai-logs/huy.md
+
+Read Học’s and Phúc’s existing records without editing them. They will append their own PA3 sections on their first tasks. Preserve all existing PA2 entries. Preserve the actual Task 0 prompt already recorded in brief.md verbatim, including its original Markdown escapes. This is a newly authorized documentation task. Keep the original four-file scope of Task 0 historically accurate.
+
+3. Apply these planning corrections where the current documents still need them
+
+- Give each member write access to their own feature folder and their own two evidence files. Huy owns shared infrastructure, contract, mock and root evidence. Only Huy performs merges into main.
+- Huy: client/src/features/campaign/**, docs/ai-prompts/huy.md, docs/ai-logs/huy.md.
+- Học: client/src/features/applications/**, docs/ai-prompts/hoc.md, docs/ai-logs/hoc.md.
+- Phúc: client/src/features/scheduling/**, docs/ai-prompts/phuc.md, docs/ai-logs/phuc.md.
+- Update the Git staging guidance so each member includes their own evidence files with their feature changes. Consolidate root evidence after the verified shared baseline and after approved feature merges. Avoid simultaneous edits to Huy’s evidence files on main and his campaign branch.
+- In the T1 handoff, require an Applicant-authorized source of club slot IDs for C5 that agrees with C4/C8. Distinguish C8 edit/conflict preview from Save Changes. Require the server to recheck saved assignments and confirmation. Make adding and removing department and position rows explicit in C3.
+- For checker endpoint tables, put literal routes before overlapping parameter routes of the same method. In particular, GET /api/applications/export must precede GET /api/applications/:id if both are adopted. The checker credits the first matching row.
+- Keep the proposed two-run demo. Use the default seed for direct routes, A01/A02 and the other applicant’s A03. On a separate fresh run, allow one Executive-only start-from-creation action before business writes. Preserve the accounts and catalogues needed for setup, reset the creation IDs deterministically, and create A01 then A02 through real submissions. Sign-in and reads must not consume that opportunity. Advancing the server clock must preserve records, move forward only and never waive a business rule.
+- Test the same-applicant overlap with A01/A02. Use a different applicant such as A03 to isolate room and interviewer overlaps. Test each of the four C9 refusal conditions while the other conditions are satisfied.
+- T3 supplies working shared auth and all route exports before the split. H2 verifies C2 and completes campaign-owned navigation. A demonstrated shared defect goes through Huy’s shared-change process.
+- Keep genuinely unresolved product-owner behavior open. Record a decision in FRONTEND.md later only if the team actually has the relevant source link. Do not invent an answer.
+
+4. Install the complete prompt library
+
+In root brief.md, preserve the existing actual Task 0 prompt. Add this actual R0 request and a clearly identifiable section titled “Proposed implementation prompts — NOT YET EXECUTED”.
+
+Use the exact 17 task blocks supplied below. Keep their IDs, wording and order. Make each task easy to find by ID. You may add an index or headings outside the quoted source. The bounded library inside the verbatim R0 message can serve as the proposed library, so the same large package need not appear twice in brief.md.
+
+A later user may say “Chạy T1 theo brief.md trên main” or “Execute A1 from brief.md”. That authorizes only the named task, subject to its branch and approval gates. At that time:
+- Record the exact short message the user genuinely sent.
+- Identify the task block actually loaded by task ID, brief.md path and the Git revision used.
+- Preserve any genuine modifications or corrective follow-ups verbatim.
+- Do not claim the user pasted the long task block a second time.
+- If the user actually sends a modified long prompt, record that submitted version.
+
+5. Record real evidence
+
+In docs/ai-prompts/huy.md append a clearly separated PA3 entry for R0. Preserve this entire received message as one actual R0 submission with its embedded reference package. Record task ID, owner, tool, actual branch, date and send time only if known. Mark missing transcript evidence and request the original instead of reconstructing it.
+
+In docs/ai-logs/huy.md append one R0 entry with Tool, Asked for, Kept, Changed, Rejected and checks actually performed. Identify any check that caught an error. If nothing was rejected, say so truthfully and name the checks. Link to the prompt record.
+
+In root AI-LOG.md preserve the PA2 entries above ## PA#3. Preserve the existing Task 0 entry. Consolidate R0 once. The 17 proposed tasks receive no execution entries today.
+
+At release, root brief.md must faithfully show the real messages and the instructions they referenced. Remove any redundant active draft index once it is no longer needed. Preserve the historical R0 message and its clearly labeled reference payload. Unknown send times or cross-branch ordering must remain explicitly unknown.
+
+6. Verify and stop
+
+Inspect all changed paths, staged and unstaged diffs, new files and git diff -- docs/api mock. Compare the original PA2 log portion and Task 0 prompt before and after. Verify that the six PA2 member files survive, only the authorized paths changed through R0, and brief.md contains exactly these 17 future IDs:
+
+T1 T2 T3 H1 H2 H3 H4 A1 A2 A3 A4 S1 S2 S3 S4 I1 I2
+
+Report changed files, actual checks, missing evidence, decisions for Huy and the suggested commit message “docs: align PA3 planning and install team prompt library”. Stop for my review. Do not implement PA3 code or take a Git write action.
+
+======================== BEGIN PROPOSED LIBRARY ========================
+STATUS OF ALL 17 BLOCKS AT INSTALLATION: NOT YET EXECUTED
+
+-------------------- T1 — API CONTRACT --------------------
+
+1. Owner — Thái Quang Huy. Write the English API contract for C1–C11.
+2. Start — Use clean, already-selected main after Huy has reviewed and committed R0. Record HEAD. Read AGENTS.md, PA3_PLAN.md, official rubric, final brief, checker guide and checker source. Inspect existing contracts and shared interfaces.
+3. Writes — Only docs/api/**, docs/ai-prompts/huy.md and docs/ai-logs/huy.md. Huy consolidates root evidence at checkpoints. Stop before mock or frontend implementation.
+4. Implement — Write docs/api/README.md with /api, Bearer auth, one error shape, statuses and every endpoint’s method, path, allowed roles and resource file. Put overlapping literal routes first. Write one ordered file per resource. Specify caller, path/query, body types, required fields, limits, success and applicable field-level 400, 401, 403, 404, 409 and mode-induced 500. End every file including README with ## Changes. Document the date/what/why policy for later approved contract and mock changes.
+   Trace public campaign, auth, draft/publication, setup catalogues, safe Applicant slots, multipart applications, duplicate existing ID, scoped list/detail/CV, statistics, filters, export, private notes, screening, schedule generation/edit/save/confirmation, interviewer eligibility/assessment, per-application decisions and notifications. Specify role projections, locking and the approved demo lifecycle. Preserve A01/A02 independence. Escalate unresolved policy.
+5. Check — Give every endpoint a concrete http request followed by its http answer. Use a successful JSON POST login example with email/password. Use Authorization: Bearer {{token:<name>}} with the planned Demo accounts names. Use checker-supported sh curl -F for multipart. For PDF/CSV document status/headers with no example body and plan a separate content check. Trace README first, then files alphabetically, top to bottom, on one fresh normal process. Account for automatic sign-ins, writes, clock changes and deterministic IDs. The checker does not substitute arbitrary earlier response IDs. Compare table and examples in both directions. Report static checks as static.
+6. Evidence — In docs/ai-prompts/huy.md record the exact invocation and real follow-ups, task/owner/tool/branch/date, known send times only, and the source revision of any invoked library block. Mark gaps and ask for originals. Link docs/ai-logs/huy.md with Tool, Asked for, Kept, Changed, Rejected and actual checks/error detection.
+7. Finish — Inspect status, staged/unstaged diffs, new files and git diff -- docs/api mock. Report coverage, decisions and gaps. Suggest “docs: specify the ClubFlow PA3 API contract”. All three members review. Huy makes a separate contract commit before T2. Do not switch branches, commit, push or merge.
+
+-------------------- T2 — MOCK SERVER AND CONTRACT VERIFICATION --------------------
+
+1. Owner — Thái Quang Huy. Implement the approved contract mock.
+2. Start — Use clean main after the reviewed T1 contract commit. Record HEAD. Read AGENTS.md, PA3_PLAN.md, the committed docs/api examples, checker/guide and existing shared interfaces.
+3. Writes — Only mock/server.mjs, mock/data/**, the Demo accounts section of FRONTEND.md, docs/ai-prompts/huy.md and docs/ai-logs/huy.md. Use Node built-ins only. A contract amendment requires Huy’s separate approval and recorded change.
+4. Implement — node mock/server.mjs, PORT default 3001, deterministic seeds, in-memory writes, reset on restart, one method/path/status line per request. Provide stable role-bound tokens that survive restart. Add the English Demo accounts table with Name in examples, Role, E-mail or User name, Password, including exec, studentA, int-content and int-comms.
+   Implement normal about 150 ms, slow about 2 s, error as a shaped 500 for every request except sign-in, and empty as recursively empty lists with zero list-derived totals while singleton records still resolve. Enforce the approved roles, privacy projections, PDF/motivation limits, deadlines, schedule rules, confirmation locks, assigned completed-interview assessments and publication notifications. Serve readable authorized demo PDFs. Implement both approved demo stories with collision-free IDs, one-shot pristine creation and forward-only clock. Reads and logins must preserve pristine state.
+5. Check — Before every full checker run restart the normal mock. From root run node tools/contract-check.mjs --base http://localhost:3001. Report actual examples, endpoint coverage, exit code and every FAIL/NOTE with disposition. Correct mock defects against the contract. Also exercise four modes, token reuse after restart, closed/duplicate submissions, all four C9 gates, locked writes, private records, early/duplicate assessment and repeated publication. Open the PDF and inspect CSV content, MIME and audience. Separate these results from checker output.
+6. Evidence — Record exact T2 invocation/follow-ups and their source revision in docs/ai-prompts/huy.md with owner/tool/branch/date and known times only. Mark gaps and request originals. Link docs/ai-logs/huy.md with Tool, Asked for, Kept, Changed, Rejected and actual checks, including failed runs.
+7. Finish — Inspect status, staged/unstaged diffs and git diff -- docs/api mock. Report changed files, commands, results and open issues. Suggest “feat: implement and verify the stateful ClubFlow mock”. Huy makes the separate mock checkpoint. Do not switch branches, commit, push or merge.
+
+-------------------- T3 — SHARED REACT/VITE SCAFFOLD --------------------
+
+1. Owner — Thái Quang Huy. Deliver the shared baseline.
+2. Start — Use clean main after separate contract/mock commits, working demo accounts and successful full T2 verification. Record HEAD. Read AGENTS.md, PA3_PLAN.md route/export matrix, approved docs/api and existing shared interfaces.
+3. Writes — Agreed client/ Vite entry/config, packages and lockfile, shared src files, and the three feature index placeholders. Build output may be generated under client/dist/. Write docs/ai-prompts/huy.md and docs/ai-logs/huy.md. At this checkpoint Huy may consolidate actual T1–T3 in root brief.md and AI-LOG.md. Use the approved React/Vite/React Router/plain CSS stack.
+4. Implement — Register every planned route, named export, role home, link, access-denied view, early-stage message and unknown-route fallback. Implement a working single e-mail/text input, password and submit sign-in. Restore the one session context before guards run. Preserve authorized local return paths including query/fragment, distinguish 401/403, and clear private state on sign-out. Implement the agreed auth hook and relative /api client with Bearer, JSON, FormData, authenticated PDF/CSV blobs, cancellation and field errors. Supply shared loading, Retry and empty components, semantic layouts, CSS conventions and both server.proxy and preview.proxy for /api to http://localhost:3001. Expose approved Executive demo controls in the agreed location. Leave complete feature flows to the owners.
+5. Check — In client/ run npm ci, exercise npm run dev, run npm run build, then test that dist with npx vite preview. Check both proxies, all exports and routes, every demo login, protected return, wrong role, direct load, refresh, Back, sign-out and unknown path. Smoke-test data states and the shell at 360/768/1280. Identify placeholders honestly.
+6. Evidence — Record exact T3 invocation/follow-ups and invoked revision in docs/ai-prompts/huy.md with owner/tool/branch/date and known times only. Request originals for gaps. Link docs/ai-logs/huy.md with Tool, Asked for, Kept, Changed, Rejected and actual checks/detected errors.
+7. Finish — Inspect all diffs including staged work and git diff -- docs/api mock. Report actual shared exports, routes, commands and gaps. Suggest “feat: establish shared React routing and API baseline”. Huy commits, verifies that exact SHA and publishes it as the baseline. Do not create/switch branches, commit, push or merge.
+
+-------------------- H1 — C1 PUBLIC CAMPAIGN --------------------
+
+1. Owner — Thái Quang Huy.
+2. Start — Verify clean pa3/huy-campaign starts at the approved baseline SHA. Read AGENTS.md, PA3_PLAN.md C1, approved docs/api and actual router/auth/API/UI exports.
+3. Writes — Only client/src/features/campaign/**, docs/ai-prompts/huy.md and docs/ai-logs/huy.md. Huy handles root evidence at checkpoints. Keep existing dependencies. Report missing shared/contract support.
+4. Implement — Fetch the published campaign through the shared relative /api client. Render description, dates, instructions, departments, positions, quotas, descriptions and requirements. Give the screen its own title. Link Apply to the selected protected position route so a Visitor signs in and returns there. Provide a useful unpublished/empty state and keep draft data private.
+5. Check — Seeded and unpublished campaign, two position links, direct load, refresh, Back, Visitor-to-Applicant return, slow loading, error/Retry, empty state and semantic layout at 360/768/1280. Identify any C5 destination still represented by a placeholder.
+6. Evidence — Append exact H1 invocation/follow-ups and invoked revision to docs/ai-prompts/huy.md with owner/tool/branch/date and known times only. Mark gaps and request originals. Link docs/ai-logs/huy.md with Tool, Asked for, Kept, Changed, Rejected and actual checks/error detection.
+7. Finish — Inspect status, staged/unstaged diffs and git diff -- docs/api mock. Report paths, results and gaps. Suggest “feat: display published campaign and position links”. Do not switch branches, commit, push or merge.
+
+-------------------- H2 — C2 AUTHENTICATION AND ROLE NAVIGATION --------------------
+
+1. Owner — Thái Quang Huy.
+2. Start — Use clean pa3/huy-campaign after reviewed H1. Read AGENTS.md, PA3_PLAN.md C2, approved auth contract and actual T3 auth/router/API interfaces. Exercise the baseline first.
+3. Writes — Only client/src/features/campaign/**, docs/ai-prompts/huy.md and docs/ai-logs/huy.md. Route a demonstrated shared auth/router defect to Huy’s separate shared-change checkpoint. Root evidence is Huy-controlled. Keep existing dependencies.
+4. Implement — Complete campaign-owned navigation using the existing single session context and API-issued identity. Verify sign-in/out, role homes, authorized protected return, forbidden-role behavior and session restoration. Use relative /api. Keep form labels, inline errors, retained input, pending-submit protection and responsive navigation. If T3 already implements a behavior correctly, retain and test it.
+5. Check — Sign in as exec, studentA, int-content and int-comms. Test invalid credentials, protected deep link with query, refresh, Back, wrong role, invalid session, sign-out and account switch. Verify Bearer on authenticated requests and absence of prior-account data.
+6. Evidence — Record exact H2 invocation/follow-ups and invoked revision in docs/ai-prompts/huy.md with owner/tool/branch/date and known times only. Mark gaps and request originals. Link docs/ai-logs/huy.md with Tool, Asked for, Kept, Changed, Rejected and actual checks/error detection.
+7. Finish — Inspect status, staged/unstaged diffs and git diff -- docs/api mock. Report verified behavior, changes and unresolved shared defects. Suggest “test: verify role sign-in and protected navigation”, adjusted if feature code changed. Do not switch branches, commit, push or merge.
+
+-------------------- H3 — C3 CAMPAIGN MANAGEMENT --------------------
+
+1. Owner — Thái Quang Huy.
+2. Start — Use clean pa3/huy-campaign after reviewed H2. Read AGENTS.md, PA3_PLAN.md C3/lifecycle, approved docs/api and actual shared interfaces.
+3. Writes — Only client/src/features/campaign/**, docs/ai-prompts/huy.md and docs/ai-logs/huy.md. Keep root evidence for Huy’s checkpoints. Use approved dependencies and report missing interfaces.
+4. Implement — Build the Executive form for campaign name, host club, description, opening/closing dates, instructions and dynamic departments/positions with quotas, descriptions and requirements. Add/remove either row type without losing unrelated values/errors. Save as Draft, reopen persisted data, preview current form values and publish valid data via relative /api. Apply the appropriate draft/publication rules, map field errors, retain inputs and block duplicate submits. Respect the C9 lock and link to review for the same campaign.
+5. Check — Use the approved pristine story. Test missing nested fields, impossible dates, row removal, save/reopen, preview and publish. Verify the public view reflects API state and publishing creates no applications. Check double-submit, loading/Retry/empty, read-only state and three widths.
+6. Evidence — Record exact H3 invocation/follow-ups and invoked revision in docs/ai-prompts/huy.md with owner/tool/branch/date and known times only. Label gaps and request originals. Link docs/ai-logs/huy.md with Tool, Asked for, Kept, Changed, Rejected and actual checks/error detection.
+7. Finish — Inspect staged/unstaged diffs and git diff -- docs/api mock. Report files, scenario results and gaps. Suggest “feat: manage campaign drafts, preview and publication”. Do not switch branches, commit, push or merge.
+
+-------------------- H4 — C4 INTERVIEW CONFIGURATION --------------------
+
+1. Owner — Thái Quang Huy.
+2. Start — Use clean pa3/huy-campaign after reviewed H3. Read AGENTS.md, PA3_PLAN.md C4/C8, approved docs/api and actual auth/API/UI/feature exports.
+3. Writes — Only client/src/features/campaign/**, docs/ai-prompts/huy.md and docs/ai-logs/huy.md. Root evidence is Huy-controlled. Keep existing dependencies and report missing contract/shared support.
+4. Implement — Build the Executive setup form from the documented relative /api catalogue. Assign interviewers to one or more positions, enter availability on the campaign’s one interview date, select existing rooms and set one common 15/20/30-minute duration. Save and reopen authoritative settings. Honor the approved behavior when duration changes and when the schedule is confirmed. Preserve labels, field errors, entered values, pending protection and loading/Retry/empty states.
+5. Check — Multiple qualifications, invalid/valid availability, chosen rooms, each duration, save/reopen, role denial and confirmed lock. Read the resulting slot, room, position and interviewer IDs through C8’s documented operation. Test three widths and distinguish an API handoff from an integrated UI test.
+6. Evidence — Record exact H4 invocation/follow-ups and invoked revision in docs/ai-prompts/huy.md with owner/tool/branch/date and known times only. Mark gaps and request originals. Link docs/ai-logs/huy.md with Tool, Asked for, Kept, Changed, Rejected and actual checks/error detection.
+7. Finish — Inspect staged/unstaged diffs and git diff -- docs/api mock. Report changed files, handoff evidence and gaps. Suggest “feat: configure campaign interviewers, availability and rooms”. Do not switch branches, commit, push or merge.
+
+-------------------- A1 — C5 APPLICANT SUBMISSION --------------------
+
+1. Owner — Lê Nguyễn Quốc Học, 24127044.
+2. Start — Verify clean pa3/hoc-applications starts at the approved baseline SHA. Read AGENTS.md, PA3_PLAN.md C5, approved docs/api and actual protected route, upload client, auth and UI interfaces.
+3. Writes — Only client/src/features/applications/**, docs/ai-prompts/hoc.md and docs/ai-logs/hoc.md. Huy owns shared files and both root evidence files. Keep existing dependencies and report missing fields/operations.
+4. Implement — Build the labeled form with student information, selected position, PDF CV, motivation and available club slots from the Applicant-authorized API. Before sending reject non-PDF, files over 5 MB and statements over 300 words. Use shared relative /api FormData with browser-generated boundary. Map field errors, retain valid input and prevent duplicate writes. A duplicate opens the existing returned application ID. A closed-campaign error keeps the populated form on screen.
+5. Check — In pristine creation submit Content then Communications as Student A and verify separate A01/A02. Repeat a position and open its existing record. Test the exact size limit, one byte over, non-PDF, 300/301 words, unavailable slots, and an unused position whose form is opened before closure and submitted afterward. Check request count, role, data states and three widths.
+6. Evidence — Record exact A1 invocation/follow-ups and invoked revision in docs/ai-prompts/hoc.md with owner/tool/branch/date and known times only. Label gaps and request originals. Link docs/ai-logs/hoc.md with Tool, Asked for, Kept, Changed, Rejected and actual checks/error detection.
+7. Finish — Inspect staged/unstaged diffs and git diff -- docs/api mock. Report files, tested limits and gaps. Suggest “feat: submit validated per-position applications”. Do not switch branches, commit, push or merge.
+
+-------------------- A2 — C6 MY APPLICATIONS --------------------
+
+1. Owner — Lê Nguyễn Quốc Học.
+2. Start — Use clean pa3/hoc-applications after reviewed A1. Read AGENTS.md, PA3_PLAN.md C6/C9/C11, approved docs/api role projections and actual auth/router/API/UI exports.
+3. Writes — Only client/src/features/applications/**, docs/ai-prompts/hoc.md and docs/ai-logs/hoc.md. Huy owns shared files and root evidence. Keep dependencies and report missing interfaces.
+4. Implement — Load the signed-in Applicant’s list and directly addressable detail via relative /api. Show one row per application, position and screening status. Show personal interview time/room only after confirmation and an individual result only after publication. Keep A01/A02 independent and internal notes private. Provide informative early, loading, Retry, empty, forbidden and missing states.
+5. Check — As Student A open A01/A02 directly, refresh and use Back. Check denial for seeded A03. Exercise screening statuses, before/after confirmation and before/after publication. Verify a private sibling result stays hidden, empty counts are zero and layouts work at three widths. A4 owns publication and notifications.
+6. Evidence — Record exact A2 invocation/follow-ups and invoked revision in docs/ai-prompts/hoc.md with owner/tool/branch/date and known times only. Mark gaps and request originals. Link docs/ai-logs/hoc.md with Tool, Asked for, Kept, Changed, Rejected and actual checks/error detection.
+7. Finish — Inspect staged/unstaged diffs and git diff -- docs/api mock. Report paths, ownership/stage checks and gaps. Suggest “feat: show applicant-owned applications and confirmed schedules”. Do not switch branches, commit, push or merge.
+
+-------------------- A3 — C7 EXECUTIVE APPLICATION REVIEW --------------------
+
+1. Owner — Lê Nguyễn Quốc Học.
+2. Start — Use clean pa3/hoc-applications after reviewed A2. Read AGENTS.md, PA3_PLAN.md C7/C8, approved review/list/CV/export contracts and actual shared exports.
+3. Writes — Only client/src/features/applications/**, docs/ai-prompts/hoc.md and docs/ai-logs/hoc.md. Huy owns shared files and root evidence. Keep existing dependencies and report missing operations.
+4. Implement — Show API-derived application and distinct-applicant statistics. Implement search/filter/sort/pagination and full filtered CSV export. Keep filter/page state when the drawer closes. Keep the list and drawer readable with the CV and motivation statement. Use authenticated relative /api downloads. Add private Executive notes and per-application Shortlist Candidate/Reject. Update from the authoritative response or one refetch. Link to C8 when the campaign has at least one shortlisted application. Respect the confirmed lock, field errors and pending writes.
+5. Check — Counts across pages, debounced/cancelled search, preserved filters, actual CSV contents, readable CV, note privacy and independent screening of A01/A02. Check C8 eligibility, slow/error/Retry/empty modes, keyboard operation and drawer/list readability at all three widths.
+6. Evidence — Record exact A3 invocation/follow-ups and invoked revision in docs/ai-prompts/hoc.md with owner/tool/branch/date and known times only. Mark gaps and request originals. Link docs/ai-logs/hoc.md with Tool, Asked for, Kept, Changed, Rejected and actual checks/error detection.
+7. Finish — Inspect staged/unstaged diffs and git diff -- docs/api mock. Report paths, handoff, tests and gaps. Suggest “feat: review and screen individual campaign applications”. Do not switch branches, commit, push or merge.
+
+-------------------- A4 — C11 FINAL DECISIONS AND NOTIFICATIONS --------------------
+
+1. Owner — Lê Nguyễn Quốc Học.
+2. Start — Use clean pa3/hoc-applications after reviewed A3. Read AGENTS.md, PA3_PLAN.md C6/C10/C11, approved docs/api, verified product decisions and actual shared interfaces.
+3. Writes — Only client/src/features/applications/**, docs/ai-prompts/hoc.md and docs/ai-logs/hoc.md. Huy owns shared files and root evidence. Keep dependencies and report missing policy or operations.
+4. Implement — Load eligible applications and authorized assessment information on the Executive results route. Save Pass/Fail per application through shared relative /api. Keep a saved decision private until explicitly published. Reuse A2’s Applicant list/detail for results and show the owner’s in-app notifications. Use server publication state so retries and double-clicks do not duplicate notifications. Preserve role guards, form errors, pending protection and loading/Retry/empty.
+5. Check — Save different outcomes for A01/A02. Publish only A01, inspect both details and notifications, retry publication, then publish A02. Verify exactly one notification per publication and no cross-applicant disclosure. Test direct routes, refresh and three widths. Identify API-only checks pending C10 integration.
+6. Evidence — Record exact A4 invocation/follow-ups and invoked revision in docs/ai-prompts/hoc.md with owner/tool/branch/date and known times only. Mark gaps and request originals. Link docs/ai-logs/hoc.md with Tool, Asked for, Kept, Changed, Rejected and actual checks/error detection.
+7. Finish — Inspect staged/unstaged diffs and git diff -- docs/api mock. Report files, publication observations and gaps. Suggest “feat: publish per-application results and notifications”. Do not switch branches, commit, push or merge.
+
+-------------------- S1 — C8 DRAFT SCHEDULE GENERATION --------------------
+
+1. Owner — Trần Hoàng Phúc, 24127505.
+2. Start — Verify clean pa3/phuc-scheduling starts at the approved baseline SHA. Read AGENTS.md, PA3_PLAN.md C4/C7/C8, approved docs/api and actual scheduling/auth/API/UI interfaces.
+3. Writes — Only client/src/features/scheduling/**, docs/ai-prompts/phuc.md and docs/ai-logs/phuc.md. Huy owns shared files and root evidence. Keep dependencies and report missing operations.
+4. Implement — Build the Executive generation form for the single interview date, time window and common 15/20/30-minute duration. Read actual C4 qualifications, availability and rooms through the shared relative /api client. Use the approved setup operation when duration changes. Generate a draft for shortlisted applications using the agreed first available slot/interviewer/room order. Render Proposed, Unassigned with reason and genuine Conflict naming the overlap. Show correct totals and export the represented schedule.
+5. Check — No shortlisted records, valid generation, unavailable qualification/time/room and a real conflict created through the approved fixture or edit operation. Verify totals, exclusion of rejected applications and CSV contents. Test validation, double-submit, loading/Retry/empty and a locally scrollable table at three widths. S2 owns Edit/Resolve/Assign/Save.
+6. Evidence — Record exact S1 invocation/follow-ups and invoked revision in docs/ai-prompts/phuc.md with owner/tool/branch/date and known times only. Mark gaps and request originals. Link docs/ai-logs/phuc.md with Tool, Asked for, Kept, Changed, Rejected and actual checks/error detection.
+7. Finish — Inspect staged/unstaged diffs and git diff -- docs/api mock. Report files, observed states/export and gaps. Suggest “feat: generate and export shortlisted interview drafts”. Do not switch branches, commit, push or merge.
+
+-------------------- S2 — C8 SCHEDULE EDITING AND CONFLICT RESOLUTION --------------------
+
+1. Owner — Trần Hoàng Phúc.
+2. Start — Use clean pa3/phuc-scheduling after reviewed S1. Read AGENTS.md, PA3_PLAN.md C8/demo scenarios, approved docs/api preview/save rules and actual shared/scheduling interfaces.
+3. Writes — Only client/src/features/scheduling/**, docs/ai-prompts/phuc.md and docs/ai-logs/phuc.md. Huy owns shared files, contract, mock and root evidence. Keep dependencies and report missing support.
+4. Implement — Add Edit, Resolve and + Assign Slot for the selected application. Use API-owned people, qualifications, availability, rooms, duration and window. Recheck after each edit through the approved preview design. Identify both affected interviews and the shared applicant, interviewer or room. Explain an unassignable row. Keep unsaved edits separate from Save Changes. Persist via the documented relative /api operation and display the server-revalidated draft. Preserve failed input, inline errors, pending protection and the confirmed lock.
+5. Check — Put A01/A02 in the same interval with different qualified interviewers and rooms. Verify the applicant conflict on both, then move one to an adjacent nonoverlapping interval. Use A03 or another distinct applicant to isolate an interviewer collision and a room collision separately. Test unavailable combinations, repair, save/reopen, failed save, data states and three widths.
+6. Evidence — Record exact S2 invocation/follow-ups and invoked revision in docs/ai-prompts/phuc.md with owner/tool/branch/date and known times only. Mark gaps and request originals. Link docs/ai-logs/phuc.md with Tool, Asked for, Kept, Changed, Rejected and actual checks/error detection.
+7. Finish — Inspect staged/unstaged diffs and git diff -- docs/api mock. Report changed files, separate collision results and gaps. Suggest “feat: edit and resolve interview slot conflicts”. Do not switch branches, commit, push or merge.
+
+-------------------- S3 — C9 SCHEDULE CONFIRMATION --------------------
+
+1. Owner — Trần Hoàng Phúc.
+2. Start — Use clean pa3/phuc-scheduling after reviewed S2. Read AGENTS.md, PA3_PLAN.md C9/lifecycle, approved confirmation/lock contract and actual shared interfaces.
+3. Writes — Only client/src/features/scheduling/**, docs/ai-prompts/phuc.md and docs/ai-logs/phuc.md. Huy owns shared files and root evidence. Keep dependencies. Send cross-owner defects to Huy.
+4. Implement — Summarize the saved draft and explain blockers. Confirmation requires applications closed, every application reviewed, one qualified available assignment for every shortlisted application and no applicant/interviewer/room conflict. Identify offending IDs where applicable. Use the server’s decision through relative /api. Handle unsaved edits and prevent double confirmation. Show Confirmed and disable assignment, editing and regeneration. Keep the confirmed schedule viewable while assessment and final decisions proceed separately.
+5. Check — Isolate each of the four refusal conditions with the other three satisfied. Record the actual reason/IDs. Repair and save the draft, confirm, refresh and exercise the documented locked writes. Verify personal schedules become visible to the correct roles and confirmation publishes no result. Test loading/Retry/empty, accessible summary and three widths. Identify API-only cross-feature observations.
+6. Evidence — Record exact S3 invocation/follow-ups and invoked revision in docs/ai-prompts/phuc.md with owner/tool/branch/date and known times only. Mark gaps and request originals. Link docs/ai-logs/phuc.md with Tool, Asked for, Kept, Changed, Rejected and actual checks/error detection.
+7. Finish — Inspect staged/unstaged diffs and git diff -- docs/api mock. Report files, each gate, lock checks and gaps. Suggest “feat: enforce schedule confirmation and read-only state”. Do not switch branches, commit, push or merge.
+
+-------------------- S4 — C10 INTERVIEWER WORKSPACE --------------------
+
+1. Owner — Trần Hoàng Phúc.
+2. Start — Use clean pa3/phuc-scheduling after reviewed S3. Read AGENTS.md, PA3_PLAN.md C10/C11, approved interview/CV/assessment contract, verified field decisions and actual shared exports.
+3. Writes — Only client/src/features/scheduling/**, docs/ai-prompts/phuc.md and docs/ai-logs/phuc.md. Huy owns shared files and root evidence. Keep dependencies and report missing policy or operations.
+4. Implement — Build the Interviewer home and direct interview detail using authenticated relative /api. Show only the signed-in interviewer’s confirmed assignments and authorized CVs. Provide an informative pre-confirmation state. Keep screening notes private. Offer the approved labeled assessment form for an assigned, completed interview. Map field errors, retain input, prevent double submit and show the recorded assessment.
+5. Check — Use int-content and int-comms. Verify assigned list/detail/readable CV, denial for another interviewer’s ID/CV, early assessment refusal, success after that interview ends and duplicate refusal. Confirm the assessment attaches to the application C11 reads. Exercise refresh, Back, loading/Retry/empty and three widths.
+6. Evidence — Record exact S4 invocation/follow-ups and invoked revision in docs/ai-prompts/phuc.md with owner/tool/branch/date and known times only. Mark gaps and request originals. Link docs/ai-logs/phuc.md with Tool, Asked for, Kept, Changed, Rejected and actual checks/error detection.
+7. Finish — Inspect staged/unstaged diffs and git diff -- docs/api mock. Report changed files, tested roles/eligibility and gaps. Suggest “feat: add assigned interviewer workspace and assessments”. Do not switch branches, commit, push or merge.
+
+-------------------- I1 — PR REVIEW, INTEGRATION AND EVIDENCE CONSOLIDATION --------------------
+
+1. Owner — Thái Quang Huy. Only Huy authorizes and performs merges into main.
+2. Start — Read AGENTS.md, PA3_PLAN.md Git/handoffs, approved docs/api, actual shared exports and all member evidence. Verify the frozen baseline, branch ancestry, each exact PR head and current main. Use refs or checkouts already selected by Huy.
+3. Writes — Review feature code read-only. On Huy’s integrated main write only brief.md, AI-LOG.md, docs/ai-prompts/huy.md and docs/ai-logs/huy.md. Feature owners fix their own work. Integrate Huy’s campaign records before adding further Huy entries on main.
+4. Review — Compare each PR with the baseline. Inspect ownership, dependency/shared changes, undocumented operations, contract/mock drift, hardcoded data, relative /api, auth/privacy, state behavior, forms and responsive semantics. Compare member records with actual diffs. Give each finding a revision, file, observed behavior and reproduction/check. Recheck the latest head after corrections. Prepare findings for Huy without posting or merging.
+   After Huy performs a merge, verify its real SHA, build on updated main and test the available C1→C5, C4/C7→C8, C9→C6/C10 and C10→C11→Applicant handoffs. Repeat the complete flow after the last merge. Distinguish integrated UI evidence from branch/API-only checks.
+5. Consolidate — At approved checkpoints append real invocations and genuine corrections to root brief.md. Under ## PA#3 in root AI-LOG.md maintain one factual entry per actual task. Link member records, preserve PA2, retain known conversation order and disclose uncertain cross-branch ordering. Verify approved contract/mock changes have dated ## Changes entries. Refer to library blocks precisely when the user invoked a task by ID.
+6. Evidence — Record exact I1 invocation/follow-ups and invoked revision in docs/ai-prompts/huy.md with owner/tool/branch/date and known times only. Label gaps and request originals. Link docs/ai-logs/huy.md with Tool, Asked for, Kept, Changed, Rejected and actual checks/error detection. Update the same I1 task entry as real merges occur.
+7. Finish — Inspect PR/merge diffs, status, staged/unstaged changes and git diff -- docs/api mock. Report reviewed SHAs, observed merges, findings, fixes and gaps. Suggest “docs: consolidate reviewed PA3 features and evidence”. Do not post reviews, switch branches, commit, push or merge on Huy’s behalf.
+
+-------------------- I2 — FINAL QA, SELF-ASSESSMENT AND PACKAGING --------------------
+
+1. Owner — Thái Quang Huy. Verify the actual release.
+2. Start — Use clean main after I1 and all three verified merges. Record HEAD. Read AGENTS.md, PA3_PLAN.md release checks, official rubric/final brief, approved docs/api, checker/guide, actual interfaces, templates, existing SELF_ASSESSMENT_REPORT.md and member evidence.
+3. Writes — Required English release documents FRONTEND.md, brief.md, AI-LOG.md, SELF_ASSESSMENT_REPORT.md, Huy’s docs/ai-prompts/huy.md and docs/ai-logs/huy.md, and generated client/dist/. Return source defects to their owners and verify the corrected revision. Add no dependencies or separate planning documents.
+4. Verify the product — In client/ run npm ci, check npm run dev and run npm run build after the final source change. Serve that exact dist with npx vite preview and the mock through preview.proxy. Exercise the app with external runtime network blocked. Walk C1–C11 through the app’s own links/buttons using the four demo accounts, the direct seed and the pristine creation story.
+   Check A01/A02 independence, duplicate and closed applications, private notes, filters, authorized readable CV and CSV, three genuine conflict types, four C9 blockers, read-only confirmation, completed assigned assessments, per-application publication and nonduplicated notifications. Exercise normal, slow, error and empty. Verify request counts/debounce, loading, same-tab Retry after a normal restart, nested empty lists, available singleton records and zero totals.
+   Direct-open and refresh every documented route at 360/768/1280. Check stage-specific messages, unknown routes, role return/denial, Back, sign-out, linked field errors, retained input and double-submit. Verify standalone targets at least 44 px tall at 360, no page overflow, table-only scrolling, readable drawer/list, landmarks, titles, headings, labels and keyboard access. Check all eight Fix these items. Run W3C Nu on rendered HTML from the main screens and record real results.
+   Restart the normal mock and run the full checker. Record examples, endpoint coverage, exit, FAIL and NOTE details. Separately check file contents, role access, contract coverage of browser requests and dated ## Changes. Inspect git log --graph --all and path history for contract before mock before consumers, step checkpoints and actual authorship.
+5. Verify the submission — Complete FRONTEND.md sections Team, How to run it, Demo accounts, Routes, Product owner decisions, Libraries, Not done. Use concrete seeded route paths, roles, C-steps, endpoints and stage requirements. Cite actual product-owner links only.
+   Reconcile root brief.md with actual messages and invoked task revisions. Preserve Task 0 and the historically labeled R0 package. Keep one factual AI log entry per actual PA3 task and preserve PA2 above it. Update the existing SELF_ASSESSMENT_REPORT.md with names/IDs, nine actual PA3 criteria and maxima 25/10/10/10/15/5/10/10/5, claimed marks and concrete evidence per row, total, “What I did not manage” and “What I would do differently”. Obtain the team’s real score decision.
+   Only when Huy explicitly authorizes creating and inspecting the archive, package the repository folder itself outside the repository as 24127044-24127177-24127505_<actual-total>.zip. Include hidden .git/, final client/dist/, source, mock, contract, rules and required documents. Exclude every node_modules/. Inspect entries, extract separately, verify history and run the extracted build against the mock. Compare the filename total with the report. Leave submission to the designated student.
+6. Evidence — Record exact I2 invocation/follow-ups and invoked revision in docs/ai-prompts/huy.md with owner/tool/branch/date and known times only. Mark gaps and request originals. Link docs/ai-logs/huy.md with Tool, Asked for, Kept, Changed, Rejected and real checks/detected errors. Consolidate I2 in root evidence. Put final archive checks performed after the document freeze in the release handoff.
+7. Finish — Inspect status, final build revision, staged/unstaged diffs and git diff -- docs/api mock. Report observed QA results, evidence, score status, incomplete work and archive status. Suggest “chore: finalize verified PA3 build and submission evidence”. Do not switch branches, commit, push, merge or submit.
+
+========================= END PROPOSED LIBRARY =========================
+
+For this interaction, return to the R0 instructions at the top. Complete the documentation setup, verify that all 17 future task blocks are present, report the R0 diff and stop for Huy’s review.
 ```
 
-Exact user answer:
+</details>
+
+### R0 follow-up — presentation of the team brief
+
+[Member prompt record](docs/ai-prompts/huy.md#r0-follow-up) · [Member log](docs/ai-logs/huy.md#r0) · [Root log](AI-LOG.md)
 
 ```text
-HUY-SETUP: tạo css/styles.css và hợp đồng CSS chung trên main
-```
+Đây là follow-up của R0 về cách trình bày `brief.md`. Hãy dùng `git log --follow -- brief.md` để tìm và đọc **bản thư viện prompt khởi đầu của PA2**, rồi lấy bố cục thực tế của bản đó làm mẫu cho PA3.
 
-The assistant announced the concrete scope before editing: `css/styles.css`,
-`docs/SHARED_CSS_CONTRACT.md`, `docs/ai-prompts/huy.md` and `docs/ai-logs/huy.md`.
-The three existing root documents were preserved. No screen, feature branch,
-commit, push or merge was requested or performed.
+Viết phần hướng dẫn bằng tiếng Anh. Đặt tiêu đề, một ví dụ gọi task và mục lục đủ 17 task ở đầu file. Nhóm theo giai đoạn và người phụ trách để mỗi thành viên tìm được ngay prompt của mình. Đặt hai bản ghi Task 0 và R0 trong các mục có thể thu gọn bằng `<details>`. Giữ nguyên từng byte của hai bản ghi, kể cả dấu escape, và chỉ giữ một bản đầy đủ của gói 17 prompt trong `brief.md`.
 
-Assistant implementation and checks: [actual setup log](docs/ai-logs/huy.md).
-Huy's acceptance/rejection and any eventual commit are pending user review.
-
-
-#### 3. HUY-01 - actually sent on 2026-11-08
-
-Branch: `pa2/huy-campaign`. Tool: Codex. Exact send time not recorded.
-The following text was actually sent in this interaction and matches PROMPT 02
-in the existing prompt pack; no other template is marked as sent.
-
-```text
-I am Huy implementing ONLY TASK HUY-01 (Create Recruitment Campaign) on pa2/huy-campaign. Use the COMMON TEAM CONTRACT, the rubric and final brief. Do not modify files outside index.html, css/campaign.css or my own per-branch prompt/AI logs. Read and reuse the existing css/styles.css tokens, but do NOT edit that shared file.
-
-Build a polished, coherent, mobile-first static page for a signed-in Club Executive managing the campaign CF-2026-01. It must be page 1 and use real file-relative navigation to review.html. Include:
-- Correct document title, semantic landmarks, one h1, a visible step indicator for the 3-screen main flow, and a strong primary action hierarchy.
-- Campaign name "Tuyển thành viên CLB Sáng tạo 2026", host "CLB Sáng tạo Sinh viên", useful descriptive copy, opening 2026-11-15 08:00 and closing 2026-11-20 23:59, and realistic application instructions.
-- Department and position setup for the FOUR canonical positions (Nội dung/3, Truyền thông/2, Sự kiện/2, Thiết kế/2), with job descriptions and requirements for EACH, and quotas as positive integers. Every input must have a visible associated label.
-- An interview availability preview/configuration appropriate to the business reference: interview date 2026-11-24, 09:00-12:00, common slot duration 20 minutes, and available rooms A/B/C; do not imply dynamic room creation.
-- Visible Save as Draft, Preview Campaign and Publish Campaign controls or previews. Expose the required-field/date-order/position/quota validation criteria and a clear invalid-input state. Use native HTML required/min/step/date inputs and a no-JS preview via details/summary if appropriate; do not claim business-rule validation or persistence is implemented unless it is.
-- A real, accessible main-flow link "Applications" with href="review.html" for navigating to Screen 2. Explain in page copy that sample applications are a later-stage fixture after publication/submissions; navigation does not create them.
-
-HTML must work from file:// with JavaScript disabled. Load css/styles.css THEN css/campaign.css. The long Vietnamese campaign title or position description must wrap at 360px. At 360px stack into one column; at 768/1280 adapt layout without overlap/cutoff. Buttons/standalone links >=44px. No broken routes, fake CV links, lorem ipsum or generic template footer.
-
-Deliver exactly index.html and css/campaign.css; include requirement-to-element mapping, diff summary, and explicit browser/W3C test steps. Identify any native-HTML prototype limitation honestly. Never claim checks passed without running them. Do not push or merge; I will handle Git commands separately.
-```
-
-Sources reused: the common contract, official PA2 rubric and final brief PDFs
-read earlier in this session, current Source of Truth, AGENTS.md, shared CSS
-and shared CSS contract. Original business description v1.1 remains unverified.
-
-Implementation/checks: [HUY-01 task log](docs/ai-logs/huy.md).
-
-#### 4. HUY-01 validator correction - actually sent on 2026-11-08
-
-Tool: Codex. Branch: `pa2/huy-campaign`. Exact send time not recorded.
-
-```text
-Lỗi ở bước Chạy W3C Nu cho index.html nè
-
-Với cả bước 8 là sao? Tôi không hiểu?
-```
-
-The user attached a screenshot of W3C Nu File Upload results for index.html
-(vnu 26.11.4). It shows one error: the required single-choice slot-duration
-select lacks an empty first option. The screenshot is user-provided evidence;
-it was not an assistant-run validator result. The assistant also explained
-how to capture viewport/validator evidence and defer cross-page navigation
-until review.html exists.
-
-#### 5. HUY-01 evidence review - actually sent on 2026-11-08
-
-Tool: Codex. Branch: `pa2/huy-campaign`. Exact send time not recorded.
-
-```text
-OK. Tôi làm xong rồi: D:\TAI_LIEU_HCMUS_K24\Năm 3 - Kì 1\Phát triển ứng dụng web\TeamWork\PA2\ClubFlow-evidence , bạn xem đi.
-```
-
-The assistant read the three PNGs and the PDF from that actual folder. The
-inspection outcome is appended to Huy's AI log; no application code was changed.
-
-## Available recorded prompts — Học — initial task and continuation, 08 Nov; handoff 09 Nov
-
-### Học — actual assistant prompts
-
-Date: 2026-11-08 (Asia/Saigon). Exact send time was not recorded.
-Tool: Codex in the local workspace; model/version not independently recorded.
-Branch: `pa2/hoc-review`. Task: HOC-01 only.
-
-#### 1. HOC-01 Application Review — actually sent
-
-The prompt below was supplied by the user in this interaction. The official rubric
-and ClubFlow final-brief PDFs were not present in the workspace or its parent
-folder, so they could not be attached/read here. `brief.md` is the team's prompt
-pack, not a substitute for those PDFs.
-
-```text
-I am Lê Nguyễn Quốc Học (24127044), implementing ONLY TASK HOC-01 (Application Review) on pa2/hoc-review. Read the COMMON TEAM CONTRACT, rubric, final brief, AGENTS.md, PA2_CLUBFLOW_SOURCE_OF_TRUTH.md, and the shared stylesheet. If a source is unavailable, say so. Change ONLY review.html, css/review.css, and my own prompt/AI logs. Do not change css/styles.css, another person's page, or root submission documents. Huy will review and merge my branch.
-
-Create Screen 2, titled “Application Review” everywhere it appears. It belongs to campaign CF-2026-01: applications open 15–20 Nov 2026; review is 21–22 Nov 2026.
-
-Use these eight independent application records:
-A01: ST01 Nguyễn Thị Minh Anh Phương Thảo, Nội dung, 15 Nov 10:15, Shortlisted.
-A02: ST01 Nguyễn Thị Minh Anh Phương Thảo, Truyền thông, 15 Nov 10:32, Shortlisted.
-A03: ST02 Trần Hồng Ngọc, Sự kiện, 17 Nov 10:10, Shortlisted.
-A04: ST03 Lê Bảo Trâm, Thiết kế, 18 Nov 12:40, Shortlisted.
-A05: ST04 Phạm Quốc Bảo, Nội dung, 19 Nov 20:15, Shortlisted.
-A06: ST05 Võ Hoàng Long, Thiết kế, 16 Nov 11:21, Rejected.
-A07: ST06 Đặng Thanh Tuyền, Sự kiện, 18 Nov 09:30, Rejected.
-A08: ST07 Bùi Nhật Khánh, Truyền thông, 20 Nov 22:05, Rejected.
-
-Show accurate counters: 8 applications, 7 unique applicants, 5 Shortlisted, 3 Rejected, 0 Pending. Keep A01 and A02 as separate applications and decisions.
-
-Represent a readable application list with IDs, applicant names, positions, submission times, CV status and a review affordance. Include labeled search and status/position filters, sorting, pagination and CSV export affordances. Do not imply that controls work if they are only illustrative; document unwired behavior accurately.
-
-Include an application detail area with CV information, a realistic motivation statement, review milestones, Executive-only notes, and Shortlist/Reject actions or decision states. Link to a CV only if a real file exists in the repository; otherwise show a clearly non-downloadable preview. Native details/summary or in-page anchors with real targets are suitable for a no-JavaScript prototype.
-
-Distinguish total applications from unique applicants, and overall counts from filtered counts. Include real relative links: back to index.html and “Continue to Interview Scheduling” to schedule.html, referring only to the five shortlisted application IDs.
-
-Load css/styles.css first, then css/review.css. At 1280px the list and detail may sit side by side; at 360px the detail must stack or expand without covering the list. Make ST01’s long name wrap naturally. Do not use a fixed-width drawer, overflow-x:hidden, inaccessible tables, unlabeled controls, fake verification labels, or invalid HTML.
-
-Before editing, provide a short requirement-to-element mapping and exact file scope. After editing, report the diff, limitations, and a real validation checklist. Do not claim W3C or accessibility checks passed unless actually run. Do not merge the branch.
-```
-
-#### 2. HOC-01 continuation QA and handoff — actually sent
-
-The following request was supplied by the user in a pasted-text attachment in
-this interaction. It is recorded here verbatim so Huy can reconcile the task
-prompt and the AI log. The attachments named in the prompt remained unavailable.
-
-```text
-Tiếp tục hoàn thiện HOC-01 — Application Review — trong checkout hiện tại cho tới khi nhánh sẵn sàng để Huy review và merge.
-
-QUY TẮC TRƯỚC KHI LÀM
-1. Dùng cwd/workspace hiện tại và chỉ định rõ workdir cho mọi lệnh.
-2. Trước khi sửa, xác minh:
-   - git rev-parse --show-toplevel
-   - git rev-parse --path-format=absolute --git-dir
-   - git rev-parse --path-format=absolute --git-common-dir
-   - git branch --show-current
-   - git rev-parse HEAD
-   - git status --short --branch
-3. Xác nhận checkout thuộc repository ClubFlow và đang ở `pa2/hoc-review`. Nếu root hoặc branch không đúng, dừng và báo lại; không tự chuyển branch.
-4. Đọc AGENTS.md, PA2_CLUBFLOW_SOURCE_OF_TRUTH.md, docs/SHARED_CSS_CONTRACT.md, css/styles.css, PROMPT 00 và PROMPT 03 trong brief.md. Tìm rubric và ClubFlow final brief trong vị trí dự án cung cấp. Nếu không truy cập được tài liệu nào, nêu rõ, không giả vờ đã đọc.
-5. Các file của Học có thể đang là untracked. Giữ nguyên nội dung hiện tại để review; không ghi đè hoặc xóa công việc chưa commit.
-
-PHẠM VI
-Chỉ được sửa:
-- review.html
-- css/review.css
-- docs/ai-prompts/hoc.md
-- docs/ai-logs/hoc.md
-
-Không sửa index.html, schedule.html, css/styles.css, root docs, hoặc file của Huy/Phúc. Không merge vào main, không squash, không force-push, không nhận authorship của người khác.
-
-YÊU CẦU SCREEN 2
-Đối chiếu trang với brief và Source of Truth, gồm:
-
-- Trang có tên “Application Review” nhất quán ở title, h1 và điều hướng.
-- Nạp css/styles.css trước css/review.css; dùng đúng shared tokens và không thêm framework, dependency, JavaScript, CDN hay tài nguyên ngoài.
-- Trang vẫn có đầy đủ nội dung khi JavaScript tắt và mở được trực tiếp bằng file://.
-- Giữ nguyên fixture CF-2026-01:
-  A01 — ST01 Nguyễn Thị Minh Anh Phương Thảo, Nội dung, 15 Nov 10:15, Shortlisted.
-  A02 — ST01 Nguyễn Thị Minh Anh Phương Thảo, Truyền thông, 15 Nov 10:32, Shortlisted.
-  A03 — ST02 Trần Hồng Ngọc, Sự kiện, 17 Nov 10:10, Shortlisted.
-  A04 — ST03 Lê Bảo Trâm, Thiết kế, 18 Nov 12:40, Shortlisted.
-  A05 — ST04 Phạm Quốc Bảo, Nội dung, 19 Nov 20:15, Shortlisted.
-  A06 — ST05 Võ Hoàng Long, Thiết kế, 16 Nov 11:21, Rejected.
-  A07 — ST06 Đặng Thanh Tuyền, Sự kiện, 18 Nov 09:30, Rejected.
-  A08 — ST07 Bùi Nhật Khánh, Truyền thông, 20 Nov 22:05, Rejected.
-- Counters phải là 8 applications, 7 unique applicants, 5 Shortlisted, 3 Rejected, 0 Pending. A01/A02 phải là hai hồ sơ và quyết định riêng.
-- Có danh sách hồ sơ dễ đọc, search/filter/sort/pagination/export affordances được gắn nhãn, và vùng chi tiết với trạng thái quyết định, motivation, mốc review, CV preview trung thực và ghi chú mẫu. Không tuyên bố chức năng tĩnh là chức năng backend đang chạy.
-- Kiểm tra các liên kết “Review application” có giúp người dùng tới đúng chi tiết trong giao diện không-JS. Sửa nếu có vấn đề mà không thêm JavaScript hay liên kết giả.
-- Có back link tương đối tới index.html và link tiếp tục tới schedule.html, chỉ chuyển A01–A05. Ghi nhận rằng đích còn phải kiểm tra sau khi Huy/Phúc tích hợp các trang.
-- Không có nhãn xác minh sinh viên giả; ghi rõ ghi chú Executive chỉ là mẫu và trang không thực thi phân quyền.
-- Responsive mobile-first ở 360, 768, 1280px; không scroll ngang, cắt nội dung, chồng lấp hoặc fixed drawer; tên dài phải tự xuống dòng; link/button độc lập đạt tối thiểu 44px ở mobile; body text tối thiểu 16px.
-- HTML semantic: doctype, lang, charset, viewport, landmarks, đúng một h1, thứ tự heading hợp lệ, label nhìn thấy và liên kết nội bộ có đích thật.
-- Không dùng overflow-x:hidden hoặc !important.
-
-QA VÀ BẰNG CHỨNG
-Chạy các kiểm tra cần thiết để đánh giá điều kiện “ready for merge”, vì đây là yêu cầu của người dùng. Không tạo test giả và không ghi PASS nếu chưa chạy thật.
-
-1. Mở trang trực tiếp/offline, JavaScript tắt; kiểm tra 360, 768, 1280. Ghi lại clientWidth, scrollWidth, overflow và vấn đề nhìn thấy.
-2. Chạy W3C Nu validator cho review.html và lưu/kê khai kết quả thực tế. Nếu validator hoặc mạng không khả dụng, ghi rõ là chưa xác minh.
-3. Kiểm tra labels, landmarks, heading order, keyboard focus, disclosure, contrast và tất cả đường dẫn. Kiểm tra DevTools Accessibility nếu môi trường hỗ trợ; nếu không, ghi giới hạn.
-4. Ghi các lỗi thực sự gặp, cách xử lý, giới hạn còn lại và các kiểm tra đã chạy vào docs/ai-logs/hoc.md. Không sửa root brief.md; giữ prompt thật trong docs/ai-prompts/hoc.md.
-5. Chỉ sửa lỗi thuộc phạm vi Học. Sau sửa, chạy lại các kiểm tra bị ảnh hưởng và tổng hợp diff chính xác.
-
-GIT VÀ HANDOFF
-Khi QA đã đạt:
-- Kiểm tra lại git status và diff, chỉ stage bốn file thuộc phạm vi Học.
-- Không đổi branch. Trước Git mutation, đồng bộ metadata của chat hiện tại bằng helper theo AGENTS.md, dùng cwd/root thực tế đã xác minh; không trỏ helper sang chat khác.
-- Tạo commit rõ ràng cho HOC-01 với authorship Git thật. Push chỉ lên `pa2/hoc-review`, không push main; không force-push.
-- Nếu commit/push bị chặn hoặc remote chưa sẵn sàng, không tìm cách lách quyền. Giữ thay đổi an toàn và báo chính xác phần handoff còn thiếu.
-
-KẾT THÚC
-Báo cáo:
-- trạng thái ready/not ready và lý do;
-- file đã sửa;
-- kết quả thật của từng QA check, gồm những gì chưa kiểm tra được;
-- commit/branch/remote nếu đã tạo và push thành công;
-- giới hạn còn lại để Huy tích hợp.
-
-Không merge. Huy là người review và merge nhánh.
-```
-
-##### Task 2 follow-up evidence (condensed)
-
-The user later supplied nine QA screenshots across three follow-ups and
-confirmed the requested checks passed. The images show Nu vnu 26.11.5 reporting
-no errors/warnings for `review.html`; `clientWidth`/`scrollWidth` 360/360,
-768/768, 1200/1200 and 1280/1280 with overflow false; computed search name
-`Search applications` / role `searchbox`; and h1 name `Application Review` /
-role `heading` / level 1. The user also reported JavaScript-off, keyboard and
-disclosure checks passed, and then confirmed the remaining checks were done.
-These are user-provided results, not checks performed by the assistant.
-
-Attached evidence filenames: `codex-clipboard-930bb04e-1c00-4aab-a03b-02b42194fdb0.png`,
-`codex-clipboard-68ed486c-dfa9-4621-bc2f-13dac97a2a8a.png`,
-`codex-clipboard-440f3edf-5271-4d02-80ff-9e7e7226e8ad.png`,
-`codex-clipboard-07bd6315-0ac9-424a-84a6-e8d2eb74c711.png`,
-`codex-clipboard-ac0b4cb7-6c9b-4da3-960b-51f63a417bfc.png`,
-`codex-clipboard-cf0d6aa7-8b1f-41af-9c2f-a26220f7585d.png`,
-`codex-clipboard-9be796b6-2089-422d-b38f-f283b0656233.png`,
-`codex-clipboard-3181ae0b-aa49-4a67-8064-764d7259b879.png`,
-`codex-clipboard-7f329158-43f4-4ca0-9b26-abe441c4648e.png`.
-
-##### Huy review feedback (Task 2)
-
-The user supplied a screenshot with this review note: `Review PR #2 — Hoc: bổ sung ô ghi chú và control Shortlist/Reject; bổ sung CV preview đọc được bằng HTML.` The user asked to apply the feedback.
-
-##### Final screenshot and handoff (Task 2)
-
-Actual user prompt: `Rồi á, rename cho đúng format. Đánh giá lần cuối. Nếu ổn theo tiêu chí và ổn các phần tôi đã nói ổn thì commit, push và PR đi`
-
-## Available recorded prompts — Phúc — initial task 08 Nov; review fix 09 Nov
-
-### Phúc - actual assistant prompts
-
-Date: 2026-11-08 (Asia/Saigon). Exact send times were not recorded.
-Tool: Claude Code (VS Code extension), model Claude Sonnet 5.5 (`claude-sonnet-5-5`).
-Branch: `pa2/phuc-schedule`. Task: PHUC-01 (Interview Scheduling) only.
-
-PROMPT 00 and PROMPT 04 from `brief.md` were **not** sent in this interaction. The
-prompts below are the messages that were actually sent, in order. Messages are in
-Vietnamese; each is followed by an English gloss. The repository rules file
-`AGENTS.md` was loaded automatically by the tool as project instructions.
-
-#### 1. First message - read the repo and list the work
-
-Sent text (Vietnamese, with the course text pasted in; the long pasted assignment
-text and rubric are abbreviated here with `[...]` and were not reworded):
-
-```text
-Bạn đọc repo hiện tại đi, tôi là Trần Hoàng PHúc, bạn xem coi có những việc gì cần phải làm, hình nhưu phải tạo 1 branch riêng để làm phần công việc của tôi đó. cần viếc AI-log,... các thứ
-
-Này yêu cầu của thầy tôi, tôi gửi bạn xem sơ bộ để nắm thôi, trong repo có vẻ đã đầy đủ rồi, chỉ cần follow theo thôi "Project milestone, teams of up to 3 (your PA#1 team), 3% of the course, 100 points. [...]"
-
-rubric của thầy tôi "[pasted official PA#2 rubric text: what you build, what you hand in, the seven scored criteria, submission and honesty adjustment]"
-```
-
-Gloss: read the repo, work out what must be done, I need my own branch, an AI-log and
-the other deliverables; the lecturer's assignment text and the PA#2 rubric were
-pasted for background.
-
-Sources accessible: `AGENTS.md`, `PA2_CLUBFLOW_SOURCE_OF_TRUTH.md`, `brief.md`,
-`docs/SHARED_CSS_CONTRACT.md`, Huy's logs. The two official PDFs and the Google Docs
-business description were not available to the assistant; their content was only
-known through the pasted rubric text and the Source of Truth.
-
-#### 2. Second message - do all the work
-
-```text
-đây là môn sử dụng ai agent để coding, tôi cần bạn làm toàn bộ việc cho tôi luôn, bạn dùng playwright hay gì đó chụp screenshot giúp tôi luôn, nói chung làm hết việc giúp tôi, đầy đủ đúng quy trình commit đầy đủ, để tác giả là tôi nhé,
-```
-
-Gloss: this course is about using an AI agent to code; do the whole task, use
-Playwright or similar for screenshots, follow the full commit process, author is me.
-
-#### 3. Third message - git identity
-
-```text
-không cần phải chỉnh git config tên user gì đâu nha, để yên là được
-```
-
-Gloss: do not change the git user name/email configuration; leave it as it is.
-The commits therefore use the already configured identity on this machine.
-
-Assistant output: see [the actual task log](docs/ai-logs/phuc.md).
-
-#### 4. Fourth message - AI-log format
-
-Pasted the course's `AI-LOG.md` template (how to use, five rules, entry format, a filled
-example, what a weak log looks like; text not reproduced here) with:
-
-```text
-AI log viết follow như này nè, ngắn gọn thôi
-```
-
-Gloss: write the AI log in this short format.
-
-#### 5. Fifth message - push
-
-```text
-ok vậy giờ bạn commit push đi
-```
-
-Gloss: ok, commit and push now.
-
-#### 6. Sixth message - Huy's review feedback
-
-Sent with two screenshots (VS Code showing Huy's Codex summary of "Request changes" on
-PRs #2 and #3; GitHub branch page showing `claude` as a co-author):
-
-```text
-Huy feedback nè, bạn xem thử coi sai gì vậy, và sửa lại giúp tôi, chỉnh AI log nếu cần, đồng thời sao trên repo lại có claude, tôi muosn để tác giả là tôi thôi, đè lên lại đi.
-```
-
-Gloss: here is Huy's feedback; find what is wrong and fix it, update the AI log if
-needed, and I want only me as author (not Claude) — overwrite the branch.
-
-Short status/clarification questions between these messages (what is left to do,
-screenshots, where evidence is stored) are not reproduced.
-
-## Huy — subsequent review and integration requests
-
-Tool: Codex in this workspace. Exact send times were not retained. The messages below are quoted from the available user conversation in their order; they are not copies of an unused template. The earlier review request preceded the 09 Nov merge and final evidence work. Prompt text is preserved in Vietnamese; the English labels describe its purpose. These are task-relevant excerpts, not a claim to reproduce every status exchange or IDE context block.
-
-### Review both PRs and show the findings before posting
-
-```text
-Bạn review cho tôi đi. Sau đó cho tôi xem để tôi duyệt cái review đó.
-```
-
-### Accept four findings and request evidence inspection
-
-```text
-Tôi duyệt 4 điểm review đó. Tôi đã gửi 2 file review.html và schedule.html vào để check rồi, bằng chứng có trong checks ấy, bạn xem thử nhé. Giờ làm gì tiếp?
-```
-
-### Rename the supplied evidence
-
-```text
-À bạn nhớ đổi tên lại 2 file cái trong folder checks nhé.
-```
-
-### Authorize the two GitHub request-changes reviews
-
-```text
-Bạn làm giúp tôi 2 cái request changes đó đi.
-```
-
-### Review revised PRs
-
-```text
-OK. Tôi thấy Phúc và Học đã sửa rồi á. Bạn review đi, xem OK chưa?
-```
-
-### Fix the review footer after Huy merged and pulled
-
-```text
-Tôi pull về rồi, bạn sửa cái đoạn footer đó đi.
-```
-
-### Inspect the refreshed post-footer validator evidence
-
-```text
-Ok. Tôi cập nhật bằng chứng rồi nhé. Giờ làm gì tiếp?
-```
-
-### Complete final evidence and submission documents
-
-```text
-Tôi đã push lên main ở Bước 1 rồi, giờ Bước 2 và Bước 3 bạn làm cho tôi đi.
-```
-
-At this point Step 2 meant final screenshots, PNG/TXT validator evidence and QA consolidation; Step 3 meant the English PROTOTYPE, AI-LOG and self-assessment documents plus actual-prompt reconciliation. It did not authorize an assistant commit, push, merge or submission ZIP. This clarification describes the already supplied task context, not additional text supposedly inside the quoted prompt.
-
-### Ask for step-by-step DevTools instructions
-
-```text
-1. Mục DevTools Accessibility và Color Picker đó là làm gì vậy? Hướng dẫn chi tiết, step-by-step.
-```
-
-### Ask the assistant to perform the DevTools inspection
-
-```text
-Tại sao bạn không làm cái mục này hộ tôi
-```
-
-The assistant then operated the actual DevTools frontend and recorded its observations. These are the actual follow-up messages; no user-performed panel clicks are inferred from them.
-
-### Ask whether the work can reach full marks
-
-```text
-Không làm nó lên 100/100 điểm được à?
-```
-
-The assistant rechecked the rubric and existing evidence, removed unsupported precautionary deductions and requested complete original conversations for the remaining prompt-provenance gaps. No full-credit result or reconstructed message was invented.
-
-### Clarify whether the missing original conversations are available
-
-The assistant asked whether Học and Phúc still held the original conversations for the portions abbreviated or summarized in this file. Huy's recorded answer through the clarification tool was:
-
-```text
-Không còn bản đầy đủ
-```
-
-This confirms the source-availability limit. It does not supply the omitted prompt text.
-
-### Approve 98/100 and authorize commit, push and submission ZIP
-
-```text
-Ok. Nhóm tôi thống nhất 98/100 điểm, bạn commit và push lên github cho tôi và đóng ZIP cho tôi những thứ cần nộp luôn nhé
-```
-
-This request authorizes committing/pushing the final artifacts on Huy's `main` and creating/verifying the submission ZIP with `.git`. It does not authorize student-account submission on Classroom.
-
-The user then asked the assistant to continue:
-
-```text
-Tiếp tục
-```
-
-## Reference appendix — original prompt library, not usage evidence
-
-The following library was prepared before implementation and is retained as reference. Its presence proves no prompt was sent. Some templates match actual quotations above; others, explicitly including Phúc's PROMPT 04, were not sent as written. Unused placeholders in this appendix are template syntax, not unfinished actual-message records or QA evidence. The old empty-entry form has been removed.
-
-#### A. Approved prompt library — use in this order
-
-**Repository setup clarification (v1.3, team decision):** This project starts in a **brand-new, dedicated ClubFlow PA#2 repository** created by Huy. ClubFlow originates from the selected PA#1 proposal of another team; our PA#1 source/screens are not inherited. The course rubric says the same **team membership** continues, but does not explicitly mandate retaining the old PA#1 repository. The starter prompt pack is a draft until actually sent; only exact sent prompts count as rubric evidence. Huy initializes `main` with the rules file first, then creates shared CSS before the three page branches.
-
-##### PROMPT 00 — COMMON TEAM CONTRACT (send before each person's implementation prompt)
-
-**Who sends:** Huy, Học and Phúc, each to their own coding assistant.  
-**Suggested attachments/context:** `PA2_CLUBFLOW_SOURCE_OF_TRUTH.md`, `AGENTS.md`, `PA2-rubric-responsive-prototype.pdf`, `ClubFlow-final-project-brief.pdf`; optional ClubFlow business description v1.1.  
-**Instruction:** send the following prompt *as written*, or edit it to match actual repository decisions and record the actual sent version.
-
-```text
-You are helping our CSC13008 PA#2 team build ClubFlow, a three-screen responsive recruitment-management prototype. ClubFlow was selected from ANOTHER team's PA#1 as the common final project; our prior PA#1 screens and repository are NOT a starting codebase. Huy creates a NEW ClubFlow PA#2 repository with new Git history, a first rules-file commit and shared CSS baseline before branching; do not clone or migrate PA#1 source or history. Before editing code, read the attached PA#2 rubric, ClubFlow final project brief, PA2_CLUBFLOW_SOURCE_OF_TRUTH.md, and AGENTS.md if accessible. If any source cannot be read, say so; do not pretend it was reviewed. Treat the grading rubric as the authority for deliverables and browser checks, the final project brief as the authority for the three screens and its eight Fix these problems, and the business description v1.1 as supporting business detail. If these disagree, surface the issue instead of guessing.
-
-TEAM AND OWNERSHIP
-- 24127177 — Thái Quang Huy: repository setup, rules, shared CSS, Screen 1 on pa2/huy-campaign, and sole reviewer/merger of every feature branch into main.
-- 24127044 — Lê Nguyễn Quốc Học: Screen 2 only on pa2/hoc-review.
-- 24127505 — Trần Hoàng Phúc: Screen 3 only on pa2/phuc-schedule.
-- Exactly one screen implementation task per feature branch; no one except Huy merges/pushes to main. Do not touch another member's HTML/CSS or shared css/styles.css from a feature branch.
-
-STACK AND RUNTIME
-- STATIC semantic HTML5 + plain CSS3; no React for this PA#2 team plan, no new dependencies, no build step, no Tailwind CDN script, no remote assets, fonts or CDN. Use system fonts.
-- All essential application content, sample records, states and controls must be present in HTML and visible when JavaScript is DISABLED. Do not render essential content with JS. Do not use a JS-based router or onclick for navigation.
-- Entry point index.html. Other screens: review.html and schedule.html. Use file-relative anchors such as href="review.html", not /review.html, review/, href="#" or invented files. All in-flow links and form actions must lead to files that really exist. Use a link for navigation and a button for an action. A button cannot masquerade as a working backend operation.
-- All three HTML pages load css/styles.css first and their own page CSS second: css/campaign.css, css/review.css or css/schedule.css. Reuse the shared tokens. Never add a second CSS framework.
-
-RESPONSIVE / DESIGN
-- Mobile-first at 360px, 768px and 1280px. Use fluid grids, minmax(0,1fr), wrapping and safe word breaking; no fixed page widths, no horizontal scroll, no clipped or overlapping content. Do NOT use overflow-x:hidden to conceal broken layout. A table may scroll within its own deliberate table wrapper only.
-- Every independent link and button is at least 44px high at 360px; ordinary inline links are exempt. Body text is at least 16px. Body text and button text contrast is at least 4.5:1. Use a consistent spacing scale of 4/8/12/16/24/32px. No !important in custom CSS.
-- At least one long Vietnamese applicant name/title must wrap naturally. Give each page one clear primary visual focus.
-
-SEMANTIC / ACCESSIBILITY
-- Include <!DOCTYPE html>, lang="vi" or the actual UI language, meta charset="UTF-8" and meta name="viewport" content="width=device-width, initial-scale=1".
-- Correct header/nav/main/footer landmarks, exactly one h1 per page, no skipped heading level, visible associated labels for all inputs, real accessible buttons/links, semantic lists/tables/headings, alt attributes on images (or alt="" for decoration), and appropriate names for icon-only controls.
-- The W3C Nu validator must report ZERO HTML ERRORS for all three final pages. Accessibility must be inspected in browser, not assumed from valid HTML.
-
-CANONICAL CAMPAIGN / BUSINESS FIXTURE (sample data, not a requirement of the professor)
-- Campaign CF-2026-01: "Tuyển thành viên CLB Sáng tạo 2026", host "CLB Sáng tạo Sinh viên".
-- Opens 2026-11-15 08:00; closes 2026-11-20 23:59; CV review 2026-11-21 to 2026-11-22; interview on 2026-11-24, 09:00-12:00, 20-minute common slots, Rooms A/B/C.
-- Departments/positions/quotas: Nội dung / Biên tập nội dung / 3; Truyền thông / Truyền thông số / 2; Sự kiện / Điều phối sự kiện / 2; Thiết kế / Thiết kế truyền thông / 2.
-- 8 application records, 7 distinct students. A01 and A02 are two independent applications for different positions made by the same student, ST01 Nguyễn Thị Minh Anh Phương Thảo.
-- Application statuses: A01-A05 Shortlisted; A06-A08 Rejected; 0 Pending. Counters: 8 total applications, 7 unique applicants, 5 Shortlisted, 3 Rejected, 0 Pending.
-- Only A01-A05 are eligible for scheduling. Draft statuses must be exactly 2 Proposed, 2 Conflict, 1 Unassigned = 5. A01 and A03 both conflict because interviewer I01 is assigned to both at 09:00-09:20. A02 belongs to the same applicant as A01 but starts at 09:20, so it does not overlap. A05 is Unassigned because the applicant is available 11:00-12:00 while qualified interviewer I01 is initially available 09:00-10:00.
-- Shortlisted means CV screening passed, not final admission; Proposed means draft, not confirmed. No schedule confirmation with conflict/unassigned. Confirmation is NOT announcement of recruitment results.
-- The three screens are successive illustrative stages, not a live backend. Moving from index to review does NOT itself create applicants or approve CVs.
-
-AVOID THE EIGHT OFFICIAL FIX THESE PROBLEMS
-1. Contradictory dates across three screens.
-2. Wrong Screen 2 title (must be Application Review).
-3. Candidate details/drawer covering most of the list.
-4. Scheduling counters not adding up to the scheduling records.
-5. False conflict badges without real people/time/room overlap.
-6. Using the same sample person as applicant and interviewer.
-7. False claims of student/attachment verification outside scope.
-8. Generic template footer such as outdated copyright, Privacy Policy, Terms of Service or Support Center.
-
-STATIC-PROTOTYPE HONESTY
-- Include the features and meaningful controls/states expected in the three screens, using usable native-HTML interactions where feasible (for example details/summary), but never claim persistent saving, automatic filtering, publication, schedule-generation, CSV export, validation across fields or backend authorization is implemented if it is merely illustrated.
-- Do not add buttons that link to nonexistent resources, make empty href links, or simulate a successful confirmation while conflicts exist. Clearly document unimplemented actions and out-of-flow controls in PROTOTYPE.md, rather than suggesting they really work.
-
-HOW DONE WILL BE VERIFIED
-1. Open each HTML file directly from the folder, offline, with JavaScript disabled.
-2. At each width 360, 768, 1280 run document.documentElement.scrollWidth > document.documentElement.clientWidth; it must be false. Check clientWidth is exactly the selected width, and that right-overflow elements list is empty (except deliberate table wrappers).
-3. Visually inspect all nine page/width combinations, the 44px tap targets, headings, labels and the long name.
-4. Use the W3C Nu validator File upload on EACH HTML file and save evidence, requiring 0 errors.
-5. Inspect DevTools Accessibility and color contrast; verify main-flow links and all referenced assets.
-6. Preserve actual prompts, decisions, test observations, Git authors and commits. Do not say a check passed unless it really ran.
-
-Respond initially with: (a) a short requirement-to-element mapping; (b) files you propose to change; (c) assumptions/unimplemented behavior. Then implement only the specified task. After implementation show a precise diff summary and a manual verification plan. Never invent test results or tool calls you did not perform.
-```
-
-##### PROMPT 01 — HUY: REPOSITORY SETUP AND SHARED DESIGN SYSTEM (on `main`, before branching)
-
-**Who sends:** Thái Quang Huy only.  
-**Where:** New, empty ClubFlow PA#2 repository created by Huy; first commit has `AGENTS.md`/`brief.md`/Source of Truth on `main`, then shared CSS before branching.  
-**This is a foundation/setup activity, NOT a fourth feature branch or a second screen task.**
-
-```text
-I am Thái Quang Huy (24127177), responsible for repository setup, integration and all merges. ClubFlow is the CLASSWIDE final project selected from ANOTHER team's PA#1 proposal. Our team's old PA#1 project/repository is NOT the source for these screens. I will create a BRAND-NEW, EMPTY GitHub repository for ClubFlow PA#2, initialize a NEW .git history and maintain main. The team membership stays the same as PA#1 unless the lecturer has authorized a change. Read the COMMON TEAM CONTRACT, AGENTS.md and the updated Source of Truth v1.3.
-
-Task: establish a reliable static HTML/CSS shared foundation BEFORE creating the three independent feature branches. Do not clone, migrate or reuse our old PA#1 repository, and do not copy the winning team's PA#1 source code. First verify the new repository's first commit contains the rules file; then work on main only after I confirm the working tree is clean. Do NOT fabricate any Git commands' results.
-
-Files to prepare/review:
-- AGENTS.md: project rules/never-list for the assistants, stack, shared tokens, file ownership, review criteria.
-- brief.md and PA2_CLUBFLOW_SOURCE_OF_TRUTH.md: preserve the supplied content; do not pretend template prompts were sent.
-- css/styles.css: provide design tokens and baseline utility/components only, including spacing scale 4/8/12/16/24/32px, legible colors, system fonts, 16px minimum body text, 44px independent link/button targets, keyboard focus styles, fluid containers, responsive utilities, min-width:0 for grid children, and overflow-safe text. No !important, no fixed page width, no overflow-x:hidden to hide defects.
-- Safe .gitignore only if needed; exclude node_modules and secrets, but never ignore required screenshots/checks/docs. The final ZIP must preserve the NEW repository's .git directory and full history.
-
-Strict ownership contract: all feature pages will load css/styles.css then a separate page CSS. Huy's screen will own index.html + css/campaign.css; Học owns review.html + css/review.css; Phúc owns schedule.html + css/schedule.css. Do not create or implement any screen at this setup stage. Do not introduce npm, external fonts, JS dependencies or a framework.
-
-Output: a file-level plan; exact shared CSS design contract listing tokens/class names all three page owners can reuse; changes/diff summary; checks that can be performed without claiming unrun W3C or browser tests. Suggest meaningful Git commit boundaries: rules/brief first, shared styles second. Do not run git push, git reset or git merge without my explicit instruction.
-```
-
-##### PROMPT 02 — HUY-01: CREATE RECRUITMENT CAMPAIGN (branch `pa2/huy-campaign`)
-
-**Who sends:** Thái Quang Huy.  
-**Allowed feature files:** `index.html`, `css/campaign.css`, Huy's own prompt/AI logs.  
-**Do not modify:** `review.html`, `schedule.html`, `css/styles.css`, root docs, or other person's file.
-
-```text
-I am Huy implementing ONLY TASK HUY-01 (Create Recruitment Campaign) on pa2/huy-campaign. Use the COMMON TEAM CONTRACT, the rubric and final brief. Do not modify files outside index.html, css/campaign.css or my own per-branch prompt/AI logs. Read and reuse the existing css/styles.css tokens, but do NOT edit that shared file.
-
-Build a polished, coherent, mobile-first static page for a signed-in Club Executive managing the campaign CF-2026-01. It must be page 1 and use real file-relative navigation to review.html. Include:
-- Correct document title, semantic landmarks, one h1, a visible step indicator for the 3-screen main flow, and a strong primary action hierarchy.
-- Campaign name "Tuyển thành viên CLB Sáng tạo 2026", host "CLB Sáng tạo Sinh viên", useful descriptive copy, opening 2026-11-15 08:00 and closing 2026-11-20 23:59, and realistic application instructions.
-- Department and position setup for the FOUR canonical positions (Nội dung/3, Truyền thông/2, Sự kiện/2, Thiết kế/2), with job descriptions and requirements for EACH, and quotas as positive integers. Every input must have a visible associated label.
-- An interview availability preview/configuration appropriate to the business reference: interview date 2026-11-24, 09:00-12:00, common slot duration 20 minutes, and available rooms A/B/C; do not imply dynamic room creation.
-- Visible Save as Draft, Preview Campaign and Publish Campaign controls or previews. Expose the required-field/date-order/position/quota validation criteria and a clear invalid-input state. Use native HTML required/min/step/date inputs and a no-JS preview via details/summary if appropriate; do not claim business-rule validation or persistence is implemented unless it is.
-- A real, accessible main-flow link "Applications" with href="review.html" for navigating to Screen 2. Explain in page copy that sample applications are a later-stage fixture after publication/submissions; navigation does not create them.
-
-HTML must work from file:// with JavaScript disabled. Load css/styles.css THEN css/campaign.css. The long Vietnamese campaign title or position description must wrap at 360px. At 360px stack into one column; at 768/1280 adapt layout without overlap/cutoff. Buttons/standalone links >=44px. No broken routes, fake CV links, lorem ipsum or generic template footer.
-
-Deliver exactly index.html and css/campaign.css; include requirement-to-element mapping, diff summary, and explicit browser/W3C test steps. Identify any native-HTML prototype limitation honestly. Never claim checks passed without running them. Do not push or merge; I will handle Git commands separately.
-```
-
-##### PROMPT 03 — HOC-01: APPLICATION REVIEW (branch `pa2/hoc-review`)
-
-**Who sends:** Lê Nguyễn Quốc Học.  
-**Allowed feature files:** `review.html`, `css/review.css`, Học's own prompt/AI logs.  
-**Do not modify:** `index.html`, `schedule.html`, `css/styles.css`, root docs, other person's files.
-
-```text
-I am Lê Nguyễn Quốc Học (24127044), implementing ONLY TASK HOC-01 (Application Review) on pa2/hoc-review. Read the COMMON TEAM CONTRACT, rubric, final brief and the shared stylesheet. Change ONLY review.html, css/review.css, and my own prompt/AI logs. Do not change css/styles.css or either teammate's page. Huy will merge my branch.
-
-Create Screen 2, titled Application Review everywhere it appears (the <title>, h1, app header and navigation). It belongs to the same CF-2026-01 campaign (applications open 15 Nov and close 20 Nov 2026; review 21-22 Nov 2026), shown at the later review stage.
-
-Use EXACTLY the following independent applications (submitted in the campaign window):
-A01: ST01 Nguyễn Thị Minh Anh Phương Thảo, Nội dung, 15 Nov 10:15, Shortlisted.
-A02: ST01 Nguyễn Thị Minh Anh Phương Thảo, Truyền thông, 15 Nov 10:32, Shortlisted.
-A03: ST02 Trần Hồng Ngọc, Sự kiện, 17 Nov 10:10, Shortlisted.
-A04: ST03 Lê Bảo Trâm, Thiết kế, 18 Nov 12:40, Shortlisted.
-A05: ST04 Phạm Quốc Bảo, Nội dung, 19 Nov 20:15, Shortlisted.
-A06: ST05 Võ Hoàng Long, Thiết kế, 16 Nov 11:21, Rejected.
-A07: ST06 Đặng Thanh Tuyền, Sự kiện, 18 Nov 09:30, Rejected.
-A08: ST07 Bùi Nhật Khánh, Truyền thông, 20 Nov 22:05, Rejected.
-Counters: 8 applications, 7 unique applicants, 5 Shortlisted, 3 Rejected, 0 Pending. A01 and A02 MUST remain distinct decisions/records; one student's decisions do not affect the other position.
-
-Features to REPRESENT visibly in the static prototype:
-- A readable application list including application ID, applicant, position, submission timestamp, CV-screening status, and a meaningful Review affordance.
-- Labeled search and status/position filters; sorting, pagination and a basic CSV export affordance as described in the full ClubFlow brief. If an affordance is not interactive without backend/JS, do NOT pretend it is; note accurately in the Not wired documentation and provide realistic illustrative state.
-- A meaningful application detail panel/drawer for a selected application including CV information, a realistic SOP/motivation statement, submission/review milestones, internal Executive-only notes, and Shortlist Candidate and Reject actions/decision states. If you link to a CV, link only to a real file checked into the repo; otherwise clearly represent a non-downloadable CV preview. Native details/summary or in-page anchors with real targets are acceptable for no-JS visibility.
-- Explicitly distinguish total application count from unique applicant count, and overall counts from filtered counts.
-- A real anchor "Continue to Interview Scheduling" href="schedule.html", referring to ONLY the five shortlisted application IDs; a real back link href="index.html".
-
-Responsive specification: at 1280px list plus detail may be side by side, but at 360px the detail must stack/expand without covering the list. Long name ST01 must wrap rather than widen the page. Avoid any fixed-width drawer, overflow-x:hidden bandaid, inaccessible table, unlabeled controls, invalid HTML or fake student-verification labels.
-
-Load css/styles.css THEN css/review.css. Deliver only review.html, css/review.css and my own logs. Return a requirement-to-element mapping, diff summary, genuine limitations, and an explicit validation checklist. Do not say W3C/Accessibility passed unless actually tested, and do not merge my branch.
-```
-
-##### PROMPT 04 — PHUC-01: INTERVIEW SCHEDULING (branch `pa2/phuc-schedule`)
-
-**Who sends:** Trần Hoàng Phúc.  
-**Allowed feature files:** `schedule.html`, `css/schedule.css`, Phúc's own prompt/AI logs.  
-**Do not modify:** `index.html`, `review.html`, `css/styles.css`, root docs, other person's files.
-
-```text
-I am Trần Hoàng Phúc (24127505), implementing ONLY TASK PHUC-01 (Interview Scheduling) on pa2/phuc-schedule. Read the COMMON TEAM CONTRACT, rubric, final brief and shared CSS. Change only schedule.html, css/schedule.css and my own per-branch logs. Huy alone reviews/merges. Do not modify shared styles.css or the other pages.
-
-This is Screen 3 for the SAME ClubFlow campaign CF-2026-01. Application deadline: 2026-11-20 23:59, CV decisions all finished on 2026-11-22, interview date 2026-11-24 only; time window 09:00-12:00; one 20-minute duration for every session. Show the duration options 15/20/30 min as the product allows, but show 20 min as this fixture's chosen value. Rooms A/B/C are pre-existing. The 8 campaign applications include ONLY these five shortlisted IDs eligible for scheduling: A01, A02, A03, A04, A05. Never schedule rejected A06-A08.
-
-Interviewers and qualifications:
-I01 Trịnh Ngọc Hà: Nội dung and Sự kiện, initially available 09:00-10:00.
-I02 Đỗ Quang Kiên: Truyền thông, available 09:00-10:00.
-I03 Lê Thanh Tùng: Thiết kế, available 09:00-10:20.
-Applicants' availability:
-ST01 (A01 and A02): 09:00-10:00.
-ST02 (A03): 09:00-10:00.
-ST03 (A04): 09:20-10:20.
-ST04 (A05): 11:00-12:00.
-Rooms A/B/C available 09:00-12:00.
-
-Display ONE clearly labeled invalid DRAFT schedule with EXACTLY five rows:
-A01 | ST01 | 09:00-09:20 | I01 | A | CONFLICT — I01 simultaneous with A03.
-A02 | ST01 | 09:20-09:40 | I02 | B | PROPOSED — adjacent to A01, so not overlapping for ST01.
-A03 | ST02 | 09:00-09:20 | I01 | B | CONFLICT — I01 simultaneous with A01.
-A04 | ST03 | 09:40-10:00 | I03 | A | PROPOSED.
-A05 | ST04 | no slot | none | none | UNASSIGNED — ST04 only free at 11:00-12:00, qualified I01 initially free only at 09:00-10:00.
-Counters must add to FIVE: Proposed=2, Conflict=2, Unassigned=1. A01 and A03 are both flagged as affected by the real conflict. Do not invent a conflict on A02 (adjacent ST01 sessions are allowed).
-
-Represent the scheduling controls and conditions: choose day/time window/duration, interviewer-to-position assignments, availability and room selection, Generate Draft, Save Changes (draft only), Edit, Resolve, + Assign Slot, Export Timetable, and an Approve & Confirm Schedule gate. For THIS draft, the gate must be BLOCKED and list A01/A03/A05 as needing attention. Display reasons for Unassigned/Conflict; do NOT announce final recruitment Pass/Fail here.
-
-Optional separated explanatory illustration AFTER resolution (never intermixed with draft): move A03 to 09:40-10:00 with I01 in Room B; additionally make I01 available 11:00-12:00 and give A05 11:00-11:20 Room A; keep other rows as above. Only after application closing + 8/8 decisions + 5 valid distinct assignments and 0 conflicts/unassigned may the alternate state be Confirmed and read-only. Clearly label it as a different illustrative state. If native HTML cannot implement scheduling/persistence, disclose this honestly.
-
-Page structure: correct title/h1, semantic header/nav/main/footer, accessible controls/labels, native HTML content readable without JS, clear visually prioritized conflict resolution area, no fixed page width, no overlap at 360/768/1280, 44px independent tap targets. Load css/styles.css THEN css/schedule.css. Include real href="review.html" back link and other real in-flow links only. No fake routes or outdated footer.
-
-Deliver only schedule.html, css/schedule.css and my own logs. Return requirement mapping, evidence-needed checklist, diff summary, and known limitations. Do not assert browser/W3C success if unrun and do not merge anything.
-```
-
-##### PROMPT 05 — HUY: INTEGRATION AND CROSS-SCREEN REVIEW (after receiving all branches)
-
-**Who sends:** Huy after reading each branch's diff and handoff.  
-**Important:** the assistant can review and suggest changes; only Huy actually runs the merges and verifies the result.
-
-```text
-I am Huy, the sole integrator. The branches pa2/huy-campaign, pa2/hoc-review and pa2/phuc-schedule have been pushed. I will perform and verify the actual merges myself. Help REVIEW, not guess or invent command results.
-
-Compare each branch's changed-file list against its ownership contract; examine the real git diff/commits I supply. Flag unauthorized edits, inconsistent campaign timeline, broken relative links, wrong stylesheets, missing controls, invalid or misleading mock behavior, accessibility risks, and violations of any of the eight Fix these items. Confirm whether all three pages display the exact shared fixture: one campaign, 8 applications/7 distinct students, 5 shortlisted, draft scheduling 2 Proposed + 2 Conflict + 1 Unassigned, A01 and A03 sharing I01 at 09:00-09:20. Inspect Huy/Học/Phúc commit authors and messages, without proposing a history rewrite.
-
-Give me (1) blockers before merge, (2) suggested fixes by owner and file, (3) a safe merge order using git merge --no-ff with no squash or force push, (4) tests to run on integrated main. Never report that a branch merged or a test passed unless I provide actual output showing it.
-```
-
-##### PROMPT 06 — SHARED RESPONSIVE / W3C / ACCESSIBILITY REPAIR (send only for a real observed failure)
-
-**Who sends:** the person responsible for the observed issue; Huy coordinates any shared-CSS fix.  
-**Instruction:** replace each `[ACTUAL ...]` placeholder using a real test observation; never fabricate the test result.
-
-```text
-We observed a REAL bug while testing ClubFlow:
-- Page and current branch: [ACTUAL PAGE AND BRANCH]
-- Viewport: [360, 768, or 1280 pixels]
-- JavaScript state: disabled (static grading mode)
-- Actual failed check and output: [PASTE CONSOLE RESULT, W3C ERROR, ACCESSIBILITY ISSUE OR SCREENSHOT DESCRIPTION]
-- Expected result from the rubric: [EXACT EXPECTED CONDITION]
-
-Find the smallest root-cause correction. Preserve the shared CSS scale, semantic HTML and existing navigation. Do not introduce new dependencies, fixed page widths, !important or overflow-x:hidden to hide the bug. Change ONLY the owning page HTML/CSS unless Huy has explicitly approved a common-CSS change on main. Show the exact edited selectors/elements and explain why they fix the observed issue; give a targeted retest plan. Do NOT claim the fix was verified until we rerun the same check.
-```
-
-##### PROMPT 07 — HUY: FINAL RELEASE AUDIT (after merge and evidence collection)
-
-**Who sends:** Huy once all three pages exist on main.  
-**Instruction:** supply the real files and checks; assistant must report missing evidence, not invent it.
-
-```text
-Act as an adversarial reviewer of our PA#2 submission, using the attached official rubric and ClubFlow brief. I am Huy and have merged all three feature branches into main. Analyze the current repository and actual QA evidence; do not infer passing results from intentions or screenshots alone.
-
-Audit each of the seven rubric criteria and all eight Fix these issues. Confirm these required artifacts exist and are accurate: three HTML pages; four local CSS files (shared plus one page CSS each); the root rules file; PROTOTYPE.md with six required sections; brief.md containing prompts actually sent; AI-LOG.md with genuine per-task entries and verifiable Changed/Rejected evidence; checks/ with three current zero-error W3C results; screenshots/ with nine full-page images at 360, 768, 1280px with JS disabled; SELF_ASSESSMENT_REPORT.md with seven evidence-backed criterion rows; and meaningful Git history with original authors and all three merges.
-
-Check that three HTML pages can be opened from the extracted directory without a server, that main-flow links are relative and point to existing files, and no external runtime resources are needed. The draft with two conflicts and one unassigned must not pretend to be confirmed. Verify filenames and submission format 24127044-24127177-24127505_<ACTUAL_SELF_SCORE>.zip and preserve .git while excluding node_modules and secrets.
-
-Return a strict PASS / FAIL / NOT VERIFIED table for each criterion. Quote concrete file paths/lines/evidence. List blocking fixes and do not suggest claiming 100/100 without proof. The actual self-score must reflect real checks, not this prompt's intent.
+Kiểm tra Markdown Preview, các liên kết và nội dung nguyên văn trước/sau. Ghi nhận tin nhắn này là follow-up thật của R0 theo `AGENTS.md`. Dừng ở diff để Huy duyệt trước khi commit hoặc chạy T1.
 ```
