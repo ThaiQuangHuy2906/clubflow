@@ -85,7 +85,7 @@ The proposed seed has one club and one campaign (`CF-2026-01`), applications Nov
 
 ## Git and review
 
-For later authorized use. Set/check each member's own `git config user.name` and `git config user.email`. Four supplied reference/checker files were untracked at intake. Huy must arrange access for the team and account for those files explicitly before declaring a clean baseline.
+For later authorized use. Set/check each member's own `git config user.name` and `git config user.email`. Huy has asked Học and Phúc to place the three course files under `course-materials/` and the supplied checker at `tools/contract-check.mjs` in their own workspaces, using the same paths as Huy's copy.
 
 1. Before each assistant implementation request, commit the preceding reviewed work, check `git status --short` is clean and record `git rev-parse HEAD`. Keep each real request's diff and a meaningful commit per step/group. Preserve PA2 and feature authorship.
 2. After Huy publishes the verified scaffold SHA, each member runs `git fetch origin`, then **only their own row**, and checks `git rev-parse HEAD` equals that SHA before editing.
@@ -126,4 +126,4 @@ For a library invocation, record the user's exact short message, the selected ta
 
 - **Huy + team, before Task 1.** Approve the clock and pristine-walkthrough design, example order, role projections and seeded routes. Keep demo controls isolated from business writes. These are proposed engineering choices.
 - **Huy, Nov 23.** Check the course Facebook thread *ClubFlow — questions for the product owners* (course tag `#WAD24KTPM1`) for what a screened-out applicant sees or is notified about, and any prescribed assessment fields. The supplied materials contain no linked answer resolving those details. If needed, ask publicly. Record a decision in `FRONTEND.md` only when the team holds the permalink to the answer it relies on. Leave those specific choices open until verified. Continue independent work. Product owners cannot waive C1–C11.
-- **Huy, before Nov 25.** Verify collaborators can access the reference inputs and PR settings permit the agreed review arrangement. If a baseline gate slips, keep all branches behind that gate and use Nov 29–30 for integration and submission.
+- **Before Nov 25.** Học and Phúc each confirm they can open all four files at the paths linked at the top of this plan. Huy checks that the PR settings permit the agreed review arrangement. If a baseline gate slips, keep all branches behind that gate and use Nov 29–30 for integration and submission.
