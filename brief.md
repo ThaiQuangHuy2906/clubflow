@@ -4,7 +4,7 @@
 **Deadline** · 30 November 2026, 22:00 (Vietnam time)
 **Maintainer and sole merger** · Thái Quang Huy (24127177)
 
-## A. Proposed implementation prompts — NOT YET EXECUTED
+## A. Implementation prompt library
 
 **Example invocation** · `Execute A1 from brief.md on pa3/hoc-applications.`
 
@@ -20,7 +20,7 @@ Select a task to copy its invocation and check its starting condition. To read t
 
 ### Shared baseline · Thái Quang Huy
 
-24127177 · `main`
+24127177 · `main` · Completed on 23 November 2026. [T1 invocation](#t1-invocation) · [T2 messages](#t2-messages) · [T3 messages](#t3-messages)
 
 #### T1
 
@@ -142,7 +142,7 @@ Select a task to copy its invocation and check its starting condition. To read t
 
 ## B. Actual prompts sent
 
-Huy submitted the two requests below in order on 23 November 2026. Expand either record to read the original wording. The follow-up below belongs to R0.
+Huy submitted Task 0 and R0 on 23 November 2026. Expand either record for the original wording. The R0 follow-up and the T1–T3 messages follow in order.
 
 <details>
 <summary>Task 0 · Planning and team setup (as displayed in chat)</summary>
@@ -933,3 +933,55 @@ Viết phần hướng dẫn bằng tiếng Anh. Đặt tiêu đề, một ví d
 
 Kiểm tra Markdown Preview, các liên kết và nội dung nguyên văn trước/sau. Ghi nhận tin nhắn này là follow-up thật của R0 theo `AGENTS.md`. Dừng ở diff để Huy duyệt trước khi commit hoặc chạy T1.
 ```
+
+### Shared baseline messages
+
+Thái Quang Huy (24127177) · Codex · `main` · 23 November 2026. Each invocation selected its task block in `brief.md`. All three checkpoints contained the library from commit `b5fec5597b164de0861e23dca5d3b4fb3c4c37fb`. Exact send times are unavailable.
+
+#### T1 invocation
+
+T1 was read at `143d852`, lines 740–749. [Member record](docs/ai-prompts/huy.md#t1) · [Contract checks](AI-LOG.md#t1-api-contract)
+
+~~~~text
+Chạy T1 theo brief.md trên main.
+~~~~
+
+#### T2 messages
+
+T2 was read at `7e4570e`, lines 751–760. Huy invoked the task, requested a review, authorized repairs, then approved the local commit. [Member record](docs/ai-prompts/huy.md#t2) · [Mock checks](AI-LOG.md#t2-mock-server-and-contract-verification)
+
+~~~~text
+Chạy T2 theo brief.md trên main
+~~~~
+
+~~~~text
+Rà soát lại kĩ càng, khắc khe, kĩ tính đi.
+~~~~
+
+~~~~text
+Sửa các lỗi trong phạm vi T2, chạy lại kiểm tra rồi dừng ở staged diff
+~~~~
+
+~~~~text
+Commit T2 trên main. Chưa push, chưa chạy T3.
+~~~~
+
+#### T3 messages
+
+T3 was read at `90db813`, lines 762–770. Huy invoked the task, requested a review, authorized repairs, then approved the local commit. [Member record](docs/ai-prompts/huy.md#t3) · [Scaffold checks](AI-LOG.md#t3-shared-react-scaffold)
+
+~~~~text
+Chạy T3 theo brief.md trên main.
+~~~~
+
+~~~~text
+Rà soát kĩ càng, khắc khe, kĩ tính đi
+~~~~
+
+~~~~text
+Sửa các lỗi trong phạm vi T3, chạy lại kiểm tra rồi dừng ở staged diff
+~~~~
+
+~~~~text
+Commit T3 trên main. Chưa push.
+~~~~

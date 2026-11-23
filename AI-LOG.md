@@ -142,3 +142,29 @@ Windows tar failed to resolve the Vietnamese parent path; standard Python ZIP cr
 - **Rejected and checks.** No user rejection or corrective prompt. A pre-write text check caught a stale edit target. Compared the installed requests to the attachment, verified all task IDs and preserved prefixes, and inspected the changed paths, index and contract/mock diff. Only R0 was invoked.
 
 **R0 presentation follow-up · 23 November 2026.** Huy asked Codex to make the brief navigable using the initial PA2 library. Used `git log --follow -- brief.md` and read `c2cbe6f:brief.md` for the library-first layout and chronological prompt register. Added an English index and task invocations, collapsed both original records, and retained one full R0 package. Checked navigation and disclosures in VS Code Markdown Preview and compared the source payloads byte for byte. [Exact follow-up](docs/ai-prompts/huy.md#r0-follow-up) · [Checks](docs/ai-logs/huy.md#r0)
+
+### T1 API contract
+
+23 November 2026 · Thái Quang Huy · Codex · `main` · commit `7e4570e`. [Invocation](brief.md#t1-invocation) · [Member log](docs/ai-logs/huy.md#t1)
+
+- **Asked for.** Specify the HTTP contract for C1–C11 so the mock and the three feature owners can implement the same behavior.
+- **Kept and changed.** The contract preserves the three roles and both demo stories. The endpoint index and nine resource files define caller permissions, request and response examples, validation errors and the order of the walkthrough. [Contract index](docs/api/README.md)
+- **Checks and approval.** Huy reported that all three members had approved the contract. The supplied checker's parsers matched all 89 request/response pairs across 10 files to the 27 indexed operations. Every operation had a successful example. T2 replayed those examples over HTTP. [Approval and static checks](docs/ai-logs/huy.md#t1-approval)
+
+### T2 Mock server and contract verification
+
+23 November 2026 · Thái Quang Huy · Codex · `main` · commit `90db813`. [Invocation and follow-ups](brief.md#t2-messages) · [Member log](docs/ai-logs/huy.md#t2)
+
+- **Asked for.** Implement the approved contract in a stateful Node mock and exercise the seed and creation walkthroughs.
+- **Kept and changed.** The server uses Node built-ins, five demo accounts and a deterministic clock. Added the seed, a readable sample CV and the account table. The review covered all four mock modes, scheduling conflicts, owner-only reads and retries of final publication. [Mock entry point](mock/server.mjs) · [Demo accounts](FRONTEND.md)
+- **Detected and corrected.** An independent HTTP test showed that an interviewer's out-of-order availability left an eligible applicant unassigned. Sorting validated intervals fixed the assignment. A later file check found an unreadable PDF stand-in. The mock now serves a readable fixture for that case and preserves the bytes of valid uploads. [Reproductions and fixes](docs/ai-logs/huy.md#t2-follow-up--staged-mock-review)
+- **Checks.** On a fresh normal mock, the final contract checker exited 0 with 89/89 examples, 27/27 operations and zero failures. Four notes covered two CSV exports and two CV downloads. Separate checks verified their contents and role permissions. [Pre-commit run](docs/ai-logs/huy.md#t2-approval)
+
+### T3 Shared React scaffold
+
+23 November 2026 · Thái Quang Huy · Codex · `main` · commit `a8d9745`. [Invocation and follow-ups](brief.md#t3-messages) · [Member log](docs/ai-logs/huy.md#t3)
+
+- **Asked for.** Deliver the React/Vite baseline with working sign-in, protected navigation and shared API access for the feature branches.
+- **Kept and changed.** Added 12 route patterns and 12 named page exports, shared authentication and request handling, Executive demo controls, and API proxies for dev and preview. The scaffold uses the existing API contract and PA2 visual conventions. Full feature forms and business workflows are assigned to the feature owners.
+- **Detected and corrected.** In a two-session review, an Executive returning to the editor saw the old campaign name, clock and creation button after another session changed the campaign. Reloading the draft on route entry and after a conflict fixed the stale view. Seven targeted checks passed on the repaired staged build. [Review findings and checks](docs/ai-logs/huy.md#t3-follow-up--staged-scaffold-review)
+- **Committed build.** Built directly from `a8d9745` and tested it in Chrome 157 on dev and production preview. All five demo accounts signed in on both. The suite passed 14 check groups and recorded 39 layout observations at 360, 768 and 1280 px with zero uncaught browser exceptions. The build emitted two React Router module-directive warnings. Huy's local run report is `D:/Temp/clubflow-t3-a8d9745-6c0a5b40/a8d9745-report.json`. [Verified scaffold commit](https://github.com/ThaiQuangHuy2906/clubflow/commit/a8d9745d5dff56d5c6766fb35845fb6a90f7bcda)
