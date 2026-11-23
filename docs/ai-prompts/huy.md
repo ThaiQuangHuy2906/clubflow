@@ -482,3 +482,31 @@ https://www.facebook.com/groups/wad.fit.hcmus/posts/28572271735804960/?comment_i
 ~~~~text
 Cả nhóm đã duyệt hợp đồng T1. Kiểm tra staged diff lần cuối rồi commit T1. Chưa push, chưa chạy T2.
 ~~~~
+
+### T2
+
+23 November 2026 · Thái Quang Huy (24127177) · Codex on `main`. The exact invocation is below. The message has no recorded send time. The T2 block in `brief.md` was read at the reviewed T1 checkpoint `7e4570ee409f045d3672740864bb993e57fc3b1a`. Its library commit is `b5fec5597b164de0861e23dca5d3b4fb3c4c37fb`. [Implementation and HTTP checks](../ai-logs/huy.md#t2)
+
+~~~~text
+Chạy T2 theo brief.md trên main
+~~~~
+
+#### T2 follow-up — staged mock review
+
+23 November 2026 · Thái Quang Huy (24127177) · Codex on `main` · same T2 library revision. The two messages below request the review and authorize the fixes. Send times were unavailable. [Findings and reruns](../ai-logs/huy.md#t2-follow-up--staged-mock-review)
+
+~~~~text
+Rà soát lại kĩ càng, khắc khe, kĩ tính đi.
+~~~~
+
+~~~~text
+Sửa các lỗi trong phạm vi T2, chạy lại kiểm tra rồi dừng ở staged diff
+~~~~
+
+#### T2 approval
+
+23 November 2026 · Thái Quang Huy (24127177) · Codex on `main`. [Pre-commit checks](../ai-logs/huy.md#t2-approval)
+
+~~~~text
+Commit T2 trên main. Chưa push, chưa chạy T3.
+~~~~

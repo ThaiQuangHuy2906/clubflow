@@ -1,0 +1,212 @@
+{
+  "campaignId": "CF-2026-01",
+  "serverTime": "2026-11-16T08:00:00+07:00",
+  "campaign": {
+    "name": "Creative Club Recruitment 2026",
+    "hostClub": "Student Creative Club",
+    "description": "Join the club for the autumn term.",
+    "opensAt": "2026-11-15T08:00:00+07:00",
+    "closesAt": "2026-11-20T23:59:00+07:00",
+    "instructions": "Choose a position and attach a PDF CV.",
+    "departments": [
+      {
+        "id": "media",
+        "name": "Media",
+        "positions": [
+          {
+            "id": "content",
+            "name": "Content",
+            "quota": 3,
+            "description": "Write club stories.",
+            "requirements": "Writing sample"
+          },
+          {
+            "id": "comms",
+            "name": "Communications",
+            "quota": 2,
+            "description": "Plan club outreach.",
+            "requirements": "Teamwork"
+          }
+        ]
+      },
+      {
+        "id": "operations",
+        "name": "Operations",
+        "positions": [
+          {
+            "id": "events",
+            "name": "Events",
+            "quota": 2,
+            "description": "Coordinate club events.",
+            "requirements": "Planning"
+          }
+        ]
+      }
+    ]
+  },
+  "rooms": [
+    {
+      "id": "R-A",
+      "name": "Room A"
+    },
+    {
+      "id": "R-B",
+      "name": "Room B"
+    },
+    {
+      "id": "R-C",
+      "name": "Room C"
+    }
+  ],
+  "settings": {
+    "date": "2026-11-24",
+    "start": "09:00",
+    "end": "12:00",
+    "durationMinutes": 20,
+    "roomIds": [
+      "R-A",
+      "R-B",
+      "R-C"
+    ],
+    "interviewers": [
+      {
+        "id": "I01",
+        "positionIds": [
+          "content",
+          "comms"
+        ],
+        "availability": [
+          {
+            "start": "09:00",
+            "end": "12:00"
+          }
+        ]
+      },
+      {
+        "id": "I02",
+        "positionIds": [
+          "comms",
+          "content"
+        ],
+        "availability": [
+          {
+            "start": "09:00",
+            "end": "12:00"
+          }
+        ]
+      }
+    ],
+    "availabilityWindows": [
+      {
+        "start": "09:00",
+        "end": "09:20"
+      },
+      {
+        "start": "09:20",
+        "end": "09:40"
+      },
+      {
+        "start": "09:40",
+        "end": "10:00"
+      },
+      {
+        "start": "10:00",
+        "end": "12:00"
+      }
+    ]
+  },
+  "accounts": [
+    {
+      "alias": "exec",
+      "id": "U-E",
+      "role": "Executive",
+      "name": "Club Executive",
+      "email": "exec@clubflow.test",
+      "password": "exec-demo"
+    },
+    {
+      "alias": "studentA",
+      "id": "U-A",
+      "role": "Applicant",
+      "name": "Student A",
+      "email": "studenta@clubflow.test",
+      "password": "studenta-demo",
+      "profile": {
+        "studentName": "Student A",
+        "studentNumber": "ST01",
+        "faculty": "Information Technology",
+        "email": "studenta@clubflow.test",
+        "phone": "0900000001"
+      }
+    },
+    {
+      "alias": "studentB",
+      "id": "U-B",
+      "role": "Applicant",
+      "name": "Student B",
+      "email": "studentb@clubflow.test",
+      "password": "studentb-demo",
+      "profile": {
+        "studentName": "Student B",
+        "studentNumber": "ST02",
+        "faculty": "Information Technology",
+        "email": "studentb@clubflow.test",
+        "phone": "0900000002"
+      }
+    },
+    {
+      "alias": "int-content",
+      "id": "I01",
+      "role": "Interviewer",
+      "name": "Content Interviewer",
+      "email": "content@clubflow.test",
+      "password": "content-demo"
+    },
+    {
+      "alias": "int-comms",
+      "id": "I02",
+      "role": "Interviewer",
+      "name": "Communications Interviewer",
+      "email": "comms@clubflow.test",
+      "password": "comms-demo"
+    }
+  ],
+  "applications": [
+    {
+      "id": "A01",
+      "applicantId": "U-A",
+      "positionId": "content",
+      "submittedAt": "2026-11-16T08:00:00+07:00",
+      "availabilityWindowIds": [
+        "W-2026-11-24_0900_0920",
+        "W-2026-11-24_0920_0940",
+        "W-2026-11-24_0940_1000"
+      ],
+      "motivation": "I enjoy working with the club."
+    },
+    {
+      "id": "A02",
+      "applicantId": "U-A",
+      "positionId": "comms",
+      "submittedAt": "2026-11-16T08:00:00+07:00",
+      "availabilityWindowIds": [
+        "W-2026-11-24_0900_0920",
+        "W-2026-11-24_0920_0940",
+        "W-2026-11-24_0940_1000"
+      ],
+      "motivation": "I enjoy working with the club."
+    },
+    {
+      "id": "A03",
+      "applicantId": "U-B",
+      "positionId": "content",
+      "submittedAt": "2026-11-16T07:50:00+07:00",
+      "availabilityWindowIds": [
+        "W-2026-11-24_0900_0920",
+        "W-2026-11-24_0920_0940",
+        "W-2026-11-24_0940_1000"
+      ],
+      "motivation": "I enjoy working with the club."
+    }
+  ]
+}
