@@ -8,7 +8,7 @@ All times are Asia/Ho_Chi_Minh. Complete each gate before starting the next.
 
 | Gate | When | Owner and exit condition |
 |---|---|---|
-| 1. Review | Nov 23 | All three trace their screens through the proposed API. Resolve gaps in roles, IDs, failure cases and demo timing against the contract proposal below. Huy approves the plan. |
+| 1. Review | Nov 23 | Huy reported that Học confirmed Applicant slot IDs and per-application result visibility, Phúc confirmed draft preview, save and confirmation behavior, and both agreed to the two demo runs. |
 | 2. Contract | Nov 24 | T1 starts on clean `main` after Huy reviews and commits R0. All three review the contract. Huy commits it before T2. |
 | 3. Mock | Nov 24 | Huy implements and separately commits `mock/server.mjs` and `mock/data/` against the contract. |
 | 4. Accounts | Nov 24 | Huy creates the actual Demo accounts table in `FRONTEND.md`. |
@@ -71,7 +71,7 @@ The proposed seed has one club and one campaign (`CF-2026-01`), applications Nov
 
 **C9 refusal tests.** Start from a state in which the other three conditions pass. Exercise four cases independently: (1) open window with every application reviewed and a conflict-free, fully assigned draft, (2) closed window with A03 still pending but every shortlisted ID assigned without overlap, (3) closed and fully reviewed with one shortlisted ID unassigned and no overlap, (4) closed and fully reviewed with an individually qualified/available assignment for every shortlisted ID but a real resource overlap. Use a fresh run when time would need to move backwards. Record each reason and affected IDs, then run the all-valid confirmation.
 
-**Demo clock proposed for approval.** Huy's shared shell can expose one Executive-only `POST /api/demo/steps` when the Executive campaign response advertises demo capability. It accepts three actions. Begin the creation walkthrough **once per fresh process and only before any business writes**. The other actions advance time past the configured close or past the interview window. The two advances preserve all records, move forward only and keep every business rule in force. Display the current server time. Reads, sign-in, retries and business actions never advance the clock. Confirmation always checks the actual campaign state and time. It never publishes results. PA4 can use a real clock in ordinary operation and the same test control in its grading profile. Feature calls stay identical.
+**Demo clock.** The proposed API for the agreed walkthrough is an Executive-only `POST /api/demo/steps`, exposed by Huy's shared shell when the Executive campaign response advertises demo capability. It accepts three actions. Begin the creation walkthrough **once per fresh process and only before any business writes**. The other actions advance time past the configured close or past the interview window. The two advances preserve all records, move forward only and keep every business rule in force. Display the current server time. Reads, sign-in, retries and business actions never advance the clock. Confirmation always checks the actual campaign state and time. It never publishes results. PA4 can use a real clock in ordinary operation and the same test control in its grading profile. Feature calls stay identical.
 
 ## Contract and mock handoff
 
@@ -124,6 +124,6 @@ For a library invocation, record the user's exact short message, the selected ta
 
 ## Decisions to verify
 
-- **Huy + team, before Task 1.** Approve the clock and pristine-walkthrough design, example order, role projections and seeded routes. Keep demo controls isolated from business writes. These are proposed engineering choices.
+- **Huy + team, during T1 review.** Check that the draft contract expresses the agreed behavior. Verify the exact role-specific response fields, seeded route IDs and checker example order before the contract commit.
 - **Huy, Nov 23.** Check the course Facebook thread *ClubFlow — questions for the product owners* (course tag `#WAD24KTPM1`) for what a screened-out applicant sees or is notified about, and any prescribed assessment fields. The supplied materials contain no linked answer resolving those details. If needed, ask publicly. Record a decision in `FRONTEND.md` only when the team holds the permalink to the answer it relies on. Leave those specific choices open until verified. Continue independent work. Product owners cannot waive C1–C11.
 - **Before Nov 25.** Học and Phúc each confirm they can open all four files at the paths linked at the top of this plan. Huy checks that the PR settings permit the agreed review arrangement. If a baseline gate slips, keep all branches behind that gate and use Nov 29–30 for integration and submission.
