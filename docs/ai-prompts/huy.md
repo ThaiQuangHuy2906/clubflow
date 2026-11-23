@@ -440,3 +440,45 @@ Viết phần hướng dẫn bằng tiếng Anh. Đặt tiêu đề, một ví d
 
 Kiểm tra Markdown Preview, các liên kết và nội dung nguyên văn trước/sau. Ghi nhận tin nhắn này là follow-up thật của R0 theo `AGENTS.md`. Dừng ở diff để Huy duyệt trước khi commit hoặc chạy T1.
 ~~~~
+
+### T1
+
+23 November 2026 (Asia/Ho_Chi_Minh). Owner: Thái Quang Huy (24127177). Tool: Codex. Branch: `main`. The working tree and index were clean at `143d8526516ed592adcdbce4e3b6a7f2531233e2`. The short invocation selected T1 in `brief.md`, lines 740–749 at that revision (blob `7e06f187336a35ecaa9afdb1c3a1a5dfafd0b555`). The library block was read from the repository. Exact send times are unavailable. [T1 work and checks](../ai-logs/huy.md#t1)
+
+Actual invocation:
+
+~~~~text
+Chạy T1 theo brief.md trên main.
+~~~~
+
+#### T1 follow-up — product-owner rulings
+
+23 November 2026 · Thái Quang Huy (24127177) · Codex on `main` at `143d8526516ed592adcdbce4e3b6a7f2531233e2`. Technical excerpts from the implementation request, using the T1 library revision above. [Follow-up checks](../ai-logs/huy.md#t1-follow-up--product-owner-rulings)
+
+~~~~text
+Hãy sửa tiếp bản T1 trên main theo hai phản hồi chính thức của product owner mà bạn vừa đọc. Đây là follow-up của T1. Trước khi sửa, kiểm tra HEAD, staged diff và các thay đổi mới của tôi. Dùng checkpoint T1 đã ghi nhận để đối chiếu và giữ nguyên công việc ngoài phạm vi.
+
+Tôi cho phép sửa docs/api/**, hai file minh chứng của Huy và các đoạn liên quan trong PA3_PLAN.md. Hãy đồng bộ cả kịch bản demo và điều kiện nghiệm thu để các thành viên không triển khai theo quy tắc cũ. […] Không sửa mock hay frontend. Không commit, push hoặc chạy T2.
+
+Sửa xuyên suốt hợp đồng và các ví dụ ở những điểm sau:
+
+1. Form ứng tuyển có đủ họ tên, MSSV, khoa, email và số điện thoại, điền sẵn từ tài khoản. Chỉ email và số điện thoại được sửa cho riêng hồ sơ đang nộp. Chỉ rõ API nào cấp dữ liệu điền sẵn và server xử lý các trường chỉ đọc thế nào.
+2. Applicant phải chọn ít nhất 3 khung giờ khác nhau. Khóa ngày phỏng vấn và các khung giờ đã cung cấp cho Applicant ngay sau hồ sơ hợp lệ đầu tiên. Làm rõ C8 vẫn chỉnh được gì trên lịch nháp mà không làm thay đổi các lựa chọn đã thu từ ứng viên.
+3. Xếp lịch theo thời điểm nộp tăng dần, trùng thời điểm mới dùng mã hồ sơ. Sau đó chọn khung giờ hợp lệ sớm nhất, với thứ tự interviewer và phòng cố định.
+4. Một nhận xét bằng văn bản là đủ cho assessment. Executive được ghi Pass/Fail dù thiếu assessment. Đặc tả cách nhận biết ca thiếu đánh giá hoặc ứng viên vắng và cách Executive xác nhận ca đã được xử lý. Không tạo assessment giả để mở khóa kết quả.
+5. Executive lưu Pass/Fail riêng cho từng hồ sơ nhưng công bố kết quả cuối một lần cho toàn chiến dịch. Chỉ cho công bố khi mọi ca phỏng vấn đã được xử lý và mọi hồ sơ qua vòng CV đã có quyết định. Hồ sơ rớt CV hoặc đã rút không cần Pass/Fail cuối. Công bố lại không tạo thông báo trùng.
+6. Khi kết quả sàng lọc được công bố, Applicant thấy trạng thái rớt CV của đúng hồ sơ và lý do dành cho ứng viên nếu có. Tách lý do này khỏi ghi chú nội bộ. Hai phản hồi chưa xác nhận có bắt buộc gửi thông báo riêng lúc rớt CV, nên hãy ghi đúng phần còn mở.
+
+Đối chiếu hai permalink bên dưới. Cập nhật bảng endpoint, request/response, dữ liệu ví dụ và thứ tự chạy checker trên một tiến trình mới. Kiểm tra tĩnh cả chiều endpoint → ví dụ và ví dụ → endpoint. Cuối cùng báo rõ những gì đã kiểm tra, những gì phải đợi mock ở T2, và các điểm cần Huy, Học, Phúc review. Dừng ở diff.
+
+https://www.facebook.com/groups/wad.fit.hcmus/posts/28572271735804960/?comment_id=28728568636841935&reply_comment_id=28731471893218276
+https://www.facebook.com/groups/wad.fit.hcmus/posts/28572271735804960/?comment_id=28742432092122256&reply_comment_id=28745446111820854
+~~~~
+
+#### T1 approval
+
+23 November 2026 · Thái Quang Huy (24127177) · Codex on `main`. Huy's commit instruction follows. [Pre-commit checks](../ai-logs/huy.md#t1-approval)
+
+~~~~text
+Cả nhóm đã duyệt hợp đồng T1. Kiểm tra staged diff lần cuối rồi commit T1. Chưa push, chưa chạy T2.
+~~~~
