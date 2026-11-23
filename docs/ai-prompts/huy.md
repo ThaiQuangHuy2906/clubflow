@@ -510,3 +510,31 @@ Sửa các lỗi trong phạm vi T2, chạy lại kiểm tra rồi dừng ở st
 ~~~~text
 Commit T2 trên main. Chưa push, chưa chạy T3.
 ~~~~
+
+### T3
+
+23 November 2026 · Thái Quang Huy (24127177) · Codex on `main`. The T3 block in `brief.md` was read at the clean T2 checkpoint `90db813fb29c6a43fd93dcdf4eeed763f26487e3`. The library revision is `b5fec5597b164de0861e23dca5d3b4fb3c4c37fb`. The message has no recorded send time. [Implementation and browser checks](../ai-logs/huy.md#t3)
+
+~~~~text
+Chạy T3 theo brief.md trên main.
+~~~~
+
+#### T3 follow-up — staged scaffold review
+
+23 November 2026 · Thái Quang Huy (24127177) · Codex on `main`. Review and repair of the T3 library revision recorded above. [Reproductions and final checks](../ai-logs/huy.md#t3-follow-up--staged-scaffold-review)
+
+~~~~text
+Rà soát kĩ càng, khắc khe, kĩ tính đi
+~~~~
+
+~~~~text
+Sửa các lỗi trong phạm vi T3, chạy lại kiểm tra rồi dừng ở staged diff
+~~~~
+
+#### T3 approval
+
+23 November 2026 · Thái Quang Huy (24127177) · Codex on `main`. [Pre-commit checks](../ai-logs/huy.md#t3-approval)
+
+~~~~text
+Commit T3 trên main. Chưa push.
+~~~~
