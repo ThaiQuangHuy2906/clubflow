@@ -98,12 +98,19 @@ function Shell() {
   const campaignDraft = useResource(executive ? '/api/campaign/draft' : null);
   const [generation, setGeneration] = useState(0);
   const signInPage = matchPath('/sign-in', pathname);
+  const main = useRef(null);
+  function skipToContent(event) {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    main.current.focus();
+    main.current.scrollIntoView({ block: 'start' });
+  }
   function refreshDemo() {
     campaignDraft.reload();
     setGeneration(n => n + 1);
   }
   return <>
-    <a className="skip" href="#main">Skip to content</a>
+    <a className="skip" href="#main" onClick={skipToContent}>Skip to content</a>
     <header className="topbar"><div className="frame bar-inner">
       <Link to="/" className="brand" aria-label="ClubFlow home"><span aria-hidden="true" className="mark">CF</span>ClubFlow</Link>
       {(user || !signInPage) && <nav aria-label="Main navigation" className="bar-nav">
@@ -118,7 +125,7 @@ function Shell() {
           {pages.filter(p => p.role === user.role && !p.path.includes(':')).map(p =>
             <NavLink key={p.path} to={p.path}>{p.title}</NavLink>)}
         </nav></aside>}
-      <main id="main" tabIndex="-1">
+      <main ref={main} id="main" tabIndex="-1">
         <Outlet key={generation} context={{ campaignDraft }} />
         {executive && <DemoControls resource={campaignDraft} refresh={refreshDemo} draftPage={workspace.path === roleHomes.Executive} />}
       </main>
