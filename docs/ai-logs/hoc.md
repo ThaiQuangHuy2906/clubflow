@@ -496,3 +496,79 @@ was unavailable.
 
 Verdict: READY for the authorized local commit. The follow-up records the
 independent review. A4 starts from the resulting clean checkpoint.
+
+### A4 · C11 Final Decisions and Notifications (2026-11-24)
+
+Tool: Codex with PowerShell, Git, Node.js, Vite and Chrome routed through
+the Chrome DevTools Protocol. [Actual request and brief revision](../ai-prompts/hoc.md#a4--c11-final-decisions-and-notifications)
+
+Asked for: Review and commit A3 if it passes, then continue with the next
+Applications task, A4. Started A4 from clean A3 commit `578dcbd`.
+
+Kept: The Executive and Applicant route guards, shared authenticated API
+transport and A2's per-application result projection. Used campaign-wide
+publication from the approved C11 plan and contract. The older A4 test text
+describes one release per application and was superseded by those sources.
+
+Changed: The Executive results route loads interview cases, shows authorized
+assessment feedback and saves Pass/Fail and case handling independently per
+application. It protects local drafts and pending requests, maps validation
+messages, and shows the recorded release time after a single campaign action.
+The Applicant list now loads owner-scoped notifications with links to the
+corresponding records and independent loading, empty and Retry states.
+
+Rejected: None from the user. An initial test that tried to install an
+isolated notification failure on a new document timed out. The final harness
+injected the single HTTP 500 in the existing page before navigating away and
+back. This reproduced the failure and let a Retry request reach the real mock.
+
+#### Actual checks
+
+- Reviewed `AGENTS.md`, A4 and C6/C10/C11, the results, interview and
+  notification contracts and the current router, API, shared UI and A2 screens.
+  `npm.cmd run build` succeeded, with the existing React Router directive
+  warnings. The final Chrome checks also built and served the final sources
+  using Vite preview and a fresh loopback mock.
+- Verified empty results before confirmation, scheduled cases with no edit
+  controls, and real 409 responses for early writes. Prepared C8/C9 through
+  the Executive API and submitted A01's assessment through the assigned
+  Interviewer API. Verified A02's missing assessment and both Attended
+  without feedback and Absent handling. Confirmed rejected A03 was excluded.
+- Saved A01 Pass and A02 Fail in Chrome. A saved decision without recorded
+  case handling left publication disabled, and the mock identified A02 in its
+  publication blocker. Both saved decisions and notices stayed private before
+  release. Rapid repeated clicks sent one save or publication request.
+- Published the campaign in Chrome, checked focus moved to the publication
+  status, and verified forms were closed to edits. Repeated publication via the
+  mock API, which returned the same timestamp and yielded exactly two owner
+  notices. Student A opened the linked records with the correct results and
+  no assessment feedback. Student B saw no notices and the Applicant role
+  was denied the Executive results route.
+- At 360, 768 and 1280 px, checked one h1, matching viewport and document
+  widths, and controls at least 44 px high on Executive results and Applicant
+  notifications. A simulated per-request notifications HTTP 500 left the
+  application list visible, and Retry recovered against the live mock.
+- Reran the targeted A1, A2 and A3 Chrome checks against the final A4 build.
+  All three exited zero. Reviewed staged and working diffs, new source files
+  and the diff for `docs/api` and `mock`.
+
+#### Verification limits and handoff
+
+- The scheduling and assessment setup steps were exercised through their
+  contracted APIs, pending integrated C8–C10 UI checks. The course PDFs and
+  checker remain absent. W3C Nu and other browser engines were not run.
+- A4 is a working diff on `pa3/hoc-applications` for Học's review.
+
+#### Review before commit and handoff
+
+The user authorized committing and opening the handoff PR once Học's assigned
+work was complete. Compared the branch with the live `origin/main` baseline
+(`521f3a9`), confirmed A1–A3 were committed and reviewed the remaining A4 diff
+against C11. Reran the production build and Chrome A4 walkthrough on a fresh
+mock. It passed case handling, privacy before release, stable retry and two
+owner-only notices, authorization, the three viewport checks and isolated
+notification error recovery. The final source and mock contract were unchanged
+by this review.
+
+Verdict: READY for the Applications handoff. A1–A4 cover Học's assigned
+C5–C7 and C11. Review and integrated C8–C10 browser checks remain with the team.

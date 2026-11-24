@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { CampaignTime, EmptyState, Resource, useResource } from '../../ui.jsx';
+import { CampaignTime, EmptyState, ErrorState, LoadingState, Resource, useResource } from '../../ui.jsx';
 import './my-applications.css';
 
 function InterviewSlot({ interview }) {
@@ -36,6 +36,24 @@ function ApplicationProgress({ application, showPending = false }) {
   </dl>;
 }
 
+function ApplicationNotifications({ applications }) {
+  const { data, error, reload } = useResource('/api/notifications');
+  const positions = new Map(applications.map(application => [application.id, application.positionName]));
+  return <section className="application-notifications" aria-labelledby="application-notifications-title">
+    <h2 id="application-notifications-title">Notifications</h2>
+    {error && <ErrorState message={error.message} onRetry={reload} />}
+    {!error && !data && <LoadingState />}
+    {data && (data.items.length ? <ul className="record-list" role="list">
+      {data.items.map(notice => <li key={notice.id}>
+        <Link to={'/me/applications/' + encodeURIComponent(notice.applicationId)}>
+          Final result for {positions.get(notice.applicationId) ?? notice.applicationId} · {notice.result}
+        </Link>
+        <p className="muted"><CampaignTime value={notice.createdAt} /></p>
+      </li>)}
+    </ul> : <EmptyState message="You have no notifications yet." />)}
+  </section>;
+}
+
 export function MyApplicationsPage() {
   const applications = useResource('/api/applications');
   return <Resource title="My applications" resource={applications}>{({ items, total }) =>
@@ -52,6 +70,7 @@ export function MyApplicationsPage() {
           <ApplicationProgress application={application} />
         </li>)}
       </ul> : <EmptyState message="You have no applications yet." />}
+      <ApplicationNotifications applications={items} />
     </section>}
   </Resource>;
 }

@@ -291,3 +291,22 @@ Thực hiện A3 · C7 — Executive Application Review trong brief.md của Clu
 ```text
 Đã hoàn thành A3 check và commit nếu được. Sau đó làm tiếp theo
 ```
+
+### A4 · C11 Final Decisions and Notifications
+
+- Owner: Lê Nguyễn Quốc Học (24127044)
+- Tool: Codex
+- Date: 2026-11-24 (Asia/Ho_Chi_Minh). Exact send time unknown.
+- Branch and start: `pa3/hoc-applications` at `578dcbddc627873cf97e5be62ed3ead56474dffe`.
+- Actual invocation: [A3 review and next task request](#a3-review-and-next-task-request).
+  The requested next task after A3 was A4.
+- Invoked source: `brief.md`, A4 at that starting commit, last revised
+  at `521f3a9cc83e302ac796680bb5feb7b464bed024`, blob `9ca5a5312b3cb14856ee8d487062008b6d6c4d32`.
+  The release scope follows `PA3_PLAN.md` C11 and the versioned results contract.
+- Execution evidence: [A4 log](../ai-logs/hoc.md#a4--c11-final-decisions-and-notifications-2026-11-24).
+
+#### A4 review and handoff request
+
+```text
+commit lại, nếu ổn và Học không còn task thì handoff và tạo PR
+```

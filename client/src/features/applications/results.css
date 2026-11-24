@@ -1,0 +1,90 @@
+.executive-results .result-publication,
+.executive-results .result-case {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.executive-results .result-cases {
+  display: grid;
+  gap: var(--space-4);
+  padding: 0;
+  list-style: none;
+}
+
+.executive-results .result-case h3 {
+  font-size: 1.15rem;
+}
+
+.executive-results .result-facts,
+.executive-results .result-edit-fields {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.executive-results .result-edit-fields {
+  min-inline-size: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.executive-results .result-edit-fields > button {
+  grid-column: 1 / -1;
+  justify-self: start;
+}
+
+.executive-results .result-field {
+  display: grid;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.executive-results :is(dt, legend, label) {
+  font-weight: 650;
+}
+
+.executive-results :is(dt, legend) {
+  margin-bottom: var(--space-1);
+}
+
+.executive-results .result-field select {
+  min-width: 0;
+  min-height: var(--target-min);
+  padding: .5rem .65rem;
+  border: 1px solid var(--control-border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  background: var(--surface);
+  font: inherit;
+}
+
+.executive-results .result-field select[aria-invalid="true"] {
+  border-color: var(--danger);
+}
+
+.executive-results :is(select:focus-visible, [tabindex="-1"]:focus) {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.executive-results .result-assessment h4 {
+  margin: 0 0 var(--space-1);
+}
+
+.executive-results .result-assessment p {
+  white-space: pre-wrap;
+}
+
+.executive-results .result-success {
+  color: var(--success);
+}
+
+@media (min-width: 48rem) {
+  .executive-results :is(.result-facts, .result-edit-fields) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
