@@ -257,3 +257,37 @@ Chỉ sửa client/src/features/applications/**, docs/ai-prompts/hoc.md và docs
 ```text
 commit A2, chuẩn bin làm A3
 ```
+
+### A3 · C7 Executive Application Review
+
+- Owner: Lê Nguyễn Quốc Học (24127044)
+- Tool: Codex
+- Date: 2026-11-24 (Asia/Ho_Chi_Minh). Exact send time unknown.
+- Branch and start: `pa3/hoc-applications` at `f5324a9c2306b5f460a46f47644d762513e8df25`.
+- Invoked source: `brief.md`, A3 at the starting commit above, last revised
+  at `521f3a9cc83e302ac796680bb5feb7b464bed024`, blob `9ca5a5312b3cb14856ee8d487062008b6d6c4d32`.
+- Execution evidence: [A3 log](../ai-logs/hoc.md#a3--c7-executive-application-review-2026-11-24).
+
+#### Actual invocation
+
+```text
+Thực hiện A3 · C7 — Executive Application Review trong brief.md của ClubFlow PA#3. Owner là Lê Nguyễn Quốc Học (24127044). Dừng sau A3 để Học review.
+
+1. Xác minh đúng repo, nhánh pa3/hoc-applications và worktree sạch sau commit A2 đã review. Ghi lại SHA đầu phiên. Đọc AGENTS.md, brief.md mục A3, PA3_PLAN.md mục C7/C8, hợp đồng Executive trong docs/api/04-applications.md và các interface router, auth, API, UI hiện có.
+
+2. Hoàn thiện ReviewPage tại /executive/applications. Dùng statistics từ API để hiển thị tổng số hồ sơ, số ứng viên duy nhất và số theo trạng thái của toàn chiến dịch. Dùng total riêng cho kết quả đã lọc. Làm tìm kiếm có debounce, hủy request cũ, lọc theo vị trí và trạng thái, sắp xếp và phân trang. Giữ các tham số trên URL khi đóng panel chi tiết.
+
+3. Mở từng hồ sơ theo ID. Giữ danh sách và panel chi tiết dễ đọc bằng bàn phím và trên mobile. Hiển thị motivation và CV đọc được qua apiRequest với xác thực. Xuất CSV toàn bộ kết quả khớp bộ lọc và thứ tự hiện tại, bỏ tham số phân trang khỏi request xuất.
+
+4. Tách hai thao tác lưu và công bố. PATCH /api/applications/:id/screening lưu Shortlisted/Rejected, ghi chú riêng và lý do dành cho ứng viên theo hợp đồng. POST /api/applications/:id/screening/publication công bố bản đã lưu của đúng hồ sơ. Khi lịch đã xác nhận, khóa chỉnh sửa screening; vẫn cho phép công bố review đã lưu theo hợp đồng. Chặn gửi lặp, giữ nội dung khi lỗi và cập nhật theo response hoặc tải lại một lần. Dùng statistics.shortlisted để mở link sang /executive/schedule, kể cả khi bộ lọc hiện tại không hiển thị hồ sơ shortlisted.
+
+5. Kiểm thử với mock thật. Xác minh A01/A02 có quyết định độc lập, Applicant chỉ thấy kết quả đã công bố và không thấy ghi chú riêng. Kiểm tra thống kê qua nhiều trang, giữ bộ lọc khi đóng panel, nội dung CSV, CV đọc được, trạng thái khóa, lỗi/Retry, danh sách rỗng và điều hướng ở 360/768/1280 px. Chạy build và ghi rõ phần đã kiểm tra.
+
+6. Chỉ sửa client/src/features/applications/** và hai file docs/ai-prompts/hoc.md, docs/ai-logs/hoc.md. Giữ hành vi A1/A2. Ghi nguyên văn prompt thực tế, revision của brief.md và kết quả kiểm thử. Kiểm tra diff, staged diff và git diff -- docs/api mock. Để working diff cho Học review. Không stage, commit, push, merge hay bắt đầu A4.
+```
+
+#### A3 review and next task request
+
+```text
+Đã hoàn thành A3 check và commit nếu được. Sau đó làm tiếp theo
+```

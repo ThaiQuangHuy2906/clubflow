@@ -394,3 +394,105 @@ React Router warnings. The Chrome run repeated ownership and navigation,
 screening publication, schedule confirmation, campaign results publication,
 four mock modes and keyboard/layout checks at all three widths. Recorded
 the verbatim follow-up with A2.
+
+### A3 · C7 Executive Application Review (2026-11-24)
+
+Tool: Codex with PowerShell, Git, npm, Vite and Playwright Core driving headless
+Chrome 157. [Verbatim A3 request and brief revision](../ai-prompts/hoc.md#a3--c7-executive-application-review)
+
+Asked for: Complete the Executive review route, verify the filtering,
+downloads, screening and publication behavior against the mock, and leave
+the working diff for Lê Nguyễn Quốc Học (24127044) to review.
+
+Kept: The Executive role guard, shared session and API client, router exports
+and the A1/A2 source. Used the Executive projections and documented paths.
+
+Changed: Added campaign statistics and a separately counted, searchable
+and paginated list, with filters in the URL and independent request
+lifetimes for the list, positions and selected application. Added an
+in-flow detail panel with motivation, authenticated inline CV and PDF
+download, and the full filtered, sorted CSV download. Added separate save
+and publication actions, private notes and public reasons, field errors,
+in-flight guards, a confirmed-schedule lock, and the C8 link driven by the
+campaign-wide shortlisted count.
+
+Rejected: None from the user. A first browser check got an empty byte
+buffer from Playwright's response-body accessor for the CV. The final
+check compared the actual downloaded PDF with the mock fixture and inspected
+Chrome's rendered preview. Full-page screenshot capture with the PDF viewer
+open timed out. The final layout check measured the live DOM with the viewer
+present and captured the PDF preview separately.
+
+#### Actual checks
+
+- Verified the root, Git directory, common directory, clean branch and
+  reviewed A2 checkpoint `f5324a9c2306b5f460a46f47644d762513e8df25`.
+  Read `AGENTS.md`, the A3 block, C7/C8, the Executive list/export/detail/CV
+  and screening contracts, and the actual shared router, session, API client
+  and UI interfaces.
+- Ran `npm.cmd run build` from `client/`. The final build exited 0 and
+  emitted the two existing React Router directive warnings. From the repo
+  root ran temporary `node check-a3.cjs`, `node check-a2.cjs`,
+  `node check-a1.cjs` and `node check-a1-states.cjs` in that order against
+  the final build. The scripts served Vite preview on loopback port 4174
+  and the real `node mock/server.mjs` on port 3001. All exited 0.
+- On the direct seed, campaign totals stayed at three applications and
+  two distinct applicants across pages and filters. Tested position and
+  screening filters, sort field and direction, URL state and pagination.
+  Opening and closing A01 preserved the filtered page and exact URL with
+  no new list GET. Slow mode verified debounce on rapid typing,
+  cancellation of an in-flight query and fresh results for the final term.
+- Downloaded the actual CSV using Bearer auth. With only one row visible
+  on the filtered page, the CSV contained both matching Content records
+  in descending order (A03, A01). The request omitted page and pageSize.
+  Verified the exact header and exclusion of private note/reason fields.
+  The authenticated CV request returned a PDF, Chrome rendered the readable
+  mock CV in the panel, and the saved file matched the original PDF bytes.
+- Saved Shortlisted on A01 and Rejected with a separate public reason on A02.
+  Verified A01/A02 independence in the Executive and Applicant responses.
+  An overlong private note gave a focused field error before a request.
+  Rapid repeated clicks produced one PATCH and one POST for their respective
+  actions. A successful PATCH applied the returned detail and caused one
+  list refresh. The C8 link appeared even when the current filter excluded
+  A01. The Applicant saw the saved outcomes only after each publication
+  and did not receive or display any private note.
+- Confirmed the schedule using the documented mock API. One open tab
+  learned the lock via a list refresh and kept Save disabled during a
+  subsequent still-loading query, preserving its draft. A second open
+  tab received HTTP 409 on a stale PATCH and kept the typed note.
+  Publication remained enabled and released only A02's saved status and
+  public reason. Reopening the panel after confirmation showed it locked.
+- Verified real 500/Retry recovery for the list, detail and position
+  catalogue. Empty mode showed all five stats and filtered total at zero,
+  no application rows, and a downloadable header-only CSV.
+- At 360, 768 and 1280 px, checked one main h1, no horizontal scroll or
+  protruding controls, controls at least 44 px tall, Tab/Enter to open and
+  close, and focus restoration. The mobile panel stayed in flow and
+  the desktop panel sat beside the list. No uncaught page errors occurred
+  in the normal Executive walkthrough.
+
+#### Verification limits and handoff
+
+- Used the documented C8/C9 APIs to prepare the confirmed schedule.
+  The scheduling screen is still a scaffold at this checkpoint.
+  Browser evidence covers Chrome. W3C Nu, other browser engines and the
+  unavailable course checker were outside this run.
+- Inspected `git status`, the tracked and new-file diffs, `git diff --cached`,
+  `git diff -- docs/api mock` and whitespace checks. The staged and
+  contract/mock diffs were empty. Left A3 as a working diff for Học.
+
+#### Independent review before commit
+
+The user authorized committing A3 if it passed review and continuing with A4.
+On the A2 checkpoint, Codex reviewed the entire A3 working diff, matched the
+recorded A3 prompt against the message received and ran a fresh Vite production
+build plus Chrome against a normal mock. One temporary check initially
+compared the URL pathname to a path with query parameters. After correcting
+the check, the run passed campaign and filtered counts, pagination, query
+and focus restoration, authenticated PDF response, full filtered CSV contents,
+360/768/1280 px layout, separate screening save and publication, A01/A02
+isolation, private-note exclusion and the scheduling link. The course checker
+was unavailable.
+
+Verdict: READY for the authorized local commit. The follow-up records the
+independent review. A4 starts from the resulting clean checkpoint.

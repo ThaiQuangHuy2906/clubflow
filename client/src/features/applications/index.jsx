@@ -3,14 +3,7 @@ import { EmptyState, FeaturePage, Resource, useResource } from '../../ui.jsx';
 
 export { ApplyPage } from './ApplyPage.jsx';
 export { MyApplicationsPage, MyApplicationPage } from './MyApplications.jsx';
-
-export function ReviewPage() {
-  const applications = useResource('/api/applications');
-  return <Resource title="Application review" resource={applications}>{({ total }) =>
-    <FeaturePage title="Application review" note="Screening and exports will be added with the applications feature.">
-      {total ? <p>{total} applications received.</p> : <EmptyState message="No applications have been submitted." />}
-    </FeaturePage>}</Resource>;
-}
+export { ReviewPage } from './ReviewPage.jsx';
 
 export function ResultsPage() {
   const results = useResource('/api/results');
