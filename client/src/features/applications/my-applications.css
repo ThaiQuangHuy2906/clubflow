@@ -1,0 +1,80 @@
+.my-applications header p {
+  margin-top: var(--space-2);
+}
+
+.my-applications .application-records {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.my-applications .application-records li,
+.my-applications .application-submission {
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.my-applications .application-records h2 {
+  font-size: 1.15rem;
+}
+
+.my-applications .application-progress,
+.my-applications .application-snapshot {
+  display: grid;
+  gap: var(--space-3) var(--space-6);
+}
+
+.my-applications .application-records .application-progress {
+  margin-top: var(--space-2);
+}
+
+.my-applications .application-snapshot {
+  margin-top: var(--space-4);
+}
+
+.my-applications dt {
+  color: var(--muted);
+  font-weight: 650;
+  font-size: .875rem;
+  margin-bottom: var(--space-1);
+}
+
+.my-applications .application-reason {
+  margin-top: var(--space-2);
+}
+
+.my-applications .application-room {
+  display: block;
+}
+
+.my-applications .application-time-range {
+  white-space: nowrap;
+}
+
+.my-applications :is(.application-reason, .application-motivation dd) {
+  white-space: pre-wrap;
+}
+
+.my-applications .status[data-screening="Shortlisted"] {
+  color: var(--success);
+  background: var(--success-soft);
+}
+
+.my-applications :is(.status[data-screening="Rejected"], [data-result="Fail"]) {
+  color: var(--danger);
+}
+
+.my-applications [data-result="Pass"] {
+  color: var(--success);
+}
+
+@media (min-width: 48rem) {
+  .my-applications .application-progress,
+  .my-applications .application-snapshot {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .my-applications .application-motivation {
+    grid-column: 1 / -1;
+  }
+}

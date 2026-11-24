@@ -301,3 +301,96 @@ and verification limits above still apply.
 
 Self-review verdict: READY for the authorized local commit. The follow-up
 added this record and the verbatim request. A2 remains a separate invocation.
+
+### A2 · C6 My Applications (2026-11-24)
+
+Tool: Codex with PowerShell, Git, npm, Vite and Playwright Core driving headless
+Chrome 157. [Verbatim A2 request and brief revision](../ai-prompts/hoc.md#a2--c6-my-applications)
+
+Asked for: Complete the signed-in Applicant's application list and detail
+screens, verify each publication boundary on the mock and leave the working
+diff for Lê Nguyễn Quốc Học (24127044) to review.
+
+Kept: The A1 submission code and all five named exports. The existing Applicant
+route guard, session, relative API client and shared resource UI still handle
+access, loading, Retry, forbidden and missing records.
+
+Changed: Added the API total, a separate linked record for each owned
+application, published screening status and applicant reason, confirmed interview
+time and room, and the released decision on the corresponding record. The
+detail route also shows its saved submission information and a link back
+to the list. Added responsive CSS scoped to the two Applicant screens.
+
+Rejected: None from the user. The first layout test matched the list heading in
+its loading state and measured before the records were rendered. The harness
+now waits for the loaded list panel before checking layout and visibility.
+The recorded prompt was compared with the actual request and a copy error in
+the owner's name was corrected.
+
+#### Actual checks
+
+- Verified repository root, Git directory, common directory and a clean
+  `pa3/hoc-applications` at the reviewed A1 commit
+  `30bad3d4ca7df1d9839e83981af1bf8211876ec8`. Read `AGENTS.md`, the A2 block,
+  C6/C9/C11, the Applicant application contracts and the current router,
+  auth, API client and UI helpers. Read the schedule, assessment and results
+  operations used for the mock lifecycle.
+- Ran `npm.cmd run build` from `client/`. Exit 0, with the same two
+  React Router module-level directive warnings seen at A1. Ran temporary
+  `node check-a2.cjs`, `node check-a1.cjs` and
+  `node check-a1-states.cjs` from the root. They used the final Vite preview
+  build on loopback port 4174 and the real `node mock/server.mjs` on port
+  3001. All three exited 0 on the final run.
+- Student A opened A01 and A02 directly, refreshed both, returned via the page
+  link and browser Back, and saw two separate records and the API total of
+  two. Signed-in A03 showed Access denied (HTTP 403). A99 showed Record not
+  found (HTTP 404). Student B's list contained A03 only and its read of A01
+  returned 403. The Executive browser received the existing role denial on
+  both routes before any application GET.
+- Verified Submitted and hidden reasons before screening publication.
+  Published Shortlisted for A01 and Rejected with a public reason for A02.
+  Both list and detail showed the corresponding values. A saved change to
+  Shortlisted on A02 stayed private until the next screening release.
+- Created and saved a draft schedule via the Executive API. No draft time or
+  room appeared for either record. After advancing the mock clock and
+  confirming the schedule, both screens showed the distinct confirmed
+  assignments (A01 09:00–09:20 in Room A, A02 09:20–09:40 in Room B, UTC+7).
+- Saved a real interviewer assessment for A01 and its Pass decision, then
+  observed a blocked campaign release while A02 was unresolved. A01's saved
+  decision stayed hidden. After recording A02 Fail and handling the case,
+  both results still stayed hidden until campaign publication. After release,
+  the list and each direct detail showed A01 Pass and A02 Fail separately.
+  Private note and assessment markers stayed out of the Applicant views and
+  those fields were absent from the Applicant API details.
+- Both routes handled real HTTP 500 responses with Retry. After restarting
+  the mock in slow mode, each tab displayed Loading and recovered after
+  one additional GET. Empty mode rendered 0 applications with an empty list,
+  while A01's detail still resolved.
+- At 360, 768 and 1280 px, both pages matched document and viewport widths.
+  Checked one h1, named main links at least 44 px tall, Tab/Enter in both
+  directions and visible focus. Inspected the six screenshots. Observed no
+  uncaught page errors or browser requests outside the local preview in the
+  normal A2 walkthrough.
+
+#### Verification limits and handoff
+
+- Used the documented Executive and Interviewer APIs to prepare lifecycle
+  states because the dependent screens are scaffolds at this checkpoint.
+  The test checks the Applicant UI against those real API transitions.
+- The course PDFs and full checker remain absent in the workspace. This run
+  used Chrome and the targeted mock tests. W3C Nu and other browsers were
+  outside the checks performed.
+- Inspected `git status`, the tracked and new-file diffs, `git diff --cached`,
+  `git diff -- docs/api mock` and whitespace checks. A1's two form files,
+  the staged diff and the API/mock diff were unchanged. Left A2 as a working
+  diff for Học's review.
+
+#### Commit follow-up (2026-11-24)
+
+The user authorized a local A2 commit. Verified the full A2 working diff and
+confirmed the configured author matched the A1 commit. `npm.cmd run build`
+and `node check-a2.cjs` both exited 0 again. The build emitted the same two
+React Router warnings. The Chrome run repeated ownership and navigation,
+screening publication, schedule confirmation, campaign results publication,
+four mock modes and keyboard/layout checks at all three widths. Recorded
+the verbatim follow-up with A2.

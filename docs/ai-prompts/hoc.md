@@ -210,3 +210,50 @@ Quyền tạo và chuyển nhánh ở bước này chỉ để chuẩn bị A1. 
 ```text
 nếu mọi thứ ổn thì commit A1, chuẩn bị làm phàn tiếp theo của Học
 ```
+
+### A2 · C6 My Applications
+
+- Owner: Lê Nguyễn Quốc Học (24127044)
+- Tool: Codex
+- Date: 2026-11-24 (Asia/Ho_Chi_Minh). Exact send time unknown.
+- Branch and start: `pa3/hoc-applications` at `30bad3d4ca7df1d9839e83981af1bf8211876ec8`.
+- Invoked source: `brief.md`, A2 at the starting commit above, last revised
+  at `521f3a9cc83e302ac796680bb5feb7b464bed024`, blob `9ca5a5312b3cb14856ee8d487062008b6d6c4d32`.
+- Execution evidence: [A2 log](../ai-logs/hoc.md#a2--c6-my-applications-2026-11-24).
+
+#### Actual invocation
+
+```text
+Thực hiện A2 · C6 — My Applications trong brief.md của ClubFlow PA#3. Owner là Lê Nguyễn Quốc Học (24127044). Dừng sau A2 để Học review.
+
+1. Xác minh checkpoint
+
+Kiểm tra đúng repo ClubFlow, nhánh pa3/hoc-applications và worktree sạch sau commit A1 đã review. Ghi lại SHA đầu phiên. Nếu A1 vẫn còn trong working diff hoặc chưa có commit, báo trạng thái thực tế và dừng trước khi sửa.
+
+Đọc AGENTS.md, brief.md mục A2, PA3_PLAN.md mục C6/C9/C11 và phần Applicant trong docs/api/04-applications.md. Kiểm tra router, auth, apiRequest và các UI helper hiện có.
+
+2. Triển khai hai màn hình Applicant
+
+- /me/applications — Hoàn thiện MyApplicationsPage. Dùng GET /api/applications để hiển thị tổng số hồ sơ và một mục cho mỗi hồ sơ, có vị trí, trạng thái và link tới trang chi tiết. A01 và A02 phải xuất hiện riêng.
+- /me/applications/:id — Hoàn thiện MyApplicationPage. Dùng GET /api/applications/:id để hiển thị hồ sơ tương ứng. Trang phải mở được bằng URL trực tiếp, refresh và quay lại danh sách bằng link hoặc nút Back của trình duyệt.
+- Dùng dữ liệu Applicant do API trả về. Hiển thị Submitted cho đến khi kết quả sàng lọc được công bố. Khi API trả Rejected, hiển thị “Rejected at CV screening” và lý do dành cho ứng viên nếu có. Hiển thị giờ và phòng phỏng vấn khi `interview` có giá trị. Hiển thị Pass/Fail của đúng hồ sơ khi `result` có giá trị sau đợt công bố chung toàn chiến dịch.
+- Xử lý loading, lỗi có Retry, danh sách rỗng với tổng bằng 0, 403 và 404. Giữ role guard và dùng `apiRequest()` qua cơ chế dùng chung hiện có. Không hiển thị ghi chú nội bộ, đánh giá phỏng vấn hoặc dữ liệu của người khác. Công bố kết quả và thông báo thuộc A4.
+
+3. Giữ phạm vi A2
+
+Chỉ sửa client/src/features/applications/**, docs/ai-prompts/hoc.md và docs/ai-logs/hoc.md. Giữ nguyên hành vi nộp hồ sơ của A1 và các named export của router. Nếu thiếu interface chung hoặc API, báo Huy phần bị ảnh hưởng và cách tái hiện. Không sửa shared code, mock, hợp đồng API hoặc dependencies.
+
+4. Kiểm thử và bàn giao
+
+- Với Student A, mở trực tiếp A01 và A02, refresh, dùng Back và xác minh A03 bị từ chối. Kiểm tra thêm ID không tồn tại.
+- Với mock thật, kiểm tra trạng thái trước và sau công bố sàng lọc, trước và sau xác nhận lịch, trước và sau công bố kết quả toàn chiến dịch. Xác minh hai hồ sơ của cùng một người hiển thị đúng hai kết quả riêng. Dùng các API Executive đã có để chuẩn bị trạng thái kiểm thử nếu các màn hình phụ thuộc còn là khung.
+- Chạy build. Kiểm tra cả hai route ở 360, 768 và 1280 px, gồm điều hướng bàn phím, tên link rõ ràng và không cuộn ngang. Báo chính xác điều gì đã chạy và điều gì còn thiếu bằng chứng.
+- Ghi nguyên văn tin nhắn thực tế và revision của brief.md vào docs/ai-prompts/hoc.md. Ghi các thay đổi và kiểm tra thực tế vào docs/ai-logs/hoc.md.
+- Kiểm tra git status, git diff, git diff --cached và git diff -- docs/api mock. Báo file đã sửa, kết quả kiểm thử và vấn đề còn vướng. Để nguyên working diff cho Học review. Không stage, commit, push, merge hay bắt đầu A3.
+```
+
+#### Actual commit follow-up
+
+```text
+commit A2, chuẩn bin làm A3
+```
