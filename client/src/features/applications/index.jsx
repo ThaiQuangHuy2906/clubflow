@@ -2,18 +2,7 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { EmptyState, FeaturePage, Resource, useResource } from '../../ui.jsx';
 
-export function ApplyPage() {
-  const { positionId } = useParams();
-  const campaign = useResource('/api/campaign');
-  return <Resource title="Apply for a position" resource={campaign}>{({ campaign, acceptingApplications }) => {
-    const position = campaign?.departments.flatMap(d => d.positions).find(p => p.id === positionId);
-    return <FeaturePage title={position ? 'Apply for ' + position.name : 'Apply for a position'}>
-      <p>{!position ? 'This position is unavailable.' : !acceptingApplications ? 'Applications are closed.'
-        : 'The application form will be added with the applications feature.'}</p>
-      <Link className="button" to="/">View campaign</Link>
-    </FeaturePage>;
-  }}</Resource>;
-}
+export { ApplyPage } from './ApplyPage.jsx';
 
 export function MyApplicationsPage() {
   const applications = useResource('/api/applications');

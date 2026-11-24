@@ -179,3 +179,125 @@ Handoff result: commit `f1dbff3` was pushed to `origin/pa2/hoc-review`. Existing
 PR #2 was updated with the summary and QA limits, attached to this Codex task,
 and a review was requested from repository owner `ThaiQuangHuy2906`. The PR
 remains open and was reported mergeable; it was not merged.
+
+## PA#3
+
+### A1 · C5 Applicant Submission (2026-11-24)
+
+Tool: Codex with Git, PowerShell, Node.js, npm, Vite and Playwright Core driving
+headless Chrome 157. The A1 request and branch-preparation follow-up are in the
+[verbatim prompt record](../ai-prompts/hoc.md#pa3).
+
+Asked for: Implement and verify the Applicant submission at
+`/apply/:positionId` from the approved ClubFlow baseline. Leave the working
+diff for Lê Nguyễn Quốc Học (24127044) to review after A1.
+
+Kept: The existing Applicant route guard, shared session and API client,
+resource states, named applications exports and all PA2 evidence. Used the
+published position, profile, intake flag and windows from the Applicant
+campaign projection.
+
+Changed: Added the position form, feature CSS, field and file validation,
+multipart upload, in-flight submit guard and ID-based redirect for new and
+duplicate responses. Inline API errors preserve the form, including the
+selected CV. Appended the literal messages and source revision to the prompt
+record. Added local branch `pa3/hoc-applications` from
+`521f3a9cc83e302ac796680bb5feb7b464bed024` under the user's follow-up authorization.
+
+Rejected: None from the user. The first browser run timed out with separately
+started local servers. The first same-process retry encountered the mock port
+already in use. Stopped the test processes from the first attempt and ran both
+servers as children of the browser harness. An early Retry check clicked
+before the replacement mock was listening and got a 502. The final check
+waited for the mock API before clicking Retry, then verified recovery.
+
+#### Actual checks
+
+- Verified the Git root, Git directory, common directory, clean index and
+  worktree, and full baseline SHA. The original request stopped on `main`.
+  On follow-up, the local branch list and a live `git ls-remote --heads origin`
+  lookup confirmed the feature branch was absent. Used a per-command
+  `safe.directory` because Git reported different directory ownership.
+  The Git metadata helper confirmed the original metadata, then reported
+  `metadata_updated: true` and `metadata_matches: true` after the switch.
+- Read `AGENTS.md`, the relevant sections of `PA3_PLAN.md` and `brief.md`,
+  the campaign and application contracts, the setup/demo contracts needed
+  for the walkthrough, the scaffold interfaces and the `FRONTEND.md` accounts.
+- From `client/`, `npm.cmd ci --no-audit --no-fund` and
+  `npm.cmd run build` exited 0. The final Vite build transformed 31 modules
+  and emitted two module-level `"use client"` warnings from React Router.
+- Ran `node check-a1.cjs` and `node check-a1-states.cjs` from the repository
+  root using temporary Playwright scripts, with `node mock/server.mjs` on
+  port 3001 and Vite `preview --host 127.0.0.1 --port 4174 --strictPort`
+  serving the final production build. Both harnesses exited 0.
+- In a fresh normal mock, Executive used the shell to begin creation. The
+  harness published the campaign and configured windows through the Executive
+  API because the baseline editor and setup screens are scaffolds. Student A
+  submitted Content (201, A01) and Communications (201, A02) in Chrome.
+  The A02 phone override left A01 and the campaign profile unchanged.
+  Repeating Content returned 200 with `created:false`, opened A01 and
+  preserved both the original A01 details and the total of two records.
+- Verified the browser multipart boundary and the six allowed part names,
+  with a separate part for each of the three selected window IDs.
+  Two windows, an unoffered ID, malformed contacts, blank motivation,
+  301 Unicode-whitespace-separated words and invalid CVs were refused
+  before POST. CV cases included an extra byte, empty file, wrong extension,
+  wrong MIME, wrong signature and a text file. Three windows, a 300-word
+  motivation and a 5,242,880-byte PDF were accepted together. Two rapid
+  button clicks produced one browser POST.
+- An Executive window change after the Applicant opened the form produced a
+  real 400 on `availabilityWindowIds`. The message appeared at the group and
+  preserved contacts, motivation, file and selections. The failed POST
+  consumed no ID and left availability unlocked. The first valid POST froze
+  the windows. For the unused Events position, advancing the clock in
+  a separate Executive session caused a real 409 `APPLICATIONS_CLOSED`.
+  The focused alert and all entered values, including the CV and selected
+  windows, remained on the form. Reload showed the closed campaign state.
+- Verified visitor sign-in return, the Executive and Interviewer UI denials
+  and POST 403 responses, prepublication, future opening, missing windows,
+  invalid position and empty projection. A real mock 500 showed Retry, and
+  switching the mock to slow mode let the same tab show Loading and recover
+  with one additional GET. No outside-network requests or uncaught page
+  errors were observed in the core walkthrough.
+- Direct-loaded `/apply/content` at 360, 768 and 1280 px. Viewport and
+  document scroll widths matched (360/360, 768/768, 1280/1280). Checked one
+  h1, control labels, form/tap target geometry of at least 44 px and keyboard
+  selection with Tab/Space. Checked focus and description associations on
+  validation errors. Inspected screenshots and kept each time range together
+  on narrower columns, then rebuilt and reran the browser checks.
+
+#### Handoff and verification limits
+
+- The course PDFs `course-materials/PA3-rubric-react-front-end.pdf` and
+  `course-materials/ClubFlow-final-project-brief.pdf` were absent from this
+  workspace. The linked checker guide and `tools/contract-check.mjs` were
+  also absent. The full course checker, W3C Nu, other browsers and the
+  integrated Executive editor/setup UI were outside the checks performed.
+- The Applicant `GET /api/campaign` contract in `docs/api/02-campaign.md`
+  returns the schedule and a single intake flag. Publish with an opening
+  after the mock clock, then advance past closing and repeat the Applicant
+  GET to see `acceptingApplications:false` in both cases. The page displays
+  the opening and closing times alongside one unavailable state. Distinct
+  early/closed labels would need an authoritative phase or clock in the
+  Applicant projection from Huy.
+- Inspected `git status`, `git diff`, the two new-file diffs,
+  `git diff --cached`, `git diff -- docs/api mock` and whitespace checks.
+  The index and contract/mock diffs were empty. The A1 handoff is the
+  working diff on the feature branch for Học's review.
+
+#### Review and commit follow-up (2026-11-24)
+
+The user authorized a local A1 commit after verification. Codex reviewed the
+full working diff against `521f3a9`, including both new files. The diff stayed
+within the applications feature and Học's two evidence files. The configured
+Git identity matched the author of Học's earlier review commit `f1dbff3`.
+
+`npm.cmd run build` and both temporary Chrome checks, `node check-a1.cjs` and
+`node check-a1-states.cjs`, exited 0 again. The build retained the two
+React Router directive warnings. The browser checks repeated the pristine
+submission and duplicate flow, input limits, failed-request retention,
+role checks, all four mock modes and the three viewport widths. The source
+and verification limits above still apply.
+
+Self-review verdict: READY for the authorized local commit. The follow-up
+added this record and the verbatim request. A2 remains a separate invocation.

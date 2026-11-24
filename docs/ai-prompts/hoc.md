@@ -149,3 +149,64 @@ The user supplied a screenshot with this review note: `Review PR #2 — Hoc: b�
 ### Final screenshot and handoff (Task 2)
 
 Actual user prompt: `Rồi á, rename cho đúng format. Đánh giá lần cuối. Nếu ổn theo tiêu chí và ổn các phần tôi đã nói ổn thì commit, push và PR đi`
+
+## PA#3
+
+### A1 · C5 Applicant Submission
+
+- Owner: Lê Nguyễn Quốc Học (24127044)
+- Tool: Codex
+- Date: 2026-11-24 (Asia/Ho_Chi_Minh). Exact send times unknown.
+- Implementation branch: `pa3/hoc-applications`
+- Invoked source: `brief.md`, A1 at commit `521f3a9cc83e302ac796680bb5feb7b464bed024`,
+  blob `9ca5a5312b3cb14856ee8d487062008b6d6c4d32`.
+- Execution evidence: [A1 log](../ai-logs/hoc.md#pa3).
+
+#### Actual invocation
+
+```text
+Thực hiện A1 · C5 — Applicant Submission trong brief.md của ClubFlow PA#3. Owner là Lê Nguyễn Quốc Học (24127044). Dừng sau A1 để Học review.\
+
+1\. Kiểm tra trước khi sửa\
+
+Xác minh đúng repo ClubFlow, worktree sạch, nhánh pa3/hoc-applications và HEAD đúng SHA nền 521f3a9. Nếu sai, báo trạng thái thực tế và dừng trước khi sửa.\
+
+Đọc AGENTS.md, PA3_PLAN.md mục C5, brief.md mục A1, hợp đồng GET /api/campaign trong docs/api/02-campaign.md và POST /api/applications trong docs/api/04-applications.md. Kiểm tra route và các export thực tế trong router.jsx, auth.jsx, api.js, ui.jsx và features/applications/index.jsx. Đọc rubric và final brief nếu có trong workspace, ghi rõ tài liệu nào thiếu.\
+
+2\. Phạm vi chỉnh sửa\
+
+Chỉ sửa client/src/features/applications/\*\*, docs/ai-prompts/hoc.md và docs/ai-logs/hoc.md. Giữ các export mà router đang dùng. Dùng React, CSS theo phạm vi feature và các tiện ích chung có sẵn. Giữ nguyên router, auth, API client, mock, hợp đồng API, dependencies và tài liệu gốc. Nếu thiếu phần dùng chung, ghi file hoặc API liên quan, tác động và cách tái hiện để Huy xử lý.\
+
+3\. Triển khai ApplyPage tại /apply/:positionId\
+
+\- Đọc vị trí, trạng thái nhận hồ sơ, profile và availabilityWindows từ GET /api/campaign với phiên Applicant. Điền sẵn năm trường. Họ tên, MSSV và khoa chỉ đọc. Email và điện thoại chỉnh được cho từng hồ sơ.\
+\- Hiển thị các khung giờ API cung cấp và yêu cầu ít nhất ba ID khác nhau. Kiểm tra email, điện thoại, motivation không rỗng và tối đa 300 từ theo cách đếm trong hợp đồng. CV phải là PDF không rỗng, đúng đuôi, MIME và chữ ký %PDF-, tối đa 5.242.880 byte.\
+\- Gọi POST /api/applications qua apiRequest và FormData. Gửi positionId, phone, email, motivation, cv và lặp availabilityWindowIds theo từng lựa chọn. Để trình duyệt đặt multipart boundary. Chỉ gửi các trường được liệt kê trong hợp đồng upload.\
+\- Khi API trả created:false, mở /me/applications/:id bằng ID hồ sơ API trả về. Chặn hai lần gửi đồng thời. Hiển thị lỗi API cạnh trường tương ứng và giữ dữ liệu khi gửi thất bại, kể cả khi chiến dịch đóng sau lúc mở form.\
+\- Xử lý loading, lỗi tải có Retry, vị trí không hợp lệ, chiến dịch chưa mở hoặc đã đóng và trường hợp thiếu khung giờ. Dùng label rõ ràng, nhóm lựa chọn có tên, thao tác được bằng bàn phím và hiển thị lỗi dễ tìm.\
+
+4\. Kiểm thử và bàn giao\
+
+\- Dùng mock và demo accounts trong FRONTEND.md. Trên luồng tạo chiến dịch từ trạng thái sạch, dùng Student A nộp Content rồi Communications. Kiểm tra hai ID riêng, đổi số điện thoại ở hồ sơ thứ hai và xác minh hồ sơ đầu cùng profile giữ số cũ. Nộp trùng một vị trí và xác minh mở đúng ID cũ.\
+\- Kiểm tra hai so với ba khung giờ hợp lệ, khung không hợp lệ, PDF đúng giới hạn và vượt một byte, file không phải PDF, 300 và 301 từ, bấm gửi hai lần và quyền Applicant. Mở form khi còn hạn, cho Executive chuyển đồng hồ mock qua hạn rồi gửi từ phiên Applicant. Kiểm tra dữ liệu đã nhập còn nguyên.\
+\- Chạy build và kiểm tra route ở 360, 768 và 1280 px. Ghi rõ lệnh, kết quả và mục chưa xác minh. Ghi nguyên văn prompt thực tế và revision của brief.md vào docs/ai-prompts/hoc.md. Ghi Tool, Asked for, Kept, Changed, Rejected và các kiểm tra thực tế vào docs/ai-logs/hoc.md.\
+\- Cuối cùng, kiểm tra git status, git diff, git diff --cached và git diff -- docs/api mock. Báo danh sách file sửa, kết quả kiểm thử và việc còn vướng. Dừng ở working diff, không stage, commit, push, merge hoặc bắt đầu A2.
+```
+
+#### Actual branch-preparation follow-up
+
+```text
+Xác minh đúng repo ClubFlow, worktree sạch và SHA nền 521f3a9 đã có trong repo. Kiểm tra nhánh pa3/hoc-applications ở cả local và origin.\
+
+\- Nếu chưa có nhánh ở cả hai nơi và các điều kiện còn lại đều đạt, tự tạo và chuyển sang nhánh từ đúng SHA nền bằng \`git switch -c pa3/hoc-applications 521f3a9\`. Không dừng để hỏi lại chỉ vì chưa có nhánh.\
+\- Nếu nhánh đã có, dùng nhánh hiện có sau khi xác minh nó đúng SHA nền và chưa có thay đổi cần giữ. Nếu nhánh chỉ có trên origin, tạo nhánh local theo dõi nhánh đó sau khi xác minh. Không reset hoặc ghi đè nhánh có sẵn.\
+\- Sau khi chuyển nhánh, xác minh lại repo, nhánh và HEAD rồi đồng bộ metadata theo AGENTS.md. Khi các kiểm tra đạt, đọc tài liệu đã liệt kê và triển khai A1 ngay. Dừng nếu sai repo, có thay đổi chưa lưu hoặc SHA không khớp.\
+
+Quyền tạo và chuyển nhánh ở bước này chỉ để chuẩn bị A1. Sau khi triển khai và kiểm thử, dừng ở working diff để Học review. Không stage, commit, push, merge hoặc bắt đầu A2.
+```
+
+#### Actual review and commit follow-up
+
+```text
+nếu mọi thứ ổn thì commit A1, chuẩn bị làm phàn tiếp theo của Học
+```
