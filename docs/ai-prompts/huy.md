@@ -618,3 +618,19 @@ Execute H3 from `brief.md` on `pa3/huy-campaign`. Giữ nhánh trên máy, chạ
 ~~~~text
 Tôi duyệt H3. Commit các thay đổi đã stage trên `pa3/huy-campaign` với message `feat: manage campaign drafts, preview and publication`. Chỉ commit trên máy, chưa push hay merge.
 ~~~~
+
+### H4
+
+24 November 2026 · Thái Quang Huy (24127177) · Codex on local `pa3/huy-campaign`. Read H4 in `brief.md`, lines 802–810, at the clean H3 commit `e8efdbeab308fe2f05f96d27622479ff1c879412`. The last revision of `brief.md` was `521f3a9cc83e302ac796680bb5feb7b464bed024`. The send time is unknown. [Implementation and checks](../ai-logs/huy.md#h4)
+
+~~~~text
+Execute H4 from `brief.md` on `pa3/huy-campaign`. Giữ nhánh trên máy, chạy các kiểm thử H4 và kiểm tra dữ liệu chuyển sang bước xếp lịch qua API. Báo kết quả trước khi commit.
+~~~~
+
+#### H4 local commit approval
+
+24 November 2026 · Thái Quang Huy (24127177) · Codex on local `pa3/huy-campaign`. The H4 brief revision remains `521f3a9cc83e302ac796680bb5feb7b464bed024`. The send time is unknown. [Pre-commit verification](../ai-logs/huy.md#h4-local-commit-approval)
+
+~~~~text
+Tôi duyệt H4. Commit các thay đổi đã stage trên `pa3/huy-campaign` với message `feat: configure campaign interviewers, availability and rooms`. Chỉ commit trên máy, chưa push hay merge.
+~~~~

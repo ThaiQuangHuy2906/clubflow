@@ -1,17 +1,19 @@
 import React from 'react';
 import { newDepartment, newPosition } from './campaignForm.js';
 
-function ErrorMessage({ path, message }) {
+export function ErrorMessage({ path, message }) {
   return message && <p className="field-error" id={path + '-error'}>{message}</p>;
 }
 
-function Field({ path, label, value, onChange, error, multiline, hint, ...props }) {
-  const Control = multiline ? 'textarea' : 'input';
+export function Field({ path, label, value, onChange, error, multiline, hint, options, ...props }) {
+  const Control = options ? 'select' : multiline ? 'textarea' : 'input';
   const describedBy = [hint, error && path + '-error'].filter(Boolean).join(' ') || undefined;
   return <div className="editor-field">
     <label htmlFor={path}>{label}</label>
     <Control {...props} id={path} name={path} value={value ?? ''} onChange={event => onChange(event.target.value)}
-      aria-invalid={error ? true : undefined} aria-describedby={describedBy} />
+      aria-invalid={error ? true : undefined} aria-describedby={describedBy}>
+      {options?.map(({ value, label }) => <option key={value} value={value}>{label}</option>)}
+    </Control>
     <ErrorMessage path={path} message={error} />
   </div>;
 }
