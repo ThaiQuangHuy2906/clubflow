@@ -57,7 +57,11 @@ test('screening checks the reviewed application and public reason only', async t
   assert.equal(before.applicantReason, null);
   assert.equal('revision' in before, false);
   const published = await publish({ revision: final.revision });
-  assert.deepEqual(await publish({ revision: final.revision }), published);
+  await change({ privateNote: 'Updated after publication' });
+  const retried = await publish({ revision: final.revision });
+  assert.deepEqual(retried.publishedScreening, published.publishedScreening);
+  assert.equal(retried.revision, published.revision);
+  assert.equal(retried.privateNote, 'Updated after publication');
   assert.equal((await owner()).applicantReason, 'Reason two');
 });
 
@@ -94,6 +98,7 @@ test('campaign release rejects a stale board and concurrent retries return one i
   const afterDecision = await results();
   await save('A02', { caseStatus: 'Attended' });
   assert.equal((await publish(afterDecision.revision, 409)).error.code, 'STALE_REVISION');
+  await save('A02', { decision: 'Pass' });
   const current = await results();
   assert.equal(current.publishedAt, null);
   assert.equal((await notices('studentA')).total, 0);
@@ -105,7 +110,7 @@ test('campaign release rejects a stale board and concurrent retries return one i
   assert.ok(a.publishedAt);
   assert.deepEqual(a,b);
   const original = await notices('studentA');
-  assert.deepEqual(original.items.map(n => [n.applicationId,n.result]), [['A01','Fail'],['A02','Fail']]);
+  assert.deepEqual(original.items.map(n => [n.applicationId,n.result]), [['A01','Fail'],['A02','Pass']]);
   assert.deepEqual(await publish(current.revision), a);
   assert.equal((await publish(reviewed.revision,409)).error.code,'STALE_REVISION');
   assert.deepEqual(await notices('studentA'),original);

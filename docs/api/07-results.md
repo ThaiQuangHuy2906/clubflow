@@ -97,6 +97,49 @@ On success atomically freeze decisions/case handling, set one server publication
 
 A02 first lacks both a decision and a handled case. Saving its Fail decision without feedback is valid, but publication still awaits explicit case handling.
 
+Read the full board after the change. The publication request below uses the revision returned by this read.
+
+```http
+GET /api/results
+Authorization: Bearer {{token:exec}}
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "items": [
+    {
+      "applicationId": "A01",
+      "positionId": "content",
+      "positionName": "Content",
+      "applicantName": "Student A",
+      "interviewId": "IV-A01",
+      "caseStatus": "Attended",
+      "assessment": {
+        "feedback": "Clear writing and relevant examples.",
+        "submittedAt": "2026-11-24T12:01:00+07:00"
+      },
+      "decision": "Pass"
+    },
+    {
+      "applicationId": "A02",
+      "positionId": "comms",
+      "positionName": "Communications",
+      "applicantName": "Student A",
+      "interviewId": "IV-A02",
+      "caseStatus": "NeedsReview",
+      "assessment": null,
+      "decision": null
+    }
+  ],
+  "total": 2,
+  "revision": 4,
+  "publishedAt": null
+}
+```
+
 ```http
 POST /api/results/publication
 Authorization: Bearer {{token:exec}}
@@ -142,6 +185,49 @@ Content-Type: application/json
   "caseStatus": "NeedsReview",
   "assessment": null,
   "decision": "Fail"
+}
+```
+
+Read the full board after the change. The publication request below uses the revision returned by this read.
+
+```http
+GET /api/results
+Authorization: Bearer {{token:exec}}
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "items": [
+    {
+      "applicationId": "A01",
+      "positionId": "content",
+      "positionName": "Content",
+      "applicantName": "Student A",
+      "interviewId": "IV-A01",
+      "caseStatus": "Attended",
+      "assessment": {
+        "feedback": "Clear writing and relevant examples.",
+        "submittedAt": "2026-11-24T12:01:00+07:00"
+      },
+      "decision": "Pass"
+    },
+    {
+      "applicationId": "A02",
+      "positionId": "comms",
+      "positionName": "Communications",
+      "applicantName": "Student A",
+      "interviewId": "IV-A02",
+      "caseStatus": "NeedsReview",
+      "assessment": null,
+      "decision": "Fail"
+    }
+  ],
+  "total": 2,
+  "revision": 5,
+  "publishedAt": null
 }
 ```
 
@@ -274,6 +360,49 @@ Content-Type: application/json
 ```
 
 After reviewing the current values, the Executive publishes the matching revision.
+
+Read the full board after the change. The publication request below uses the revision returned by this read.
+
+```http
+GET /api/results
+Authorization: Bearer {{token:exec}}
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "items": [
+    {
+      "applicationId": "A01",
+      "positionId": "content",
+      "positionName": "Content",
+      "applicantName": "Student A",
+      "interviewId": "IV-A01",
+      "caseStatus": "Attended",
+      "assessment": {
+        "feedback": "Clear writing and relevant examples.",
+        "submittedAt": "2026-11-24T12:01:00+07:00"
+      },
+      "decision": "Pass"
+    },
+    {
+      "applicationId": "A02",
+      "positionId": "comms",
+      "positionName": "Communications",
+      "applicantName": "Student A",
+      "interviewId": "IV-A02",
+      "caseStatus": "Absent",
+      "assessment": null,
+      "decision": "Fail"
+    }
+  ],
+  "total": 2,
+  "revision": 6,
+  "publishedAt": null
+}
+```
 
 ```http
 POST /api/results/publication
@@ -463,3 +592,5 @@ Initial T1 proposal for team review, 2026-11-23.
 2026-11-23 — Replaced per-application release with an atomic campaign release and separated the decision, actual assessment and explicit interview-case handling.
 
 2026-11-25 — Added campaign-wide publication revision checks. Retrying the successfully published revision returns the original summary.
+
+2026-11-25 — Added the complete Executive reads used to review revisions 4, 5 and 6 before attempting publication.
