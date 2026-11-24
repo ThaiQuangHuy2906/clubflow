@@ -2,15 +2,7 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { EmptyState, FeaturePage, Resource, useResource } from '../../ui.jsx';
 
-export function SchedulePage() {
-  const schedule = useResource('/api/schedule');
-  return <Resource title="Interview schedule" resource={schedule}>{({ rows, state }) =>
-    <FeaturePage title="Interview schedule" note="Draft assignments and confirmation will be added with the scheduling feature.">
-      {rows.length ? <p>{rows.length} shortlisted applications · {state}</p>
-        : <EmptyState message={state === 'Confirmed' ? 'The confirmed schedule has no interview assignments.'
-          : 'Shortlist applications before planning interview assignments.'} />}
-    </FeaturePage>}</Resource>;
-}
+export { SchedulePage } from './SchedulePage.jsx';
 
 export function MyInterviewsPage() {
   const interviews = useResource('/api/interviews');

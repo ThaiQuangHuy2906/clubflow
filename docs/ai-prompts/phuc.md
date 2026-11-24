@@ -84,3 +84,39 @@ needed, and I want only me as author (not Claude) — overwrite the branch.
 
 Short status/clarification questions between these messages (what is left to do,
 screenshots, where evidence is stored) are not reproduced.
+
+## PA#3
+
+Tool: Claude Code (VS Code extension), model Claude Opus 5.5 (`claude-opus-5-5`).
+Owner: Trần Hoàng Phúc, 24127505. Date: 2026-11-24 (Asia/Ho_Chi_Minh). Exact send times were not recorded.
+The rules file `AGENTS.md` was loaded automatically. Messages are in Vietnamese and are followed by an English gloss.
+
+### P1 · Review of Huy's Gate 1 question
+
+Branch: `main` at `521f3a9`. Sent text: Huy's team-chat message about C5/C6, C8/C9 and the two demo runs, then the PA3 assignment text, both pasted in full (abbreviated here as `[...]`, not reworded), with:
+
+```text
+Huy mới giao việc cho tôi, tôi là Phúc, dể tôi gửi bạn yêu cầu của thầy cho dễ hiểu, trên repo HUy làm kha khá rồi
+
+Bạn có thể đọc file rubric PA3 để hiểu hơn nha, có gì chưa rõ thì hỏi lại tôi nếu rõ rồi thì làm task Huy giao cho tôi đi
+```
+
+Gloss: Huy just assigned me this; here are the lecturer's requirements; read the PA3 rubric, ask if anything is unclear, otherwise do the task Huy gave me (check whether his proposed flow is enough for my part). Output: a drafted reply to Huy; no repository file changed. See [the log](../ai-logs/phuc.md#p1--review-of-huys-gate-1-question).
+
+### P2 · S1 C8 draft schedule generation
+
+Branch: `pa3/phuc-scheduling`, created from `521f3a9` (= `origin/main`). Task block read: S1 in `brief.md` at `521f3a9`, lines 852–860.
+
+```text
+vậy bạn xem xét dựa trên rubric và Huy nói và làm tiếp đi, với lại nhánh đó có cũ không, hay cứ làm tiếp, trên github vẫn còn nhánh đó đó,
+```
+
+Gloss: so review it against the rubric and what Huy said and carry on; also, is that branch old, or should I just continue — that branch is still on GitHub. (The branch on GitHub was the merged PA2 branch `pa2/phuc-schedule`; S1 was started on a new `pa3/phuc-scheduling` from the baseline.) See [the log](../ai-logs/phuc.md#p2--s1-c8-draft-schedule-generation).
+
+### P3 · Commit and push S1
+
+```text
+vậy việc tôi xong chưa, nếu xong rồi thì commit pushs cho tôi đừng có dòng coauthored nha
+```
+
+Gloss: is my work done; if so, commit and push it for me, without a co-authored line. Answer given: only S1 is done (S2–S4 remain); S1 was committed on `pa3/phuc-scheduling` without a `Co-Authored-By` trailer and the branch was pushed.
