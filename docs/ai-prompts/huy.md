@@ -562,3 +562,35 @@ Rà soát kĩ càng, khắc khe, kĩ tính xem có lỗi nào không? Nếu có 
 ~~~~text
 OK. Tôi cho phép commit
 ~~~~
+
+### H2
+
+24 November 2026 · Thái Quang Huy (24127177) · Codex on `pa3/huy-campaign`. Read H2 in `brief.md`, lines 782–790, at clean H1 commit `50a56208316bd33859a4a344110350070d824430`. The last revision of `brief.md` was `521f3a9cc83e302ac796680bb5feb7b464bed024`. The invocation spells the branch `pa3/huy-campain`. The checked-out branch matches the H2 requirement, `pa3/huy-campaign`. The send time is unknown. [Implementation decision and checks](../ai-logs/huy.md#h2)
+
+~~~~text
+Execute H2 from brief.md on pa3/huy-campain.
+~~~~
+
+#### H2 follow-up — staged navigation review
+
+24 November 2026 · Thái Quang Huy (24127177) · Codex on `pa3/huy-campaign`. Reviewed H2 at the same `brief.md` revision. The send time is unknown. [Findings and before-fix checks](../ai-logs/huy.md#h2-follow-up--staged-navigation-review)
+
+~~~~text
+Rà soát kĩ càng, khắc khe, kĩ tính thêm lần nữa đi. Xem còn có lỗi nào không?
+~~~~
+
+#### H2 follow-up — repair the six review findings
+
+24 November 2026 · Thái Quang Huy (24127177) · Codex. H2 remains on `pa3/huy-campaign` at `50a5620`. Huy requested the fixes identified in the staged review, including the three shared fixes prepared in a separate `main` worktree at `521f3a9`. The H2 brief revision remains `521f3a9cc83e302ac796680bb5feb7b464bed024`. The send time is unknown. [Fix checklist and verification](../ai-logs/huy.md#h2-follow-up--repair-the-six-review-findings)
+
+~~~~text
+Sửa các lỗi đó cho tôi đi. Đảm bảo không sai sót, lập checklist từng lỗi, sửa từng lỗi nhé.
+~~~~
+
+#### H2 local commit approval
+
+24 November 2026 · Thái Quang Huy (24127177) · Codex. Huy approved the shared fix on `main` first and the H2 verification on `pa3/huy-campaign` second. The H2 brief revision was `521f3a9cc83e302ac796680bb5feb7b464bed024`. The send time is unknown. [Pre-commit verification](../ai-logs/huy.md#h2-local-commit-approval)
+
+~~~~text
+Tôi duyệt cả hai phần. Commit phần sửa đăng nhập và điều hướng trên `main`, rồi commit bộ kiểm thử H2 trên `pa3/huy-campaign`. Chỉ commit trên máy, chưa push hay merge.
+~~~~
