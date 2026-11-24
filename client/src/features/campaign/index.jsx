@@ -3,15 +3,7 @@ import { useOutletContext } from 'react-router-dom';
 import { EmptyState, FeaturePage, Resource, useResource } from '../../ui.jsx';
 
 export { PublicCampaignPage } from './PublicCampaignPage.jsx';
-
-export function CampaignEditorPage() {
-  const { campaignDraft } = useOutletContext();
-  return <Resource title="Campaign editor" resource={campaignDraft}>{({ draft, published, locked }) =>
-    <FeaturePage title="Campaign editor" note="The campaign editing form will be added with the campaign feature.">
-      {draft ? <><h2>{draft.name || 'Untitled campaign'}</h2><p>{locked ? 'Campaign locked' : published ? 'Campaign published' : 'Draft campaign'}</p></>
-        : <EmptyState message="Create a campaign draft to begin recruitment." />}
-    </FeaturePage>}</Resource>;
-}
+export { CampaignEditorPage } from './CampaignEditorPage.jsx';
 
 export function InterviewSetupPage() {
   const setup = useResource('/api/campaign/setup');

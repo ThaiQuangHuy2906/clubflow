@@ -602,3 +602,19 @@ Tôi duyệt cả hai phần. Commit phần sửa đăng nhập và điều hư�
 ~~~~text
 Push `main` lên `origin`, tích hợp `origin/main` vào `pa3/huy-campaign` trên máy rồi chạy lại toàn bộ kiểm thử H2. Giữ nhánh campaign ở máy và báo kết quả cho tôi.
 ~~~~
+
+### H3
+
+24 November 2026 · Thái Quang Huy (24127177) · Codex on local `pa3/huy-campaign`. Read H3 in `brief.md`, lines 792–800, at the clean H2 integration commit `451ba85e9d301210b9ed48d270a884a8ae34a4e8`. The last revision of `brief.md` was `521f3a9cc83e302ac796680bb5feb7b464bed024`. The send time is unknown. [Implementation and checks](../ai-logs/huy.md#h3)
+
+~~~~text
+Execute H3 from `brief.md` on `pa3/huy-campaign`. Giữ nhánh trên máy, chạy các kiểm thử H3 và báo kết quả trước khi commit.
+~~~~
+
+#### H3 local commit approval
+
+24 November 2026 · Thái Quang Huy (24127177) · Codex on `pa3/huy-campaign`. The H3 brief revision remains `521f3a9cc83e302ac796680bb5feb7b464bed024`. The send time is unknown. [Pre-commit verification](../ai-logs/huy.md#h3-local-commit-approval)
+
+~~~~text
+Tôi duyệt H3. Commit các thay đổi đã stage trên `pa3/huy-campaign` với message `feat: manage campaign drafts, preview and publication`. Chỉ commit trên máy, chưa push hay merge.
+~~~~
