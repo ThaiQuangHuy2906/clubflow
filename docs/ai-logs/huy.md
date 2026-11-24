@@ -549,3 +549,36 @@ outside this Screen 1 evidence review.
 #### H4 local commit approval
 
 24 November 2026. Huy approved the local H4 checkpoint on `pa3/huy-campaign`. The staged client and mock trees matched the trees tested during H4. All 12 unit tests passed again, and a fresh production build matched all three browser-tested output files by SHA-256. The browser and API handoff results above are from the H4 implementation review. [Commit instruction](../ai-prompts/huy.md#h4-local-commit-approval)
+
+#### H4 follow-up — C8 browser handoff
+
+25 November 2026 · Thái Quang Huy (24127177) · Codex with Python Playwright. Huy requested a local browser check from H4 through C8 generation and reopening, with the schedule API as the reference. [Exact instruction](../ai-prompts/huy.md#h4-follow-up--c8-browser-handoff)
+
+- **Tested build.** Exported H4 at `0a4b96d` to a temporary directory and overlaid only Phúc's scheduling feature files from S1 at `f057d1f`. The lockfile, shared stylesheet, API contract and mock matched between commits. `npm run build` passed with Vite 8.3.8. Five checks passed with Chrome 157.0.8103.79 on a fresh disposable normal mock. No branch was committed, pushed or merged during the test.
+- **Browser generation.** Saved the schedule configuration in H4, submitted and shortlisted two demo records through the API, and followed the H4 link to C8. The date, bounds and 15-minute duration matched `GET /api/campaign/setup`. Generate Draft sent `POST /api/schedule/draft` at revision 0. C8 showed `A01` for `content` at 09:00–09:15 and `A02` for `comms` at 09:15–09:30, both with `I01` and `R-B`. `GET /api/schedule` stayed at state None and revision 0. Reloading discarded the preview.
+- **Reopening and revalidation.** Saved those assignments via `PUT /api/schedule`. C8 showed both rows as Proposed in Saved draft at revision 1 after returning from H4 and after a page reload. Changing the duration to 20 minutes in C8 produced 09:00–09:20 and 09:20–09:40 proposals and retained all four applicant window IDs. The saved draft stayed at revision 1 and both old rows became Unassigned with `INVALID_SLOT`. H4 reopened at 20 minutes with nine slots.
+- **Remaining browser check.** S1 provides generation and reopening. It has no Save Changes control, which belongs to S2. Saving a draft through the C8 UI remains unverified. The local evidence is in `D:/Temp/clubflow-h4-c8-54192373/` as `report.json`, `build.log`, `generated-15.png` and `reopened-draft.png`.
+
+#### H4 follow-up — C8 save through the browser
+
+25 November 2026 · Thái Quang Huy (24127177) · Codex with Python Playwright. Huy requested the full C8 browser save and reopen once S2 exposes Save Changes. [Exact instruction](../ai-prompts/huy.md#h4-follow-up--c8-save-through-the-browser)
+
+- **Availability.** Checked local branches, the advertised remote branches and pull-request heads. `origin/pa3/phuc-scheduling` was still at S1 commit `f057d1f`. The accessible C8 source implemented preview generation, duration updates and CSV export. No S2 build was available.
+- **Observed.** Reused the local H4 `0a4b96d` and C8 `f057d1f` production build against a fresh normal mock. C8 generated two 15-minute proposals matching the API. Chrome 157.0.8103.79 showed Generate Draft, Discard preview and Export CSV. Save Changes was absent. The browser sent zero `PUT /api/schedule` requests and `GET /api/schedule` remained at state None, revision 0. The requested workflow stopped before saving. No schedule was written through the API in this check.
+- **Evidence.** `D:/Temp/clubflow-c8-save-check-390a0576/` contains `report.json` and `preview-actions.png`. The first temporary runner stopped before opening the browser because it concatenated a path object into a log label. The corrected runner used the directory name for the label and completed successfully.
+
+### PR 4 application review
+
+25 November 2026 · Thái Quang Huy (24127177) · Codex. Review of A1–A4 from `brief.md` at `521f3a9`. The review used an isolated copy of PR #4 at `aea32f5`. Huy’s review records are on `pa3/huy-campaign`. Exact send times are unknown. [Companion record](../ai-prompts/huy.md#pr-4-application-review)
+
+#### A1–A4 review and continuation
+
+Reviewed Học’s four application tasks and built the PR locally. Chrome with the disposable mock reproduced two stale-tab publications: screening displayed Shortlisted but released Rejected, and final publication displayed Pass but delivered Fail. After screening the last item on page two, the filtered list displayed “Page 2 of 1”. Browser checks covered CV and word limits, duplicate submission, owner-only details, screening and exports, and campaign-wide publication with owner-only notices. C8 generation and saving, C9 confirmation and C10 assessment were exercised through the API to prepare the application-side checks. The integrated scheduling and interviewer screens remained pending. The first CV probe expected the submitted signature-only file size; after checking the documented sample PDF substitution, the rerun compared the download with the API bytes. Local evidence is in `D:/Temp/clubflow-pr4-qdazxn5h/report.json` and `states.json`.
+
+#### Review draft for Học
+
+Prepared review text in chat with reproduction steps, ownership of the UI and API work, and retest criteria for the three findings.
+
+#### Local evidence commit approval
+
+25 November 2026. Huy authorized a separate local documentation commit for each branch. Codex reviewed the campaign handoff and PR review records on `pa3/huy-campaign` and the shared API records on `pa3/huy-publication-revision`. Each diff was limited to Huy's prompt and log files. [Commit instruction](../ai-prompts/huy.md#local-evidence-commit-approval)

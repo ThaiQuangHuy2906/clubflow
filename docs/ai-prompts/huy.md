@@ -634,3 +634,47 @@ Execute H4 from `brief.md` on `pa3/huy-campaign`. Giữ nhánh trên máy, chạ
 ~~~~text
 Tôi duyệt H4. Commit các thay đổi đã stage trên `pa3/huy-campaign` với message `feat: configure campaign interviewers, availability and rooms`. Chỉ commit trên máy, chưa push hay merge.
 ~~~~
+
+#### H4 follow-up — C8 browser handoff
+
+25 November 2026 · Thái Quang Huy (24127177) · Codex on local `pa3/huy-campaign` at `0a4b96d`. H4 refers to brief revision `521f3a9cc83e302ac796680bb5feb7b464bed024`. The send time is unknown. [Browser and API checks](../ai-logs/huy.md#h4-follow-up--c8-browser-handoff)
+
+~~~~text
+Kiểm thử trên máy luồng từ cấu hình phỏng vấn H4 đến tạo và mở lại lịch trên giao diện C8. Đối chiếu với API và báo kết quả. Chưa push hay merge.
+~~~~
+
+#### H4 follow-up — C8 save through the browser
+
+25 November 2026 · Thái Quang Huy (24127177) · Codex on local `pa3/huy-campaign` at `0a4b96d`. H4 refers to brief revision `521f3a9cc83e302ac796680bb5feb7b464bed024`. The send time is unknown. [S2 availability and browser check](../ai-logs/huy.md#h4-follow-up--c8-save-through-the-browser)
+
+~~~~text
+Kiểm thử trên máy luồng H4 sang C8 sau khi S2 có nút Save Changes. Tạo, lưu và mở lại lịch bằng giao diện, rồi đối chiếu với `GET /api/schedule`. Chưa commit, push hay merge.
+~~~~
+
+### PR 4 application review
+
+25 November 2026 · Thái Quang Huy (24127177) · Codex. Review of A1–A4 from `brief.md` at `521f3a9`. The review used an isolated copy of PR #4 at `aea32f5`. Huy’s review records are on `pa3/huy-campaign`. Exact send times are unknown. [Companion record](../ai-logs/huy.md#pr-4-application-review)
+
+#### A1–A4 review and continuation
+
+~~~~text
+Rà soát PR #4 của Học theo A1–A4 trong `brief.md`. Kiểm thử trên máy những luồng chạy được, liệt kê lỗi và ghi rõ phần nào còn phụ thuộc vào C8–C10. Chưa sửa mã, commit, push hay merge.
+~~~~
+
+~~~~text
+Tiếp tục
+~~~~
+
+#### Review draft for Học
+
+~~~~text
+Soạn nội dung review PR #4 để tôi gửi Học. Ghi rõ cách tái hiện ba lỗi, phần Học có thể sửa ở giao diện, phần cần Huy phối hợp ở API và tiêu chí kiểm thử lại. Chỉ soạn trong chat.
+~~~~
+
+#### Local evidence commit approval
+
+25 November 2026 · Thái Quang Huy (24127177) · Codex. This approval covers both evidence branches. [Scope of approval](../ai-logs/huy.md#local-evidence-commit-approval)
+
+~~~~text
+Tôi duyệt. Trên từng nhánh `pa3/huy-campaign` và `pa3/huy-publication-revision`, kiểm tra diff rồi commit riêng `docs/ai-prompts/huy.md` và `docs/ai-logs/huy.md`. Chỉ commit trên máy, chưa push hay merge. Báo lại mã của cả hai commit.
+~~~~
