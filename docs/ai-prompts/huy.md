@@ -538,3 +538,27 @@ Sửa các lỗi trong phạm vi T3, chạy lại kiểm tra rồi dừng ở st
 ~~~~text
 Commit T3 trên main. Chưa push.
 ~~~~
+
+### H1
+
+24 November 2026 · Thái Quang Huy (24127177) · Codex on `pa3/huy-campaign`. Read H1 (C1 public campaign) in `brief.md`, lines 772–780, at clean checkpoint `521f3a9cc83e302ac796680bb5feb7b464bed024`. The send time is unknown. [Implementation and browser checks](../ai-logs/huy.md#h1)
+
+~~~~text
+Execute H1 from brief.md on pa3/huy-campaign.
+~~~~
+
+#### H1 follow-up — staged campaign review
+
+24 November 2026 · Thái Quang Huy (24127177) · Codex on `pa3/huy-campaign`. Follow-up to H1 at the same `brief.md` revision. The send time is unknown. [Findings and verification](../ai-logs/huy.md#h1-follow-up--staged-campaign-review)
+
+~~~~text
+Rà soát kĩ càng, khắc khe, kĩ tính xem có lỗi nào không? Nếu có thì lập checklist lỗi, sửa từng lỗi cho tôi.
+~~~~
+
+#### H1 approval
+
+24 November 2026 · Thái Quang Huy (24127177) · Codex on `pa3/huy-campaign`. The send time is unknown. [Pre-commit checks](../ai-logs/huy.md#h1-approval)
+
+~~~~text
+OK. Tôi cho phép commit
+~~~~
