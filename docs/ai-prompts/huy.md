@@ -594,3 +594,11 @@ Sửa các lỗi đó cho tôi đi. Đảm bảo không sai sót, lập checklis
 ~~~~text
 Tôi duyệt cả hai phần. Commit phần sửa đăng nhập và điều hướng trên `main`, rồi commit bộ kiểm thử H2 trên `pa3/huy-campaign`. Chỉ commit trên máy, chưa push hay merge.
 ~~~~
+
+#### H2 integration and verification
+
+24 November 2026 · Thái Quang Huy (24127177) · Codex. H2 follow-up from campaign commit `6643d8e`, with shared commit `25bcf2a` on `main`. The invoked revision of `brief.md` was `521f3a9cc83e302ac796680bb5feb7b464bed024`. The send time is unknown. [Integration checks](../ai-logs/huy.md#h2-integration-and-verification)
+
+~~~~text
+Push `main` lên `origin`, tích hợp `origin/main` vào `pa3/huy-campaign` trên máy rồi chạy lại toàn bộ kiểm thử H2. Giữ nhánh campaign ở máy và báo kết quả cho tôi.
+~~~~

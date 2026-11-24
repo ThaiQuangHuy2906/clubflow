@@ -52,9 +52,12 @@ export function SignInPage({ expired = false }) {
     if (active.current) return;
     const form = event.currentTarget;
     const { email, password } = form.elements;
+    const address = email.value.trim();
     const invalid = {};
-    if (!email.value.trim() || email.validity.typeMismatch) invalid.email = 'Enter a valid email address.';
+    if (!address || email.validity.typeMismatch) invalid.email = 'Enter a valid email address.';
+    else if ([...address].length > 254) invalid.email = 'Use 254 characters or fewer for your email address.';
     if (!password.value) invalid.password = 'Enter your password.';
+    else if ([...password.value].length > 128) invalid.password = 'Use 128 characters or fewer for your password.';
     setFields(invalid);
     setError('');
     if (Object.keys(invalid).length) {
@@ -65,7 +68,7 @@ export function SignInPage({ expired = false }) {
     active.current = controller;
     setPending(true);
     try {
-      await signIn(email.value.trim(), password.value, controller.signal);
+      await signIn(address, password.value, controller.signal);
     } catch (failure) {
       if (!controller.signal.aborted) {
         setError(failure.message);
@@ -78,17 +81,23 @@ export function SignInPage({ expired = false }) {
     }
   }
 
+  function clearEditedError(event) {
+    setError('');
+    const { name } = event.target;
+    if (fields[name]) setFields(current => ({ ...current, [name]: undefined }));
+  }
+
   return <section className="signin panel">
     <h1>Sign in</h1>
     <p className="muted">Use your ClubFlow account to open your workspace.</p>
     {expired && <p role="status">Your session has expired. Please sign in again.</p>}
-    <form noValidate onSubmit={submit} className="form-stack">
+    <form noValidate onSubmit={submit} onChange={clearEditedError} className="form-stack">
       <label htmlFor="email">Email address</label>
-      <input id="email" name="email" type="email" autoComplete="username" autoCapitalize="none" required
+      <input id="email" name="email" type="email" autoComplete="username" autoCapitalize="none" required={!pending} readOnly={pending}
         aria-invalid={!!fields.email} aria-describedby={fields.email ? 'email-error' : undefined} />
       {fields.email && <p className="field-error" id="email-error">{fields.email}</p>}
       <label htmlFor="password">Password</label>
-      <input id="password" name="password" type="password" autoComplete="current-password" required
+      <input id="password" name="password" type="password" autoComplete="current-password" required={!pending} readOnly={pending}
         aria-invalid={!!fields.password} aria-describedby={fields.password ? 'password-error' : undefined} />
       {fields.password && <p className="field-error" id="password-error">{fields.password}</p>}
       {error && <p role="alert" className="field-error">{error}</p>}
