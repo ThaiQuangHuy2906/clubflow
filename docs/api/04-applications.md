@@ -643,7 +643,7 @@ Content-Disposition: attachment; filename="applications.csv"
 
 ## GET /api/applications/:id
 
-Applicant owner or Executive, no query/body. `id` is an application ID. The detail extends the row with `studentName,studentNumber,faculty,email,phone,motivation,availabilityWindowIds,cvFileName`. The Executive detail also contains `applicantId,privateNote,locked`, the editable `applicantReason` and `publishedScreening` (null or the last released status/reason snapshot). Returned availability IDs identify the original offered windows. Contact fields are the values saved for that application. The Applicant projection excludes all note and assessment fields, including after publication. Interviewers use their own [interview detail](06-interviews.md). 403 for another owner's known ID or a disallowed role, 404 for a missing ID.
+Applicant owner or Executive, no query/body. `id` is an application ID. The detail extends the row with `studentName,studentNumber,faculty,email,phone,motivation,availabilityWindowIds,cvFileName`. The Executive detail also contains `revision,applicantId,privateNote,locked`, the editable `applicantReason` and `publishedScreening` (null or the last released status/reason snapshot). Returned availability IDs identify the original offered windows. Contact fields are the values saved for that application. The Applicant projection excludes all note and assessment fields, including after publication. Interviewers use their own [interview detail](06-interviews.md). 403 for another owner's known ID or a disallowed role, 404 for a missing ID.
 
 ```http
 GET /api/applications/A01
@@ -704,6 +704,7 @@ Content-Type: application/json
   "cvFileName": "cv.pdf",
   "applicantId": "U-A",
   "privateNote": "",
+  "revision": 0,
   "publishedScreening": null,
   "locked": false
 }
@@ -784,6 +785,7 @@ Content-Type: application/json
   "cvFileName": "cv.pdf",
   "applicantId": "U-A",
   "privateNote": "Writing sample reviewed.",
+  "revision": 1,
   "publishedScreening": null,
   "locked": false
 }
@@ -825,6 +827,7 @@ Content-Type: application/json
   "cvFileName": "cv.pdf",
   "applicantId": "U-A",
   "privateNote": "Internal second review requested.",
+  "revision": 1,
   "publishedScreening": null,
   "locked": false
 }
@@ -862,7 +865,7 @@ Content-Type: application/json
 
 ## POST /api/applications/:id/screening/publication
 
-Executive. Application ID in path, no query, empty action body. Copy the internal Shortlisted or Rejected status and its optional applicant-facing reason into the public-to-owner screening snapshot. Repeating the same publication returns the same Executive detail. The internal note is never copied. Before publication the owner continues to see Submitted or the previous released snapshot. Return 404 NOT_FOUND for a missing ID, 409 SCREENING_PENDING if still Submitted. Publishing a completed review may occur after C9: it changes visibility only. The separate question of a notification for CV rejection remains open. This draft requires the on-screen status and optional reason; the two public replies give no additional screening notification rule.
+Executive. Application ID in path, no query, required JSON body with the nonnegative safe integer `revision` from the reviewed Executive detail or screening PATCH response. The revision starts at zero per application and increases once when its internal status or applicant-facing reason changes. Private-note edits, unchanged saves, publication and edits to siblings preserve it. Validate the body before acting. A missing, invalid or extra field returns 400 VALIDATION. Atomically compare the supplied revision before copying. A mismatch returns 409 STALE_REVISION and preserves the previous owner-visible snapshot. Reload the detail and require the Executive to review and publish again. Copy the internal Shortlisted or Rejected status and its optional applicant-facing reason into the public-to-owner screening snapshot. Retrying the same revision preserves the published status and reason. The response contains the current Executive detail, including private-note edits made after publication. The internal note is never copied. Before publication the owner continues to see Submitted or the previous released snapshot. Return 404 NOT_FOUND for a missing ID, 409 SCREENING_PENDING if still Submitted. Publishing a completed review may occur after C9: it changes visibility only. The separate question of a notification for CV rejection remains open. This draft requires the on-screen status and optional reason; the two public replies give no additional screening notification rule.
 
 In the creation walkthrough the Executive releases both outcomes. A02’s owner sees the public reason. A second review then shortlists A02. The owner sees the revision only after it too is released.
 
@@ -871,7 +874,7 @@ POST /api/applications/A01/screening/publication
 Authorization: Bearer {{token:exec}}
 Content-Type: application/json
 
-{}
+{"revision":1}
 ```
 
 ```http
@@ -898,6 +901,7 @@ Content-Type: application/json
   "cvFileName": "cv.pdf",
   "applicantId": "U-A",
   "privateNote": "Writing sample reviewed.",
+  "revision": 1,
   "publishedScreening": {"status":"Shortlisted","applicantReason":null},
   "locked": false
 }
@@ -908,7 +912,7 @@ POST /api/applications/A02/screening/publication
 Authorization: Bearer {{token:exec}}
 Content-Type: application/json
 
-{}
+{"revision":1}
 ```
 
 ```http
@@ -935,6 +939,7 @@ Content-Type: application/json
   "cvFileName": "cv.pdf",
   "applicantId": "U-A",
   "privateNote": "Internal second review requested.",
+  "revision": 1,
   "publishedScreening": {"status":"Rejected","applicantReason":"The outreach sample was missing."},
   "locked": false
 }
@@ -1002,17 +1007,37 @@ Content-Type: application/json
   "cvFileName": "cv.pdf",
   "applicantId": "U-A",
   "privateNote": "Internal second review requested.",
+  "revision": 2,
   "publishedScreening": {"status":"Rejected","applicantReason":"The outreach sample was missing."},
   "locked": false
 }
 ```
+
+A second tab still holds the previous revision. Its publication attempt preserves the owner-visible state.
 
 ```http
 POST /api/applications/A02/screening/publication
 Authorization: Bearer {{token:exec}}
 Content-Type: application/json
 
-{}
+{"revision":1}
+```
+
+```http
+HTTP/1.1 409 Conflict
+Content-Type: application/json
+
+{"error":{"code":"STALE_REVISION","message":"Reload and review the current decisions before publishing.","fields":{}}}
+```
+
+After reviewing the current values, the Executive publishes the matching revision.
+
+```http
+POST /api/applications/A02/screening/publication
+Authorization: Bearer {{token:exec}}
+Content-Type: application/json
+
+{"revision":2}
 ```
 
 ```http
@@ -1039,6 +1064,7 @@ Content-Type: application/json
   "cvFileName": "cv.pdf",
   "applicantId": "U-A",
   "privateNote": "Internal second review requested.",
+  "revision": 2,
   "publishedScreening": {"status":"Shortlisted","applicantReason":null},
   "locked": false
 }
@@ -1079,3 +1105,7 @@ Content-Type: application/json
 Initial T1 proposal for team review, 2026-11-23.
 
 2026-11-23 — Added account-derived identity, per-application contacts, three-window validation and separate release of applicant-facing screening outcomes. The examples exercise both sides of the intake lock and the private-note boundary.
+
+2026-11-25 — Added per-application revision checks to screening publication after the PR #4 review.
+
+2026-11-25 — Clarified which screening fields remain stable when retrying after a private-note edit.
