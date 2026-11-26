@@ -572,3 +572,46 @@ by this review.
 
 Verdict: READY for the Applications handoff. A1–A4 cover Học's assigned
 C5–C7 and C11. Review and integrated C8–C10 browser checks remain with the team.
+
+### PR #4 review fixes · C7 and C11 (2026-11-26)
+
+Tool: Codex, Git, Vite, Node.js and Chrome DevTools Protocol.
+[Actual follow-up request](../ai-prompts/hoc.md#pr-4-review-fixes--c7-and-c11)
+
+Asked for: Update Học's branch from `main`, fix the three findings on PR #4
+starting with pagination, repeat both publication scenarios with two
+Executive tabs, and return the existing PR to Huy for review.
+
+Kept: Huy's new API contracts and mock from `origin/main` (`e3e8ad3`), the
+current screening and final-result workflows, and the PR's ownership boundary.
+
+Changed: The review list replaces an out-of-range URL page with the last
+valid page. Screening publishes the revision of the visible saved detail.
+Results refreshes the entire board after a decision write and publishes the
+revision of the displayed board. On `STALE_REVISION` both flows fetch fresh
+data, show the differences and wait for a separate publication action.
+
+Rejected: Huy's review rejected publishing from a stale browser tab and
+leaving the filtered list on an invalid page. The temporary Chrome harness
+also hit launch and background-tab timeouts before the single-case reruns.
+Those harness attempts did not count as passing checks.
+
+#### Actual checks
+
+- Merged `origin/main` into the feature branch at `80db1d0`. Reproduced
+  `Page 2 of 1` against the mock before the fix. After the fix, saving the
+  last row on page 2 returned the list to page 1, preserved the query
+  parameters across reload and showed an empty state after the final row.
+- C7 in two Executive tabs: changing A01's status or only its applicant
+  reason caused the stale publication attempt to return 409. The owner
+  kept the previous snapshot until the explicit second click. Updating A02
+  did not invalidate A01, and the owner's response excluded the private note.
+- C11 in two Executive tabs: changing A01 from Pass to Fail caused a whole
+  board read after the save. Publishing from the stale Pass tab returned
+  409, kept `publishedAt` null and left the owner with zero notices. The
+  refreshed UI showed Pass to Fail. A separate click released Fail and a
+  repeat kept the original timestamp and exactly two notices.
+- Ran `npm.cmd run build` and the 14 Node tests for publication revisions
+  and campaign helpers. All passed. Verified the feature patch against
+  `origin/main`, with an empty contract/mock diff and clean whitespace checks.
+  The course checker and W3C Nu were not rerun in this follow-up.

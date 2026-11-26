@@ -43,13 +43,16 @@ function ScreeningForm({ application, path, locked, onWritingChange, onSaved }) 
   const [draft, setDraft] = useState(() => reviewDraft(application));
   const [pending, setPending] = useState('');
   const [failure, setFailure] = useState(null);
+  const [conflict, setConflict] = useState(null);
   const [success, setSuccess] = useState('');
   const [serverLocked, setServerLocked] = useState(false);
   const form = useRef(null);
   const alert = useRef(null);
+  const conflictAlert = useRef(null);
   const active = useRef(null);
   const fields = failure?.fields ?? {};
-  const readOnly = locked || saved.locked || serverLocked;
+  const refreshRequired = conflict?.latest === null;
+  const readOnly = locked || saved.locked || serverLocked || refreshRequired;
 
   const changes = {};
   const note = trimReviewText(draft.privateNote);
@@ -60,14 +63,18 @@ function ScreeningForm({ application, path, locked, onWritingChange, onSaved }) 
   const changed = Object.keys(changes).length > 0;
   const publication = saved.publishedScreening;
   const publishedCurrent = publication?.status === saved.status && publication.applicantReason === saved.applicantReason;
-  const canPublish = saved.status !== 'Submitted' && !publishedCurrent;
+  const canPublish = !refreshRequired && saved.status !== 'Submitted' && !publishedCurrent;
 
   useEffect(() => () => active.current?.abort(), []);
   useEffect(() => {
-    if (!failure || pending) return;
-    const invalid = form.current.querySelector('[aria-invalid="true"]:not(:disabled)');
-    (invalid ?? alert.current)?.focus();
-  }, [failure, pending]);
+    if (pending) return;
+    if (failure) {
+      const invalid = form.current.querySelector('[aria-invalid="true"]:not(:disabled)');
+      (invalid ?? alert.current)?.focus();
+    } else if (conflict) {
+      conflictAlert.current?.focus();
+    }
+  }, [conflict, failure, pending]);
 
   function draftField(name) {
     return {
@@ -89,7 +96,8 @@ function ScreeningForm({ application, path, locked, onWritingChange, onSaved }) 
 
   async function write(action) {
     const saving = action === 'save';
-    if (active.current || (saving ? readOnly || !changed : !canPublish)) return;
+    const refreshing = action === 'refresh';
+    if (active.current || (refreshing ? !refreshRequired : saving ? readOnly || !changed : !canPublish)) return;
     setSuccess('');
     setFailure(null);
     if (saving) {
@@ -106,19 +114,44 @@ function ScreeningForm({ application, path, locked, onWritingChange, onSaved }) 
     active.current = controller;
     onWritingChange(true);
     setPending(action);
+    const { signal } = controller;
+
+    async function refreshScreening(previous) {
+      setConflict({ previous, latest: null });
+      try {
+        const latest = await apiRequest(path, { signal });
+        signal.throwIfAborted();
+        const nextDraft = reviewDraft(latest);
+        for (const field of Object.keys(changes)) nextDraft[field] = draft[field];
+        setSaved(latest);
+        setDraft(nextDraft);
+        setConflict({ previous, latest });
+        onSaved();
+      } catch (error) {
+        if (!signal.aborted) setFailure({ message: error.message });
+      }
+    }
+
     try {
+      if (refreshing) {
+        await refreshScreening(conflict.previous);
+        return;
+      }
       const replacement = await apiRequest(path + (saving ? '/screening' : '/screening/publication'), {
         method: saving ? 'PATCH' : 'POST',
-        body: saving ? changes : {},
-        signal: controller.signal
+        body: saving ? changes : { revision: saved.revision },
+        signal
       });
-      controller.signal.throwIfAborted();
+      signal.throwIfAborted();
       setSaved(replacement);
       if (saving || !changed) setDraft(reviewDraft(replacement));
       if (saving) onSaved();
+      setConflict(null);
       setSuccess(saving ? 'Screening saved.' : 'Screening published to this applicant.');
     } catch (error) {
-      if (!controller.signal.aborted) {
+      if (signal.aborted) return;
+      if (!saving && error.code === 'STALE_REVISION') await refreshScreening(saved);
+      else {
         if (error.code === 'LOCKED') setServerLocked(true);
         setFailure({ message: error.message, fields: error.fields });
       }
@@ -139,7 +172,7 @@ function ScreeningForm({ application, path, locked, onWritingChange, onSaved }) 
       {saved.applicantReason && <div><dt>Saved applicant reason</dt><dd>{saved.applicantReason}</dd></div>}
       {publication?.applicantReason && <div><dt>Published applicant reason</dt><dd>{publication.applicantReason}</dd></div>}
     </dl>
-    {readOnly && <p className="muted">The confirmed schedule locks screening edits.</p>}
+    {(locked || saved.locked || serverLocked) && <p className="muted">The confirmed schedule locks screening edits.</p>}
     <form ref={form} noValidate onSubmit={event => { event.preventDefault(); write('save'); }}>
       <fieldset disabled={readOnly || !!pending}>
         <legend>Edit screening</legend>
@@ -177,6 +210,20 @@ function ScreeningForm({ application, path, locked, onWritingChange, onSaved }) 
         {pending === 'publish' ? 'Publishing…' : 'Publish saved screening'}
       </button>
     </div>
+    {conflict && <div ref={conflictAlert} tabIndex={-1} role="alert">
+      {conflict.latest ? <>
+        <p>Screening changed in another tab. Review the current decision and reason before publishing.</p>
+        <ul>
+          <li>Status: {conflict.previous.status} → {conflict.latest.status}</li>
+          <li>Applicant reason: {conflict.previous.applicantReason ?? 'None'} → {conflict.latest.applicantReason ?? 'None'}</li>
+        </ul>
+      </> : <>
+        <p>Screening changed in another tab. Reload the current screening before publishing.</p>
+        <button type="button" className="button" disabled={!!pending} onClick={() => write('refresh')}>
+          {pending ? 'Reloading…' : 'Reload screening'}
+        </button>
+      </>}
+    </div>}
     {failure && <p ref={alert} tabIndex={-1} role="alert">{failure.message}</p>}
     {success && <p className="review-success" role="status">{success}</p>}
   </section>;

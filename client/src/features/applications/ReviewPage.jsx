@@ -168,6 +168,12 @@ export function ReviewPage() {
   const list = useReviewResource(searchPending ? null : listPath);
   const campaignResults = list.data ?? list.previousData;
   const statistics = campaignResults?.statistics;
+  const lastPage = list.data && Math.max(1, Math.ceil(list.data.total / list.data.pageSize));
+  const pageToRestore = !list.refreshing && list.data?.page > lastPage ? lastPage : null;
+
+  useEffect(() => {
+    if (pageToRestore !== null) updateQuery({ page: pageToRestore }, { replace: true });
+  }, [pageToRestore, updateQuery]);
 
   function closeDetail() {
     const trigger = selection.trigger;
@@ -190,8 +196,8 @@ export function ReviewPage() {
         <ReviewFilters query={query} search={search} setSearch={setSearch} updateQuery={updateQuery} catalog={catalog} />
         <DownloadCsv key={exportPath} path={exportPath} blocked={!list.data || searchPending || list.refreshing} />
         {list.error && <ErrorState message={list.error.message} onRetry={list.reload} />}
-        {!list.error && (searchPending || list.refreshing) && <LoadingState />}
-        {list.data && <ReviewRows data={list.data} selection={selection} writing={writing} updateQuery={updateQuery}
+        {!list.error && (searchPending || list.refreshing || pageToRestore !== null) && <LoadingState />}
+        {list.data && pageToRestore === null && <ReviewRows data={list.data} selection={selection} writing={writing} updateQuery={updateQuery}
           open={(id, trigger) => setSelection({ id, trigger })} />}
       </section>
       {selection && <ReviewDetail key={selection.id} id={selection.id} locked={campaignResults?.locked}

@@ -310,3 +310,20 @@ Thực hiện A3 · C7 — Executive Application Review trong brief.md của Clu
 ```text
 commit lại, nếu ổn và Học không còn task thì handoff và tạo PR
 ```
+
+### PR #4 review fixes · C7 and C11
+
+- Owner: Lê Nguyễn Quốc Học (24127044)
+- Tool: Codex
+- Date: 2026-11-26 (Asia/Ho_Chi_Minh). Exact send time unknown.
+- Branch: `pa3/hoc-applications`, updated from `aea32f5` with `origin/main` at `e3e8ad3`.
+- Reference: [PR #4 review](https://github.com/ThaiQuangHuy2906/clubflow/pull/4),
+  C7 and C11 in `brief.md` at `80db1d0`, blob `9ca5a5312b3cb14856ee8d487062008b6d6c4d32`,
+  and the reviewed publication contracts on `main` after PR #5.
+- Execution evidence: [PR #4 review fixes](../ai-logs/hoc.md#pr-4-review-fixes--c7-and-c11-2026-11-26).
+
+#### Actual invocation
+
+```text
+Cập nhật nhánh pa3/hoc-applications từ main rồi sửa cả 3 lỗi Huy yêu cầu trên PR #4, làm phân trang trước. Test lại 2 ca công bố trên hai tab, nếu ổn thì commit, push lên PR cũ và nhờ Huy review lại.
+```
