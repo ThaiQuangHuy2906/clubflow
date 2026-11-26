@@ -538,3 +538,143 @@ Sửa các lỗi trong phạm vi T3, chạy lại kiểm tra rồi dừng ở st
 ~~~~text
 Commit T3 trên main. Chưa push.
 ~~~~
+
+### H1
+
+24 November 2026 · Thái Quang Huy (24127177) · Codex on `pa3/huy-campaign`. Read H1 (C1 public campaign) in `brief.md`, lines 772–780, at clean checkpoint `521f3a9cc83e302ac796680bb5feb7b464bed024`. The send time is unknown. [Implementation and browser checks](../ai-logs/huy.md#h1)
+
+~~~~text
+Execute H1 from brief.md on pa3/huy-campaign.
+~~~~
+
+#### H1 follow-up — staged campaign review
+
+24 November 2026 · Thái Quang Huy (24127177) · Codex on `pa3/huy-campaign`. Follow-up to H1 at the same `brief.md` revision. The send time is unknown. [Findings and verification](../ai-logs/huy.md#h1-follow-up--staged-campaign-review)
+
+~~~~text
+Rà soát kĩ càng, khắc khe, kĩ tính xem có lỗi nào không? Nếu có thì lập checklist lỗi, sửa từng lỗi cho tôi.
+~~~~
+
+#### H1 approval
+
+24 November 2026 · Thái Quang Huy (24127177) · Codex on `pa3/huy-campaign`. The send time is unknown. [Pre-commit checks](../ai-logs/huy.md#h1-approval)
+
+~~~~text
+OK. Tôi cho phép commit
+~~~~
+
+### H2
+
+24 November 2026 · Thái Quang Huy (24127177) · Codex on `pa3/huy-campaign`. Read H2 in `brief.md`, lines 782–790, at clean H1 commit `50a56208316bd33859a4a344110350070d824430`. The last revision of `brief.md` was `521f3a9cc83e302ac796680bb5feb7b464bed024`. The invocation spells the branch `pa3/huy-campain`. The checked-out branch matches the H2 requirement, `pa3/huy-campaign`. The send time is unknown. [Implementation decision and checks](../ai-logs/huy.md#h2)
+
+~~~~text
+Execute H2 from brief.md on pa3/huy-campain.
+~~~~
+
+#### H2 follow-up — staged navigation review
+
+24 November 2026 · Thái Quang Huy (24127177) · Codex on `pa3/huy-campaign`. Reviewed H2 at the same `brief.md` revision. The send time is unknown. [Findings and before-fix checks](../ai-logs/huy.md#h2-follow-up--staged-navigation-review)
+
+~~~~text
+Rà soát kĩ càng, khắc khe, kĩ tính thêm lần nữa đi. Xem còn có lỗi nào không?
+~~~~
+
+#### H2 follow-up — repair the six review findings
+
+24 November 2026 · Thái Quang Huy (24127177) · Codex. H2 remains on `pa3/huy-campaign` at `50a5620`. Huy requested the fixes identified in the staged review, including the three shared fixes prepared in a separate `main` worktree at `521f3a9`. The H2 brief revision remains `521f3a9cc83e302ac796680bb5feb7b464bed024`. The send time is unknown. [Fix checklist and verification](../ai-logs/huy.md#h2-follow-up--repair-the-six-review-findings)
+
+~~~~text
+Sửa các lỗi đó cho tôi đi. Đảm bảo không sai sót, lập checklist từng lỗi, sửa từng lỗi nhé.
+~~~~
+
+#### H2 local commit approval
+
+24 November 2026 · Thái Quang Huy (24127177) · Codex. Huy approved the shared fix on `main` first and the H2 verification on `pa3/huy-campaign` second. The H2 brief revision was `521f3a9cc83e302ac796680bb5feb7b464bed024`. The send time is unknown. [Pre-commit verification](../ai-logs/huy.md#h2-local-commit-approval)
+
+~~~~text
+Tôi duyệt cả hai phần. Commit phần sửa đăng nhập và điều hướng trên `main`, rồi commit bộ kiểm thử H2 trên `pa3/huy-campaign`. Chỉ commit trên máy, chưa push hay merge.
+~~~~
+
+#### H2 integration and verification
+
+24 November 2026 · Thái Quang Huy (24127177) · Codex. H2 follow-up from campaign commit `6643d8e`, with shared commit `25bcf2a` on `main`. The invoked revision of `brief.md` was `521f3a9cc83e302ac796680bb5feb7b464bed024`. The send time is unknown. [Integration checks](../ai-logs/huy.md#h2-integration-and-verification)
+
+~~~~text
+Push `main` lên `origin`, tích hợp `origin/main` vào `pa3/huy-campaign` trên máy rồi chạy lại toàn bộ kiểm thử H2. Giữ nhánh campaign ở máy và báo kết quả cho tôi.
+~~~~
+
+### H3
+
+24 November 2026 · Thái Quang Huy (24127177) · Codex on local `pa3/huy-campaign`. Read H3 in `brief.md`, lines 792–800, at the clean H2 integration commit `451ba85e9d301210b9ed48d270a884a8ae34a4e8`. The last revision of `brief.md` was `521f3a9cc83e302ac796680bb5feb7b464bed024`. The send time is unknown. [Implementation and checks](../ai-logs/huy.md#h3)
+
+~~~~text
+Execute H3 from `brief.md` on `pa3/huy-campaign`. Giữ nhánh trên máy, chạy các kiểm thử H3 và báo kết quả trước khi commit.
+~~~~
+
+#### H3 local commit approval
+
+24 November 2026 · Thái Quang Huy (24127177) · Codex on `pa3/huy-campaign`. The H3 brief revision remains `521f3a9cc83e302ac796680bb5feb7b464bed024`. The send time is unknown. [Pre-commit verification](../ai-logs/huy.md#h3-local-commit-approval)
+
+~~~~text
+Tôi duyệt H3. Commit các thay đổi đã stage trên `pa3/huy-campaign` với message `feat: manage campaign drafts, preview and publication`. Chỉ commit trên máy, chưa push hay merge.
+~~~~
+
+### H4
+
+24 November 2026 · Thái Quang Huy (24127177) · Codex on local `pa3/huy-campaign`. Read H4 in `brief.md`, lines 802–810, at the clean H3 commit `e8efdbeab308fe2f05f96d27622479ff1c879412`. The last revision of `brief.md` was `521f3a9cc83e302ac796680bb5feb7b464bed024`. The send time is unknown. [Implementation and checks](../ai-logs/huy.md#h4)
+
+~~~~text
+Execute H4 from `brief.md` on `pa3/huy-campaign`. Giữ nhánh trên máy, chạy các kiểm thử H4 và kiểm tra dữ liệu chuyển sang bước xếp lịch qua API. Báo kết quả trước khi commit.
+~~~~
+
+#### H4 local commit approval
+
+24 November 2026 · Thái Quang Huy (24127177) · Codex on local `pa3/huy-campaign`. The H4 brief revision remains `521f3a9cc83e302ac796680bb5feb7b464bed024`. The send time is unknown. [Pre-commit verification](../ai-logs/huy.md#h4-local-commit-approval)
+
+~~~~text
+Tôi duyệt H4. Commit các thay đổi đã stage trên `pa3/huy-campaign` với message `feat: configure campaign interviewers, availability and rooms`. Chỉ commit trên máy, chưa push hay merge.
+~~~~
+
+#### H4 follow-up — C8 browser handoff
+
+25 November 2026 · Thái Quang Huy (24127177) · Codex on local `pa3/huy-campaign` at `0a4b96d`. H4 refers to brief revision `521f3a9cc83e302ac796680bb5feb7b464bed024`. The send time is unknown. [Browser and API checks](../ai-logs/huy.md#h4-follow-up--c8-browser-handoff)
+
+~~~~text
+Kiểm thử trên máy luồng từ cấu hình phỏng vấn H4 đến tạo và mở lại lịch trên giao diện C8. Đối chiếu với API và báo kết quả. Chưa push hay merge.
+~~~~
+
+#### H4 follow-up — C8 save through the browser
+
+25 November 2026 · Thái Quang Huy (24127177) · Codex on local `pa3/huy-campaign` at `0a4b96d`. H4 refers to brief revision `521f3a9cc83e302ac796680bb5feb7b464bed024`. The send time is unknown. [S2 availability and browser check](../ai-logs/huy.md#h4-follow-up--c8-save-through-the-browser)
+
+~~~~text
+Kiểm thử trên máy luồng H4 sang C8 sau khi S2 có nút Save Changes. Tạo, lưu và mở lại lịch bằng giao diện, rồi đối chiếu với `GET /api/schedule`. Chưa commit, push hay merge.
+~~~~
+
+### PR 4 application review
+
+25 November 2026 · Thái Quang Huy (24127177) · Codex. Review of A1–A4 from `brief.md` at `521f3a9`. The review used an isolated copy of PR #4 at `aea32f5`. Huy’s review records are on `pa3/huy-campaign`. Exact send times are unknown. [Companion record](../ai-logs/huy.md#pr-4-application-review)
+
+#### A1–A4 review and continuation
+
+~~~~text
+Rà soát PR #4 của Học theo A1–A4 trong `brief.md`. Kiểm thử trên máy những luồng chạy được, liệt kê lỗi và ghi rõ phần nào còn phụ thuộc vào C8–C10. Chưa sửa mã, commit, push hay merge.
+~~~~
+
+~~~~text
+Tiếp tục
+~~~~
+
+#### Review draft for Học
+
+~~~~text
+Soạn nội dung review PR #4 để tôi gửi Học. Ghi rõ cách tái hiện ba lỗi, phần Học có thể sửa ở giao diện, phần cần Huy phối hợp ở API và tiêu chí kiểm thử lại. Chỉ soạn trong chat.
+~~~~
+
+#### Local evidence commit approval
+
+25 November 2026 · Thái Quang Huy (24127177) · Codex. This approval covers both evidence branches. [Scope of approval](../ai-logs/huy.md#local-evidence-commit-approval)
+
+~~~~text
+Tôi duyệt. Trên từng nhánh `pa3/huy-campaign` và `pa3/huy-publication-revision`, kiểm tra diff rồi commit riêng `docs/ai-prompts/huy.md` và `docs/ai-logs/huy.md`. Chỉ commit trên máy, chưa push hay merge. Báo lại mã của cả hai commit.
+~~~~

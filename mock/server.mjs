@@ -107,13 +107,13 @@ function freshState(pristine) {
   return {
     now: seed.serverTime, canBegin: !pristine && demoEnabled, draft: pristine ? null : structuredClone(seed.campaign),
     published: pristine ? null : structuredClone(seed.campaign), setup: pristine ? null : structuredClone(seed.settings),
-    apps, nextId: apps.size + 1, saved: null, revision: 0, confirmed: false, interviews: new Map(), publishedAt: null
+    apps, nextId: apps.size + 1, saved: null, revision: 0, confirmed: false, resultsRevision: 0, interviews: new Map(), publishedAt: null
   };
 }
 function newApplication(raw, profile, cv, cvFileName) {
   return {
     ...raw, ...profile, cv, cvFileName, status: 'Submitted', privateNote: '', applicantReason: null,
-    publishedScreening: null
+    screeningRevision: 0, publishedScreening: null
   };
 }
 let state = freshState(false);
@@ -225,6 +225,9 @@ function demoStep({ body, fields: v }) {
       target = oneMinuteAfter(localInstant(state.setup.date, state.setup.end));
     }
     if (compareInstants(target, state.now) < 0) conflict('CLOCK_BACKWARD', 'The demo clock cannot move backwards.');
+    const newlyEnded = [...state.interviews.values()].some(iv =>
+      !iv.handling && !ended(iv) && compareInstants(target, localInstant(iv.date, iv.end)) >= 0);
+    if (newlyEnded) state.resultsRevision++;
     state.now = target;
     state.canBegin = false;
   }
@@ -395,7 +398,7 @@ function applicationDetail(a, executive) {
     ...applicationRow(a, executive), studentName: a.studentName, studentNumber: a.studentNumber, faculty: a.faculty,
     email: a.email, phone: a.phone, motivation: a.motivation, availabilityWindowIds: a.availabilityWindowIds, cvFileName: a.cvFileName
   };
-  if (executive) Object.assign(row, { applicantReason: a.applicantReason, publishedScreening: a.publishedScreening, privateNote: a.privateNote, locked: state.confirmed });
+  if (executive) Object.assign(row, { revision: a.screeningRevision, applicantReason: a.applicantReason, publishedScreening: a.publishedScreening, privateNote: a.privateNote, locked: state.confirmed });
   return row;
 }
 function screenApplication({ app, body, fields: v }) {
@@ -409,12 +412,21 @@ function screenApplication({ app, body, fields: v }) {
     v.check((body.status ?? app.status) === 'Rejected', 'applicantReason', 'Set a reason only for a rejected application.');
   }
   v.finish();
+  const previousStatus = app.status, previousReason = app.applicantReason;
   Object.assign(app, body);
   if (app.status !== 'Rejected') app.applicantReason = null;
+  if (app.status !== previousStatus || app.applicantReason !== previousReason) app.screeningRevision++;
   if (app.status !== 'Shortlisted' && state.saved) state.saved.assignments = state.saved.assignments.filter(a => a.applicationId !== app.id);
   return ok(applicationDetail(app, true));
 }
-function publishScreening({ app }) {
+function requirePublicationRevision(body, fields, current) {
+  fields.object(body, ['revision']);
+  checkRevision(fields, body?.revision);
+  fields.finish();
+  if (body.revision !== current) conflict('STALE_REVISION', 'Reload and review the current decisions before publishing.');
+}
+function publishScreening({ app, body, fields }) {
+  requirePublicationRevision(body, fields, app.screeningRevision);
   if (app.status === 'Submitted') conflict('SCREENING_PENDING', 'Review the application first.');
   app.publishedScreening = { status: app.status, applicantReason: app.applicantReason };
   return ok(applicationDetail(app, true));
@@ -643,6 +655,7 @@ function confirmSchedule({ body, fields: v }) {
   });
   state.interviews = new Map(interviews);
   state.confirmed = true;
+  if (interviews.length) state.resultsRevision++;
   state.revision++;
   return ok(scheduleView());
 }
@@ -674,6 +687,7 @@ function assess({ iv, body, fields: v }) {
   if (iv.handling === 'Absent') conflict('CASE_ABSENT', 'The applicant was recorded absent.');
   iv.assessment = { feedback: body.feedback, submittedAt: state.now };
   iv.handling = 'Attended';
+  state.resultsRevision++;
   return ok(interviewView(iv), 201);
 }
 function resultRow(iv) {
@@ -685,7 +699,7 @@ function resultRow(iv) {
 }
 function resultsView() {
   const items = [...state.interviews.values()].sort((a, b) => compareText(a.applicationId, b.applicationId)).map(resultRow);
-  return { items, total: items.length, publishedAt: state.publishedAt };
+  return { items, total: items.length, revision: state.resultsRevision, publishedAt: state.publishedAt };
 }
 function saveResult({ app, body, fields: v }) {
   if (state.publishedAt) conflict('RESULTS_PUBLISHED', 'Final results have been published.');
@@ -696,11 +710,15 @@ function saveResult({ app, body, fields: v }) {
   if (own(body, 'decision')) v.check(['Pass', 'Fail'].includes(body.decision), 'decision', 'Choose Pass or Fail.');
   v.finish();
   if (iv.assessment && body.caseStatus === 'Absent') conflict('CASE_CONFLICT', 'An assessed interview cannot be marked absent.');
+  if ((body.caseStatus && body.caseStatus !== iv.handling) || (body.decision && body.decision !== iv.decision)) {
+    state.resultsRevision++;
+  }
   if (body.caseStatus) iv.handling = body.caseStatus;
   if (body.decision) iv.decision = body.decision;
   return ok(resultRow(iv));
 }
-function publishResults() {
+function publishResults({ body, fields: validation }) {
+  requirePublicationRevision(body, validation, state.resultsRevision);
   if (state.publishedAt) return ok(resultsView());
   const apps = shortlist(), fields = {};
   if (!apps.length) conflict('NO_FINAL_RESULTS', 'No shortlisted applications have final results.');
@@ -747,7 +765,7 @@ route('GET', 'applications/export', executive, ctx => applicationList(ctx, true)
 route('GET', 'applications/:id', [EXEC, APPLICANT], ({ user, app }) => ok(applicationDetail(app, user.role === EXEC)), { resource: 'application' });
 route('GET', 'applications/:id/cv', [EXEC, APPLICANT, INTERVIEWER], ({ app }) => ({ status: 200, bytes: app.cv, type: 'application/pdf', name: app.cvFileName }), { resource: 'application' });
 route('PATCH', 'applications/:id/screening', executive, screenApplication, { resource: 'application', format: 'json', write: true });
-route('POST', 'applications/:id/screening/publication', executive, publishScreening, { resource: 'application', format: 'empty', write: true });
+route('POST', 'applications/:id/screening/publication', executive, publishScreening, { resource: 'application', format: 'json', write: true });
 route('GET', 'schedule', executive, () => ok(scheduleView()));
 route('POST', 'schedule/draft', executive, ctx => scheduleChange(ctx, false), { format: 'json' });
 route('PUT', 'schedule', executive, ctx => scheduleChange(ctx, true), { format: 'json', write: true });
@@ -758,7 +776,7 @@ route('GET', 'interviews/:id', interviewer, ({ iv }) => ok(interviewView(iv)), {
 route('POST', 'interviews/:id/assessment', interviewer, assess, { resource: 'interview', format: 'json', write: true });
 route('GET', 'results', executive, () => ok(resultsView()));
 route('PUT', 'applications/:id/result', executive, saveResult, { resource: 'application', format: 'json', write: true });
-route('POST', 'results/publication', executive, publishResults, { format: 'empty', write: true });
+route('POST', 'results/publication', executive, publishResults, { format: 'json', write: true });
 route('GET', 'notifications', applicant, notifications);
 route('POST', 'demo/steps', executive, demoStep, { format: 'json' });
 

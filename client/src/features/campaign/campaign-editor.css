@@ -1,0 +1,58 @@
+.campaign-editor .editor-header { margin-bottom: 1.25rem; }
+.campaign-editor .editor-summary,
+.campaign-editor .editor-preview-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-block: 1rem;
+}
+.campaign-editor .editor-summary {
+  border-inline-start: .25rem solid var(--primary);
+  padding-inline-start: 1rem;
+}
+.campaign-editor fieldset { min-inline-size: 0; margin: 0; }
+.campaign-editor .editor-inputs { border: 0; padding: 0; }
+.campaign-editor .editor-sr-only {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.campaign-editor .editor-section + .editor-section,
+.campaign-editor .editor-actions { margin-block-start: 1rem; }
+.campaign-editor .editor-pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: .85rem;
+}
+.campaign-editor .editor-field { display: grid; align-content: start; min-width: 0; gap: .3rem; }
+.campaign-editor label, .campaign-editor legend { font-weight: 650; }
+.campaign-editor input, .campaign-editor textarea {
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--control-border);
+  border-radius: var(--radius-sm);
+  padding: .55rem .7rem;
+  width: 100%;
+  min-width: 0;
+  min-height: var(--target-min);
+}
+.campaign-editor textarea { min-height: 5rem; resize: vertical; }
+.campaign-editor textarea:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.campaign-editor [aria-invalid="true"] { border-color: var(--danger); }
+.campaign-editor .editor-department, .campaign-editor .editor-position {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-block: 1rem;
+  padding: clamp(.65rem, 2vw, 1.15rem);
+}
+.campaign-editor .editor-department { border-block-start: 3px solid var(--primary); }
+.campaign-editor .editor-position { background: var(--bg); }
+.campaign-editor :is(.editor-position, .editor-department) > :not(legend) + * { margin-top: .85rem; }
+.campaign-editor legend { padding-inline: .35rem; }
+.campaign-editor .remove-row { color: var(--danger); }
+.campaign-editor .editor-inputs:disabled :is(input, textarea) { background: var(--bg); }
