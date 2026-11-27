@@ -1,0 +1,182 @@
+.executive-review,
+.executive-review .review-workspace {
+  display: grid;
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.executive-review .review-workspace > * {
+  min-width: 0;
+}
+
+.executive-review .review-statistics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr));
+  gap: var(--space-2);
+}
+
+.executive-review .review-statistics > div {
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+}
+
+.executive-review dt {
+  color: var(--muted);
+  font-weight: 650;
+  font-size: .9375rem;
+}
+
+.executive-review .review-statistics dd {
+  font-size: 1.6rem;
+  font-weight: 750;
+}
+
+.executive-review .review-filters,
+.executive-review .review-field,
+.executive-review .review-records,
+.executive-review .review-screening fieldset {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.executive-review .review-field {
+  min-width: 0;
+  gap: var(--space-1);
+  align-content: start;
+}
+
+.executive-review :is(label.review-field, .review-field > label) {
+  font-weight: 650;
+}
+
+.executive-review .review-field :is(input, select, textarea) {
+  width: 100%;
+  min-width: 0;
+  min-height: var(--target-min);
+  padding: .5rem .65rem;
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--control-border);
+  border-radius: var(--radius-sm);
+}
+
+.executive-review textarea {
+  resize: vertical;
+}
+
+.executive-review .review-field [aria-invalid="true"] {
+  border-color: var(--danger);
+}
+
+.executive-review :is(select, textarea):focus-visible,
+.executive-review [tabindex="-1"]:focus {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.executive-review .review-records {
+  padding: 0;
+  list-style: none;
+}
+
+.executive-review .review-records > li {
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.executive-review .review-records p {
+  margin-top: var(--space-1);
+}
+
+.executive-review :is(.review-row-actions, .review-detail-header) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.executive-review .review-row-actions,
+.executive-review .review-action-message {
+  margin-top: var(--space-2);
+}
+
+.executive-review [data-screening="Shortlisted"],
+.executive-review .review-success {
+  color: var(--success);
+}
+
+.executive-review [data-screening="Shortlisted"] {
+  background: var(--success-soft);
+}
+
+.executive-review [data-screening="Rejected"] {
+  color: var(--danger);
+}
+
+.executive-review .review-screening-summary {
+  display: grid;
+  gap: var(--space-2) var(--space-4);
+}
+
+.executive-review :is(.review-cv, .review-motivation, .review-screening) {
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-4);
+}
+
+.executive-review :is(.review-cv, .review-motivation, .review-screening, .review-publication) > * + * {
+  margin-top: var(--space-2);
+}
+
+.executive-review :is(.review-motivation p, .review-screening-summary dd) {
+  white-space: pre-wrap;
+}
+
+.executive-review .review-cv iframe {
+  display: block;
+  width: 100%;
+  height: 22rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.executive-review .review-screening fieldset {
+  min-inline-size: 0;
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+.executive-review .review-screening legend {
+  padding: 0;
+  margin-bottom: var(--space-2);
+  font-weight: 700;
+}
+
+.executive-review .review-screening fieldset > button {
+  justify-self: start;
+}
+
+.executive-review .review-screening :disabled {
+  cursor: default;
+}
+
+@media (min-width: 48rem) {
+  .executive-review :is(.review-filters, .review-screening-summary) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .executive-review .review-search {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 80rem) {
+  .executive-review .review-workspace[data-detail-open="true"] {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}

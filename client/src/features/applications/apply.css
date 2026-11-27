@@ -1,0 +1,109 @@
+.apply-page .apply-form,
+.apply-page .apply-controls,
+.apply-page .apply-profile,
+.apply-page .apply-window-options {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.apply-page fieldset {
+  min-inline-size: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.apply-page legend {
+  padding: 0;
+  margin-bottom: var(--space-2);
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.apply-page .apply-field {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: var(--space-1);
+}
+
+.apply-page .apply-field label,
+.apply-page dt {
+  font-weight: 650;
+}
+
+.apply-page .apply-field :is(input, textarea) {
+  width: 100%;
+  min-width: 0;
+  min-height: var(--target-min);
+  border: 1px solid var(--control-border);
+  border-radius: var(--radius-sm);
+  padding: .55rem .75rem;
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+}
+
+.apply-page .apply-field input[readonly] {
+  background: var(--bg);
+}
+
+.apply-page textarea {
+  resize: vertical;
+}
+
+.apply-page .apply-window-options {
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.apply-page .apply-window-options label {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  min-height: var(--target-min);
+  border: 1px solid var(--control-border);
+  border-radius: var(--radius-sm);
+  padding: .5rem .75rem;
+  cursor: pointer;
+}
+
+.apply-page .apply-window-options input {
+  flex: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin: 0;
+  accent-color: var(--primary);
+}
+
+.apply-page .apply-window-time {
+  white-space: nowrap;
+}
+
+.apply-page .apply-field [aria-invalid="true"],
+.apply-page [aria-invalid="true"] .apply-window-options label {
+  border-color: var(--danger);
+}
+
+.apply-page :is(textarea:focus-visible, [tabindex="-1"]:focus) {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.apply-page .apply-hint {
+  font-size: .9375rem;
+}
+
+.apply-page .apply-intake {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-1) var(--space-3);
+  margin-top: var(--space-2);
+}
+
+@media (min-width: 48rem) {
+  .apply-page .apply-profile,
+  .apply-page .apply-window-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
