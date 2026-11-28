@@ -15,13 +15,13 @@
 .scheduling .schedule-fields { display: grid; gap: var(--space-4); grid-template-columns: minmax(0, 1fr); }
 .scheduling .schedule-field { display: grid; gap: var(--space-1); align-content: start; }
 .scheduling .schedule-field label { font-weight: 650; }
-.scheduling :is(input, select) {
+.scheduling :is(input, select, textarea) {
   width: 100%; min-height: var(--target-min);
   border: 1px solid var(--control-border); border-radius: var(--radius-sm);
   background: white; color: var(--text); padding: .5rem .75rem; font: inherit;
 }
 .scheduling input[readonly] { background: var(--bg); }
-.scheduling select:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.scheduling :is(select, textarea):focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 .scheduling .field-help { color: var(--muted); font-size: .9rem; }
 
 .scheduling .schedule-result > * + * { margin-top: var(--space-4); }
@@ -83,4 +83,26 @@
 
 @media (min-width: 48rem) {
   .scheduling .confirm-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* S4: interviewer workspace */
+.scheduling .interview-list { list-style: none; margin: var(--space-6) 0 0; padding: 0; display: grid; gap: var(--space-4); }
+.scheduling .interview-list li { padding: var(--space-4); border: 1px solid var(--border); border-radius: var(--radius-md); display: grid; gap: var(--space-3); justify-items: start; }
+.scheduling .interview-list h2 { margin: 0; }
+.scheduling .interview-facts { display: grid; gap: var(--space-3); grid-template-columns: minmax(0, 1fr); justify-self: stretch; }
+.scheduling .interview-facts dt { font-weight: 600; color: var(--muted); font-size: .9rem; }
+.scheduling .interview-facts dd { font-weight: 700; }
+.scheduling .interview-cv > * + *, .scheduling .assessment > * + * { margin-top: var(--space-4); }
+.scheduling .interview-cv, .scheduling .assessment { border-top: 1px solid var(--border); padding-top: var(--space-6); }
+.scheduling .interview-cv iframe { display: block; width: 100%; height: 30rem; border: 1px solid var(--border); border-radius: var(--radius-sm); }
+.scheduling .assessment-form { display: grid; gap: var(--space-4); justify-items: start; }
+.scheduling .assessment-form .schedule-field { justify-self: stretch; }
+.scheduling textarea { resize: vertical; line-height: 1.5; }
+.scheduling .assessment-text { white-space: pre-wrap; padding: var(--space-4); border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg); }
+
+@media (min-width: 48rem) {
+  .scheduling .interview-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 80rem) {
+  .scheduling .interview-facts { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
