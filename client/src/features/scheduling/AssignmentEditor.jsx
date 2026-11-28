@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Field } from './Field.jsx';
-import { describeIssue, slotLabel } from './scheduleText.js';
+import { choiceFields as names, describeIssue, slotLabel } from './scheduleText.js';
 
-const names = ['slotId', 'interviewerId', 'roomId'];
 const missing = {
   slotId: 'Choose a time slot.', interviewerId: 'Choose an interviewer.', roomId: 'Choose a room.'
 };
@@ -18,12 +17,10 @@ function withCurrent(options, current, label) {
   return current && !options.some(o => o.value === current) ? [{ value: current, label }, ...options] : options;
 }
 
+// The page owns the selected values, so Save and Confirm know about choices that were not applied yet.
 // `onCheck` previews the whole draft with this row replaced. It resolves to the request error, or null.
-export function AssignmentEditor({ row, view, config, window: draftWindow, busy, checking, onCheck, onCancel }) {
+export function AssignmentEditor({ row, view, config, window: draftWindow, values, busy, checking, onChange, onCheck, onCancel }) {
   const { catalog, settings } = config;
-  const [values, setValues] = useState(() => ({
-    slotId: row.slotId ?? '', interviewerId: row.interviewerId ?? '', roomId: row.roomId ?? ''
-  }));
   const [tried, setTried] = useState(false);
   const [serverErrors, setServerErrors] = useState({});
   const [failure, setFailure] = useState(null);
@@ -55,7 +52,7 @@ export function AssignmentEditor({ row, view, config, window: draftWindow, busy,
   })), values.roomId, values.roomId);
 
   function change(name, value) {
-    setValues(v => ({ ...v, [name]: value }));
+    onChange({ ...values, [name]: value });
     setServerErrors(({ [name]: _, ...rest }) => rest);
   }
 
@@ -90,7 +87,7 @@ export function AssignmentEditor({ row, view, config, window: draftWindow, busy,
 
   const select = (name, label, options, placeholder) =>
     <Field id={idOf(name)} label={label} error={errors[name]}>
-      <select value={values[name]} onChange={e => change(name, e.target.value)}>
+      <select value={values[name]} disabled={busy} onChange={e => change(name, e.target.value)}>
         <option value="">{placeholder}</option>
         {options.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
       </select>

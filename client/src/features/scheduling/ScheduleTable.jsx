@@ -13,7 +13,7 @@ export function Counts({ counts }) {
     <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>;
 }
 
-export function ScheduleTable({ view, catalog, editable, busy, editingId, labelledBy, onEdit }) {
+export function ScheduleTable({ view, catalog, editable, actionsDisabled, editingId, labelledBy, onEdit }) {
   if (view.rows.length === 0) {
     return <p className="state muted">No applications are shortlisted yet, so there is nothing to schedule.{' '}
       <Link to="/executive/applications">Open application review</Link> to shortlist candidates.</p>;
@@ -27,7 +27,7 @@ export function ScheduleTable({ view, catalog, editable, busy, editingId, labell
         <th scope="row">
           <span className="row-id">{row.applicationId}</span>
           <button type="button" className="button row-action" id={rowActionId(row.applicationId)}
-            disabled={!editable || busy} onClick={() => onEdit(row.applicationId)}>
+            disabled={!editable || actionsDisabled} onClick={() => onEdit(row.applicationId)}>
             {actionLabels[row.status] ?? 'Edit'}<span className="visually-hidden"> {row.applicationId}</span>
           </button>
         </th>

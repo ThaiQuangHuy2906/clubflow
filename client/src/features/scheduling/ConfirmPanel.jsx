@@ -32,24 +32,26 @@ function Summary({ record }) {
   </>;
 }
 
-export function ConfirmPanel({ record, catalog, locked, unsaved, busy, confirming, run, onConfirmed, onRefused }) {
+export function ConfirmPanel({ record, catalog, locked, pendingChanges, busy, confirming, run, onConfirmed, onRefused }) {
   const [reviewing, setReviewing] = useState(false);
   const [refusal, setRefusal] = useState(null);
   const summaryHeading = useRef(null);
   const refusalBox = useRef(null);
   const openButton = useRef(null);
-  const ready = !locked && !unsaved && record.state === 'Draft' && record.rows.length > 0;
+  // `pendingChanges` explains any edit that is not in the saved draft. The server only sees the saved draft.
+  const ready = !locked && !pendingChanges && record.state === 'Draft' && record.rows.length > 0;
 
   useEffect(() => { if (reviewing) summaryHeading.current?.focus(); }, [reviewing]);
   useEffect(() => { if (refusal) refusalBox.current?.focus(); }, [refusal?.id]);
 
   const reason = locked ? 'The schedule is already confirmed.'
-    : unsaved ? 'Save or discard your changes first: only the saved draft can be confirmed.'
+    : pendingChanges ? pendingChanges
       : record.rows.length === 0 ? 'Shortlist at least one application first.'
         : record.state !== 'Draft' ? 'Generate a draft and save it first.'
           : 'Review the summary before confirming.';
 
   function confirm() {
+    if (!ready) return;
     run('confirm', async signal => {
       setRefusal(null);
       try {

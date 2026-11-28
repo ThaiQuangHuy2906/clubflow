@@ -19,6 +19,19 @@ export function usableWindow(draft, settings) {
   return { date, start, end };
 }
 
+// What the generation form shows when the user has not typed anything: the saved draft window and setup duration.
+export function formBaseline(record, settings) {
+  const draft = record.window?.date === settings.date ? record.window : settings;
+  return { start: draft.start, end: draft.end, duration: String(settings.durationMinutes) };
+}
+
+export const choiceFields = ['slotId', 'interviewerId', 'roomId'];
+
+// A row's choices as form values: an empty string stands for "not chosen".
+export function choicesOf(row) {
+  return Object.fromEntries(choiceFields.map(name => [name, row[name] ?? '']));
+}
+
 export function nameOf(list, id) {
   return list?.find(item => item.id === id)?.name ?? id;
 }

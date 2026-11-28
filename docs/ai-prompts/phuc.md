@@ -146,3 +146,30 @@ nhớ cập nhật AI-log nhé
 ```
 
 Gloss: remember to update the AI log. See the log entries [S2](../ai-logs/phuc.md#p4--s2-c8-editing-conflicts-and-save-changes) and the entries after it.
+
+### P5 · Review finding on C9: confirmation with an unapplied edit
+
+Tool: Claude Code (VS Code extension), model Claude Sonnet 5.5 (`claude-sonnet-5-5`). Date: 2026-11-28. Branch: `pa3/phuc-scheduling` at `4c5a9e6`. One message: a teammate's review comment, followed by my instruction.
+
+```text
+Phúc ơi, mình thấy một lỗi ở bước xác nhận lịch phỏng vấn (C9) trên bản 4c5a9e6. Sau khi lưu lịch và qua hạn nộp, mình mở Edit A02, đổi giờ từ 09:20–09:40 sang 09:40–10:00 và để ô sửa mở, chưa bấm Check and apply. Nút Approve & Confirm Schedule vẫn bấm được. Khi xác nhận, hệ thống khóa lịch ở giờ cũ 09:20–09:40.
+
+Bạn sửa giúp để giao diện chặn xác nhận khi còn thay đổi chưa lưu nhé. Sửa xong, bạn chạy lại ca trên, mở PR vào main rồi gửi mình link PR và SHA đã kiểm để mình rà lại.
+
+
+Bạn tôi mới góp ý như trên bạn xem xét và sửa lại + cập nhật ai log, tài liệu.... rồi commit push giúp tôi, có gì chưa rõ thì hỏi tôi
+```
+
+Gloss: the review says confirmation stays possible while the A02 editor holds an unapplied change, and locks the old time; block it, rerun the case, open a pull request into `main` and send the link and the tested SHA. My instruction: check it, fix it, update the AI log and documents, commit and push, and ask if anything is unclear.
+
+The assistant asked two questions before changing code (the question texts were written by the assistant). Selected answers, in order: whether to open the pull request, and which documents to update (my two evidence files only, or `FRONTEND.md` as well).
+
+```text
+Mở PR (Recommended)
+```
+
+```text
+Sửa thêm FRONTEND.md
+```
+
+See [the log](../ai-logs/phuc.md#p5--c9-fix-unapplied-edits-block-confirmation).

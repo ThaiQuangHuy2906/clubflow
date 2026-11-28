@@ -8,11 +8,6 @@ const serverFieldMap = {
   'window.start': 'start', 'window.end': 'end', 'window.date': 'start', window: 'start', durationMinutes: 'duration'
 };
 
-function initialWindow(saved, settings) {
-  const w = saved.window?.date === settings.date ? saved.window : settings;
-  return { start: w.start, end: w.end, duration: String(settings.durationMinutes) };
-}
-
 function validate(values, settings) {
   const errors = {};
   const duration = Number(values.duration);
@@ -28,9 +23,9 @@ function validate(values, settings) {
   return errors;
 }
 
+// The page owns the typed values, so confirmation knows about settings that were not generated yet.
 // `onGenerate` resolves to the request error, or null on success.
-export function GenerateForm({ saved, settings, disabled, busy, generating, onGenerate }) {
-  const [values, setValues] = useState(() => initialWindow(saved, settings));
+export function GenerateForm({ values, settings, disabled, busy, generating, onChange, onGenerate }) {
   const [tried, setTried] = useState(false);
   const [serverErrors, setServerErrors] = useState({});
   const [failure, setFailure] = useState(null);
@@ -39,7 +34,7 @@ export function GenerateForm({ saved, settings, disabled, busy, generating, onGe
   const errors = { ...(tried ? validate(values, settings) : {}), ...serverErrors };
 
   function change(name, value) {
-    setValues(v => ({ ...v, [name]: value }));
+    onChange({ ...values, [name]: value });
     setServerErrors(({ [name]: _, ...rest }) => rest);
   }
 
@@ -72,14 +67,14 @@ export function GenerateForm({ saved, settings, disabled, busy, generating, onGe
         <input type="date" value={settings.date} readOnly />
       </Field>
       <Field id={fieldIds.start} label="Window start" error={errors.start}>
-        <input type="time" step="60" value={values.start} disabled={disabled} onChange={e => change('start', e.target.value)} />
+        <input type="time" step="60" value={values.start} disabled={disabled || busy} onChange={e => change('start', e.target.value)} />
       </Field>
       <Field id={fieldIds.end} label="Window end" error={errors.end}>
-        <input type="time" step="60" value={values.end} disabled={disabled} onChange={e => change('end', e.target.value)} />
+        <input type="time" step="60" value={values.end} disabled={disabled || busy} onChange={e => change('end', e.target.value)} />
       </Field>
       <Field id={fieldIds.duration} label="Slot duration" error={errors.duration}
         help="Changing the duration updates the interview setup for the whole campaign.">
-        <select value={values.duration} disabled={disabled} onChange={e => change('duration', e.target.value)}>
+        <select value={values.duration} disabled={disabled || busy} onChange={e => change('duration', e.target.value)}>
           {durations.map(d => <option key={d} value={d}>{d} minutes</option>)}
         </select>
       </Field>
