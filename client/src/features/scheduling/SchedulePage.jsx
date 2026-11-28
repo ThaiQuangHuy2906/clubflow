@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { apiRequest } from '../../api.js';
 import { Resource, useResource } from '../../ui.jsx';
 import { AssignmentEditor } from './AssignmentEditor.jsx';
+import { ConfirmPanel } from './ConfirmPanel.jsx';
 import { ExportButton } from './ExportButton.jsx';
 import { GenerateForm } from './GenerateForm.jsx';
 import { Counts, ScheduleTable, rowActionId } from './ScheduleTable.jsx';
@@ -164,6 +165,27 @@ function ScheduleWorkspace({ saved, config, reloadSchedule, reloadSetup }) {
     setNotice('Unsaved changes discarded.');
   }
 
+  function confirmed(result) {
+    setRecord(result);
+    setPreview(null);
+    setEditingId(null);
+    setFailure(null);
+    setNotice('Schedule confirmed. It is now read-only.');
+    setFocusId('confirm-title');
+  }
+
+  function refused(error) {
+    setNotice('');
+    // The server rechecked the saved rows against current data, so read them again once.
+    if (error.code === 'CONFIRMATION_BLOCKED') {
+      reloadSchedule();
+      reloadSetup();
+    } else {
+      handleError(error);
+      if (outdated(error)) showFailure(error);
+    }
+  }
+
   const heading = unsaved ? 'Unsaved changes' : record.state === 'Confirmed' ? 'Confirmed schedule'
     : record.state === 'Draft' ? 'Saved draft' : 'Shortlisted applications';
 
@@ -206,5 +228,7 @@ function ScheduleWorkspace({ saved, config, reloadSchedule, reloadSetup }) {
       </div>}
     </section>
     <ExportButton unsaved={unsaved} />
+    <ConfirmPanel key={`${record.revision}-${unsaved}`} record={record} catalog={config.catalog} locked={locked}
+      unsaved={unsaved} busy={!!pending} confirming={pending === 'confirm'} run={run} onConfirmed={confirmed} onRefused={refused} />
   </section>;
 }

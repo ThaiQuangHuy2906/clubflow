@@ -70,3 +70,17 @@
 @media (min-width: 80rem) {
   .scheduling .editor-fields { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
+
+/* S3: confirmation */
+.scheduling .schedule-confirm { border-top: 1px solid var(--border); padding-top: var(--space-6); }
+.scheduling .schedule-confirm > * + * { margin-top: var(--space-4); }
+.scheduling .confirm-box { padding: var(--space-4); border: 2px solid var(--primary); border-radius: var(--radius-md); }
+.scheduling .confirm-box > * + *, .scheduling .confirm-refusal > * + * { margin-top: var(--space-4); }
+.scheduling .confirm-summary { display: grid; gap: var(--space-3); grid-template-columns: minmax(0, 1fr); }
+.scheduling .confirm-summary dt { font-weight: 600; color: var(--muted); }
+.scheduling .confirm-summary dd { font-weight: 700; }
+.scheduling .confirm-refusal { padding: var(--space-4); border: 1px solid var(--danger); border-left-width: .3rem; border-radius: var(--radius-sm); background: #fef2f2; }
+
+@media (min-width: 48rem) {
+  .scheduling .confirm-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
