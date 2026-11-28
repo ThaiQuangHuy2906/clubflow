@@ -203,7 +203,7 @@ Windows tar failed to resolve the Vietnamese parent path; standard Python ZIP cr
 - **Tool and request.** Codex with Node, Vite and Chrome via Python Playwright. Complete the Executive setup, verify its scheduling API handoff and check the C8 browser workflow when available.
 - **Kept and changed.** Kept server ownership of slots and saved settings. Added interviewer qualifications and availability, room selection, a shared duration and visible locks for the first submission and schedule confirmation.
 - **Rejected and corrected.** Saving setup on the direct seed originally left the demo creation action enabled after the server had disabled it. The browser probe caught the discrepancy. Setup now refreshes the shared campaign after a successful save.
-- **Checks.** Twelve campaign unit tests and four H4 browser groups passed. The scheduling API generated rows with the configured positions, room and interviewer at 15, 20 and 30 minutes. A separate temporary H4 and S1 build at `f057d1f` exercised C8 draft generation and reopened a draft saved through the API. That build had no Save Changes control. C8–C10 remain pending integration. [C8 handoff and follow-up](docs/ai-logs/huy.md#h4-follow-up--c8-browser-handoff)
+- **Checks.** Twelve campaign unit tests and four H4 browser groups passed. The scheduling API generated rows with the configured positions, room and interviewer at 15, 20 and 30 minutes. A separate temporary H4 and S1 build at `f057d1f` exercised C8 draft generation and reopened a draft saved through the API. That temporary S1 build had no Save Changes control. PR #7 later integrated C8–C10. [C8 handoff and follow-up](docs/ai-logs/huy.md#h4-follow-up--c8-browser-handoff)
 
 ### A1 Applicant submission
 
@@ -265,8 +265,64 @@ Windows tar failed to resolve the Vietnamese parent path; standard Python ZIP cr
 - **Rejected and corrected.** The user requested these changes after the initial PR review. Chrome confirmed that stale status and reason changes return 409 without changing the Applicant snapshot. The stale results board returned 409 with no notices. A separate release succeeded and a repeat kept the timestamp and two notices. The list remained at page 1 after reload and showed an empty state after the last row.
 - **Checks.** The production build and 14 Node tests passed at the PR head. The published approval and the merged-build rerun are recorded next. [Retest handoff](https://github.com/ThaiQuangHuy2906/clubflow/pull/4#issuecomment-7196292716)
 
+### P1 Scheduling flow review
+
+24 November 2026 · Trần Hoàng Phúc · `main` at `521f3a9`. [Recorded request](brief.md#p1--review-of-huys-gate-1-question) · [Member log](docs/ai-logs/phuc.md#p1--review-of-huys-gate-1-question)
+
+- **Tool and request.** Claude Code. Review Huy’s proposed flow and demo runs against the rubric for C8–C10.
+- **Kept and changed.** Drafted a reply identifying missing coverage of assigned interviews and CVs, assessments, the demo clock step, generation and export, Unassigned reasons and the confirmed read-only state. The repository stayed unchanged.
+- **Rejected and checks.** Phúc recorded no rejected output. His fresh-mock API checks exercised overlaps, confirmation refusals and locks, role restrictions and assessment timing. The single unassigned-applicant gate and the contract checker were outside that run.
+
+### P2 / S1 Draft schedule generation
+
+24 November 2026 · Trần Hoàng Phúc · `pa3/phuc-scheduling` from `521f3a9` · implementation `f057d1f`. [Recorded request](brief.md#p2--s1-c8-draft-schedule-generation) · [Member log](docs/ai-logs/phuc.md#p2--s1-c8-draft-schedule-generation)
+
+- **Tool and request.** Claude Code, Vite, Chrome via Playwright Core and W3C Nu. Continue with the rubric and Huy’s instructions. The invoked S1 block is recorded at `521f3a9`.
+- **Kept and changed.** Used the approved schedule and setup endpoints for generation, row reasons, API counts and saved CSV export. Replaced the two-step Retry with one combined resource retry after the error-mode test timed out. Moved row reasons under the status after the desktop screenshot exposed clipping inside the scrollable table.
+- **Rejected and checks.** The member log records validation before sending, one request on double-click, first-fit order, a 30-minute configuration change, no persistence from generation, CSV contents and slow, error and empty states. Shortlisting and the conflicting saved draft were prepared through the mock API. The submitted S1 HTML had zero W3C Nu errors and warnings.
+
+### P3 S1 checkpoint handoff
+
+Trần Hoàng Phúc · `pa3/phuc-scheduling` · `f057d1f`. [Recorded request and outcome](brief.md#p3--commit-and-push-s1)
+
+- **Tool and request.** Claude Code. Check what is done and commit and push it without a co-author trailer.
+- **Kept, changed and rejected.** The prompt record reports that S1 was committed and pushed. S2–S4 were still open at that checkpoint. The S1 commit has no co-author trailer. The prompt record supplies the handoff evidence and lists no separate test run for this request.
+
+### P4 / S2 Schedule editing and conflict resolution
+
+28 November 2026 · Trần Hoàng Phúc · invoked from `ac7690e` after merging `main` at `a824fa9` · implementation `078d055`. [Recorded request and follow-ups](brief.md#p4--pull-main-and-finish-the-remaining-scheduling-tasks) · [Member log](docs/ai-logs/phuc.md#p4--s2-c8-editing-conflicts-and-save-changes)
+
+- **Tool and request.** Claude Code, Vite, Chrome via Playwright Core and W3C Nu. Pull and finish S2–S4, checkpoint each tested step and update the AI log.
+- **Kept and changed.** Kept previews separate from the saved revision. Added Edit, Resolve, Assign Slot, row-specific validation and explicit Save Changes. A source read exposed duplicate React keys for multi-way conflicts. A browser width assertion and screenshot exposed clipped reasons at 1280 px. Phúc added application IDs to the keys and reduced cell padding.
+- **Rejected and checks.** Phúc recorded no rejected output. Fresh-mock checks covered applicant, interviewer and room conflicts, three-way overlaps, Unassigned reasons, failed and stale saves, retry, reload and three widths. W3C Nu reported zero messages on the submitted conflict and editor states.
+
+### P4 / S3 Schedule confirmation
+
+28 November 2026 · Trần Hoàng Phúc · `pa3/phuc-scheduling` · `e9ed25c`. [Recorded request](brief.md#p4--pull-main-and-finish-the-remaining-scheduling-tasks) · [Member log](docs/ai-logs/phuc.md#p4--s3-c9-schedule-confirmation)
+
+- **Tool and request.** Claude Code, Vite, Chrome via Playwright Core and W3C Nu. Add a saved-draft summary, display the server’s blockers and make a confirmed schedule read-only.
+- **Kept and changed.** Used the saved revision for confirmation and displayed the affected IDs and reasons on refusal. Phúc corrected an ambiguous selector in the first browser run. The initial guard tracked generated previews and missed changes still in the assignment editor. P5 records the review finding and fix.
+- **Rejected and checks.** Phúc recorded no rejected output. Separate mock cases exercised each confirmation gate, stale and repeated requests, focus, the persisted lock and Applicant appointment visibility. W3C Nu reported zero messages on the submitted confirmation states.
+
+### P4 / S4 Interviewer workspace
+
+28 November 2026 · Trần Hoàng Phúc · `pa3/phuc-scheduling` · `cb6f7b6`. [Recorded request](brief.md#p4--pull-main-and-finish-the-remaining-scheduling-tasks) · [Member log](docs/ai-logs/phuc.md#p4--s4-c10-interviewer-workspace)
+
+- **Tool and request.** Claude Code, Vite, Chrome via Playwright Core and W3C Nu. Show assigned interviews and CVs, with one written assessment per completed interview.
+- **Kept and changed.** Used the shared session, the API’s assessment availability and the recorded assessment returned by the server. A 360 px screenshot exposed clipping inside the embedded PDF viewer. Fit the preview to the available width and kept the open and download actions.
+- **Rejected and checks.** Phúc recorded no rejected output. His checks covered assigned-only access, the PDF response, assessment timing and length, retained input on errors, one submission, assessment visibility in Results and loading, retry and empty states. W3C Nu reported zero messages on the submitted interviewer states.
+
+### P5 C9 review and repair
+
+28 November 2026 · Trần Hoàng Phúc · reported against `4c5a9e6` · fix `e4159e8` · PR head `82dfb7f`. [Recorded request and answers](brief.md#p5--review-finding-on-c9-confirmation-with-an-unapplied-edit) · [Member log](docs/ai-logs/phuc.md#p5--c9-fix-unapplied-edits-block-confirmation)
+
+- **Tool and request.** Claude Code, Vite, Chrome via Playwright Core and W3C Nu. Reproduce Huy’s finding, block confirmation while an edit is pending, rerun the case and open a PR. Phúc also selected the `FRONTEND.md` update.
+- **Kept and changed.** The original C9 check suite missed edits inside the still-open form. Huy reproduced confirmation locking the saved 09:20 slot while A02 showed an unapplied 09:40 selection. Phúc also reproduced losing a row edit on Save and confirming with changed generation settings. The page now tracks those inputs, blocks confirmation until changes are saved or discarded, and closes the open summary when changes are made.
+- **Rejected and checks.** Phúc recorded no rejected output. His log records 29 focused regression checks, S2/S3/S4 reruns of 36/36, 36/36 and 45/45, and zero W3C Nu messages on the submitted blocked and confirmed states. The original S1 script was excluded from the rerun totals because it expected earlier headings and columns. His on-screen scheduling walkthrough reached the saved assessment in Results. Huy’s independent rerun below includes final publication.
+
 ### Merged build verification
 
 - **Campaign · 26 November 2026.** PR #6 merged at `e3e8ad3`. On that revision, the Vite build, 14 Node tests and 94 contract examples passed. Chrome 158.0.8127.88 passed 9 H1, 8 H2, 3 H3 and 4 H4 check groups with the disposable mock from the same revision. H4 verifies the C8 API handoff. The post-merge harness used Node 24.14.1, Vite 8.3.8 and a fresh normal mock. Local run logs are in `D:/Temp/clubflow-pr6-merged-e3e8ad3-48b5a71a/`. [Campaign PR and review](https://github.com/ThaiQuangHuy2906/clubflow/pull/6#issuecomment-7169407914)
 - **Applications · 28 November 2026.** Huy approved the verified `ecb1040` head and merged PR #4 at `bf11be8`. The Vite build, 14 Node tests and 94 contract examples passed again. Chrome 158.0.8127.88 passed eight check groups, including the three PR regressions and 12 layout observations across A1–A4 at 360, 768 and 1280 px. The application-side test used the schedule and assessment APIs to prepare the lifecycle states. The post-merge harness used Node 24.14.1, Vite 8.3.8 and a fresh normal mock. The local browser report is `D:/Temp/clubflow-pr4-merged-bf11be8-qa/report.json`. [Approval](https://github.com/ThaiQuangHuy2906/clubflow/pull/4#pullrequestreview-6091596055) · [Merge commit](https://github.com/ThaiQuangHuy2906/clubflow/commit/bf11be8643fd4cc13250998b7fd6b7e0c843d71b)
-- **Pending.** C8–C10 and the full C7–C11 browser walkthrough still await scheduling integration. This checkpoint has targeted Chrome and contract evidence. Full release QA and the W3C Nu checks remain pending. [Routes and coverage](FRONTEND.md#routes)
+- **Scheduling and results · 28 November 2026.** Huy verified PR #7 at `82dfb7f`, then merged it at `5a8e234` with `a824fa9` as the first parent. On the merged revision, the Vite build, 14 Node tests and 94 of 94 API examples across 27 operations passed. Chrome 158.0.8127.88 with Node 24.14.1 and a fresh normal mock passed 12 functional check groups from C7 screening through C11 publication using on-screen controls. Separately, 12 layout checks covered the C8 conflict, C9 unsaved-edit blocker, C10 recorded assessment and C11 results at 360, 768 and 1280 px. Each checked state had one main heading and no horizontal page overflow. The C9 retest confirmed the new 09:40 slot only after Check and apply and Save Changes. C11 published A01 Pass and A02 Fail together and showed exactly two notices to their owner and zero to Student B. The local browser report is `D:/Temp/clubflow-pa3-merged-5a8e234-qa/integrated-report.json`. [PR #7](https://github.com/ThaiQuangHuy2906/clubflow/pull/7) · [Merge commit](https://github.com/ThaiQuangHuy2906/clubflow/commit/5a8e234aa889dbe9398c5d48d1dffe6fb645b80e)
+- **Pending.** A single creation-to-release C1–C11 walkthrough, W3C Nu on the remaining main-screen states and final packaged-build verification remain open. [Routes and coverage](FRONTEND.md#routes)

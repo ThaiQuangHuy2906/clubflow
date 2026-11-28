@@ -1218,6 +1218,93 @@ Cập nhật nhánh pa3/hoc-applications từ main rồi sửa cả 3 lỗi Huy 
 
 [PR #5](https://github.com/ThaiQuangHuy2906/clubflow/pull/5) merged the publication contract, mock and regression tests at `a74369d`. The original implementation prompts are absent from the merged member records. The [root log](AI-LOG.md#pr-5-publication-revisions) cites the published review and tests.
 
-### Scheduling integration status
+### Scheduling messages from PR #7
 
-C8–C10 (S1–S4) are pending integration at `bf11be8`. The scheduling task definitions above remain available for their owner. The current integrated records cover campaign setup and application screens, with scheduling and assessment states prepared through the mock API. [Current route coverage](FRONTEND.md#routes)
+[PR #7](https://github.com/ThaiQuangHuy2906/clubflow/pull/7) merged C8–C10 at `5a8e234`. The excerpts below follow the order in [Phúc’s merged prompt record](docs/ai-prompts/phuc.md#pa3). The P1 team-chat and assignment attachments are abbreviated in that source. The visible messages and selected answers are reproduced as recorded. [Consolidated scheduling log](AI-LOG.md#p1-scheduling-flow-review)
+
+Tool: Claude Code (VS Code extension), model Claude Opus 5.5 (`claude-opus-5-5`).
+Owner: Trần Hoàng Phúc, 24127505. Date: 2026-11-24 (Asia/Ho_Chi_Minh). Exact send times were not recorded.
+The rules file `AGENTS.md` was loaded automatically. Messages are in Vietnamese and are followed by an English gloss.
+
+#### P1 · Review of Huy's Gate 1 question
+
+Branch: `main` at `521f3a9`. Sent text: Huy's team-chat message about C5/C6, C8/C9 and the two demo runs, then the PA3 assignment text, both pasted in full (abbreviated here as `[...]`, not reworded), with:
+
+```text
+Huy mới giao việc cho tôi, tôi là Phúc, dể tôi gửi bạn yêu cầu của thầy cho dễ hiểu, trên repo HUy làm kha khá rồi
+
+Bạn có thể đọc file rubric PA3 để hiểu hơn nha, có gì chưa rõ thì hỏi lại tôi nếu rõ rồi thì làm task Huy giao cho tôi đi
+```
+
+Gloss: Huy just assigned me this; here are the lecturer's requirements; read the PA3 rubric, ask if anything is unclear, otherwise do the task Huy gave me (check whether his proposed flow is enough for my part). Output: a drafted reply to Huy; no repository file changed. See [the log](docs/ai-logs/phuc.md#p1--review-of-huys-gate-1-question).
+
+#### P2 · S1 C8 draft schedule generation
+
+Branch: `pa3/phuc-scheduling`, created from `521f3a9` (= `origin/main`). Task block read: S1 in `brief.md` at `521f3a9`, lines 852–860.
+
+```text
+vậy bạn xem xét dựa trên rubric và Huy nói và làm tiếp đi, với lại nhánh đó có cũ không, hay cứ làm tiếp, trên github vẫn còn nhánh đó đó,
+```
+
+Gloss: so review it against the rubric and what Huy said and carry on; also, is that branch old, or should I just continue — that branch is still on GitHub. (The branch on GitHub was the merged PA2 branch `pa2/phuc-schedule`; S1 was started on a new `pa3/phuc-scheduling` from the baseline.) See [the log](docs/ai-logs/phuc.md#p2--s1-c8-draft-schedule-generation).
+
+#### P3 · Commit and push S1
+
+```text
+vậy việc tôi xong chưa, nếu xong rồi thì commit pushs cho tôi đừng có dòng coauthored nha
+```
+
+Gloss: is my work done; if so, commit and push it for me, without a co-authored line. Answer given: only S1 is done (S2–S4 remain); S1 was committed on `pa3/phuc-scheduling` without a `Co-Authored-By` trailer and the branch was pushed.
+
+#### P4 · Pull `main` and finish the remaining scheduling tasks
+
+Tool: Claude Code (VS Code extension), model Claude Sonnet 5.5 (`claude-sonnet-5-5`). Date: 2026-11-28. Branch: `pa3/phuc-scheduling`. `origin/main` at `a824fa9` was merged first (merge commit `ac7690e`, no conflicts). Task blocks read: S2, S3 and S4 in `brief.md` at `ac7690e`, lines 862–890.
+
+```text
+Pull về đi, với lại hình như role tôi còn nhiều việc chưa xong lắm, giờ bạn xem phần nào chưa xong hãy hoàn thiện giúp tôi đi, làm kĩ nhé tránh cònlfict
+```
+
+Gloss: pull; my role still has a lot of unfinished work, find what is unfinished and complete it; work carefully and avoid conflicts.
+
+The assistant asked how to commit and push the three remaining steps (the question text was written by the assistant). Selected answer:
+
+```text
+Commit từng bước + push (Recommended)
+```
+
+Gloss: after each step is finished and tested, commit it separately and push to `pa3/phuc-scheduling`; no co-author line, `main` untouched, no pull request.
+
+Sent while S2 was being written:
+
+```text
+nhớ cập nhật AI-log nhé
+```
+
+Gloss: remember to update the AI log. See the log entries [S2](docs/ai-logs/phuc.md#p4--s2-c8-editing-conflicts-and-save-changes) and the entries after it.
+
+#### P5 · Review finding on C9: confirmation with an unapplied edit
+
+Tool: Claude Code (VS Code extension), model Claude Sonnet 5.5 (`claude-sonnet-5-5`). Date: 2026-11-28. Branch: `pa3/phuc-scheduling` at `4c5a9e6`. One message: a teammate's review comment, followed by my instruction.
+
+```text
+Phúc ơi, mình thấy một lỗi ở bước xác nhận lịch phỏng vấn (C9) trên bản 4c5a9e6. Sau khi lưu lịch và qua hạn nộp, mình mở Edit A02, đổi giờ từ 09:20–09:40 sang 09:40–10:00 và để ô sửa mở, chưa bấm Check and apply. Nút Approve & Confirm Schedule vẫn bấm được. Khi xác nhận, hệ thống khóa lịch ở giờ cũ 09:20–09:40.
+
+Bạn sửa giúp để giao diện chặn xác nhận khi còn thay đổi chưa lưu nhé. Sửa xong, bạn chạy lại ca trên, mở PR vào main rồi gửi mình link PR và SHA đã kiểm để mình rà lại.
+
+
+Bạn tôi mới góp ý như trên bạn xem xét và sửa lại + cập nhật ai log, tài liệu.... rồi commit push giúp tôi, có gì chưa rõ thì hỏi tôi
+```
+
+Gloss: the review says confirmation stays possible while the A02 editor holds an unapplied change, and locks the old time; block it, rerun the case, open a pull request into `main` and send the link and the tested SHA. My instruction: check it, fix it, update the AI log and documents, commit and push, and ask if anything is unclear.
+
+The assistant asked two questions before changing code (the question texts were written by the assistant). Selected answers, in order: whether to open the pull request, and which documents to update (my two evidence files only, or `FRONTEND.md` as well).
+
+```text
+Mở PR (Recommended)
+```
+
+```text
+Sửa thêm FRONTEND.md
+```
+
+See [the log](docs/ai-logs/phuc.md#p5--c9-fix-unapplied-edits-block-confirmation).
