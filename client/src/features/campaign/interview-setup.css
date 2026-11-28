@@ -1,0 +1,53 @@
+.interview-setup select {
+  width: 100%;
+  min-width: 0;
+  min-height: var(--target-min);
+  border: 1px solid var(--control-border);
+  border-radius: var(--radius-sm);
+  padding: .55rem .7rem;
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+}
+.interview-setup :is(select, .setup-group, .setup-choice):focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+.interview-setup .setup-lock {
+  margin-block: 1rem;
+  padding: .75rem 1rem;
+  border-inline-start: .25rem solid var(--primary);
+  background: var(--primary-soft);
+}
+.interview-setup .setup-group,
+.interview-setup .setup-interval {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: .75rem;
+}
+.interview-setup .setup-group .setup-group,
+.interview-setup .setup-interval + .setup-interval,
+.interview-setup .setup-interval > .button,
+.interview-setup .setup-group > button { margin-top: .75rem; }
+.interview-setup .setup-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem .75rem;
+}
+.interview-setup .setup-choice {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  min-height: var(--target-min);
+  padding: .25rem .35rem;
+}
+.interview-setup .setup-choice input {
+  width: 1.15rem;
+  height: 1.15rem;
+  min-height: 0;
+  flex: none;
+  margin: 0;
+  accent-color: var(--primary);
+}
+.interview-setup input[readonly],
+.interview-setup select:disabled { background: var(--bg); }

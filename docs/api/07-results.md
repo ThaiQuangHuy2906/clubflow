@@ -2,7 +2,7 @@
 
 ## GET /api/results
 
-Executive, no parameters or body. Return `{items,total,publishedAt}`. The campaign publication timestamp is null until release. Before C9 return an empty list. After C9 return one row per shortlisted application, ordered by application ID, including future, missing-assessment and absent cases. Screened-out and withdrawn applications are outside the final-decision set. This contract adds no withdrawal action.
+Executive, no parameters or body. Return `{items,total,revision,publishedAt}`. The campaign publication timestamp is null until release. Before C9 return an empty list. After C9 return one row per shortlisted application, ordered by application ID, including future, missing-assessment and absent cases. Screened-out and withdrawn applications are outside the final-decision set. This contract adds no withdrawal action.
 
 Each row has `applicationId,positionId,positionName,applicantName,interviewId,caseStatus,assessment,decision`. Assessment is the assigned interviewer's actual `{feedback,submittedAt}` or null. Decision is null, Pass or Fail. Interpret the case independently of the decision:
 
@@ -51,6 +51,7 @@ Content-Type: application/json
     }
   ],
   "total": 2,
+  "revision": 3,
   "publishedAt": null
 }
 ```
@@ -90,18 +91,61 @@ Content-Type: application/json
 
 ## POST /api/results/publication
 
-Executive, no path/query parameters. Empty action body. This action covers the whole active campaign. An application ID or subset in the body returns 400 VALIDATION. Return 409 NO_FINAL_RESULTS if there are no shortlisted applications. Otherwise verify the current campaign has a confirmed schedule, every shortlisted application has a final decision and every required interview has ended and is handled (Attended or Absent). A missing assessment alone is allowed. No final Pass/Fail is required for a rejected or withdrawn application. On failure return 409 PUBLICATION_BLOCKED. Put campaign-level blockers under `schedule` and record-specific blockers under `applications.<id>.decision` and `applications.<id>.caseStatus`. Return all outstanding blockers. No decision becomes visible and no notice is emitted on failure.
+Executive, no path/query parameters. Send the required JSON field `revision` from the reviewed GET summary. It is a nonnegative safe integer starting at zero for the campaign. It advances once per change to the set of cases or their displayed status, assessment, handling or decision. Unchanged saves and publication preserve it. After a row PUT, re-read the complete summary and present it with its revision before release. Never attach a freshly read revision to older displayed rows. Missing, malformed and extra fields return 400 VALIDATION. Compare the revision atomically with release, including retries. A mismatch returns 409 STALE_REVISION without changing the publication timestamp or notifications. Re-read the summary and require explicit review before resubmitting. This action covers the whole active campaign. An application ID or subset in the body returns 400 VALIDATION. Return 409 NO_FINAL_RESULTS if there are no shortlisted applications. Otherwise verify the current campaign has a confirmed schedule, every shortlisted application has a final decision and every required interview has ended and is handled (Attended or Absent). A missing assessment alone is allowed. No final Pass/Fail is required for a rejected or withdrawn application. On failure return 409 PUBLICATION_BLOCKED. Put campaign-level blockers under `schedule` and record-specific blockers under `applications.<id>.decision` and `applications.<id>.caseStatus`. Return all outstanding blockers. No decision becomes visible and no notice is emitted on failure.
 
 On success atomically freeze decisions/case handling, set one server publication time, make each decision visible only to its owner on that application, and create one in-app notice per released application. Serialize release against review/assessment writes, competing publishes and retries. A retry returns the original published summary with the same timestamp and notices. Success returns the full GET summary.
 
 A02 first lacks both a decision and a handled case. Saving its Fail decision without feedback is valid, but publication still awaits explicit case handling.
+
+Read the full board after the change. The publication request below uses the revision returned by this read.
+
+```http
+GET /api/results
+Authorization: Bearer {{token:exec}}
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "items": [
+    {
+      "applicationId": "A01",
+      "positionId": "content",
+      "positionName": "Content",
+      "applicantName": "Student A",
+      "interviewId": "IV-A01",
+      "caseStatus": "Attended",
+      "assessment": {
+        "feedback": "Clear writing and relevant examples.",
+        "submittedAt": "2026-11-24T12:01:00+07:00"
+      },
+      "decision": "Pass"
+    },
+    {
+      "applicationId": "A02",
+      "positionId": "comms",
+      "positionName": "Communications",
+      "applicantName": "Student A",
+      "interviewId": "IV-A02",
+      "caseStatus": "NeedsReview",
+      "assessment": null,
+      "decision": null
+    }
+  ],
+  "total": 2,
+  "revision": 4,
+  "publishedAt": null
+}
+```
 
 ```http
 POST /api/results/publication
 Authorization: Bearer {{token:exec}}
 Content-Type: application/json
 
-{}
+{"revision":4}
 ```
 
 ```http
@@ -144,12 +188,55 @@ Content-Type: application/json
 }
 ```
 
+Read the full board after the change. The publication request below uses the revision returned by this read.
+
+```http
+GET /api/results
+Authorization: Bearer {{token:exec}}
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "items": [
+    {
+      "applicationId": "A01",
+      "positionId": "content",
+      "positionName": "Content",
+      "applicantName": "Student A",
+      "interviewId": "IV-A01",
+      "caseStatus": "Attended",
+      "assessment": {
+        "feedback": "Clear writing and relevant examples.",
+        "submittedAt": "2026-11-24T12:01:00+07:00"
+      },
+      "decision": "Pass"
+    },
+    {
+      "applicationId": "A02",
+      "positionId": "comms",
+      "positionName": "Communications",
+      "applicantName": "Student A",
+      "interviewId": "IV-A02",
+      "caseStatus": "NeedsReview",
+      "assessment": null,
+      "decision": "Fail"
+    }
+  ],
+  "total": 2,
+  "revision": 5,
+  "publishedAt": null
+}
+```
+
 ```http
 POST /api/results/publication
 Authorization: Bearer {{token:exec}}
 Content-Type: application/json
 
-{}
+{"revision":5}
 ```
 
 ```http
@@ -255,12 +342,30 @@ Content-Type: application/json
 }
 ```
 
+A second tab still holds the previous revision. Its publication attempt preserves the owner-visible state.
+
 ```http
 POST /api/results/publication
 Authorization: Bearer {{token:exec}}
 Content-Type: application/json
 
-{}
+{"revision":5}
+```
+
+```http
+HTTP/1.1 409 Conflict
+Content-Type: application/json
+
+{"error":{"code":"STALE_REVISION","message":"Reload and review the current decisions before publishing.","fields":{}}}
+```
+
+After reviewing the current values, the Executive publishes the matching revision.
+
+Read the full board after the change. The publication request below uses the revision returned by this read.
+
+```http
+GET /api/results
+Authorization: Bearer {{token:exec}}
 ```
 
 ```http
@@ -294,6 +399,51 @@ Content-Type: application/json
     }
   ],
   "total": 2,
+  "revision": 6,
+  "publishedAt": null
+}
+```
+
+```http
+POST /api/results/publication
+Authorization: Bearer {{token:exec}}
+Content-Type: application/json
+
+{"revision":6}
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "items": [
+    {
+      "applicationId": "A01",
+      "positionId": "content",
+      "positionName": "Content",
+      "applicantName": "Student A",
+      "interviewId": "IV-A01",
+      "caseStatus": "Attended",
+      "assessment": {
+        "feedback": "Clear writing and relevant examples.",
+        "submittedAt": "2026-11-24T12:01:00+07:00"
+      },
+      "decision": "Pass"
+    },
+    {
+      "applicationId": "A02",
+      "positionId": "comms",
+      "positionName": "Communications",
+      "applicantName": "Student A",
+      "interviewId": "IV-A02",
+      "caseStatus": "Absent",
+      "assessment": null,
+      "decision": "Fail"
+    }
+  ],
+  "total": 2,
+  "revision": 6,
   "publishedAt": "2026-11-24T12:01:00+07:00"
 }
 ```
@@ -303,7 +453,7 @@ POST /api/results/publication
 Authorization: Bearer {{token:exec}}
 Content-Type: application/json
 
-{}
+{"revision":6}
 ```
 
 ```http
@@ -337,6 +487,7 @@ Content-Type: application/json
     }
   ],
   "total": 2,
+  "revision": 6,
   "publishedAt": "2026-11-24T12:01:00+07:00"
 }
 ```
@@ -439,3 +590,7 @@ Reject and release A03 at screening and shortlist A01/A02. After C9, leave an en
 Initial T1 proposal for team review, 2026-11-23.
 
 2026-11-23 — Replaced per-application release with an atomic campaign release and separated the decision, actual assessment and explicit interview-case handling.
+
+2026-11-25 — Added campaign-wide publication revision checks. Retrying the successfully published revision returns the original summary.
+
+2026-11-25 — Added the complete Executive reads used to review revisions 4, 5 and 6 before attempting publication.

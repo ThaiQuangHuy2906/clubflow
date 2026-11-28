@@ -162,3 +162,5 @@ All three members review this proposal. Huy commits the reviewed contract before
 Initial T1 proposal for team review, 2026-11-23.
 
 2026-11-23 — Revised the endpoint index, direct fixtures and ordered walkthrough to match the two public product-owner replies.
+
+2026-11-25 — The screening and final-results publication endpoints require the reviewed revision. The shared mock implements both checks in `mock/server.mjs`. Run `node --test mock/publication-revision.test.mjs` for stale-tab, sibling isolation and concurrent retry coverage.

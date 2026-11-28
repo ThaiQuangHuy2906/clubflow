@@ -168,3 +168,105 @@ Windows tar failed to resolve the Vietnamese parent path; standard Python ZIP cr
 - **Kept and changed.** Added 12 route patterns and 12 named page exports, shared authentication and request handling, Executive demo controls, and API proxies for dev and preview. The scaffold uses the existing API contract and PA2 visual conventions. Full feature forms and business workflows are assigned to the feature owners.
 - **Detected and corrected.** In a two-session review, an Executive returning to the editor saw the old campaign name, clock and creation button after another session changed the campaign. Reloading the draft on route entry and after a conflict fixed the stale view. Seven targeted checks passed on the repaired staged build. [Review findings and checks](docs/ai-logs/huy.md#t3-follow-up--staged-scaffold-review)
 - **Committed build.** Built directly from `a8d9745` and tested it in Chrome 157 on dev and production preview. All five demo accounts signed in on both. The suite passed 14 check groups and recorded 39 layout observations at 360, 768 and 1280 px with zero uncaught browser exceptions. The build emitted two React Router module-directive warnings. Huy's local run report is `D:/Temp/clubflow-t3-a8d9745-6c0a5b40/a8d9745-report.json`. [Verified scaffold commit](https://github.com/ThaiQuangHuy2906/clubflow/commit/a8d9745d5dff56d5c6766fb35845fb6a90f7bcda)
+
+### H1 Public campaign
+
+24 November 2026 · Thái Quang Huy · `pa3/huy-campaign` · `50a5620`. [Invocation and follow-ups](brief.md#h1-invocation-and-follow-ups) · [Member log](docs/ai-logs/huy.md#h1)
+
+- **Tool and request.** Codex with Git, Node, Vite and Chrome via Playwright. Show the published campaign and route visitors to the selected position after sign-in.
+- **Kept and changed.** Kept the shared campaign read and Applicant guard. Grouped published positions by department and added their quotas, requirements and intake states.
+- **Rejected and corrected.** The staged review found that sub-minute deadlines looked identical, Apply broke across lines at enlarged text sizes and duplicate position names had identical accessible link names. The follow-up requested a full review and repairs. The fixes retain timestamp precision, wrap the layout and disambiguate duplicate links.
+- **Checks.** Three deadline unit tests, nine browser groups and targeted deadline, zoom and duplicate-name probes passed after the fixes. The build passed. The position links reached the C5 scaffold at this checkpoint.
+
+### H2 Sign-in and role navigation
+
+24 November 2026 · Thái Quang Huy · shared fix `25bcf2a` and campaign verification `6643d8e`, combined at `451ba85`. [Invocation and follow-ups](brief.md#h2-invocation-and-follow-ups) · [Member log](docs/ai-logs/huy.md#h2)
+
+- **Tool and request.** Codex with Vite, Chrome and Python Playwright. Verify role navigation, protected return, authentication after refresh and account isolation.
+- **Kept and changed.** Kept the shared session, role guards and API client. Fixed keyboard skip navigation, credential bounds and stale login errors while a request is pending. Extended the browser check to wait for the authenticated response, use a compatible preview host and enforce checks under optimized Python.
+- **Rejected and corrected.** Keyboard navigation discarded a saved return path. Slow-response tests exposed feedback for edited credentials. A deliberately delayed 401 also exposed a premature pass in the initial browser runner. Huy requested repair of all six review findings.
+- **Checks.** The integration rerun passed seven baseline groups, eight role-navigation outcomes on each of two preview configurations, and 18 layout observations at the three required widths. The deliberately broken cases failed as expected. [Repair and verification](docs/ai-logs/huy.md#h2-follow-up--repair-the-six-review-findings)
+
+### H3 Campaign management
+
+24 November 2026 · Thái Quang Huy · `pa3/huy-campaign` · `e8efdbe`. [Invocation and approval](brief.md#h3-invocation-and-follow-ups) · [Member log](docs/ai-logs/huy.md#h3)
+
+- **Tool and request.** Codex with Node, Vite and Chrome via Playwright. Complete the Executive campaign editor and verify it before committing.
+- **Kept and changed.** Kept the shared draft read, API contract, demo clock and public rendering. Added department and position editing, validation, saved drafts, preview of unsaved edits, publication and a read-only confirmed state.
+- **Rejected and corrected.** A simulated 403 after saving initially left the editor visible. A fast 400 could also miss focus on the invalid field. The editor now shows the shared denial after a 403 and moves focus after the affected input is available.
+- **Checks.** Eight unit tests and all three browser groups passed. The browser checks covered row removal, validation, draft reopening, preview, publication and denial. Supplemental checks covered retries, failed writes and the confirmed lock.
+
+### H4 Interview setup
+
+24–25 November 2026 · Thái Quang Huy · `pa3/huy-campaign` · `0a4b96d`. [Invocation and follow-ups](brief.md#h4-invocation-and-follow-ups) · [Member log](docs/ai-logs/huy.md#h4)
+
+- **Tool and request.** Codex with Node, Vite and Chrome via Python Playwright. Complete the Executive setup, verify its scheduling API handoff and check the C8 browser workflow when available.
+- **Kept and changed.** Kept server ownership of slots and saved settings. Added interviewer qualifications and availability, room selection, a shared duration and visible locks for the first submission and schedule confirmation.
+- **Rejected and corrected.** Saving setup on the direct seed originally left the demo creation action enabled after the server had disabled it. The browser probe caught the discrepancy. Setup now refreshes the shared campaign after a successful save.
+- **Checks.** Twelve campaign unit tests and four H4 browser groups passed. The scheduling API generated rows with the configured positions, room and interviewer at 15, 20 and 30 minutes. A separate temporary H4 and S1 build at `f057d1f` exercised C8 draft generation and reopened a draft saved through the API. That build had no Save Changes control. C8–C10 remain pending integration. [C8 handoff and follow-up](docs/ai-logs/huy.md#h4-follow-up--c8-browser-handoff)
+
+### A1 Applicant submission
+
+24 November 2026 · Lê Nguyễn Quốc Học · `pa3/hoc-applications` · `30bad3d`. [Invocation and follow-ups](brief.md#a1-invocation-and-follow-ups) · [Member log](docs/ai-logs/hoc.md#a1--c5-applicant-submission-2026-11-24)
+
+- **Tool and request.** Codex with Git, Vite and headless Chrome via Playwright Core. Implement the position-specific application form and leave it for review.
+- **Kept and changed.** Kept the Applicant guard and shared request helper. Added profile fields, availability, motivation, PDF validation and multipart submission with duplicate recovery and input retention after a failed request.
+- **Rejected and corrected.** The first browser sessions timed out or used a port still occupied by the earlier attempt. A Retry probe also ran before the replacement mock was ready. Running both servers under the harness and waiting for readiness let the browser checks complete.
+- **Checks.** The build and both Chrome runners passed. Student A created A01 and A02, resumed an existing record after a duplicate, and retained entered values after a real deadline refusal. The PDF, word-count and availability boundaries and the three required widths were checked.
+
+### A2 My applications
+
+24 November 2026 · Lê Nguyễn Quốc Học · `pa3/hoc-applications` · `f5324a9`. [Invocation and approval](brief.md#a2-invocation-and-follow-ups) · [Member log](docs/ai-logs/hoc.md#a2--c6-my-applications-2026-11-24)
+
+- **Tool and request.** Codex, Vite and headless Chrome via Playwright Core. Complete the list and detail routes and exercise each visibility boundary.
+- **Kept and changed.** Kept A1 and the shared route guards. Added distinct owned records, screening snapshots, confirmed interview details and each application's released decision.
+- **Rejected and corrected.** The first layout probe matched the heading while the list was loading. The harness was changed to wait for the rendered records. A copied owner-name error in the prompt record was corrected against the original request.
+- **Checks.** The build and Chrome walkthrough verified direct links, refresh, Back, 403 and 404, the four mock modes and the three widths. Schedule and assessment states were prepared through the API. Applicant views excluded private notes and assessments.
+
+### A3 Executive application review
+
+24 November 2026 · Lê Nguyễn Quốc Học · `pa3/hoc-applications` · `578dcbd`. [Invocation and next-task request](brief.md#a3-invocation-and-follow-ups) · [Member log](docs/ai-logs/hoc.md#a3--c7-executive-application-review-2026-11-24)
+
+- **Tool and request.** Codex, Vite and Chrome via Playwright Core. Complete the review table, drawer, exports and screening workflow.
+- **Kept and changed.** Kept A1/A2 and the documented application operations. Added campaign-wide statistics, URL filters and paging, authenticated downloads, separate screening save and publication controls and the link to the schedule.
+- **Rejected and corrected.** The temporary review check initially compared the URL pathname with a query-bearing path. Corrected the test and reran the filters, downloads, keyboard focus and screening checks. The later two-tab and page-bound findings are recorded in the [initial PR review](#pr-4-initial-review).
+- **Checks.** The build and Chrome review covered filter persistence, CSV contents, authenticated PDF, distinct A01/A02 decisions, owner-only release, no horizontal overflow at the three widths and the route handoff to C8.
+
+### A4 Final decisions and notifications
+
+24 November 2026 · Lê Nguyễn Quốc Học · `pa3/hoc-applications` · `aea32f5`. [Invocation and handoff](brief.md#a4-invocation-and-handoff) · [Member log](docs/ai-logs/hoc.md#a4--c11-final-decisions-and-notifications-2026-11-24)
+
+- **Tool and request.** Codex, Vite and Chrome via Playwright Core. The actual A3 follow-up asked to continue with the next task. A4 implemented C11, then the user authorized the commit and PR handoff after review.
+- **Kept and changed.** Kept the existing role gates and results API. Added the complete Executive board, per-application handling and decisions, campaign-wide release and owner-only links to released results.
+- **Rejected and checks.** The original handoff build and Chrome tests passed the case-handling and visibility checks, including an absent case, two notices and a stable retry. Schedule confirmation and assessment data were prepared through the API. Huy later reproduced the stale-tab publication issue during the PR review.
+
+### PR 4 initial review
+
+25 November 2026 · Thái Quang Huy · reviewed `aea32f5`. Huy's prompt and log records reached `main` in PR #6. [Review messages](brief.md#pr-4-review-messages-from-huy) · [Member log](docs/ai-logs/huy.md#pr-4-application-review)
+
+- **Tool and request.** Codex, a Vite production build and Chrome with a disposable mock. Review A1–A4 locally and document reproducible issues and the C8–C10 dependencies.
+- **Kept and changed.** Reviewed the application screens in isolation, kept the source unchanged, and recorded reproduction steps and retest criteria for the team.
+- **Rejected and checks.** Two Executive tabs demonstrated that C7 could display Shortlisted but publish Rejected and C11 could display Pass but publish Fail. A filtered list showed Page 2 of 1 after the last row on page 2 was reviewed. A later Học request explicitly ordered fixes and retests for all three issues. [GitHub review](https://github.com/ThaiQuangHuy2906/clubflow/pull/4#pullrequestreview-6044796865)
+
+### PR 5 Publication revisions
+
+25–26 November 2026 · Thái Quang Huy · PR head `9f733e0`, merged at `a74369d`. [PR #5](https://github.com/ThaiQuangHuy2906/clubflow/pull/5) · [Published self-review](https://github.com/ThaiQuangHuy2906/clubflow/pull/5#issuecomment-7168842674)
+
+- **Tool and request evidence.** The published review records the Git diff, the Node regression tests, the contract checker and the API task triggered by the stale-publication findings. The exact assistant requests are outside the merged member records.
+- **Kept and changed.** Added a per-application C7 revision and a campaign-wide C11 revision. Publication checks the displayed revision before updating the release. A stale request returns `409 STALE_REVISION` and preserves the existing snapshot or notifications.
+- **Rejected and checks.** On Node 24.14.1 and a fresh normal demo mock, two publication regression tests and 94 of 94 examples across all 27 contract operations passed. A separate restart probe found that revisions can repeat after the in-memory mock resets. The tested protection applies within a single mock run. The PR #4 UI required the matching revision handling documented below.
+
+### PR 4 review fixes
+
+26 November 2026 · Lê Nguyễn Quốc Học · `pa3/hoc-applications` · `ecb1040`. [Repair request](brief.md#pr-4-repair-request-from-học) · [Member log](docs/ai-logs/hoc.md#pr-4-review-fixes--c7-and-c11-2026-11-26)
+
+- **Tool and request.** Codex, Git, Vite, Node and Chrome. Update from `main`, repair the three PR findings and repeat the two-tab cases.
+- **Kept and changed.** Kept the API and mock merged through PR #5. The list restores a valid page with the same query. C7 sends the displayed application revision and C11 refreshes the whole board after saving, then sends the displayed board revision. Both reload after a conflict and wait for another explicit Publish action.
+- **Rejected and corrected.** The user requested these changes after the initial PR review. Chrome confirmed that stale status and reason changes return 409 without changing the Applicant snapshot. The stale results board returned 409 with no notices. A separate release succeeded and a repeat kept the timestamp and two notices. The list remained at page 1 after reload and showed an empty state after the last row.
+- **Checks.** The production build and 14 Node tests passed at the PR head. The published approval and the merged-build rerun are recorded next. [Retest handoff](https://github.com/ThaiQuangHuy2906/clubflow/pull/4#issuecomment-7196292716)
+
+### Merged build verification
+
+- **Campaign · 26 November 2026.** PR #6 merged at `e3e8ad3`. On that revision, the Vite build, 14 Node tests and 94 contract examples passed. Chrome 158.0.8127.88 passed 9 H1, 8 H2, 3 H3 and 4 H4 check groups with the disposable mock from the same revision. H4 verifies the C8 API handoff. The post-merge harness used Node 24.14.1, Vite 8.3.8 and a fresh normal mock. Local run logs are in `D:/Temp/clubflow-pr6-merged-e3e8ad3-48b5a71a/`. [Campaign PR and review](https://github.com/ThaiQuangHuy2906/clubflow/pull/6#issuecomment-7169407914)
+- **Applications · 28 November 2026.** Huy approved the verified `ecb1040` head and merged PR #4 at `bf11be8`. The Vite build, 14 Node tests and 94 contract examples passed again. Chrome 158.0.8127.88 passed eight check groups, including the three PR regressions and 12 layout observations across A1–A4 at 360, 768 and 1280 px. The application-side test used the schedule and assessment APIs to prepare the lifecycle states. The post-merge harness used Node 24.14.1, Vite 8.3.8 and a fresh normal mock. The local browser report is `D:/Temp/clubflow-pr4-merged-bf11be8-qa/report.json`. [Approval](https://github.com/ThaiQuangHuy2906/clubflow/pull/4#pullrequestreview-6091596055) · [Merge commit](https://github.com/ThaiQuangHuy2906/clubflow/commit/bf11be8643fd4cc13250998b7fd6b7e0c843d71b)
+- **Pending.** C8–C10 and the full C7–C11 browser walkthrough still await scheduling integration. This checkpoint has targeted Chrome and contract evidence. Full release QA and the W3C Nu checks remain pending. [Routes and coverage](FRONTEND.md#routes)
