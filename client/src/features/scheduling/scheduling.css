@@ -34,7 +34,7 @@
 .scheduling .schedule-table { width: 100%; min-width: 44rem; border-collapse: collapse; }
 .scheduling .status-cell { min-width: 13rem; }
 .scheduling .cell-detail { display: block; color: var(--muted); font-size: .9rem; }
-.scheduling .schedule-table :is(th, td) { padding: .65rem .75rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border); overflow-wrap: normal; }
+.scheduling .schedule-table :is(th, td) { padding: .65rem .5rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border); overflow-wrap: normal; }
 .scheduling .schedule-table thead th { background: var(--bg); font-size: .9rem; }
 .scheduling .schedule-table tbody tr:last-child > * { border-bottom: 0; }
 .scheduling .nowrap, .scheduling .badge { white-space: nowrap; }
@@ -54,4 +54,19 @@
 }
 @media (min-width: 80rem) {
   .scheduling .schedule-fields { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* S2: row actions and the slot editor */
+.scheduling .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.scheduling .row-id { display: block; margin-bottom: var(--space-2); }
+.scheduling .row-action { white-space: nowrap; padding-inline: .75rem; font-size: .9rem; }
+.scheduling .schedule-table tr.editing { background: var(--primary-soft); }
+.scheduling .assignment-editor { padding: var(--space-4); border: 2px solid var(--primary); border-radius: var(--radius-md); }
+.scheduling .assignment-editor > * + * { margin-top: var(--space-4); }
+.scheduling .editor-fields { display: grid; gap: var(--space-4); grid-template-columns: minmax(0, 1fr); }
+.scheduling .schedule-status:empty { margin: 0; }
+.scheduling .schedule-failure > * + * { margin-top: var(--space-3); }
+
+@media (min-width: 80rem) {
+  .scheduling .editor-fields { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }

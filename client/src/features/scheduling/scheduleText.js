@@ -7,6 +7,18 @@ export function slotLabel(slotId) {
   return match ? `${match[2]}:${match[3]}–${match[4]}:${match[5]}` : slotId ?? '';
 }
 
+// The write requests accept only the four choice fields of each row.
+export function toAssignments(rows) {
+  return rows.map(({ applicationId, slotId, interviewerId, roomId }) => ({ applicationId, slotId, interviewerId, roomId }));
+}
+
+// The draft window, unless interview setup no longer covers it.
+export function usableWindow(draft, settings) {
+  const fits = draft && draft.date === settings.date && draft.start >= settings.start && draft.end <= settings.end;
+  const { date, start, end } = fits ? draft : settings;
+  return { date, start, end };
+}
+
 export function nameOf(list, id) {
   return list?.find(item => item.id === id)?.name ?? id;
 }

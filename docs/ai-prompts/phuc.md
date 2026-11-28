@@ -120,3 +120,29 @@ vậy việc tôi xong chưa, nếu xong rồi thì commit pushs cho tôi đừn
 ```
 
 Gloss: is my work done; if so, commit and push it for me, without a co-authored line. Answer given: only S1 is done (S2–S4 remain); S1 was committed on `pa3/phuc-scheduling` without a `Co-Authored-By` trailer and the branch was pushed.
+
+### P4 · Pull `main` and finish the remaining scheduling tasks
+
+Tool: Claude Code (VS Code extension), model Claude Sonnet 5.5 (`claude-sonnet-5-5`). Date: 2026-11-28. Branch: `pa3/phuc-scheduling`. `origin/main` at `a824fa9` was merged first (merge commit `ac7690e`, no conflicts). Task blocks read: S2, S3 and S4 in `brief.md` at `ac7690e`, lines 862–890.
+
+```text
+Pull về đi, với lại hình như role tôi còn nhiều việc chưa xong lắm, giờ bạn xem phần nào chưa xong hãy hoàn thiện giúp tôi đi, làm kĩ nhé tránh cònlfict
+```
+
+Gloss: pull; my role still has a lot of unfinished work, find what is unfinished and complete it; work carefully and avoid conflicts.
+
+The assistant asked how to commit and push the three remaining steps (the question text was written by the assistant). Selected answer:
+
+```text
+Commit từng bước + push (Recommended)
+```
+
+Gloss: after each step is finished and tested, commit it separately and push to `pa3/phuc-scheduling`; no co-author line, `main` untouched, no pull request.
+
+Sent while S2 was being written:
+
+```text
+nhớ cập nhật AI-log nhé
+```
+
+Gloss: remember to update the AI log. See the log entries [S2](../ai-logs/phuc.md#p4--s2-c8-editing-conflicts-and-save-changes) and the entries after it.
