@@ -1,0 +1,108 @@
+/* C8–C10 scheduling feature (Phúc). Scoped under .scheduling; uses the shared tokens from src/styles.css. */
+.scheduling > * + * { margin-top: var(--space-6); }
+.scheduling h2 { margin-bottom: var(--space-3); }
+
+.scheduling .schedule-note {
+  display: grid; gap: var(--space-3); justify-items: start;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--border); border-left: .3rem solid var(--primary);
+  border-radius: var(--radius-sm); background: var(--primary-soft);
+}
+.scheduling .confirmed-note { border-left-color: var(--success); background: var(--success-soft); }
+
+.scheduling .schedule-form { border-top: 1px solid var(--border); padding-top: var(--space-6); }
+.scheduling .schedule-form > * + * { margin-top: var(--space-4); }
+.scheduling .schedule-fields { display: grid; gap: var(--space-4); grid-template-columns: minmax(0, 1fr); }
+.scheduling .schedule-field { display: grid; gap: var(--space-1); align-content: start; }
+.scheduling .schedule-field label { font-weight: 650; }
+.scheduling :is(input, select, textarea) {
+  width: 100%; min-height: var(--target-min);
+  border: 1px solid var(--control-border); border-radius: var(--radius-sm);
+  background: white; color: var(--text); padding: .5rem .75rem; font: inherit;
+}
+.scheduling input[readonly] { background: var(--bg); }
+.scheduling :is(select, textarea):focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.scheduling .field-help { color: var(--muted); font-size: .9rem; }
+
+.scheduling .schedule-result > * + * { margin-top: var(--space-4); }
+.scheduling .schedule-counts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
+.scheduling .schedule-counts > div { padding: var(--space-3) var(--space-4); border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg); }
+.scheduling .schedule-counts dt { font-weight: 600; color: var(--muted); }
+.scheduling .schedule-counts dd { font-size: 1.5rem; font-weight: 700; }
+
+.scheduling .table-scroll { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-sm); }
+.scheduling .schedule-table { width: 100%; min-width: 44rem; border-collapse: collapse; }
+.scheduling .status-cell { min-width: 13rem; }
+.scheduling .cell-detail { display: block; color: var(--muted); font-size: .9rem; }
+.scheduling .schedule-table :is(th, td) { padding: .65rem .5rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border); overflow-wrap: normal; }
+.scheduling .schedule-table thead th { background: var(--bg); font-size: .9rem; }
+.scheduling .schedule-table tbody tr:last-child > * { border-bottom: 0; }
+.scheduling .nowrap, .scheduling .badge { white-space: nowrap; }
+.scheduling .issue-list { margin: var(--space-2) 0 0; padding-left: 1.1rem; font-size: .9rem; }
+
+.scheduling .badge { display: inline-block; padding: .2rem .6rem; border-radius: 1rem; font-size: .85rem; font-weight: 700; border: 1px solid currentColor; }
+.scheduling .badge-proposed { color: var(--primary-hover); background: var(--primary-soft); }
+.scheduling .badge-conflict { color: var(--danger); background: #fef2f2; }
+.scheduling .badge-unassigned { color: #92400e; background: #fffbeb; }
+.scheduling .badge-confirmed { color: var(--success); background: var(--success-soft); }
+
+.scheduling .schedule-export { display: grid; gap: var(--space-2); justify-items: start; border-top: 1px solid var(--border); padding-top: var(--space-4); }
+
+@media (min-width: 48rem) {
+  .scheduling .schedule-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .scheduling .schedule-counts { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+@media (min-width: 80rem) {
+  .scheduling .schedule-fields { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* S2: row actions and the slot editor */
+.scheduling .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.scheduling .row-id { display: block; margin-bottom: var(--space-2); }
+.scheduling .row-action { white-space: nowrap; padding-inline: .75rem; font-size: .9rem; }
+.scheduling .schedule-table tr.editing { background: var(--primary-soft); }
+.scheduling .assignment-editor { padding: var(--space-4); border: 2px solid var(--primary); border-radius: var(--radius-md); }
+.scheduling .assignment-editor > * + * { margin-top: var(--space-4); }
+.scheduling .editor-fields { display: grid; gap: var(--space-4); grid-template-columns: minmax(0, 1fr); }
+.scheduling .schedule-status:empty { margin: 0; }
+.scheduling .schedule-failure > * + * { margin-top: var(--space-3); }
+
+@media (min-width: 80rem) {
+  .scheduling .editor-fields { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* S3: confirmation */
+.scheduling .schedule-confirm { border-top: 1px solid var(--border); padding-top: var(--space-6); }
+.scheduling .schedule-confirm > * + * { margin-top: var(--space-4); }
+.scheduling .confirm-box { padding: var(--space-4); border: 2px solid var(--primary); border-radius: var(--radius-md); }
+.scheduling .confirm-box > * + *, .scheduling .confirm-refusal > * + * { margin-top: var(--space-4); }
+.scheduling .confirm-summary { display: grid; gap: var(--space-3); grid-template-columns: minmax(0, 1fr); }
+.scheduling .confirm-summary dt { font-weight: 600; color: var(--muted); }
+.scheduling .confirm-summary dd { font-weight: 700; }
+.scheduling .confirm-refusal { padding: var(--space-4); border: 1px solid var(--danger); border-left-width: .3rem; border-radius: var(--radius-sm); background: #fef2f2; }
+
+@media (min-width: 48rem) {
+  .scheduling .confirm-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* S4: interviewer workspace */
+.scheduling .interview-list { list-style: none; margin: var(--space-6) 0 0; padding: 0; display: grid; gap: var(--space-4); }
+.scheduling .interview-list li { padding: var(--space-4); border: 1px solid var(--border); border-radius: var(--radius-md); display: grid; gap: var(--space-3); justify-items: start; }
+.scheduling .interview-list h2 { margin: 0; }
+.scheduling .interview-facts { display: grid; gap: var(--space-3); grid-template-columns: minmax(0, 1fr); justify-self: stretch; }
+.scheduling .interview-facts dt { font-weight: 600; color: var(--muted); font-size: .9rem; }
+.scheduling .interview-facts dd { font-weight: 700; }
+.scheduling .interview-cv > * + *, .scheduling .assessment > * + * { margin-top: var(--space-4); }
+.scheduling .interview-cv, .scheduling .assessment { border-top: 1px solid var(--border); padding-top: var(--space-6); }
+.scheduling .interview-cv iframe { display: block; width: 100%; height: 30rem; border: 1px solid var(--border); border-radius: var(--radius-sm); }
+.scheduling .assessment-form { display: grid; gap: var(--space-4); justify-items: start; }
+.scheduling .assessment-form .schedule-field { justify-self: stretch; }
+.scheduling textarea { resize: vertical; line-height: 1.5; }
+.scheduling .assessment-text { white-space: pre-wrap; padding: var(--space-4); border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg); }
+
+@media (min-width: 48rem) {
+  .scheduling .interview-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 80rem) {
+  .scheduling .interview-facts { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
