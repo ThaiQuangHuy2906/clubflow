@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useOutletContext, useSearchParams } from 'react-router-dom';
 import { apiRequest } from '../../api.js';
 import { CampaignTime, EmptyState, ErrorState, LoadingState, PageTitle } from '../../ui.jsx';
 import { ReviewDetail } from './ReviewDetail.jsx';
@@ -81,7 +81,7 @@ function ReviewFilters({ query, search, setSearch, updateQuery, catalog }) {
         {positions.map(position => <option key={position.id} value={position.id}>{position.name}</option>)}
       </select>
       {catalog.error && <div id="review-position-error">
-        <ErrorState message="Positions could not be loaded." onRetry={catalog.reload} />
+        <ErrorState message="Positions could not be loaded." onRetry={catalog.reload} retryLabel="Retry positions" />
       </div>}
     </div>
     <label className="review-field">
@@ -111,7 +111,7 @@ function ReviewRows({ data, selection, writing, open, updateQuery }) {
   const pageCount = Math.ceil(total / pageSize);
   return <>
     <p className="muted" role="status">{total} matching {total === 1 ? 'application' : 'applications'}</p>
-    {items.length ? <ul className="review-records" role="list">
+    {items.length ? <ul className="review-records">
       {items.map(application => <li key={application.id}>
         <h3>{application.studentName}</h3>
         <p>{application.positionName} · {application.id}</p>
@@ -139,6 +139,7 @@ function ReviewRows({ data, selection, writing, open, updateQuery }) {
 
 export function ReviewPage() {
   const [params, setParams] = useSearchParams();
+  const { campaignDraft } = useOutletContext();
   const query = readReviewQuery(params);
   const [search, setSearch] = useState(query.q);
   const [selection, setSelection] = useState(null);
@@ -175,6 +176,11 @@ export function ReviewPage() {
     if (pageToRestore !== null) updateQuery({ page: pageToRestore }, { replace: true });
   }, [pageToRestore, updateQuery]);
 
+  function refreshAfterScreening() {
+    list.reload();
+    if (campaignDraft.data?.demo.canBegin) campaignDraft.reload();
+  }
+
   function closeDetail() {
     const trigger = selection.trigger;
     setSelection(null);
@@ -201,7 +207,7 @@ export function ReviewPage() {
           open={(id, trigger) => setSelection({ id, trigger })} />}
       </section>
       {selection && <ReviewDetail key={selection.id} id={selection.id} locked={campaignResults?.locked}
-        writing={writing} onWritingChange={setWriting} onSaved={list.reload} onClose={closeDetail} />}
+        writing={writing} onWritingChange={setWriting} onSaved={refreshAfterScreening} onClose={closeDetail} />}
     </div>
   </div>;
 }

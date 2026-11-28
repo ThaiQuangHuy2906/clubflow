@@ -44,3 +44,7 @@ W3C Nu Html Checker **26.11.28 (`a0cdb41`)** validated the document HTML capture
 Local raw artifacts from this run are in `D:/Temp/clubflow-pa3-release-qa-edb3d26/`. `release-report.json` records the browser assertions, routes and writes. `nu-report.json` records the result for each HTML state, and `nu-raw.json` contains the direct validator output. The captured documents are in `rendered-html/`, and the build output is recorded in `build.log`.
 
 This pass covers the stated Chrome and mock scenario and the sampled HTML states. The Node tests and API contract example results cited in the [merged-build verification](../AI-LOG.md#merged-build-verification) come from the earlier checkpoint at `5a8e234`. Submission archive creation and verification from a fresh extraction remain pending.
+
+## Follow-up audit
+
+The [workspace audit](PA3_WORKSPACE_AUDIT.md) records the later fixes and a separate browser and validator run. The counts above describe the original `edb3d26` run.

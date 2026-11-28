@@ -43,7 +43,7 @@ function ApplicationNotifications({ applications }) {
     <h2 id="application-notifications-title">Notifications</h2>
     {error && <ErrorState message={error.message} onRetry={reload} />}
     {!error && !data && <LoadingState />}
-    {data && (data.items.length ? <ul className="record-list" role="list">
+    {data && (data.items.length ? <ul className="record-list">
       {data.items.map(notice => <li key={notice.id}>
         <Link to={'/me/applications/' + encodeURIComponent(notice.applicationId)}>
           Final result for {positions.get(notice.applicationId) ?? notice.applicationId} · {notice.result}

@@ -1,4 +1,4 @@
-# ClubFlow — PA#2 self-assessment
+# ClubFlow PA3 self-assessment
 
 ## Team and basis
 
@@ -8,37 +8,33 @@
 | 24127177 | Thái Quang Huy |
 | 24127505 | Trần Hoàng Phúc |
 
-**Team-approved self-assessment: 98 / 100.** Huy confirmed the team's agreement on 09 Nov 2026 and authorized the assistant to commit, push and package the submission. Rechecking the rubric removed three unsupported precautionary deductions from the earlier 95-point proposal. The remaining estimate reflects incomplete original prompt evidence. This is a self-assessment, not an awarded mark, automated guarantee or accessibility certification. The estimates are judgments against rubric bands, not claims of prescribed exact deductions.
+**Team-approved self-assessment: 99/100.** The team approved the scores below on 28 November 2026. The PA2 assessment is available in Git at `481144c`.
 
-Application source tested: `d0426d7`. Actual results/provenance are in [QA](checks/QA.md); static versus unwired behavior is in [PROTOTYPE.md](PROTOTYPE.md).
+This assessment uses the published creation-to-release run at `edb3d26` and the subsequent [workspace audit](checks/PA3_WORKSPACE_AUDIT.md), based on `a9b9893`. The [frontend guide](FRONTEND.md) contains the run instructions, role routes and test entry points.
 
-## Seven rubric criteria
+## Nine rubric criteria
 
-| Criterion | Maximum | We claim | Evidence and assessment |
-| --- | ---: | ---: | --- |
-| 1. Three linked screens | 20 | 20 | [Campaign](index.html), [review](review.html), [schedule](schedule.html), [screen mapping](PROTOTYPE.md), [navigation/edit checks](checks/interactions.json). Main flow works offline with JavaScript off; four review findings were fixed and all eight Fix these items are addressed in [QA](checks/QA.md). Static controls/states illustrate the required Executive flow. The readable CV feature is demonstrated with ST01's shared sample; backend actions and absent attachments are honestly documented. No additional confirmed feature defect was identified in this follow-up. |
-| 2. Responsive at 360/768/1280px | 25 | 25 | Nine current captures linked in [QA](checks/QA.md), [viewport metrics](checks/browser-results.json), [opened-state checks](checks/interactions.json). Exact widths, no document/out-of-wrapper overflow, 44px targets, wrapping long text and no observed panel overlap; the layout adapts at the prescribed widths. Observed results support the full claim for this criterion. Chrome-only coverage remains a disclosed testing limit. |
-| 3. Semantic, valid HTML | 20 | 20 | Zero errors/warnings in user-run File Upload [index](checks/validator-index.png), [review](checks/validator-review.png), [schedule](checks/validator-schedule.png). [Browser/AX checks](checks/interactions.json), [source checks](checks/source-manifest.json): one h1/page, no skips, labeled fields, no duplicate IDs or missing local targets, no unnamed inspected controls. [Actual Accessibility pane inspection](checks/devtools-inspection.json) adds 144 selections covering landmarks, h1–h3 and all 86 visible form fields; screenshots and limits are linked in [QA](checks/QA.md). |
-| 4. Design you can check | 10 | 10 | [Shared CSS](css/styles.css), [contract](docs/SHARED_CSS_CONTRACT.md), page CSS and nine captures. Shared spacing, system fonts, minimum measured text 16px; no framework/import/`!important`/hidden horizontal overflow. Each page has a defined primary focus described in [PROTOTYPE.md](PROTOTYPE.md). [Actual Color Picker inspection](checks/devtools-inspection.json): 40 accepted default-state samples, minimum displayed 6.15:1; computed minimum 6.15797:1. The CSS recheck found spacing declarations consistently using the shared scale, including two literal 1.5rem list indents equal to 24px. Stale forced-hover diagnostics are excluded. |
-| 5. Brief and rules file | 10 | 8 | [Actual available prompts](brief.md), [rules](AGENTS.md), original [Huy](docs/ai-prompts/huy.md), [Học](docs/ai-prompts/hoc.md), [Phúc](docs/ai-prompts/phuc.md) records. The actual common contract contains the required constraints and checks. Source completeness remains weaker: Phúc's pasted assignment/template text is abbreviated, and portions of Học's feedback/evidence follow-ups were transcribed or condensed. On 09 Nov 2026 Huy confirmed that complete original conversations are no longer available. The available source records and explicit gap labels are retained. Two points are conservatively reserved for these disclosed provenance gaps; the rubric does not prescribe that exact deduction. Per-thread order is preserved; unknown exact cross-thread times are not used as a deduction. |
-| 6. AI-LOG.md | 10 | 10 | [Consolidated log](AI-LOG.md) and original member logs contain distinct task/page entries with Tool, Asked for, Kept, Changed and Rejected. Genuine errors include the required-select W3C failure and A03-only edit mismatch, with checks/corrections linked to source commits. No invented rejection or pass. |
-| 7. Commit history | 5 | 5 | Repository `.git`; rules-first `c2cbe6f`; shared CSS `39ad2e5`; campaign `c9c2f11`; review `cb20354`/`f1dbff3`; scheduling content/style `436dfaa`/`8c48d3d`; fixes `63cda2d`/`e1fe272`; merges `a5587fa`, `fee77ae`, `4c90e73`; footer/evidence `d0426d7`. [Inspected history](checks/source-manifest.json). Feature authorship remains visible; the final ZIP must include `.git`. |
-| **Total** | **100** | **98** | **20 + 25 + 20 + 10 + 8 + 10 + 5 = 98** |
+| Criterion | Maximum | Team claim | Evidence |
+| --- | ---: | --- | --- |
+| 1. Whole main flow in React | 25 | 25 | [C1–C11 QA](checks/PA3_RELEASE_QA.md) covers campaign creation, setup, application, screening, scheduling, assessment and one final publication through Vite preview. Separate owner results and notifications were verified. |
+| 2. Routing, sign-in and shared state | 10 | 10 | [Routes and demo accounts](FRONTEND.md#routes) describe the three roles, direct URLs, return after sign-in and shared session. The audit opens the routes directly across all five demo accounts with browser requests restricted to localhost. The QA report records cross-role and owner checks. |
+| 3. Data from the API with loading, error and empty states | 10 | 10 | [Mock run instructions](FRONTEND.md#how-to-run-it), [API documentation](docs/api/README.md) and the workspace audit show the source of displayed data and exercise loading, empty results and independent retries. |
+| 4. Forms | 10 | 10 | The browser QA covers campaign and setup inputs, distinct application availability windows, screening, scheduling and results. The audit exercises validation focus and prevents a generation action from dropping an unapplied schedule choice. |
+| 5. Contract and mock | 15 | 15 | [Endpoint docs and examples](docs/api/README.md) are checked in. Four mock modes are documented. The audit records the Node tests and the course contract checker results. |
+| 6. Responsive, semantic and valid UI | 5 | 5 | The workspace audit records Chrome measurements at 360, 768 and 1280 px and W3C Nu results for browser-rendered states. |
+| 7. Brief and assistant rules | 10 | 10 | [Brief and sent prompts](brief.md) and [assistant rules](AGENTS.md) document the API, design and review boundaries, and preserve recorded team messages, including the [six verbatim prompts for PR #5](brief.md#publication-api-evidence-from-pr-5). |
+| 8. AI log | 10 | 10 | [Consolidated log](AI-LOG.md#pa3) and linked member logs record prompts, changes, decisions and verification. |
+| 9. Commit history | 5 | 4 | The contract (`7e4570e`), mock (`90db813`) and React scaffold (`a8d9745`) have separate commits. The [T2](docs/ai-logs/huy.md#t2-follow-up--staged-mock-review) and [T3](docs/ai-logs/huy.md#t3-follow-up--staged-scaffold-review) reviews and repairs took place in the staged changes before the respective implementation commits, so those follow-ups have no separate checkpoints. |
+| **Total** | **100** | **99** | The approved total is used in the archive filename. |
 
-## What We Did Not Manage
+## What we did not manage
 
-- Actual Accessibility pane and default-state Color Picker inspection is now documented. These samples and the separate keyboard/tree checks are not a full WCAG/screen-reader audit. Stale picker results during extra forced-hover probes are retained as diagnostics rather than claimed as successful state checks.
-- Only Chrome 157 on this desktop was exercised, not other engines, physical devices, locale variants or all input combinations.
-- Static controls do not implement persistence, publication, filtering, file upload/download, decision updates, scheduling algorithms, export, authorization or cross-field business validation. Native affordances and sample states illustrate the workflow; no backend is claimed.
-- Phúc's complete pasted assignment/template text cannot be recovered from the original abbreviated record; portions of Học's feedback/evidence follow-ups are also transcribed or condensed. Huy confirmed on 09 Nov 2026 that complete original conversations are no longer available. Existing records remain labeled as incomplete; no omitted prompt text or exact cross-member message times were invented.
-- The original linked business description v1.1 was inaccessible to the integrator; the supplied official rubric/final-brief PDFs and Source of Truth were used. Other assistants' source-access limits remain in their logs.
-- Validator PDFs name the file but do not embed its uploaded source hash. The current manifest identifies inspected files, not cryptographic proof of the earlier upload contents.
-- Huy approved the team's 98-point self-assessment and authorized commit/push, ZIP creation with `.git` and extraction verification. Actual packaging checks are recorded in [QA](checks/QA.md). Student-account submission remains Huy's action; the assistant does not claim to have submitted the assignment.
+The schedule page still lacks a leave-page prompt for edits that have not been saved. A separate screening rejection notification remains an open product decision. Chrome and the disposable mock provide the browser evidence. Physical-device checks and verification of the final extracted submission archive remain pending.
 
-## What We Would Do Differently
+## What we would do differently
 
-Run W3C during initial implementation: native validity and a generic parser missed the required-select conformance rule. Check what each Edit link displays, not only whether its target exists. Inspect native controls at readable scale because numeric overflow checks missed clipped date/dropdown segments. Preserve complete prompts and attachments when sent, and gather actual accessibility/contrast UI evidence before self-scoring. Cross-check asynchronous DevTools readings before accepting a changed-state result.
+Test destructive actions while a form contains unapplied edits, add failure-mode checks alongside the happy path, and update the self-assessment when the rubric changes.
 
 ## Packaging
 
-The team-approved submission filename is **`24127044-24127177-24127505_98.zip`**. If scores change, update the table, total and filename together. Package the working project folder with its hidden `.git`, exclude unrelated temporary tooling and `node_modules`, then verify all three pages from a fresh extraction. GitHub Download ZIP and `git archive` omit `.git`.
+After the team approves the final revision, build the client and package a standalone repository folder with the real hidden `.git/` directory and built `client/dist/`. Exclude every `node_modules/` folder and name the archive `24127044-24127177-24127505_99.zip`. Extract it to a fresh location and verify the tree, build, Git history and score against the filename.

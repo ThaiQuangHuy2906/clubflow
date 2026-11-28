@@ -86,7 +86,9 @@ For the creation walkthrough described in the [QA report](checks/PA3_RELEASE_QA.
 
 At `edb3d26`, a production build and one uninterrupted Chrome walkthrough passed on a fresh normal mock. The run began with **Begin creation walkthrough**, published a new campaign, offered four availability windows and created A01 and A02 as separate applications with distinct contact records. It went through screening, schedule conflict resolution, confirmation, assessment and one final publication. Student A received A01 **Pass** and A02 **Fail** as two distinct notices. Student B received zero final-result notices.
 
-The run passed **18 functional check groups**. Separately, **12 layout checks** covered the C8 conflict, C9 blocked confirmation, C10 recorded assessment and C11 results at 360, 768 and 1280 px. W3C Nu checked **26 rendered states** with **zero errors and seven warnings**. [Run scope and warnings](checks/PA3_RELEASE_QA.md)
+The run passed **18 functional check groups**. Separately, **12 layout checks** covered the C8 conflict, C9 blocked confirmation, C10 recorded assessment and C11 results at 360, 768 and 1280 px. W3C Nu checked **26 rendered states** with **zero errors and seven warnings** at that revision. [Run scope and warnings](checks/PA3_RELEASE_QA.md)
+
+The follow-up audit used the working tree based on `a9b9893`. Chrome passed the same **18 functional groups** and measured **78 state/width pairs** across 26 states at 360, 768 and 1280 px. W3C Nu reported **zero errors and zero warnings**. The audit also recorded **54 direct-route observations** across the guest and all five demo accounts with non-loopback requests blocked. It checked the four mock modes and verified that Generate Draft stays disabled while a slot choice is unapplied. To rerun that specific regression, start fresh normal mock and Vite preview instances, then run `python checks/verify_schedule_generation.py` from the repository root with Python Playwright and Chrome available. [Audit and regression evidence](checks/PA3_WORKSPACE_AUDIT.md)
 
 ## Product owner decisions
 

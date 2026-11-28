@@ -25,7 +25,7 @@ function validate(values, settings) {
 
 // The page owns the typed values, so confirmation knows about settings that were not generated yet.
 // `onGenerate` resolves to the request error, or null on success.
-export function GenerateForm({ values, settings, disabled, busy, generating, onChange, onGenerate }) {
+export function GenerateForm({ values, settings, disabled, busy, generating, blockedByEdit, onChange, onGenerate }) {
   const [tried, setTried] = useState(false);
   const [serverErrors, setServerErrors] = useState({});
   const [failure, setFailure] = useState(null);
@@ -40,7 +40,7 @@ export function GenerateForm({ values, settings, disabled, busy, generating, onC
 
   async function submit(event) {
     event.preventDefault();
-    if (busy || disabled) return;
+    if (busy || disabled || blockedByEdit) return;
     setTried(true);
     const local = validate(values, settings);
     if (Object.keys(local).length) {
@@ -79,9 +79,12 @@ export function GenerateForm({ values, settings, disabled, busy, generating, onC
         </select>
       </Field>
     </div>
-    <p className="field-help">Setup allows {settings.start}–{settings.end}. Generating replaces the table below with a preview; nothing is saved.</p>
+    <p className="field-help">Setup allows {settings.start}–{settings.end}. Generating replaces the preview. Use Save Changes to keep the assignments.</p>
     <div className="actions">
-      <button type="submit" className="button primary" disabled={disabled || busy}>{generating ? 'Generating…' : 'Generate Draft'}</button>
+      <button type="submit" className="button primary" disabled={disabled || busy || blockedByEdit}
+        aria-describedby={blockedByEdit ? 'unapplied-help' : undefined}>
+        {generating ? 'Generating…' : 'Generate Draft'}
+      </button>
     </div>
     {generating && <p role="status" className="muted">Generating the draft…</p>}
     {failure && <p role="alert">{failure}</p>}

@@ -250,11 +250,37 @@ Windows tar failed to resolve the Vietnamese parent path; standard Python ZIP cr
 
 ### PR 5 Publication revisions
 
-25–26 November 2026 · Thái Quang Huy · PR head `9f733e0`, merged at `a74369d`. [PR #5](https://github.com/ThaiQuangHuy2906/clubflow/pull/5) · [Published self-review](https://github.com/ThaiQuangHuy2906/clubflow/pull/5#issuecomment-7168842674)
+25–26 November 2026 · Thái Quang Huy · Codex · `pa3/huy-publication-revision` from `25bcf2a` · brief revision `521f3a9` · PR head `9f733e0`, merged at `a74369d`. [PR #5](https://github.com/ThaiQuangHuy2906/clubflow/pull/5) · [Published self-review](https://github.com/ThaiQuangHuy2906/clubflow/pull/5#issuecomment-7168842674) · [Verbatim messages](brief.md#publication-api-evidence-from-pr-5)
 
-- **Tool and request evidence.** The published review records the Git diff, the Node regression tests, the contract checker and the API task triggered by the stale-publication findings. The exact assistant requests are outside the merged member records.
+- **Tool and request.** Codex, Git, Node 24.14.1 and the course contract checker against a disposable normal mock. Huy requested shared revisions for both publication operations, stale-request checks, sibling-application isolation and idempotent notifications. Later messages requested the audit and authorized the historical branch checkpoints below.
 - **Kept and changed.** Added a per-application C7 revision and a campaign-wide C11 revision. Publication checks the displayed revision before updating the release. A stale request returns `409 STALE_REVISION` and preserves the existing snapshot or notifications.
-- **Rejected and checks.** On Node 24.14.1 and a fresh normal demo mock, two publication regression tests and 94 of 94 examples across all 27 contract operations passed. A separate restart probe found that revisions can repeat after the in-memory mock resets. The tested protection applies within a single mock run. The PR #4 UI required the matching revision handling documented below.
+- **Observed limit.** A separate restart probe found that revisions can repeat after the in-memory mock resets. The tested protection applies within a single mock run. The PR #4 UI required the matching revision handling documented below.
+
+The six entries below preserve the historical member log from `a1879eb:docs/ai-logs/huy.md`. Exact send times are unknown.
+
+#### Shared API implementation
+
+Based on Huy’s report of agreement with Học, implemented per-application screening revisions and a campaign-wide results revision in the shared contract and mock. Tests verified stale status, reason, decision and case handling, independence of sibling applications, and stable notifications and timestamps on concurrent publication and retry. Both Node regression tests passed. The contract checker accepted 91/91 examples across 27/27 endpoints. Local output: `D:/Temp/clubflow-publication-contract-check.log`.
+
+#### Initial local commit
+
+Rechecked the five staged paths and reran both regression tests successfully. Created local commit `ea2e2b7` with parent `25bcf2a`.
+
+#### Initial branch publication
+
+Pushed the API branch and verified its GitHub head at `ea2e2b73c0dca4573398ebecd583571fc1ce5304`. The remote main branch remained at `25bcf2a`.
+
+#### Publication audit and corrections
+
+Found and corrected three issues. The notification test previously accepted an intentionally broken mock that returned Fail for every record. The revised test distinguishes the two decisions and detects the injected error. The walkthrough now reads the full board before publishing revisions 4, 5 and 6. The screening contract and regression test now distinguish stable published fields from a private note edited after release. On the actual mock, 2/2 tests passed and 94/94 HTTP examples passed across 27/27 endpoints. Local evidence: `D:/Temp/clubflow-pub-audit-5cptcfc/`.
+
+#### Audit local commit
+
+Reran both regression tests and checked the staged diff. Committed the two resource contracts and regression test locally as `9f733e0`, with parent `ea2e2b7`.
+
+#### Audit branch publication
+
+Pushed the branch from `ea2e2b7` to `9f733e096b5aa27e72672abdb816d09b25ad62c9`. GitHub and the Git remote reported that same head. The remote main branch remained at `25bcf2a`.
 
 ### PR 4 review fixes
 
@@ -334,3 +360,11 @@ Trần Hoàng Phúc · `pa3/phuc-scheduling` · `f057d1f`. [Recorded request and
 - **Tool and request.** Codex, Vite, Chrome 158.0.8127.88 via Playwright, and local W3C Nu 26.11.28. Run C1–C11 through the browser from campaign creation to publication and validate the rendered main states before packaging.
 - **Kept and changed.** Built the checked source and ran against a fresh normal mock. All business writes came from the browser controls. A second run added a pristine C5 form capture and retained the invalid and corrected-before-resubmission states separately for validation.
 - **Rejected and checks.** No rejected assistant output was recorded. Build passed. The final run passed 18 functional groups and 12 layout observations, with zero uncaught page errors. The Executive published once. Student A received Pass for A01 and Fail for A02 in separate notices. Student B received no final-result notices. W3C Nu returned zero errors and seven warnings across 26 rendered states. The run ended before submission packaging.
+
+### Workspace audit and repairs
+
+28 November 2026 · Thái Quang Huy · Codex · integration baseline `main` at `a9b9893`. [Verbatim request](brief.md#workspace-audit-request) · [Checklist and results](checks/PA3_WORKSPACE_AUDIT.md)
+
+- **Tool and request.** Codex, Git, Node tests, Vite preview, Chrome through Playwright, the course contract checker and local W3C Nu. Audit the workspace, record confirmed defects and fix them.
+- **Kept and changed.** Reproduced a lost scheduling edit, a stale creation control, ambiguous retry names, validator warnings, missing course link targets and a stale PA2 assessment. Added a browser regression for generation, retained form focus and list semantics, and drafted the PA3 grade evidence with the team claim pending. The submitted prompt and the earlier test counts stay in their original records.
+- **Rejected and checks.** No rejected user-facing output was recorded. The first retry harness expected 503 and was corrected to the mock's documented 500. The regression fails on the baseline and passes with the repair. The production build, 18 functional groups, 78 layout observations, 54 direct-route observations with browser requests restricted to localhost, 14 Node tests, 94 contract examples and four mock modes passed their stated checks. Local W3C Nu reported zero errors and zero warnings in 26 rendered states. Archive verification remains pending.

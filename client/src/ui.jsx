@@ -6,9 +6,9 @@ import { roleHomes, useAuth } from './auth.jsx';
 export function LoadingState() {
   return <p role="status" className="state muted">Loading…</p>;
 }
-export function ErrorState({ message, onRetry }) {
+export function ErrorState({ message, onRetry, retryLabel = 'Retry' }) {
   return <div className="state"><p role="alert">{message}</p>
-    <button type="button" className="button" onClick={onRetry}>Retry</button></div>;
+    <button type="button" className="button" onClick={onRetry}>{retryLabel}</button></div>;
 }
 export function EmptyState({ message }) {
   return <p className="state muted">{message}</p>;

@@ -78,8 +78,7 @@
 }
 
 .executive-review .review-records {
-  padding: 0;
-  list-style: none;
+  padding-inline-start: var(--space-4);
 }
 
 .executive-review .review-records > li {

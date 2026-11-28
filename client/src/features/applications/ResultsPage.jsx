@@ -235,7 +235,7 @@ function ResultsWorkspace({ source }) {
     </section>
     <section aria-labelledby="result-cases-title">
       <h2 id="result-cases-title">Interview cases</h2>
-      {items.length ? <ul className="result-cases" role="list">{items.map(application => {
+      {items.length ? <ul className="result-cases">{items.map(application => {
         const id = application.applicationId;
         return <ResultCase key={id} application={application} changes={changesFor(application)} published={!!publishedAt}
           busy={busy || refreshRequired} saving={pending === id} failure={failure?.action === id ? failure.error : null} saved={savedId === id}

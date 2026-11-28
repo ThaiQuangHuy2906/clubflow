@@ -37,6 +37,11 @@
   border-top: 1px solid var(--border);
 }
 
+.my-applications .application-notifications .record-list {
+  list-style: disc;
+  padding-inline-start: var(--space-4);
+}
+
 .my-applications .application-notifications .record-list > li + li {
   margin-top: var(--space-2);
 }

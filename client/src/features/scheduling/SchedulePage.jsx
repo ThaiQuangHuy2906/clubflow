@@ -221,7 +221,8 @@ function ScheduleWorkspace({ saved, config, reloadSchedule, reloadSetup }) {
         <Link className="button" to="/executive/interview-setup">Open interview setup</Link>
       </div>
       : <GenerateForm key={formVersion} values={formValues} settings={settings} disabled={locked || record.rows.length === 0}
-          busy={!!pending} generating={pending === 'generate'} onChange={setFormEdits} onGenerate={generate} />}
+          busy={!!pending} generating={pending === 'generate'} blockedByEdit={editorDirty}
+          onChange={setFormEdits} onGenerate={generate} />}
 
     <section className="schedule-result" aria-labelledby="schedule-table-title">
       <h2 id="schedule-table-title">{heading}</h2>
@@ -233,7 +234,7 @@ function ScheduleWorkspace({ saved, config, reloadSchedule, reloadSetup }) {
         onChange={values => setEditing({ id: editingRow.applicationId, values })} onCheck={checkChoice}
         onCancel={() => { setEditing(null); setFocusId(rowActionId(editingRow.applicationId)); }} />}
       {editorDirty && <p id="unapplied-help" className="schedule-note">
-        {unappliedChoice} Check and apply them, or Cancel the editor, before saving or opening another row.
+        {unappliedChoice} Check and apply them, or Cancel the editor, before generating, saving or opening another row.
       </p>}
       {/* Opening another row would silently drop an unapplied choice, so row actions wait for it. */}
       <ScheduleTable view={view} catalog={config.catalog} editable={!locked && !!settings} actionsDisabled={!!pending || editorDirty}

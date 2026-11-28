@@ -1216,7 +1216,45 @@ Cập nhật nhánh pa3/hoc-applications từ main rồi sửa cả 3 lỗi Huy 
 
 ### Publication API evidence from PR #5
 
-[PR #5](https://github.com/ThaiQuangHuy2906/clubflow/pull/5) merged the publication contract, mock and regression tests at `a74369d`. The original implementation prompts are absent from the merged member records. The [root log](AI-LOG.md#pr-5-publication-revisions) cites the published review and tests.
+[PR #5](https://github.com/ThaiQuangHuy2906/clubflow/pull/5) merged the publication contract, mock and regression tests at `a74369d` with head `9f733e0`. The six messages below are reproduced verbatim and in order from `a1879eb:docs/ai-prompts/huy.md`. [Consolidated log](AI-LOG.md#pr-5-publication-revisions)
+
+25 November 2026 · Thái Quang Huy (24127177) · Codex on `pa3/huy-publication-revision`, branched from `main` at `25bcf2a`. These shared API changes followed the A3 and A4 findings in PR #4. The referenced `brief.md` revision was `521f3a9`. Exact send times are unknown.
+
+#### Shared API implementation
+
+~~~~text
+Học đã đồng ý phương án `revision`. Triển khai phần Huy trên nhánh riêng từ `main`: cập nhật hợp đồng API, mock, ví dụ và kiểm thử cho hai thao tác công bố. Kiểm tra tab cũ bị từ chối, sửa A02 không chặn công bố sơ tuyển A01, và gửi lại yêu cầu công bố kết quả không tạo thêm thông báo. Báo kết quả trước khi commit, push hay merge.
+~~~~
+
+#### Initial local commit
+
+~~~~text
+Tôi duyệt phần API `revision`. Stage năm tệp hợp đồng, mock và kiểm thử trên `pa3/huy-publication-revision`, rồi commit với message `feat: require reviewed revisions for publication`. Chỉ commit trên máy, chưa push hay merge.
+~~~~
+
+#### Initial branch publication
+
+~~~~text
+Push riêng nhánh `pa3/huy-publication-revision` lên `origin` và xác minh đầu nhánh trên GitHub là commit `ea2e2b7`. Chưa merge vào `main`.
+~~~~
+
+#### Publication audit and corrections
+
+~~~~text
+Bạn rà soát kĩ càng, khắc khe, kĩ tính, khó tính xem còn có lỗi nào xảy ra không? Nếu có hãy lập checklist sửa từng lỗi cho tôi nhé. Đảm bảo không sai sót.
+~~~~
+
+#### Audit local commit
+
+~~~~text
+Tôi duyệt ba thay đổi sau rà soát. Stage hai tệp hợp đồng và tệp kiểm thử trên `pa3/huy-publication-revision`, rồi commit với message `test: verify publication retries and per-application notifications`. Chỉ commit trên máy, chưa push hay merge.
+~~~~
+
+#### Audit branch publication
+
+~~~~text
+Push riêng `pa3/huy-publication-revision` lên `origin` và xác minh đầu nhánh trên GitHub là `9f733e0`. Chưa merge vào `main`.
+~~~~
 
 ### Scheduling messages from PR #7
 
@@ -1320,3 +1358,13 @@ Trên `main` tại `edb3d26`, chạy một lượt C1–C11 từ tạo chiến d
 ```text
 tiếp tục đi
 ```
+
+### Workspace audit request
+
+28 November 2026 · Thái Quang Huy · Codex · repository integration baseline `main` at `a9b9893`. [Audit log](AI-LOG.md#workspace-audit-and-repairs) · [Checklist](checks/PA3_WORKSPACE_AUDIT.md)
+
+```text
+Bây giờ bạn rà soát toàn bộ mọi thứ có trong workspace này, xem có lỗi nào không? Rà soát kĩ càng, khắc khe, kĩ tính, khó tính vào nhé. Nếu có lỗi, thì phải lập checklist lỗi, rồi sửa từng lỗi cho tôi nhé.
+```
+
+Gloss: review the workspace rigorously, make a checklist of the defects that are found, and repair each one.

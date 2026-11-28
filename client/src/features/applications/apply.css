@@ -81,7 +81,7 @@
 }
 
 .apply-page .apply-field [aria-invalid="true"],
-.apply-page [aria-invalid="true"] .apply-window-options label {
+.apply-page .apply-windows[data-invalid] .apply-window-options label {
   border-color: var(--danger);
 }
 

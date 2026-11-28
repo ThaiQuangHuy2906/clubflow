@@ -71,7 +71,9 @@ function DemoControls({ resource, refresh, draftPage }) {
       active.current = null;
     }
   }
-  if (resource.error) return draftPage ? null : <ErrorState message={resource.error.message} onRetry={resource.reload} />;
+  if (resource.error) return draftPage ? null : <ErrorState
+    message={'Demo controls could not be loaded. ' + resource.error.message}
+    onRetry={resource.reload} retryLabel="Retry demo controls" />;
   const data = resource.data;
   if (!data?.demo.enabled) return null;
   const busy = !!pending || resource.refreshing;

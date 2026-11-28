@@ -1,6 +1,6 @@
 # ClubFlow PA3 development plan
 
-**Planning checkpoint approved by Huy · 23 November 2026.** The rubric governs grading, the final brief §§2–6 governs behavior and the checker defines executable examples. Review the proposed API together before committing its contract. [PA3 rubric](course-materials/PA3-rubric-react-front-end.pdf) · [Final brief](course-materials/ClubFlow-final-project-brief.pdf) · [Checker guide](course-materials/contract-check-README.md) · [Checker source](tools/contract-check.mjs)
+**Planning checkpoint approved by Huy · 23 November 2026.** The rubric governs grading, the final brief §§2–6 governs behavior and the checker defines executable examples. Review the proposed API together before committing its contract. The course supplies `PA3-rubric-react-front-end.pdf`, `ClubFlow-final-project-brief.pdf`, `contract-check-README.md` and `contract-check.mjs` separately. The checked-in [frontend guide](FRONTEND.md) and [API examples](docs/api/README.md) describe how to run the application and what the checker exercises.
 
 ## Delivery order and milestones
 

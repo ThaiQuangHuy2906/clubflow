@@ -46,12 +46,15 @@ async function cvError(file) {
 }
 
 function fieldProps(name, errors, hintId) {
-  const describedBy = [hintId, errors[name] && fieldId(name) + '-error'].filter(Boolean).join(' ');
   return {
-    id: fieldId(name),
-    'aria-invalid': errors[name] ? true : undefined,
-    'aria-describedby': describedBy || undefined
+    ...describedField(name, errors, hintId),
+    'aria-invalid': errors[name] ? true : undefined
   };
+}
+
+function describedField(name, errors, hintId) {
+  const describedBy = [hintId, errors[name] && fieldId(name) + '-error'].filter(Boolean).join(' ');
+  return { id: fieldId(name), 'aria-describedby': describedBy || undefined };
 }
 
 function FieldError({ name, errors }) {
@@ -70,7 +73,7 @@ function ApplicationForm({ position, profile, windows }) {
   useEffect(() => () => active.current?.abort(), []);
   useEffect(() => {
     if (!failure || pending) return;
-    const target = formRef.current.querySelector('[aria-invalid="true"]') ??
+    const target = formRef.current.querySelector('[aria-invalid="true"], [data-invalid]') ??
       formRef.current.querySelector('[role="alert"]');
     target?.focus();
   }, [failure, pending]);
@@ -129,7 +132,7 @@ function ApplicationForm({ position, profile, windows }) {
   return <form ref={formRef} className="apply-form" noValidate onSubmit={submit}>
     <fieldset className="apply-controls" disabled={pending}>
       <legend>Application details</legend>
-      {errors.positionId && <div tabIndex={-1} {...fieldProps('positionId', errors)}>
+      {errors.positionId && <div tabIndex={-1} data-invalid="" {...describedField('positionId', errors)}>
         <FieldError name="positionId" errors={errors} />
       </div>}
       <div className="apply-profile">
@@ -154,8 +157,8 @@ function ApplicationForm({ position, profile, windows }) {
           <FieldError name="phone" errors={errors} />
         </div>
       </div>
-      <fieldset className="apply-windows" tabIndex={-1}
-        {...fieldProps('availabilityWindowIds', errors, 'apply-windows-hint')}>
+      <fieldset className="apply-windows" tabIndex={-1} data-invalid={errors.availabilityWindowIds ? '' : undefined}
+        {...describedField('availabilityWindowIds', errors, 'apply-windows-hint')}>
         <legend>Interview availability</legend>
         <p className="muted apply-hint" id="apply-windows-hint">Choose at least three windows. All times are UTC+7.</p>
         <FieldError name="availabilityWindowIds" errors={errors} />
