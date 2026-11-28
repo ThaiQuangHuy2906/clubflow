@@ -1308,3 +1308,15 @@ Sửa thêm FRONTEND.md
 ```
 
 See [the log](docs/ai-logs/phuc.md#p5--c9-fix-unapplied-edits-block-confirmation).
+
+### Creation-to-release QA messages
+
+28 November 2026 · Thái Quang Huy · Codex · `main` at `edb3d26`. [QA log](AI-LOG.md#creation-to-release-qa) · [QA report](checks/PA3_RELEASE_QA.md)
+
+```text
+Trên `main` tại `edb3d26`, chạy một lượt C1–C11 từ tạo chiến dịch đến công bố kết quả. Kiểm W3C Nu trên các trạng thái chính còn thiếu và báo kết quả trước khi đóng gói.
+```
+
+```text
+tiếp tục đi
+```

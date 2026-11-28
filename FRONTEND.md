@@ -1,6 +1,6 @@
 # ClubFlow PA3 Frontend
 
-This guide describes the integrated frontend on `main` at `5a8e234`. The build includes Campaign (C1–C4), Applications (C5–C7 and C11), and Scheduling and Interviewer Workspace (C8–C10). [Scheduling integration in PR #7](https://github.com/ThaiQuangHuy2906/clubflow/pull/7)
+This guide describes the integrated frontend on `main` tested at `edb3d26`. The build includes Campaign (C1–C4), Applications (C5–C7 and C11), and Scheduling and Interviewer Workspace (C8–C10). [Scheduling integration in PR #7](https://github.com/ThaiQuangHuy2906/clubflow/pull/7)
 
 ## Team
 
@@ -66,7 +66,7 @@ Use a fresh normal mock for the seeded walkthrough. Executive workspace pages al
 | `/executive/results` | Executive · C11 | Open as `exec`. The board is empty before C9. After confirmation and the interview window, record missing handling and save decisions. Publish once for the campaign and verify the owner's notices. For the seeded end-to-end run, follow the C7–C11 walkthrough below. | `GET /api/results`, `PUT /api/applications/:id/result`, `POST /api/results/publication` |
 | `/unknown-page` | All roles · route fallback | Open an unknown URL and follow View campaign back to `/`. | — |
 
-For a separate creation walkthrough, restart the normal mock, sign in as `exec` and choose **Begin creation walkthrough** under **Demo controls** before the first successful business write. Publish the campaign and save the interview setup before opening the Applicant form. Use another browser profile or a private window to compare published and private states in separate sessions. The Executive can advance the server clock past the close and past interviews without changing the existing records. See the [walkthrough and scheduling cases](PA3_PLAN.md#one-campaign-and-a-reproducible-walkthrough).
+For the creation walkthrough described in the [QA report](checks/PA3_RELEASE_QA.md), restart the normal mock, sign in as `exec` and choose **Begin creation walkthrough** under **Demo controls** before the first successful business write. Publish the campaign and save the interview setup before opening the Applicant form. Use another browser profile or a private window to compare published and private states in separate sessions. The Executive can advance the server clock past the close and past interviews without changing the existing records. See the [walkthrough and scheduling cases](PA3_PLAN.md#one-campaign-and-a-reproducible-walkthrough).
 
 **Earlier integrated checks.** Campaign browser coverage comes from PR #6 and its merged build at `e3e8ad3`. On the merged `bf11be8` build, eight functional check groups passed in Chrome, including valid and duplicate applications, owner scope, filtered paging and stale publication from two Executive tabs. The run also recorded 12 passing layout checks across four screens at 360, 768 and 1280 px. On the same revision, 14 Node tests and 94 contract examples across 27 operations passed. The [merged-build log](AI-LOG.md#merged-build-verification) records the test scope.
 
@@ -78,9 +78,15 @@ For a separate creation walkthrough, restart the normal mock, sign in as `exec` 
 4. Sign in separately as `int-content` and `int-comms`. Verify each sees only the assigned interview and can open its CV. After the Executive uses **Advance past interviews**, submit one assessment for A01 as `int-content`.
 5. Open **Results** as `exec`. Save Pass for A01 and Fail for A02, with A02 marked Absent. Verify that `studentA` has no final-result notices before release. Use **Publish campaign results** once, then verify the two distinct notices and their decisions as `studentA`. Verify zero notices as `studentB`.
 
-**Merged-build checks.** At `5a8e234`, Chrome with a fresh normal mock passed 12 functional check groups, including the C9 regression and the complete walkthrough above. A separate set of 12 layout checks measured one main heading and no horizontal page overflow across four states (C8 conflict, C9 blocked confirmation, C10 recorded assessment and C11 results) at 360, 768 and 1280 px. The Vite build, 14 Node tests and 94 of 94 API examples across 27 operations passed. [Merged-build verification](AI-LOG.md#merged-build-verification)
+**Seeded walkthrough checks.** At `5a8e234`, Chrome with a fresh normal mock passed 12 functional check groups, including the C9 regression and the complete walkthrough above. A separate set of 12 layout checks measured one main heading and no horizontal page overflow across four states (C8 conflict, C9 blocked confirmation, C10 recorded assessment and C11 results) at 360, 768 and 1280 px. The Vite build, 14 Node tests and 94 of 94 API examples across 27 operations passed. [Merged-build verification](AI-LOG.md#merged-build-verification)
 
 **Scheduling validation reported in PR #7.** Phúc’s log records the separate confirmation gates, assigned-only interviews and CVs, assessment cases and zero W3C Nu messages on the submitted scheduling and interviewer states. [Member log](docs/ai-logs/phuc.md#pa3)
+
+### Creation-to-release verification (C1–C11)
+
+At `edb3d26`, a production build and one uninterrupted Chrome walkthrough passed on a fresh normal mock. The run began with **Begin creation walkthrough**, published a new campaign, offered four availability windows and created A01 and A02 as separate applications with distinct contact records. It went through screening, schedule conflict resolution, confirmation, assessment and one final publication. Student A received A01 **Pass** and A02 **Fail** as two distinct notices. Student B received zero final-result notices.
+
+The run passed **18 functional check groups**. Separately, **12 layout checks** covered the C8 conflict, C9 blocked confirmation, C10 recorded assessment and C11 results at 360, 768 and 1280 px. W3C Nu checked **26 rendered states** with **zero errors and seven warnings**. [Run scope and warnings](checks/PA3_RELEASE_QA.md)
 
 ## Product owner decisions
 
@@ -98,5 +104,4 @@ For a separate creation walkthrough, restart the normal mock, sign in as `exec` 
 ## Not done
 
 - **No unsaved-change prompt on the schedule screen.** Leaving `/executive/schedule` drops edits that were not saved. The screen says so while a preview is shown.
-- **Single-run creation-to-release walkthrough is pending.** The C7–C11 walkthrough starts from seeded applications. C1–C5 have separate browser evidence from earlier checkpoints.
-- **Final release QA is pending.** The checks above cover the stated local Chrome and mock scenarios. W3C Nu on the remaining main-screen states and final packaged-build verification are still open.
+- **Final packaged-build verification is pending.** The creation-to-release run and rendered HTML checks above used a local production build. The submission archive still needs creation and extraction verification.
